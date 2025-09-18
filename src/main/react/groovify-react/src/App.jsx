@@ -7,7 +7,8 @@ function App() {
     const [title, setTitle] = useState('Default value')
 
     /*
-
+    The useEffect() function connects our React front end to our Java back end, which is being run on
+    localhost:8080.
      */
     useEffect(() => {
         fetch("http://localhost:8080/").then(response=>response.text())
