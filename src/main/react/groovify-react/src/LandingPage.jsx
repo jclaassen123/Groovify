@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
-import './App.css'
+import './LandingPage.css'
 
-function App() {
+function LandingPage() {
 
     // If the back end domain is not running, "Default value" is printed to the page.
     const [title, setTitle] = useState('Default value')
@@ -30,4 +30,4 @@ function App() {
     )
 }
 
-export default App
+export default LandingPage
