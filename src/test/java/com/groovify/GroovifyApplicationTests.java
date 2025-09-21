@@ -1,4 +1,4 @@
-package com.groovify.groovify_project;
+package com.groovify;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

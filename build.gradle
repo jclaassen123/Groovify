@@ -28,17 +28,3 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-// Async React task
-task startReactAsync {
-	doLast {
-		println "Starting React dev server..."
-		def proc = ["npm", "run", "dev"].execute(null, file("src/main/react/groovify-react"))
-		proc.consumeProcessOutput(System.out, System.err)
-	}
-}
-
-// Make bootRun depend on async task
-bootRun {
-	dependsOn startReactAsync
-}
