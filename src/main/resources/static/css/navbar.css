@@ -1,0 +1,48 @@
+/* Navbar container */
+.navbar {
+    position: fixed;
+    bottom: 0; /* stick to bottom */
+    left: 0;
+    width: 100%; /* full width */
+    background-color: #a7d8f0; /* baby blue rectangle */
+    border-radius: 0; /* full width, so no rounded corners */
+    padding: 1.5vh 0; /* vertical padding scales with viewport height */
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+/* <ul> horizontal and full width */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* spread links evenly */
+    width: 100%;
+    max-width: 1200px; /* optional, keeps links from stretching too much on very large screens */
+}
+
+/* Navbar links */
+.navbar li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: clamp(8px, 1.5vh, 16px) clamp(12px, 2vw, 24px); /* vertical & horizontal responsive padding */
+    border-radius: clamp(8px, 1.5vh, 12px);
+    font-size: clamp(1rem, 2vw, 1.5rem); /* scales with screen */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect */
+.navbar li a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Active link */
+.navbar li a.active {
+    background-color: rgba(255,255,255,0.4);
+    color: #0a1f44; /* dark text for contrast */
+}
+

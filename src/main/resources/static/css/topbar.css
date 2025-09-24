@@ -1,0 +1,69 @@
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh; /* scales with viewport */
+    background-color: transparent;
+    border-bottom: 0.3vh solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3vw;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* Groovify logo/text */
+.topbar-left .logo {
+    font-size: clamp(2rem, 5vw, 8rem);
+    font-weight: bold;
+    color: #4da6ff;
+    line-height: 1;
+}
+
+/* Center page title */
+.topbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 50%; /* prevents overlapping left/right */
+}
+
+.topbar-center .page-title {
+    font-size: clamp(1rem, 3vw, 2.4rem);
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+}
+
+/* Profile circle */
+.topbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 80px; /* ensures space for the circle */
+}
+
+.topbar-right .profile-circle {
+    width: clamp(40px, 6vw, 80px);
+    height: clamp(40px, 6vw, 80px);
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    text-decoration: none;
+    position: relative;
+    flex-shrink: 0; /* prevents it from shrinking */
+}
+
+/* Profile circle content */
+.topbar-right .profile-circle::after {
+    content: "P";
+    color: #0a1f44;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(1rem, 2vw, 2rem);
+}

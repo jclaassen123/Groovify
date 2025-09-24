@@ -17,15 +17,16 @@ import org.springframework.test.web.servlet.MockMvc;
  * is thrown. Otherwise, the build is completed successfully.
  */
 
-@WebMvcTest(com.groovify.GroovifyApplication.class)
-public class GroovifyApplicationTests {
+@WebMvcTest
+class GroovifyApplicationTests {
+
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void indexTest() throws Exception {
-        mockMvc.perform(get("/")).andDo(print())
+    void indexTest() throws Exception {
+        mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Groovify")));
+                .andExpect(content().string(org.hamcrest.Matchers.containsString("Groovify")));
     }
 }

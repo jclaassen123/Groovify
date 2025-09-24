@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Groovify</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groovify – Welcome</title>
+    <link rel="stylesheet" th:href="@{/css/landingPage.css}">
 </head>
-<body>
+<body class="landing">
+<div class="landing-container">
+    <h1>Groovify</h1>
+    <!-- register/login form -->
+    <button id="guestBtn">Continue as Guest</button>
+</div>
 
+<script src="/js/landingPage.js"></script>
 </body>
 </html>
