@@ -6,10 +6,10 @@
     <link rel="stylesheet" th:href="@{/css/login.css}" />
 </head>
 <body>
-    <form th:action="@{/login}" th:object="${loginForm}" method="post">
-        <input type="text" th:field="*{username}" placeholder="Username"/>
-        <input type="password" th:field="*{password}" placeholder="Password"/>
-        <button type="submit">Login</button>
-    </form>
+<form th:action="@{/login}" th:object="${loginForm}" method="post">
+    <input type="text" th:field="*{username}" placeholder="Username"/>
+    <input type="password" th:field="*{password}" placeholder="Password"/>
+    <button type="submit">Login</button>
+</form>
 </body>
 </html>

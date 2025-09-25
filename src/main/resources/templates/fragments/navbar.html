@@ -1,0 +1,17 @@
+<!-- resources/templates/fragments/navbar.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="navbar">
+  <nav class="navbar">
+    <ul>
+      <li><a th:href="@{/home}">Home</a></li>
+      <li><a th:href="@{/songs}">Songs</a></li>
+      <li><a th:href="@{/playlists}">Library</a></li>
+      <li><a th:href="@{/search}">Search</a></li>
+      <li><a th:href="@{/friends}">Friends</a></li>
+    </ul>
+  </nav>
+</div>
+</body>
+</html>
