@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Groovify Login</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+</head>
+<body>
+    <form th:action="@{/login}" th:object="${loginForm}" method="post">
+        <input type="text" th:field="*{username}" placeholder="Username"/>
+        <input type="password" th:field="*{password}" placeholder="Password"/>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

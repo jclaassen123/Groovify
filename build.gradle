@@ -19,6 +19,15 @@ repositories {
 }
 
 dependencies {
+    /**
+     * The below dependency allows bootRun to update code automatically without having to re-run the
+     * application every time.
+     *
+     * In one terminal, run: ./gradlew bootRun
+     * In a second terminal, run: ./gradlew build --continuous
+      */
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

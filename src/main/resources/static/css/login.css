@@ -1,0 +1,15 @@
+body {
+    background-color: #1A2037;
+}
+
+.form-control {
+    flex: none !important;
+    width: 20% !important;
+    margin: 0 auto;
+    margin-top: 2%;
+    color: blue;
+}
+
+.login-inputs {
+    margin-top: 20%;
+}
