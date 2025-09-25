@@ -14,12 +14,6 @@ public class GroovifyApplication {
         SpringApplication.run(GroovifyApplication.class, args);
     }
 
-    @GetMapping("/")
-    public String landingPage() {
-        // Looks for src/main/resources/templates/landingPage.html
-        return "landingPage";
-    }
-
     @GetMapping("/home")
     public String homePage(Model model) {
         // Looks for src/main/resources/templates/home.html

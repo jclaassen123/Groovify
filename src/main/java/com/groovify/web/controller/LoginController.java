@@ -20,7 +20,7 @@ public class LoginController {
     public String loginPost(@ModelAttribute LoginForm loginForm) {
         System.out.println("Working......");
         System.out.println("User '" + loginForm.getUsername() + "' logged into Groovify.");
-        return "redirect:/loginSuccess";
+        return "redirect:/home";
     }
 
     @GetMapping("/loginSuccess")
