@@ -12,11 +12,9 @@
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
 
-<div>
-  <audio controls>
-
-  </audio>
-</div>
+<li th:each="songs : ${songs}">
+  <div th:text="${songs.filename}"></div>
+</li>
 
 <!-- Include Navbar Fragment -->
 <div th:replace="fragments/navbar :: navbar"></div>

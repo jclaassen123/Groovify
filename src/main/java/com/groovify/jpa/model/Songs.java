@@ -9,7 +9,11 @@ import jakarta.persistence.Id;
 public class Songs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String filename;
+
+    public String getFilename() {
+        return filename;
+    }
 }

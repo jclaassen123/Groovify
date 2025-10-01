@@ -1,27 +1,24 @@
 package com.groovify.web.controller;
 
-import com.groovify.jpa.model.Songs;
-import com.groovify.jpa.repository.SongsRepository;
-import com.groovify.web.form.LoginForm;
+import com.groovify.jpa.repo.SongsRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class SongController {
-    private final SongsRepository songsRepository;
+    private final SongsRepo songsRepository;
 
-    public SongController(SongsRepository songsRepository) {
+    public SongController(SongsRepo songsRepository) {
         this.songsRepository = songsRepository;
     }
 
     @GetMapping("/songs")
     public String songs(Model model) {
+        model.addAttribute("pageTitle", "Songs");
+        model.addAttribute("songs", songsRepository.findAll());
         return "songs";
     }
-
 
 
 }

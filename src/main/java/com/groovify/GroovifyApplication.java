@@ -21,12 +21,12 @@ public class GroovifyApplication {
         return "home";
     }
 
-    @GetMapping("/songs")
-    public String songsPage(Model model) {
-        // Looks for src/main/resources/templates/songs.html
-        model.addAttribute("pageTitle", "Songs");
-        return "songs";
-    }
+//    @GetMapping("/songs")
+//    public String songsPage(Model model) {
+//        // Looks for src/main/resources/templates/songs.html
+//        model.addAttribute("pageTitle", "Songs");
+//        return "songs";
+//    }
 
     @GetMapping("/playlists")
     public String playlistsPage(Model model) {
