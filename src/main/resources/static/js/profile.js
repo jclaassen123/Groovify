@@ -4,11 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const cancelBtn = document.getElementById("cancelBtn");
     const form = document.getElementById("profileForm");
 
-    // Store original values to revert on cancel
     const usernameInput = form.querySelector("input[name='name']");
     const descriptionInput = form.querySelector("textarea[name='description']");
+    const profilePic = document.getElementById("profilePic");
+    const imageGallery = document.getElementById("imageGallery");
+    const imageFileName = document.getElementById("imageFileName");
+
     let originalUsername = usernameInput.value;
     let originalDescription = descriptionInput.value;
+    let originalImage = profilePic.src;
+
+    let editMode = false;
 
     // Enable editing
     editBtn.addEventListener("click", () => {
@@ -18,12 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
         editBtn.style.display = "none";
         saveBtn.style.display = "inline-block";
         cancelBtn.style.display = "inline-block";
+
+        editMode = true;
     });
 
     // Cancel editing
     cancelBtn.addEventListener("click", () => {
         usernameInput.value = originalUsername;
         descriptionInput.value = originalDescription;
+        profilePic.src = originalImage;
+        imageFileName.value = originalImage.split("/").pop();
 
         usernameInput.setAttribute("readonly", true);
         descriptionInput.setAttribute("readonly", true);
@@ -31,11 +41,30 @@ document.addEventListener("DOMContentLoaded", () => {
         editBtn.style.display = "inline-block";
         saveBtn.style.display = "none";
         cancelBtn.style.display = "none";
+
+        imageGallery.style.display = "none";
+        editMode = false;
     });
 
-    // Optionally, when the form submits, update the stored originals
+    // Profile pic click opens gallery in edit mode
+    profilePic.addEventListener("click", () => {
+        if (!editMode) return;
+        imageGallery.style.display = imageGallery.style.display === "none" ? "flex" : "none";
+    });
+
+    // Select an image from gallery
+    imageGallery.querySelectorAll(".selectable-img").forEach(img => {
+        img.addEventListener("click", () => {
+            profilePic.src = img.src;
+            imageFileName.value = img.src.split("/").pop();
+            // Keep gallery open so user can pick again if needed
+        });
+    });
+
+    // Update original values on save
     form.addEventListener("submit", () => {
         originalUsername = usernameInput.value;
         originalDescription = descriptionInput.value;
+        originalImage = profilePic.src;
     });
 });

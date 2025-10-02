@@ -17,9 +17,20 @@
     <form th:action="@{/profile/update}" method="post" id="profileForm">
         <input type="hidden" th:value="${user.ID}" name="id">
 
-        <!-- Dynamic profile picture -->
-        <img th:src="@{/images/{img}(img=${user.getImageFileName()})}"
-             alt="Profile Picture" class="profile-picture"><br><br>
+        <!-- Profile Picture -->
+        <img id="profilePic" th:src="@{/images/{img}(img=${user.getImageFileName()})}"
+             alt="Profile Picture" class="profile-picture" style="cursor:pointer;"><br><br>
+
+        <!-- Hidden input to store selected image filename -->
+        <input type="hidden" name="image_file_name" id="imageFileName" th:value="${user.getImageFileName()}">
+
+        <!-- Scrollable image gallery -->
+        <div id="imageGallery" class="image-gallery" style="display:none;">
+            <img src="/images/default.jpg" class="selectable-img">
+            <img src="/images/default2.jpg" class="selectable-img">
+            <img src="/images/default3.jpg" class="selectable-img">
+            <img src="/images/default4.jpg" class="selectable-img">
+        </div>
 
         <label>Username:</label>
         <input type="text" th:value="${user.name}" name="name" readonly><br><br>

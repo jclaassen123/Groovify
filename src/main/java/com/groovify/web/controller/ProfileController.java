@@ -30,14 +30,15 @@ public class ProfileController {
     public String updateProfile(
             @RequestParam Long id,
             @RequestParam String name,
-            @RequestParam String description
-            // @RequestParam MultipartFile imageFile  <-- optional for file uploads
+            @RequestParam String description,
+            @RequestParam String image_file_name
+
     ) {
         Users user = usersRepo.findById(id).orElse(null);
         if (user != null) {
             user.setName(name);
             user.setDescription(description);
-            // TODO: handle image update
+            user.setImageFileName(image_file_name);
             usersRepo.save(user);
         }
 

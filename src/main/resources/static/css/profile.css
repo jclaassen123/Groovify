@@ -134,3 +134,30 @@ header h1 {
     margin-top: 5px;
     color: #ccc;
 }
+
+.image-gallery {
+    display: flex;
+    overflow-x: auto;         /* horizontal scrolling */
+    padding: 10px 0;
+    gap: 10px;                /* space between thumbnails */
+    max-width: 100%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #1a1a1a;
+    padding: 10px;
+}
+
+.image-gallery img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.2);
+    border: 2px solid #4da6ff;
+}
