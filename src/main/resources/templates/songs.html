@@ -12,11 +12,17 @@
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
 
-<li th:each="songs : ${songs}">
-  <div th:text="${songs.filename}"></div>
-</li>
+<!-- Songs list -->
+<ul>
+  <li th:each="song : ${songs}">
+    <div th:text="${song.title}"></div>
+    <audio controls>
+      <source th:src="@{/songs/{file}(file=${song.filename})}" type="audio/mpeg">
+    </audio>
+  </li>
+</ul>
 
-<!-- Include Navbar Fragment -->
+<!-- Navbar fragment -->
 <div th:replace="fragments/navbar :: navbar"></div>
 
 <!-- Navbar JS -->

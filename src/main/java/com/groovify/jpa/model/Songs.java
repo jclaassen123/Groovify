@@ -12,8 +12,30 @@ public class Songs {
     private Long id;
 
     private String filename;
+    private String title;
+    private String artist;
+    private Integer length;
+
+    /*
+    Might add
+        Year
+        Album
+     */
+
 
     public String getFilename() {
         return filename;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public Integer getLength() {
+        return length;
     }
 }
