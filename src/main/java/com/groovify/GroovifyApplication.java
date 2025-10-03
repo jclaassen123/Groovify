@@ -14,13 +14,6 @@ public class GroovifyApplication {
         SpringApplication.run(GroovifyApplication.class, args);
     }
 
-    @GetMapping("/home")
-    public String homePage(Model model) {
-        // Looks for src/main/resources/templates/home.html
-        model.addAttribute("pageTitle", "Home");
-        return "home";
-    }
-
     @GetMapping("/songs")
     public String songsPage(Model model) {
         // Looks for src/main/resources/templates/songs.html
