@@ -18,7 +18,7 @@ body {
 
 /* Header styling */
 header h1 {
-    color: #3399FF; /* lighter blue */
+    color: #3A97D4; /* lighter blue */
     font-size: 96px; /* twice as large */
     text-align: center;
     font-family: 'Helvetica', Arial, sans-serif;
@@ -50,7 +50,7 @@ header h1 {
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
-    border: 3px solid #7FDBFF;
+    border: 3px solid #3A97D4;
     transition: transform 0.2s;
 }
 
@@ -86,14 +86,14 @@ header h1 {
     font-size: 16px;
     border: none;
     border-radius: 8px;
-    background-color: #7FDBFF;
+    background-color: #3A97D4;
     color: #000;
     cursor: pointer;
     transition: background 0.2s;
 }
 
 .profile-info button:hover {
-    background-color: #39C0FF;
+    background-color: #3A97D4;
 }
 
 /* Avatar selection container (hidden by default) */
@@ -120,7 +120,7 @@ header h1 {
 }
 
 .avatar-option.selected {
-    border-color: #7FDBFF;
+    border-color: #3A97D4;
 }
 
 /* Show avatar options when active */

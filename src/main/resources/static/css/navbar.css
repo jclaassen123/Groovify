@@ -4,7 +4,7 @@
     bottom: 0; /* stick to bottom */
     left: 0;
     width: 100%; /* full width */
-    background-color: #a7d8f0; /* baby blue rectangle */
+    background-color: #3A97D4; /* baby blue rectangle */
     border-radius: 0; /* full width, so no rounded corners */
     padding: 1.5vh 0; /* vertical padding scales with viewport height */
     display: flex;
