@@ -1,1 +1,163 @@
-/* This is a single-line comment */
+/* profile.css */
+
+/* Full page background */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-size: cover;          /* scales to cover viewport */
+    background-repeat: no-repeat;
+    background-position: center;     /* centers the image */
+    min-height: 100vh;               /* fallback to full viewport height */
+    font-family: 'Helvetica', Arial, sans-serif;
+    color: #fff;
+}
+
+/* Header styling */
+header h1 {
+    color: #3A97D4; /* lighter blue */
+    font-size: 96px; /* twice as large */
+    text-align: center;
+    font-family: 'Helvetica', Arial, sans-serif;
+
+    /* White text shadow for better contrast */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+
+    /* No background */
+    display: block;  /* full width, no box */
+    padding: 0;
+    border-radius: 0;
+}
+
+/* Profile card container */
+.profile-info {
+    background-color: rgba(0, 0, 0, 0.6); /* semi-transparent dark background */
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+/* Profile picture styling */
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 3px solid #3A97D4;
+    transition: transform 0.2s;
+}
+
+.profile-picture:hover {
+    transform: scale(1.1);
+}
+
+/* Name input */
+.profile-info input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Description textarea */
+.profile-info textarea {
+    width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+    font-size: 16px;
+    resize: none;
+}
+
+/* Update button */
+.profile-info button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3A97D4;
+    color: #000;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.profile-info button:hover {
+    background-color: #3A97D4;
+}
+
+/* Avatar selection container (hidden by default) */
+.avatar-selection {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Individual avatar options */
+.avatar-option {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.avatar-option:hover {
+    transform: scale(1.1);
+}
+
+.avatar-option.selected {
+    border-color: #3A97D4;
+}
+
+/* Show avatar options when active */
+.profile-info.active .avatar-selection {
+    display: block;
+}
+
+/* Optional: make profile picture clickable */
+.profile-info .click-instruction {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #ccc;
+}
+
+.image-gallery {
+    display: flex;
+    overflow-x: auto;         /* horizontal scrolling */
+    padding: 10px 0;
+    gap: 10px;                /* space between thumbnails */
+    max-width: 100%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #1a1a1a;
+    padding: 10px;
+}
+
+.image-gallery img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.2);
+    border: 2px solid #4da6ff;
+}

@@ -19,23 +19,23 @@ repositories {
 }
 
 dependencies {
-    /**
-     * The below dependency allows bootRun to update code automatically without having to re-run the
-     * application every time.
-     *
-     * In one terminal, run: ./gradlew bootRun
-     * In a second terminal, run: ./gradlew build --continuous
-      */
-
+    // Dev tools for live reload
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    runtimeOnly 'com.mysql:mysql-connector-j:9.4.0'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+    // Web + Thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // JPA (important!)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // MySQL Connector
+    runtimeOnly 'com.mysql:mysql-connector-j:9.4.0'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
 
 tasks.named('test') {

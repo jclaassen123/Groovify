@@ -3,14 +3,17 @@
 <body>
 <div th:fragment="topbar">
   <header class="topbar">
-    <div class="topbar-left">
+    <div class="title">
       <span class="logo">Groovify</span>
     </div>
-    <div class="topbar-center">
+    <div class="current_page">
       <span class="page-title" th:text="${pageTitle}">Home</span>
     </div>
-    <div class="topbar-right">
-      <a th:href="@{/profile}" class="profile-circle"></a>
+    <div class="profile">
+      <a th:href="@{/profile}" class="profile-circle">
+        <img th:src="@{/images/default.jpg}"
+             alt="Profile Picture">
+      </a>
     </div>
   </header>
 </div>

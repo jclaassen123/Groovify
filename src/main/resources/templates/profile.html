@@ -1,16 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Groovify – Profile</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
 </head>
-<body>
+<body th:style="'background-image: url(/images/' + ${user.getImageFileName()} + ');'">
 
-<h1>Your Profile</h1>
+<!-- Groovify Text at Top -->
+<header>
+    <h1>Groovify</h1>
+</header>
 
-<button onclick="window.location.href='/home'">
-    Return to Home
-</button>
+<section class="profile-info">
+    <form th:action="@{/profile/update}" method="post" id="profileForm">
+        <input type="hidden" th:value="${user.ID}" name="id">
+
+        <!-- Profile Picture -->
+        <img id="profilePic" th:src="@{/images/{img}(img=${user.getImageFileName()})}"
+             alt="Profile Picture" class="profile-picture" style="cursor:pointer;"><br><br>
+
+        <!-- Hidden input to store selected image filename -->
+        <input type="hidden" name="image_file_name" id="imageFileName" th:value="${user.getImageFileName()}">
+
+        <!-- Scrollable image gallery -->
+        <div id="imageGallery" class="image-gallery" style="display:none;">
+            <img src="/images/default.jpg" class="selectable-img">
+            <img src="/images/default2.jpg" class="selectable-img">
+            <img src="/images/default3.jpg" class="selectable-img">
+            <img src="/images/default4.jpg" class="selectable-img">
+        </div>
+
+        <label>Username:</label>
+        <input type="text" th:value="${user.name}" name="name" readonly><br><br>
+
+        <label>Description:</label>
+        <textarea name="description" rows="3" cols="30" th:text="${user.description}" readonly></textarea><br><br>
+
+        <button type="button" id="editBtn">Edit</button>
+        <button type="submit" id="saveBtn" style="display:none;">Save</button>
+        <button type="button" id="cancelBtn" style="display:none;">Cancel</button>
+    </form>
+</section>
+
+<!-- Only Navbar -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<!-- JS -->
+<script th:src="@{/js/profile.js}"></script>
 
 </body>
 </html>

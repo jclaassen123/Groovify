@@ -41,14 +41,6 @@ public class LandingController {
         return "redirect:/home";
     }
 
-    @GetMapping("/home")
-    public String homePage(@RequestParam String username, Model model) {
-        // Looks for src/main/resources/templates/home.html
-        model.addAttribute("pageTitle", "Home");
-        model.addAttribute("username", username);
-        return "home";
-    }
-
     @GetMapping("/loginSuccess")
     public String loginSuccess() {
         return "loginSuccess";
