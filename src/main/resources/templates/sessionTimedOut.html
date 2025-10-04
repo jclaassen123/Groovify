@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Session Timed Out</title>
+    <link rel="stylesheet" th:href="@{/css/sessionTimedOut.css}">
+</head>
+<body>
+<div class="timeout-box">
+    <h1>Session Timed Out</h1>
+    <p>Your session has expired due to inactivity.</p>
+    <form th:action="@{/}" method="get">
+        <button type="submit" class="btn">Return to Login</button>
+    </form>
+</div>
+</body>
+</html>

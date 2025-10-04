@@ -1,24 +1,34 @@
 package com.groovify.jpa.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class Users {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    @GeneratedValue
+    private Integer id;
 
-    private String name;
-    private String password;
+    @Column(name = "image_file_name")
     private String image_file_name;
+
+    @Column(name = "Description")
     private String Description;
 
-    // Getters and setters
-    public Long getID() { return ID; }
+    @Column(name = "name", nullable = false, unique = true)
+    private String name;
+
+    @Column(nullable = false)
+    private String password;
+
+    // getters and setters
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -31,4 +41,5 @@ public class Users {
 
     public String getDescription() { return Description; }
     public void setDescription(String description) { this.Description = description; }
+
 }

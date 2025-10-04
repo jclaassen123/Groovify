@@ -15,7 +15,12 @@
 <!-- Include Navbar Fragment -->
 <div th:replace="fragments/navbar :: navbar"></div>
 
+<!-- Shared session timeout script -->
+<div th:replace="fragments/session :: sessionTimeoutScripts"></div>
+
+
 <!-- Navbar JS -->
 <script th:src="@{/js/navbar.js}"></script>
+
 </body>
 </html>

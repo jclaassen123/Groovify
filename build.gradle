@@ -19,22 +19,26 @@ repositories {
 }
 
 dependencies {
-	// Dev tools for live reload
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // Dev tools for live reload
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	// Web + Thymeleaf
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // Web + Thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
-	// JPA (important!)
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // JPA (important!)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-	// MySQL Connector
-	runtimeOnly 'com.mysql:mysql-connector-j:9.4.0'
+    // MySQL Connector
+    runtimeOnly 'com.mysql:mysql-connector-j:9.4.0'
 
-	// Testing
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // Spring Security
+
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
 
 tasks.named('test') {
