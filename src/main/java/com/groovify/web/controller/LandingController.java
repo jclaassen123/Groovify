@@ -1,5 +1,6 @@
 package com.groovify.web.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.groovify.service.LoginService;
 import org.springframework.ui.Model;
@@ -28,7 +29,12 @@ public class LandingController {
     }
 
     @PostMapping("/")
-    public String loginPost(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, RedirectAttributes attrs) {
+    public String loginPost(
+            @Valid @ModelAttribute LoginForm loginForm,
+            BindingResult result,
+            HttpSession session,    // inject session here
+            RedirectAttributes attrs) {
+
         if (result.hasErrors()) {
             return "landingPage";
         }
@@ -37,9 +43,13 @@ public class LandingController {
             result.addError(new ObjectError("globalError", "Username and password do not match known users"));
             return "loginFailure";
         }
-        attrs.addAttribute("username", loginForm.getUsername());
+
+        // ✅ Put the username (or full user object) into the session
+        session.setAttribute("username", loginForm.getUsername());
+
         return "redirect:/home";
     }
+
 
     @GetMapping("/loginSuccess")
     public String loginSuccess() {

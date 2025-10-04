@@ -15,7 +15,7 @@
 
 <section class="profile-info">
     <form th:action="@{/profile/update}" method="post" id="profileForm">
-        <input type="hidden" th:value="${user.ID}" name="id">
+        <input type="hidden" th:value="${user.id}" name="id">
 
         <!-- Profile Picture -->
         <img id="profilePic" th:src="@{/images/{img}(img=${user.getImageFileName()})}"
@@ -46,6 +46,8 @@
 
 <!-- Only Navbar -->
 <div th:replace="fragments/navbar :: navbar"></div>
+
+<div th:replace="fragments/session :: sessionTimeoutScripts"></div>
 
 <!-- JS -->
 <script th:src="@{/js/profile.js}"></script>

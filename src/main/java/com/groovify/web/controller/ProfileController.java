@@ -2,6 +2,7 @@ package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Users;
 import com.groovify.jpa.repo.UsersRepo;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +18,18 @@ public class ProfileController {
 
     // Display profile page
     @GetMapping("/profile")
-    public String profilePage(Model model) {
-        // For now, fetch a user with ID = 1 as a placeholder
-        Users user = usersRepo.findById(1L).orElse(null);
+    public String profilePage(HttpSession session, Model model) {
+        String username = (String) session.getAttribute("username");
+        if (username == null) {
+            return "redirect:/"; // force login if not in session
+        }
 
+        Users user = usersRepo.findByName(username).orElse(null);
         model.addAttribute("user", user);
-        return "profile"; // corresponds to profile.html
+        return "profile";
     }
+
+
 
     // Handle updates from a form
     @PostMapping("/profile/update")
