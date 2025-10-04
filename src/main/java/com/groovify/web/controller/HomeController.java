@@ -12,7 +12,7 @@ public class HomeController {
         String username = (String) session.getAttribute("username");
         if (username == null) {
             // No session? Kick back to login
-            return "redirect:/sessionTimedOut";
+            return "redirect:/";
         }
         model.addAttribute("pageTitle", "Home");
         model.addAttribute("username", username);
