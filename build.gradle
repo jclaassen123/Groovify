@@ -33,7 +33,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j:9.4.0'
 
     // Spring Security
-    implementation 'org.springframework.boot:spring-boot-starter-security'
+
 
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
