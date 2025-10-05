@@ -19,33 +19,29 @@ body {
 
 /* Header styling */
 header h1 {
-    color: #3A97D4; /* lighter blue */
-    font-size: 96px; /* twice as large */
+    color: #3A97D4;
+    font-size: 96px;
     text-align: center;
     font-family: 'Helvetica', Arial, sans-serif;
-
-    /* White text shadow for better contrast */
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
-
-    /* No background */
-    display: block;  /* full width, no box */
+    display: block;
     padding: 0;
     border-radius: 0;
 }
 
-/* Profile card fixed height */
+/* Profile card container */
 .profile-info {
+    position: relative;  /* for gallery overlay */
     background-color: rgba(0, 0, 0, 0.6);
     padding: 30px;
     border-radius: 15px;
     width: 400px;
-    height: 600px; /* fixed height so it won’t grow */
-    margin: 20px auto;
+    height: 550px;       /* fixed height */
+    margin: -40px auto;   /* slightly higher */
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    overflow-y: auto; /* allow scrolling inside profile card only */
+    overflow-y: auto;    /* allow scrolling inside card only */
 }
-
 
 /* Profile picture styling */
 .profile-picture {
@@ -62,8 +58,9 @@ header h1 {
     transform: scale(1.1);
 }
 
-/* Name input */
-.profile-info input[type="text"] {
+/* Inputs inside profile card */
+.profile-info input[type="text"],
+.profile-info textarea {
     width: 80%;
     padding: 10px;
     border-radius: 8px;
@@ -72,42 +69,18 @@ header h1 {
     font-size: 18px;
 }
 
-/* Description textarea */
 .profile-info textarea {
-    width: 80%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    margin-top: 10px;
     font-size: 16px;
     resize: none;
 }
 
-/* Update button */
-.profile-info button {
-    margin-top: 15px;
-    padding: 10px 25px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    background-color: #3A97D4;
-    color: #000;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.profile-info button:hover {
-    background-color: #3A97D4;
-}
-
-/* Avatar selection container (hidden by default) */
+/* Avatar selection */
 .avatar-selection {
     display: none;
     margin-top: 20px;
     text-align: center;
 }
 
-/* Individual avatar options */
 .avatar-option {
     width: 60px;
     height: 60px;
@@ -127,49 +100,41 @@ header h1 {
     border-color: #3A97D4;
 }
 
-/* Show avatar options when active */
 .profile-info.active .avatar-selection {
     display: block;
 }
 
-/* Optional: make profile picture clickable */
 .profile-info .click-instruction {
     font-size: 14px;
     margin-top: 5px;
     color: #ccc;
 }
 
-/* Make the card relative so child can be absolute */
-.profile-info {
-    position: relative;
-}
-
-/* Gallery overlay (larger but horizontal) */
+/* Gallery overlay */
 .image-gallery {
     position: absolute;
-    top: 10px; /* overlay above profile pic */
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    overflow-x: auto;        /* horizontal scrolling */
+    overflow-x: auto;
     gap: 15px;
-    background-color: rgba(26, 26, 26, 0.95);
+    background-color: rgba(26,26,26,0.95);
     border: 2px solid #444;
     padding: 20px 15px;
     border-radius: 15px;
     z-index: 10;
-    width: 380px;            /* wider container */
-    max-height: 140px;       /* enough space for larger images */
+    width: 380px;
+    max-height: 140px;
 }
 
-/* Bigger thumbnails, still in a row */
 .image-gallery img {
     width: 110px;
     height: 110px;
     object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
-    flex-shrink: 0;          /* keeps them from shrinking */
+    flex-shrink: 0;
     transition: transform 0.2s ease, border 0.2s ease;
 }
 
@@ -178,18 +143,7 @@ header h1 {
     border: 3px solid #4da6ff;
 }
 
-/* Profile card container */
-.profile-info {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 30px;
-    border-radius: 15px;
-    width: 400px;
-    margin: 20px auto;   /* moved higher (was 50px auto) */
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
-
-/* Buttons inside profile */
+/* Buttons */
 .profile-info button {
     margin-top: 15px;
     padding: 10px 25px;
@@ -203,10 +157,10 @@ header h1 {
 }
 
 .profile-info button:hover {
-    background-color: #3A97D4;
+    background-color: #2680b9;
 }
 
-/* Group buttons side by side */
+/* Button group */
 .button-group {
     display: flex;
     justify-content: space-between;
@@ -215,7 +169,7 @@ header h1 {
 }
 
 .button-group button {
-    flex: 1; /* equal width */
+    flex: 1;
     padding: 10px 15px;
     font-size: 16px;
     border: none;
@@ -231,7 +185,6 @@ header h1 {
     transform: scale(1.05);
 }
 
-/* Red logout button in group */
 .button-group .logout-btn {
     background-color: #e63946;
     color: #fff;

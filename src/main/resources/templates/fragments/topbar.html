@@ -7,11 +7,12 @@
       <span class="logo">Groovify</span>
     </div>
     <div class="current_page">
-      <span class="page-title" th:text="${pageTitle}">Home</span>
+      <span class="page-title" th:text="${pageTitle != null ? pageTitle : 'Home'}">Home</span>
     </div>
     <div class="profile">
       <a th:href="@{/profile}" class="profile-circle">
-        <img th:src="@{/images/default.jpg}"
+        <!-- Use the user object passed in the model -->
+        <img th:src="@{/images/{img}(img=${user != null ? user.imageFileName : 'default.jpg'})}"
              alt="Profile Picture">
       </a>
     </div>

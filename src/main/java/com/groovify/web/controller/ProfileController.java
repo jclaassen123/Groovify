@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class ProfileController {
 
@@ -21,26 +23,33 @@ public class ProfileController {
     public String profilePage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         if (username == null) {
-            return "redirect:/"; // force login if not in session
+            return "redirect:"; // force login
         }
 
         Users user = usersRepo.findByName(username).orElse(null);
+        if (user == null) {
+            return "redirect:"; // fallback
+        }
+
         model.addAttribute("user", user);
+
         return "profile";
     }
 
-
-
     // Handle updates from a form
     @PostMapping("/profile/update")
-    public String updateProfile(
-            @RequestParam Long id,
-            @RequestParam String name,
-            @RequestParam String description,
-            @RequestParam String image_file_name
+    public String updateProfile(HttpSession session,
+                                @RequestParam String name,
+                                @RequestParam String description,
+                                @RequestParam String image_file_name) {
 
-    ) {
-        Users user = usersRepo.findById(id).orElse(null);
+        String username = (String) session.getAttribute("username");
+        if (username == null) {
+            return "redirect:/"; // not logged in
+        }
+
+        // Find the logged-in user by session
+        Users user = usersRepo.findByName(username).orElse(null);
         if (user != null) {
             user.setName(name);
             user.setDescription(description);

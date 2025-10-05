@@ -1,48 +1,63 @@
 /* Navbar container */
 .navbar {
     position: fixed;
-    bottom: 0; /* stick to bottom */
+    bottom: 0;
     left: 0;
-    width: 100%; /* full width */
-    background-color: #3A97D4; /* baby blue rectangle */
-    border-radius: 0; /* full width, so no rounded corners */
-    padding: 1.5vh 0; /* vertical padding scales with viewport height */
+    width: 100%;
+    /* Slightly taller navbar: min 70px, ideal 10vh, max 120px */
+    height: clamp(70px, 10vh, 120px);
+    background: linear-gradient(90deg, #3A97D4, #1e6091);
     display: flex;
     justify-content: center;
-    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    align-items: center;
+    box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    backdrop-filter: blur(6px);
 }
 
-/* <ul> horizontal and full width */
+/* <ul> horizontal and spread out */
 .navbar ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-around; /* spread links evenly */
-    width: 100%;
-    max-width: 1200px; /* optional, keeps links from stretching too much on very large screens */
+    justify-content: space-around; /* spreads links across navbar width */
+    width: 90%;                   /* responsive width, leaves some padding */
+    max-width: 1400px;            /* prevent stretching on huge screens */
 }
 
 /* Navbar links */
 .navbar li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    padding: clamp(8px, 1.5vh, 16px) clamp(12px, 2vw, 24px); /* vertical & horizontal responsive padding */
-    border-radius: clamp(8px, 1.5vh, 12px);
-    font-size: clamp(1rem, 2vw, 1.5rem); /* scales with screen */
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
+    padding: clamp(10px, 2vh, 20px) clamp(25px, 4vw, 50px); /* more padding for bigger buttons */
+    border-radius: 50px;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);  /* slightly bigger text */
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    min-width: clamp(90px, 18vw, 200px); /* ensures buttons are wider on large screens */
+    text-align: center;
 }
 
 /* Hover effect */
 .navbar li a:hover {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Active link */
 .navbar li a.active {
-    background-color: rgba(255,255,255,0.4);
-    color: #0a1f44; /* dark text for contrast */
+    background-color: #ffffff;
+    color: #1e6091;
+    font-weight: bold;
+    transform: translateY(-2px);
 }
 
+/* Optional: touch active */
+.navbar li a:active {
+    transform: translateY(0);
+    box-shadow: none;
+}

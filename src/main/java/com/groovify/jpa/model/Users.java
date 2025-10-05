@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Entity
 @Table(name = "users")
@@ -36,7 +39,25 @@ public class Users {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public String getImageFileName() { return image_file_name; }
+    public String getImageFileName() {
+        // Default image
+        String defaultImage = "Fishing.jpg";
+
+        // Folder where your images are stored
+        Path imagesFolder = Paths.get("src/main/resources/static/images");
+
+        if (image_file_name == null) {
+            return defaultImage;
+        }
+
+        // Check if the file exists in the folder
+        Path imagePath = imagesFolder.resolve(image_file_name);
+        if (Files.exists(imagePath)) {
+            return image_file_name;
+        } else {
+            return defaultImage;
+        }
+    }
     public void setImageFileName(String image_file_name) { this.image_file_name = image_file_name; }
 
     public String getDescription() { return Description; }
