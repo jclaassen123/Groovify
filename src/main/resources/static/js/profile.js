@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const profilePic = document.getElementById("profilePic");
     const imageGallery = document.getElementById("imageGallery");
     const imageFileName = document.getElementById("imageFileName");
+    const body = document.body;
 
     let originalUsername = usernameInput.value;
     let originalDescription = descriptionInput.value;
     let originalImage = profilePic.src;
+    let originalBackground = body.style.backgroundImage;
 
     let editMode = false;
 
@@ -32,7 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
     cancelBtn.addEventListener("click", () => {
         usernameInput.value = originalUsername;
         descriptionInput.value = originalDescription;
+
         profilePic.src = originalImage;
+        body.style.backgroundImage = originalBackground;
+
         imageFileName.value = originalImage.split("/").pop();
 
         usernameInput.setAttribute("readonly", true);
@@ -51,13 +56,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!editMode) return;
         imageGallery.style.display = imageGallery.style.display === "none" ? "flex" : "none";
     });
-
     // Select an image from gallery
     imageGallery.querySelectorAll(".selectable-img").forEach(img => {
         img.addEventListener("click", () => {
             profilePic.src = img.src;
+            body.style.backgroundImage = `url(${img.src})`; // Update background immediately
             imageFileName.value = img.src.split("/").pop();
-            // Keep gallery open so user can pick again if needed
+
+            // Close the gallery automatically
+            imageGallery.style.display = "none";
         });
     });
 
@@ -66,5 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
         originalUsername = usernameInput.value;
         originalDescription = descriptionInput.value;
         originalImage = profilePic.src;
+        originalBackground = body.style.backgroundImage;
     });
 });
