@@ -4,5 +4,10 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     padding-top: 80px;  /* push content below topbar (60px height + 20px spacing) */
-    padding-bottom: 80px; /* push content above bottom navbar */
+    padding-bottom: 120px; /* push content above bottom navbar */
+}
+
+.barNavHolder {
+    display: flex;
+    flex-direction: column;
 }

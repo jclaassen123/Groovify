@@ -33,6 +33,7 @@ public class SongController {
 
         model.addAttribute("user", user);        // For topbar profile picture
         model.addAttribute("pageTitle", "Songs");
+        model.addAttribute("songs", songsRepository.findAll());
         return "songs";
     }
 }

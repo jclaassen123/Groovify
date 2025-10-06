@@ -1,22 +1,26 @@
 package com.groovify.jpa.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Songs")
 public class Songs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
+    @Column(name = "Filename")
     private String filename;
+    @Column(name = "Title")
     private String title;
+    @Column(name = "Artist")
     private String artist;
+    @Column(name = "Length")
     private Integer length;
 
     /*
+    TODO
     Might add
         Year
         Album
