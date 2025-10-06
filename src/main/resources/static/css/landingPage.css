@@ -1,27 +1,104 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Container */
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1A2037;
+  font-family: 'Inter', sans-serif;
+  color: white;
+}
+
+/* Logo */
+h1 {
+  font-weight: 800;
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
+}
+
+/* Form */
+form {
+  background: #2A2F47;
   padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  width: 100%;
+  max-width: 400px;
+}
+
+form div {
+  margin-bottom: 1rem;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #3A97D4;
+  background-color: #1F253C;
+  color: white;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #3A97D4;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #3284b8;
+}
+
+/* Text */
+p {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+a {
+  color: #3A97D4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Compact error message with slight padding */
+.error-message {
+  display: inline-block;
+  background-color: rgba(176, 0, 32, 0.3); /* subtle dark red background */
+  color: #ff4d4d;
+  border: 1px solid #b00020;
+  padding: 7px 11px;                       /* small padding all around */
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   text-align: center;
 }
 
-body {
-    padding-top: 12%;
-    background-color: #1A2037;
+/* Remove default paragraph spacing */
+.error-message p {
+  margin: 0;
 }
-h1 {
-    font-family: Inter;
-    font-weight: bold;
-    font-size: 1000%;
-    color: #3A97D4;
-}
-
-p {
-    padding-top: 3%;
-    color: white;
-    font-family: Inter;
-}
-
-
-
-

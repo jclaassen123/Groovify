@@ -40,8 +40,8 @@ public class LandingController {
         }
 
         if (!loginService.validateUser(loginForm.getUsername(), loginForm.getPassword())) {
-            result.addError(new ObjectError("globalError", "Username and password do not match known users"));
-            return "loginFailure";
+            result.addError(new ObjectError("globalError", "Invalid username or password."));
+            return "landingPage";
         }
 
         // ✅ Put the username (or full user object) into the session

@@ -16,11 +16,14 @@
             <div>
                 <input type="password" th:field="*{password}" placeholder="Password"/>
             </div>
+            <div th:if="${#fields.hasGlobalErrors()}" class="error-message">
+                <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
+            </div>
             <div>
                 <button type="submit">Login</button>
             </div>
         </form>
-        <p>Don't have an account? Register <a href="">here</a>.</p>
+        <p>Don't have an account? Register <a href="/register">here</a>.</p>
         <script src="/js/landingPage.js"></script>
     </center>
     </body>
