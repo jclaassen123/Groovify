@@ -6,11 +6,9 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ProfileController {
@@ -23,16 +21,15 @@ public class ProfileController {
     public String profilePage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         if (username == null) {
-            return "redirect:"; // force login
+            return "redirect:/"; // force login
         }
 
         Users user = usersRepo.findByName(username).orElse(null);
         if (user == null) {
-            return "redirect:"; // fallback
+            return "redirect:/"; // fallback
         }
 
         model.addAttribute("user", user);
-
         return "profile";
     }
 
@@ -55,8 +52,27 @@ public class ProfileController {
             user.setDescription(description);
             user.setImageFileName(image_file_name);
             usersRepo.save(user);
+
+            // Update session username if they changed it
+            session.setAttribute("username", name);
         }
 
         return "redirect:/profile";
+    }
+
+    // ✅ Check if username already exists (excluding current user)
+    @GetMapping("/check-username")
+    @ResponseBody
+    public boolean checkUsernameExists(@RequestParam String username, HttpSession session) {
+        String currentUsername = (String) session.getAttribute("username");
+
+        // If they're keeping their own username, it's fine
+        if (currentUsername != null && currentUsername.equalsIgnoreCase(username)) {
+            return false;
+        }
+
+        // Otherwise check if anyone else has it
+        Optional<Users> existing = usersRepo.findByName(username);
+        return existing.isPresent();
     }
 }
