@@ -12,7 +12,7 @@
     <div class="profile">
       <a th:href="@{/profile}" class="profile-circle">
         <!-- Use the user object passed in the model -->
-          <img th:src="@{/images/{img}(img=${user != null ? user.imageFileName : 'Fishing.jpg'})}"
+        <img th:src="@{/images/{img}(img=${user != null ? user.imageFileName : 'Fishing.jpg'})}"
              alt="Profile Picture">
       </a>
     </div>
