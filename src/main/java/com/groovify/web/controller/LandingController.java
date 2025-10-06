@@ -60,4 +60,10 @@ public class LandingController {
     public String loginFailure() {
         return "loginFailure";
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();           // ends the session
+        return "redirect:";            // goes to landing page
+    }
 }
