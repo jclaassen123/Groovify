@@ -15,14 +15,12 @@
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
 
 <!-- Songs list -->
-<ul>
-  <li th:each="song : ${songs}">
+<div id = "songsHolder">
+  <div th:each="song : ${songs}">
     <div th:text="${song.title}"></div>
-    <audio controls>
-      <source th:src="@{/songs/{file}(file=${song.filename})}" type="audio/mpeg">
-    </audio>
-  </li>
-</ul>
+    <button th:data="${song.filename}"><img th:src = ""></button>
+  </div>
+</div>
 
 
 

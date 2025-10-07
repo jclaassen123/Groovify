@@ -19,6 +19,16 @@ public class Songs {
     @Column(name = "Length")
     private Integer length;
 
+    public Songs() {
+
+    }
+
+    public Songs(String filename, String title, String artist, String album, int duration) {
+
+    }
+
+
+
     /*
     TODO
     Might add
