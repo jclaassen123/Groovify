@@ -15,7 +15,7 @@
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
 
 <!-- Songs list -->
-<div id = "songsHolder">
+<div id = "songHolder">
   <div th:each="song : ${songs}">
     <div th:text="${song.title}"></div>
     <button th:data="${song.filename}"><img th:src = ""></button>
