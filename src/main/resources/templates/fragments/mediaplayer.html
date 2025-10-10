@@ -5,11 +5,11 @@
 <div th:fragment="mediaplayer">
     <nav class="mediaplayer">
         <ul>
-            <li><button id="lastSong">Last Song</button></li>
-            <li><button id="playPause">Play/Pause</button></li>
-            <li><button id="nextSong">Next Song</button></li>
-            <li><button id="progress">Progress Bar</button></li>
-            <li><button id="volume">Volume</button></li>
+            <li><button id="lastSong" disabled>Last Song</button></li>
+            <li><button id="playPause" disabled>Play</button></li>
+            <li><button id="nextSong" disabled>Next Song</button></li>
+            <li><label for="progress"></label><input id="progress" type="range" min="0" max = "1" step = "1"></li>
+            <li><label for="volume"></label><input id="volume" type="range" min="0" max = "1" step = "0.01"></li>
         </ul>
     </nav>
 </div>

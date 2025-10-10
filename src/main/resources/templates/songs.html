@@ -18,11 +18,11 @@
 <div id = "songHolder">
   <div th:each="song : ${songs}">
     <div th:text="${song.title}"></div>
-    <button th:data="${song.filename}"><img th:src = ""></button>
+    <button class = "song" th:data-filename="${song.filename}">Test Button</button>
   </div>
 </div>
 
-
+<audio id = "player"></audio>
 
 <!-- Mediaplayer fragment -->
 <div th:replace="fragments/mediaplayer :: mediaplayer"></div>
@@ -31,7 +31,7 @@
 
 
 <!-- Navbar JS -->
-<!--<script th:src="@{/js/mediaplayer.js}"></script>-->
+<script th:src="@{/js/mediaplayer.js}"></script>
 
 <!-- Navbar JS -->
 <script th:src="@{/js/navbar.js}"></script>
