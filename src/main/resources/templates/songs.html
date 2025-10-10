@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>Groovify – Songs</title>
   <link rel="stylesheet" th:href="@{/css/home.css}">
+  <link rel="stylesheet" th:href="@{/css/songs.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
   <link rel="stylesheet" th:href="@{/css/topbar.css}">
-    <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
+  <link rel="stylesheet" th:href="@{/css/mediaplayer.css}">
 </head>
 <body>
 
@@ -14,17 +15,23 @@
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
 
 <!-- Songs list -->
-<ul>
-  <li th:each="song : ${songs}">
+<div id = "songHolder">
+  <div th:each="song : ${songs}">
     <div th:text="${song.title}"></div>
-    <audio controls>
-      <source th:src="@{/songs/{file}(file=${song.filename})}" type="audio/mpeg">
-    </audio>
-  </li>
-</ul>
+    <button class = "song" th:data-filename="${song.filename}">Test Button</button>
+  </div>
+</div>
 
+<audio id = "player"></audio>
+
+<!-- Mediaplayer fragment -->
+<div th:replace="fragments/mediaplayer :: mediaplayer"></div>
 <!-- Navbar fragment -->
 <div th:replace="fragments/navbar :: navbar"></div>
+
+
+<!-- Navbar JS -->
+<script th:src="@{/js/mediaplayer.js}"></script>
 
 <!-- Navbar JS -->
 <script th:src="@{/js/navbar.js}"></script>

@@ -34,6 +34,8 @@ dependencies {
 
     // Spring Security
 
+    // For reading mp3 metadata
+    implementation 'com.mpatric:mp3agic:0.9.1'
 
     // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
