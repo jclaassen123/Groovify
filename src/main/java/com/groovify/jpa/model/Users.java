@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -44,6 +46,8 @@ public class Users {
      * The unique username of the user.
      * Cannot be null or duplicated.
      */
+    @NotBlank(message = "Username cannot be empty")
+    @Size(min = 3, max = 32, message = "Username must be at least 3 characters")
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
@@ -51,8 +55,17 @@ public class Users {
      * The password associated with the user's account.
      * Cannot be null.
      */
+    @NotBlank(message = "Password cannot be empty")
+    @Size(min = 6, max = 100, message = "Password must be at least 6 characters")
     @Column(nullable = false)
     private String password;
+
+    public Users(String username, String password) {
+    }
+
+    public Users() {
+
+    }
 
     // -----------------------------------
     // Getters and Setters

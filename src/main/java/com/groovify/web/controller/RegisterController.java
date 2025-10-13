@@ -2,9 +2,11 @@ package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Users;
 import com.groovify.jpa.repo.UsersRepo;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,15 +52,24 @@ public class RegisterController {
      * @return redirect to landing page upon success, or the registration form on failure
      */
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute Users user, Model model) {
+    public String registerUser(@Valid @ModelAttribute Users user,
+                               BindingResult result,
+                               Model model) {
         String username = user.getName();
         log.info("User '{}' attempting to register", username);
 
-        // Check for existing username
+        // Return to form if validation fails
+        if (result.hasErrors()) {
+            log.warn("Registration failed for user '{}': validation errors", username);
+            model.addAttribute("user", user); // ✅ must add back the user object
+            return "register";
+        }
+
+        // Check for duplicate username
         if (usersRepo.findByName(username).isPresent()) {
             log.warn("Registration failed: username '{}' already exists", username);
+            model.addAttribute("user", user);  // ✅ add user back
             model.addAttribute("error", "Username already exists.");
-            model.addAttribute("user", user); // keep typed data
             return "register";
         }
 
@@ -66,10 +77,7 @@ public class RegisterController {
         usersRepo.save(user);
         log.info("User '{}' successfully registered", username);
 
-        model.addAttribute("loginForm", new Users());
-        model.addAttribute("success", "Registration successful! Please log in.");
-
-        // Redirects to the landing page for login
-        return "redirect:";
+        return "redirect:/"; // landing page after registration
     }
+
 }
