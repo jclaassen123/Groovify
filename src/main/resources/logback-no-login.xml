@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOGS" value="./logs" />
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date - [%level] - from %logger in %thread %n%message%n%xException%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="Logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/groovify.log</file>
+        <encoder>
+            <pattern>%date - [%level] - from %logger in %thread %n%message%n%xException%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/archived/groovify-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Reduce DB + connection pool verbosity -->
+    <logger name="org.hibernate" level="INFO" />
+    <logger name="com.zaxxer.hikari" level="INFO" />
+
+    <!-- 🔕 Disable login and logout logs -->
+    <logger name="com.groovify.web.controller.LandingController" level="OFF" />
+
+    <!-- Default logging level -->
+    <root level="INFO">
+        <appender-ref ref="Console" />
+        <appender-ref ref="Logfile" />
+    </root>
+</configuration>

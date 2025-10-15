@@ -9,6 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * Controller responsible for handling requests related to songs.
+ * <p>
+ * This includes displaying the songs page with all available songs and
+ * user-specific information in the topbar.
+ * </p>
+ */
 @Controller
 public class SongController {
 
@@ -17,10 +24,26 @@ public class SongController {
     @Autowired
     private UsersRepo usersRepo;
 
+    /**
+     * Constructor for SongController.
+     *
+     * @param songRepository Repository for accessing songs data
+     */
     public SongController(SongRepo songRepository) {
         this.songRepository = songRepository;
     }
 
+    /**
+     * Handles GET requests to "/songs".
+     * <p>
+     * Checks if a user is logged in via the session. If not, redirects to the landing page.
+     * Otherwise, fetches all songs and user info and passes them to the Thymeleaf template.
+     * </p>
+     *
+     * @param session HTTP session containing logged-in user info
+     * @param model   Model object to pass data to the view
+     * @return name of the Thymeleaf template to render
+     */
     @GetMapping("/songs")
     public String songsPage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");

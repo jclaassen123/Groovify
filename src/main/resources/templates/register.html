@@ -13,19 +13,36 @@
 <center>
     <h1>Register</h1>
     <form th:action="@{/register}" th:object="${user}" method="post">
+
+        <!-- Username input -->
         <div>
             <input type="text" th:field="*{name}" placeholder="Choose a username" required>
+            <small class="text-muted">Username must be 3–32 characters</small>
+            <div th:if="${#fields.hasErrors('name')}" class="error-message">
+                <p th:each="err : ${#fields.errors('name')}" th:text="${err}"></p>
+            </div>
         </div>
+
+        <!-- Password input -->
         <div>
             <input type="password" th:field="*{password}" placeholder="Choose a password" required>
+            <small class="text-muted">Password must be at least 6 characters</small>
+            <div th:if="${#fields.hasErrors('password')}" class="error-message">
+                <p th:each="err : ${#fields.errors('password')}" th:text="${err}"></p>
+            </div>
         </div>
+
+        <!-- General error (e.g., duplicate username) -->
         <div th:if="${error}" class="error-message">
             <p th:text="${error}"></p>
         </div>
+
+        <!-- Submit button -->
         <div>
             <button type="submit">Register</button>
         </div>
     </form>
+
     <p>Already have an account? <a href="/">Login here</a></p>
 </center>
 </body>
