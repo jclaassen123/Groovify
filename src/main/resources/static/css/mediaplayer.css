@@ -6,7 +6,7 @@
     width: 100%;
     /* Slightly taller navbar: min 70px, ideal 10vh, max 120px */
     height: clamp(70px, 10vh, 120px);
-    background: linear-gradient(90deg, #3A97D4, #1e6091);
+    background: linear-gradient(90deg, #5f869a, #4e6b8e);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@
     border-radius: 50px;
     font-size: clamp(1rem, 2.5vw, 1.5rem);  /* slightly bigger text */
     transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(42, 133, 179, 0.6);
     backdrop-filter: blur(4px);
     min-width: clamp(90px, 18vw, 200px); /* ensures buttons are wider on large screens */
     text-align: center;
