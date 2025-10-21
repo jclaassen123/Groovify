@@ -8,7 +8,7 @@ const audioPlayer = document.getElementById("player");
 let currentSong = null;
 const songFolderPath = "/songs/";
 
-const listedSongs = document.querySelectorAll("#songHolder .song");
+const listedSongs = document.querySelectorAll("#songHolder .song-card");
 
 listedSongs.forEach(song => {
     song.addEventListener('click', () => {

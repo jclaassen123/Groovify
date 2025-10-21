@@ -14,11 +14,21 @@
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
 
-<!-- Songs list -->
-<div id = "songHolder">
-  <div th:each="song : ${songs}">
-    <div th:text="${song.title}"></div>
-    <button class = "song" th:data-filename="${song.filename}">Test Button</button>
+<!-- Songs grid -->
+<div id="songHolder">
+  <div class="song-card" th:each="song : ${songs}" th:data-filename="${song.filename}">
+    <!-- Song image (clickable to play) -->
+    <img class="song-image"
+         th:alt="${song.title}"
+         />
+<!--         th:src="@{/images/{img}(img=${song.image})}"-->
+
+
+    <!-- Song info -->
+    <div class="song-info">
+      <div class="song-title" th:text="${song.title}"></div>
+      <div class="song-artist" th:text="${song.artist}"></div>
+    </div>
   </div>
 </div>
 

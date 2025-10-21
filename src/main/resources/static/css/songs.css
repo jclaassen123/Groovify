@@ -11,3 +11,52 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/* Grid container */
+#songHolder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Song card */
+.song-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.song-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Song image */
+.song-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* keeps square */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+}
+
+.song-card:hover .song-image {
+    transform: scale(1.05);
+}
+
+/* Song info */
+.song-title {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.song-artist {
+    font-size: 0.9rem;
+    color: #bbb;
+}
