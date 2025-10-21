@@ -1,6 +1,6 @@
 package com.groovify;
 
-import com.groovify.service.MusicImport;
+import com.groovify.service.SongImportImpl;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,7 +30,7 @@ public class GroovifyApplication {
      * Runs automatically right before the web server starts listening for requests.
      */
     @Bean
-    public ApplicationRunner runMusicImport(MusicImport importService) {
+    public ApplicationRunner runMusicImport(SongImportImpl importService) {
         return args -> {
             System.out.println("Starting MP3 import before web server startup...");
             importService.importSongs();

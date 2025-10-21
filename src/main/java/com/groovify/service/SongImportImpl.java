@@ -2,15 +2,19 @@ package com.groovify.service;
 
 import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.SongRepo;
+import com.groovify.web.controller.LandingController;
 import com.mpatric.mp3agic.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.Objects;
 
 @Service
-public class MusicImport {
+public class SongImportImpl implements SongImportService {
+    private static final Logger log = LoggerFactory.getLogger(LandingController.class);
 
     private final SongRepo songRepository;
 
@@ -18,29 +22,31 @@ public class MusicImport {
     @Value("${music.directory:src/main/resources/static/songs}")
     private String musicDirectory;
 
-    public MusicImport(SongRepo songRepository) {
+    public SongImportImpl(SongRepo songRepository) {
         this.songRepository = songRepository;
     }
 
     public void importSongs() {
         File folder = new File(musicDirectory);
         if (!folder.exists() || !folder.isDirectory()) {
-            System.err.println("Music directory not found: " + folder.getAbsolutePath());
+            log.error("Music directory not found: '{}'", folder.getAbsolutePath());
             return;
         }
 
         File[] files = folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp3"));
         if (files == null || files.length == 0) {
-            System.out.println("ℹNo MP3 files found in " + folder.getAbsolutePath());
+            log.warn("No MP3 files found in '{}'", folder.getAbsolutePath());
             return;
         }
 
         for (File file : Objects.requireNonNull(files)) {
             if (songRepository.existsByFilename(file.getName())) {
+                log.warn("File '{}' already exists", file.getName());
                 continue;
             }
 
             try {
+                log.info("Importing '{}'", file.getName());
                 Mp3File mp3 = new Mp3File(file);
                 String title = file.getName();
                 String artist = "Unknown";
@@ -48,12 +54,14 @@ public class MusicImport {
                 int year = 0;
 
                 if (mp3.hasId3v2Tag()) {
+                    log.debug("Found ID3v2Tag: {}", mp3.getId3v2Tag());
                     ID3v2 tag = mp3.getId3v2Tag();
                     title = safeString(tag.getTitle(), title);
                     artist = safeString(tag.getArtist(), artist);
                     album = safeString(tag.getAlbum(), album);
                     year = parseYear(tag.getYear());
                 } else if (mp3.hasId3v1Tag()) {
+                    log.debug("Found ID3v1Tag: {}", mp3.getId3v1Tag());
                     ID3v1 tag = mp3.getId3v1Tag();
                     title = safeString(tag.getTitle(), title);
                     artist = safeString(tag.getArtist(), artist);
@@ -61,12 +69,13 @@ public class MusicImport {
                     year = parseYear(tag.getYear());
                 }
 
+                log.info("Song info: '{}': '{}'", title, artist);
                 Song song = new Song(file.getName(), title, artist, album, year);
                 songRepository.save(song);
-                System.out.printf("Imported: %s — %s (%d)%n", artist, title, year);
+                log.info("Imported: '{}'", file.getName());
 
             } catch (Exception e) {
-                System.err.printf("Error reading %s: %s%n", file.getName(), e.getMessage());
+                log.error("Error reading '{}' '{}'", file.getName(), e.getMessage());
             }
         }
     }

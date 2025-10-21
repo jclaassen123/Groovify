@@ -3,8 +3,9 @@ package com.groovify.web.controller;
 import com.groovify.jpa.model.Users;
 import com.groovify.jpa.repo.SongRepo;
 import com.groovify.jpa.repo.UsersRepo;
+import com.groovify.service.SongService;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.groovify.service.SongServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,18 +20,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SongController {
 
-    private final SongRepo songRepository;
-
-    @Autowired
-    private UsersRepo usersRepo;
+    private final SongService songService;
+    private final UsersRepo usersRepo;
 
     /**
      * Constructor for SongController.
      *
-     * @param songRepository Repository for accessing songs data
+     * @param songService Repository for accessing songs data
      */
-    public SongController(SongRepo songRepository) {
-        this.songRepository = songRepository;
+    public SongController(SongService songService, UsersRepo usersRepo) {
+        this.songService = songService;
+        this.usersRepo = usersRepo;
     }
 
     /**
@@ -56,7 +56,7 @@ public class SongController {
 
         model.addAttribute("user", user);        // For topbar profile picture
         model.addAttribute("pageTitle", "Songs");
-        model.addAttribute("songs", songRepository.findAll());
+        model.addAttribute("songs", songService.getAllSongs());
         return "songs";
     }
 }
