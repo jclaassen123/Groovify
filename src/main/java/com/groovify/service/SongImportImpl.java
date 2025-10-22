@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @Service
 public class SongImportImpl implements SongImportService {
-    private static final Logger log = LoggerFactory.getLogger(LandingController.class);
+    private static final Logger log = LoggerFactory.getLogger(SongImportImpl.class);
 
     private final SongRepo songRepository;
 

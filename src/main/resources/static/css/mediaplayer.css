@@ -4,60 +4,74 @@
     bottom: clamp(70px, 10vh, 120px);
     left: 0;
     width: 100%;
-    /* Slightly taller navbar: min 70px, ideal 10vh, max 120px */
-    height: clamp(70px, 10vh, 120px);
     background: linear-gradient(90deg, #5f869a, #4e6b8e);
     display: flex;
+    flex-direction: column; /* stack rows */
     justify-content: center;
     align-items: center;
     box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     backdrop-filter: blur(6px);
+    padding: 10px;
+    gap: 10px;
 }
 
-/* <ul> horizontal and spread out */
-.mediaplayer ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* Top row: controls */
+.controls {
     display: flex;
-    justify-content: space-around; /* spreads links across navbar width */
-    width: 90%;                   /* responsive width, leaves some padding */
-    max-width: 1400px;            /* prevent stretching on huge screens */
+    justify-content: center;
+    gap: 20px;
 }
 
-/* Navbar links */
-.mediaplayer li button {
+.controls button {
     color: white;
-    text-decoration: none;
     font-weight: 600;
-    padding: clamp(10px, 2vh, 20px) clamp(25px, 4vw, 50px); /* more padding for bigger buttons */
+    padding: 10px 20px;
     border-radius: 50px;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);  /* slightly bigger text */
+    font-size: 1.2rem;
     transition: all 0.3s ease;
     background-color: rgba(42, 133, 179, 0.6);
     backdrop-filter: blur(4px);
-    min-width: clamp(90px, 18vw, 200px); /* ensures buttons are wider on large screens */
+    min-width: 80px;
     text-align: center;
+    border: none;
+    cursor: pointer;
 }
 
-/* Hover effect */
-.mediaplayer li button:hover {
+.controls button:hover {
     background-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Active link */
-.mediaplayer li button.active {
-    background-color: #ffffff;
-    color: #1e6091;
-    font-weight: bold;
-    transform: translateY(-2px);
+/* Progress bar row */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    max-width: 800px;
 }
 
-/* Optional: touch active */
-.mediaplayer li button:active {
-    transform: translateY(0);
-    box-shadow: none;
+.progress-container input[type="range"] {
+    flex-grow: 1;
+}
+
+/* Volume row */
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.volume-container input[type="range"] {
+    width: 120px;
+}
+
+.volume-icon {
+    font-size: 1.2rem;
+    color: white;
 }

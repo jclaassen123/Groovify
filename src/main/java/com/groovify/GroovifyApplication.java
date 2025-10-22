@@ -1,6 +1,9 @@
 package com.groovify;
 
 import com.groovify.service.SongImportImpl;
+import com.groovify.web.controller.LandingController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +20,8 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class GroovifyApplication {
 
+    private static final Logger log = LoggerFactory.getLogger(GroovifyApplication.class);
+
     /**
      * Main method used to launch the Spring Boot application.
      *
@@ -32,9 +37,9 @@ public class GroovifyApplication {
     @Bean
     public ApplicationRunner runMusicImport(SongImportImpl importService) {
         return args -> {
-            System.out.println("Starting MP3 import before web server startup...");
+            log.info("Starting MP3 import before web server startup...");
             importService.importSongs();
-            System.out.println("MP3 import complete. Continuing startup...");
+            log.info("MP3 import complete. Continuing startup...");
         };
     }
 }

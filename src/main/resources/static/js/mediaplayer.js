@@ -2,8 +2,12 @@ const playButton = document.getElementById("playPause");
 const lastSongButton = document.getElementById("lastSong");
 const nextSongButton = document.getElementById("nextSong");
 const progressBar = document.getElementById("progress");
+const currentTimeDisplay = document.getElementById("currentTime");
+const durationDisplay = document.getElementById("duration");
 const volumeBar = document.getElementById("volume");
 const audioPlayer = document.getElementById("player");
+
+
 
 let currentSong = null;
 const songFolderPath = "/songs/";
@@ -35,22 +39,25 @@ playButton.addEventListener('click', () => {
 
 audioPlayer.addEventListener('loadedmetadata', () => {
     progressBar.max = audioPlayer.duration;
+    durationDisplay.textContent = formatTime(audioPlayer.duration);
 });
 
 audioPlayer.addEventListener('timeupdate', () => {
     if (audioPlayer.duration) {
         progressBar.value = audioPlayer.currentTime;
+        currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
     }
 });
 
 audioPlayer.addEventListener('ended', () => {
     playButton.disabled = true;
-    playButton.textContent = "Play";
+    playButton.textContent = "▶";
 });
 
 progressBar.addEventListener('input', () => {
     if (audioPlayer.duration) {
         audioPlayer.currentTime = progressBar.value;
+        currentTimeDisplay.textContent = formatTime(audioPlayer.currentTime);
     }
 });
 
@@ -60,10 +67,16 @@ volumeBar.addEventListener('input', () => {
 
 function playSong() {
     audioPlayer.play();
-    playButton.textContent = "Pause";
+    playButton.textContent = "⏸";
 }
 
 function pauseSong() {
     audioPlayer.pause();
-    playButton.textContent = "Play";
+    playButton.textContent = "▶";
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
