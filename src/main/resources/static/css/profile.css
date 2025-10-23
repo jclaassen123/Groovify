@@ -194,5 +194,28 @@ header h1 {
 
 #logoutBtn:hover {
     background-color: #c1121f;
+}
 
+.input-error { border-color: red; }
+.error-message { color: red; font-size: 0.9em; }
+#genreSelection label { display: inline-block; margin-right: 10px; }
+#userGenres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* now works */
+}
+
+#userGenres span {
+    display: inline-block; /* each genre is now a flex item */
+}
+
+/* Preferred Genres Header */
+.profile-info h3.preferred-genres {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #ffffff;  /* red like previous error text */
+    font-size: 18px;
+    font-weight: bold;
 }

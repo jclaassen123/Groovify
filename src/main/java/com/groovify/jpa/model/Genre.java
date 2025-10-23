@@ -1,29 +1,31 @@
 package com.groovify.jpa.model;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "Genres", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
+@Table(name = "genre")
 public class Genre {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    @GeneratedValue
+    private Long id;
 
-    @Column(name = "name", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String name;
 
-    // Constructors
+    @ManyToMany(mappedBy = "genres")
+    private List<Users> users;
+
     public Genre() {}
+    public Genre(String name) { this.name = name; }
 
-    public Genre(String name) {
-        this.name = name;
-    }
-
-    // Getters & Setters
-    public Long getID() { return ID; }
-    public void setID(Long ID) { this.ID = ID; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+
+    public List<Users> getUsers() { return users; }
+    public void setUsers(List<Users> users) { this.users = users; }
 }

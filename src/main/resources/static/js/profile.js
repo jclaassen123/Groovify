@@ -9,73 +9,52 @@ document.addEventListener("DOMContentLoaded", () => {
     const profilePic = document.getElementById("profilePic");
     const imageGallery = document.getElementById("imageGallery");
     const imageFileName = document.getElementById("imageFileName");
+    const genreSelection = document.getElementById("genreSelection");
+    const userGenres = document.getElementById("userGenres");
     const body = document.body;
 
+    let editMode = false;
     let originalUsername = usernameInput.value;
     let originalDescription = descriptionInput.value;
     let originalImage = profilePic.src;
     let originalBackground = body.style.backgroundImage;
-    let editMode = false;
+    const originalGenres = Array.from(genreSelection.querySelectorAll("input[type='checkbox']")).map(cb => cb.checked);
 
-    // --- Utility functions for errors ---
-    function showError(inputElement, message, count) {
-        clearError(inputElement);
-        inputElement.classList.add("input-error");
-
-        const error = document.createElement("div");
-        error.className = "error-message";
-        error.textContent = count !== undefined ? `${message} (current: ${count})` : message;
-        inputElement.insertAdjacentElement("afterend", error);
-    }
-
-    function clearError(inputElement) {
-        inputElement.classList.remove("input-error");
-        const nextEl = inputElement.nextElementSibling;
-        if (nextEl && nextEl.classList.contains("error-message")) {
-            nextEl.remove();
-        }
-    }
-
-    // --- Enable editing ---
     editBtn.addEventListener("click", () => {
         usernameInput.removeAttribute("readonly");
         descriptionInput.removeAttribute("readonly");
-
+        genreSelection.style.display = "block";
+        userGenres.style.display = "none";
         editBtn.style.display = "none";
         saveBtn.style.display = "inline-block";
         cancelBtn.style.display = "inline-block";
         editMode = true;
     });
 
-    // --- Cancel editing ---
     cancelBtn.addEventListener("click", () => {
         usernameInput.value = originalUsername;
         descriptionInput.value = originalDescription;
         profilePic.src = originalImage;
         body.style.backgroundImage = originalBackground;
         imageFileName.value = originalImage.split("/").pop();
-
+        genreSelection.querySelectorAll("input[type='checkbox']").forEach((cb, idx) => cb.checked = originalGenres[idx]);
         usernameInput.setAttribute("readonly", true);
         descriptionInput.setAttribute("readonly", true);
-
+        genreSelection.style.display = "none";
+        userGenres.style.display = "block";
         editBtn.style.display = "inline-block";
         saveBtn.style.display = "none";
         cancelBtn.style.display = "none";
-        imageGallery.style.display = "none";
-
-
         clearError(usernameInput);
         clearError(descriptionInput);
         editMode = false;
     });
 
-    // --- Open image gallery ---
     profilePic.addEventListener("click", () => {
         if (!editMode) return;
         imageGallery.style.display = imageGallery.style.display === "none" ? "flex" : "none";
     });
 
-    // --- Select image from gallery ---
     imageGallery.querySelectorAll(".selectable-img").forEach(img => {
         img.addEventListener("click", () => {
             profilePic.src = img.src;
@@ -85,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- Form submit (validate + check username availability) ---
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
         clearError(usernameInput);
@@ -94,49 +72,36 @@ document.addEventListener("DOMContentLoaded", () => {
         usernameInput.value = usernameInput.value.trim();
         descriptionInput.value = descriptionInput.value.trim();
 
-        const username = usernameInput.value;
-        const description = descriptionInput.value;
-        let hasError = false;
+        if (usernameInput.value.length < 3) return showError(usernameInput, "Username must be at least 3 characters");
+        if (usernameInput.value.length > 32) return showError(usernameInput, "Username must not exceed 32 characters");
+        if (descriptionInput.value.length > 250) return showError(descriptionInput, "Description cannot exceed 250 characters");
 
-        // Username validation (3–32 chars)
-        if (username.length < 3 || username.length > 32) {
-            showError(usernameInput, "Username must be between 3 and 32 characters", username.length);
-            // Reset to original username
-            usernameInput.value = originalUsername;
-            hasError = true;
-        }
-
-        // Description validation (max 250 chars)
-        if (description.length > 250) {
-            showError(descriptionInput, "Description cannot exceed 250 characters", description.length);
-            hasError = true;
-        }
-
-        if (hasError) return;
-
-        // Username uniqueness check (if changed)
-        if (username !== originalUsername) {
-            try {
-                const response = await fetch(`/check-username?username=${encodeURIComponent(username)}`);
-                const exists = await response.json();
-
-                if (exists) {
-                    showError(usernameInput, "That username is already taken. Please choose another.", username.length);
-                    return;
-                }
-            } catch (error) {
-                console.error("Error checking username:", error);
-                showError(usernameInput, "Could not verify username availability. Try again later.", username.length);
+        const formData = new FormData(form);
+        try {
+            const response = await fetch(form.action, { method: 'POST', body: formData });
+            if (!response.ok) {
+                alert("Error updating profile");
                 return;
             }
+            window.location.reload();
+        } catch (err) {
+            console.error(err);
+            alert("Could not submit profile. Try again later.");
         }
-
-        // ✅ Passed all checks
-        form.submit();
-
-        originalUsername = username;
-        originalDescription = description;
-        originalImage = profilePic.src;
-        originalBackground = body.style.backgroundImage;
     });
+
+    function showError(input, message) {
+        clearError(input);
+        input.classList.add("input-error");
+        const error = document.createElement("div");
+        error.className = "error-message";
+        error.textContent = message;
+        input.insertAdjacentElement("afterend", error);
+    }
+
+    function clearError(input) {
+        input.classList.remove("input-error");
+        const nextEl = input.nextElementSibling;
+        if (nextEl && nextEl.classList.contains("error-message")) nextEl.remove();
+    }
 });

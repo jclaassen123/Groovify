@@ -44,10 +44,22 @@
         <label>Description:</label>
         <textarea name="description" rows="3" cols="30" th:text="${user.description}" readonly></textarea><br><br>
 
-        <!-- Edit / Save / Cancel buttons -->
+        <h3 class="preferred-genres">Preferred Genres</h3>
+
+        <div id="userGenres">
+            <span th:each="g : ${user.genres}" th:text="${g.name} + ' '"></span>
+        </div>
+
+        <div id="genreSelection" style="display:none">
+            <label th:each="g : ${allGenres}">
+                <input type="checkbox" th:value="${g.id}" th:checked="${user.genres.contains(g)}" name="genres" />
+                <span th:text="${g.name}"></span>
+            </label>
+        </div>
+
         <button type="button" id="editBtn">Edit</button>
-        <button type="submit" id="saveBtn" style="display:none;">Save</button>
-        <button type="button" id="cancelBtn" style="display:none;">Cancel</button>
+        <button type="submit" id="saveBtn" style="display:none">Save</button>
+        <button type="button" id="cancelBtn" style="display:none">Cancel</button>
     </form>
 </section>
 <!-- Only Navbar -->
