@@ -14,6 +14,8 @@
     <h1>Groovify</h1>
 </header>
 
+<button id="logoutBtn" class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
+
 <section class="profile-info">
     <form th:action="@{/profile/update}" method="post" id="profileForm">
         <input type="hidden" th:value="${user.id}" name="id">
@@ -42,18 +44,10 @@
         <label>Description:</label>
         <textarea name="description" rows="3" cols="30" th:text="${user.description}" readonly></textarea><br><br>
 
-        <!-- New 3-button layout -->
-        <div class="button-group">
-            <button type="button" id="preferencesBtn">Preferences</button>
-            <button type="button" id="editBtn">Edit</button>
-            <button type="button" class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
-        </div>
-
-        <!-- Save/Cancel still hidden for editing -->
-        <div class="edit-controls">
-            <button type="submit" id="saveBtn" style="display:none;">Save</button>
-            <button type="button" id="cancelBtn" style="display:none;">Cancel</button>
-        </div>
+        <!-- Edit / Save / Cancel buttons -->
+        <button type="button" id="editBtn">Edit</button>
+        <button type="submit" id="saveBtn" style="display:none;">Save</button>
+        <button type="button" id="cancelBtn" style="display:none;">Cancel</button>
     </form>
 </section>
 <!-- Only Navbar -->

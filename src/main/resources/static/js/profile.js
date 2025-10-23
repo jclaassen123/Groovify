@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cancelBtn.style.display = "none";
         imageGallery.style.display = "none";
 
+
         clearError(usernameInput);
         clearError(descriptionInput);
         editMode = false;

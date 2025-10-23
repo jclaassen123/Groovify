@@ -14,6 +14,8 @@
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
 
+<script th:src="@{/js/topbar.js}"></script>
+
 <!-- Songs grid -->
 <div id="songHolder">
   <div class="song-card" th:each="song : ${songs}" th:data-filename="${song.filename}">
@@ -45,6 +47,7 @@
 
 <!-- Navbar JS -->
 <script th:src="@{/js/navbar.js}"></script>
+
 
 <div th:replace="fragments/session :: sessionTimeoutScripts"></div>
 

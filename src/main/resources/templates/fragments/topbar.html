@@ -10,11 +10,20 @@
       <span class="page-title" th:text="${pageTitle != null ? pageTitle : 'Home'}">Home</span>
     </div>
     <div class="profile">
-      <a th:href="@{/profile}" class="profile-circle">
-        <!-- Use the user object passed in the model -->
+      <!-- Profile circle -->
+      <div class="profile-circle" id="profileCircle">
         <img th:src="@{/images/{img}(img=${user != null ? user.imageFileName : 'Fishing.jpg'})}"
              alt="Profile Picture">
-      </a>
+      </div>
+
+      <!-- Dropdown box -->
+      <div id="profileDropdown" class="profile-dropdown" style="display:none;">
+        <!-- Use Thymeleaf to generate the correct URL -->
+        <a th:href="@{/profile}">
+          <button id="editProfileBtn" type="button">Edit Profile</button>
+        </a>
+        <button id="logoutTopbarBtn" type="button">Logout</button>
+      </div>
     </div>
   </header>
 </div>

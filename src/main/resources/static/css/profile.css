@@ -150,7 +150,7 @@ header h1 {
     border: 3px solid #4da6ff;
 }
 
-/* Buttons */
+/* Common styling for profile form buttons */
 .profile-info button {
     margin-top: 15px;
     padding: 10px 25px;
@@ -160,61 +160,39 @@ header h1 {
     background-color: #3A97D4;
     color: #000;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s ease, transform 0.2s ease;
+    display: inline-block;  /* ensure buttons flow properly */
 }
 
 .profile-info button:hover {
     background-color: #2680b9;
-}
-
-/* Button group */
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.button-group button {
-    flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    background-color: #3A97D4;
-    color: #000;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.button-group button:hover {
-    background-color: #2680b9;
     transform: scale(1.05);
 }
 
-.button-group .logout-btn {
+/* Save / Cancel buttons (if needed, can add specific IDs) */
+#saveBtn, #cancelBtn, #editBtn {
+    /* inherit styles from .profile-info button */
+    /* spacing handled by margin-top and inline-block */
+}
+
+/* Logout button at top right (fixed) */
+#logoutBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
     background-color: #e63946;
     color: #fff;
     font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, opacity 0.2s ease;
 }
 
-.button-group .logout-btn:hover {
+#logoutBtn:hover {
     background-color: #c1121f;
-}
 
-.error-message {
-    color: #ff4d4d;
-    font-size: 0.9em;
-    margin-top: 4px;
-    font-weight: 500;
-}
-
-.input-error {
-    border: 2px solid #ff4d4d !important;
-    border-radius: 6px;
-    outline: none;
-}
-
-.input-error:focus {
-    box-shadow: 0 0 6px rgba(255, 77, 77, 0.6);
 }

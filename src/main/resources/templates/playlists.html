@@ -11,7 +11,9 @@
 <body>
 
 <!-- Topbar fragment -->
-<div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Playlists'"></div>
+<div th:replace="fragments/topbar :: topbar" th:with="pageTitle='playlists'"></div>
+
+<script th:src="@{/js/topbar.js}"></script>
 
 <!-- Include Navbar Fragment -->
 <div th:replace="fragments/navbar :: navbar"></div>

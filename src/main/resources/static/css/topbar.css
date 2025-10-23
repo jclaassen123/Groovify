@@ -77,3 +77,60 @@
     transform: scale(1.25); /* slightly bigger hover */
     border-color: #fff;
 }
+
+/* Profile dropdown positioned over the circle */
+.profile-dropdown {
+    position: absolute;
+    top: 50%;        /* center vertically on the circle */
+    left: 87%;       /* center horizontally on the circle */
+    transform: translate(-50%, -50%); /* perfectly centered */
+    background-color: rgba(26,26,26,0.95);
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 150px;
+    z-index: 1001;
+}
+
+/* Remove underline and make <a> full width */
+.profile-dropdown a {
+    text-decoration: none;   /* remove underline */
+    display: block;
+    width: 100%;
+}
+
+/* Buttons inside dropdown - unified size and centered text */
+.profile-dropdown button {
+    width: 100%; /* full width of dropdown */
+    padding: 10px 0; /* vertical padding for consistent height */
+    text-align: center; /* center text horizontally */
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: block;
+}
+
+/* Edit button */
+#editProfileBtn {
+    background-color: #fff;
+    color: #000;
+}
+
+#editProfileBtn:hover {
+    background-color: #e0e0e0; /* subtle hover */
+}
+
+/* Logout button */
+#logoutTopbarBtn {
+    background-color: #e63946;
+    color: #fff;
+}
+
+#logoutTopbarBtn:hover {
+    background-color: #c1121f;
+}
