@@ -6,3 +6,109 @@ body {
     padding-top: 80px;  /* push content below topbar (60px height + 20px spacing) */
     padding-bottom: 80px; /* push content above bottom navbar */
 }
+
+/* Add space from topbar */
+.home-content {
+    max-width: 1200px;
+    margin: 4rem auto 2rem auto; /* moved down from topbar */
+    padding: 0 1rem;
+}
+
+/* Song grid layout */
+.song-grid {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto; /* allows horizontal scrolling */
+    padding-bottom: 1rem;
+}
+
+/* Song card */
+.song-card {
+    min-width: 150px;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Album placeholder */
+.album-placeholder {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+.song-title {
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.song-artist {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* Developer cards */
+.developer-cards {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.developer-card {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Image wrapper to allow overlay */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px; /* fixed height for consistency */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay text */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5); /* semi-transparent black */
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dev-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.dev-link {
+    color: #ffcc00; /* standout color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Optional hover effect */
+.developer-card:hover .overlay {
+    background: rgba(0,0,0,0.65);
+}

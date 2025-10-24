@@ -1,0 +1,90 @@
+/* Dark background behind the developer card */
+body {
+    background-color: #0a1f44; /* dark blue */
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Center content vertically and horizontally */
+.home-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px); /* larger gap for top/bottom */
+    padding-top: 60px;   /* gap from topbar */
+    padding-bottom: 60px; /* gap from bottom */
+}
+
+/* Developer card styling */
+.developer-card {
+    display: flex;
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+    padding: 60px;          /* larger card padding */
+    max-width: 1100px;      /* bigger max width */
+    width: 95%;             /* fills more of the screen */
+}
+
+/* Flex layout inside card */
+.developer-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;   /* more space between image and info */
+    width: 100%;
+    align-items: center;
+}
+
+/* Profile image */
+.developer-image img {
+    width: 350px;    /* bigger image */
+    height: 450px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+}
+
+/* Info section */
+.developer-info {
+    flex: 1;
+}
+
+.dev-name {
+    font-size: 2.5rem;   /* larger name */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.dev-bio {
+    font-size: 1.3rem;   /* larger bio */
+    line-height: 1.7;
+    color: #333;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .developer-card {
+        padding: 30px;
+    }
+
+    .developer-layout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .developer-image img {
+        width: 90%;
+        height: auto;
+        margin-bottom: 25px;
+    }
+
+    .dev-name {
+        font-size: 2rem;
+    }
+
+    .dev-bio {
+        font-size: 1.15rem;
+    }
+}

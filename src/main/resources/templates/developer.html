@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${name} + ' – Developer'">Developer</title>
+  <link rel="stylesheet" th:href="@{/css/developer.css}">
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" th:href="@{/css/topbar.css}">
+</head>
+<body>
+
+<!-- Topbar -->
+<div th:replace="~{fragments/topbar :: topbar}" th:with="pageTitle=${name}"></div>
+
+<!-- Navbar -->
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+<!-- JS Scripts -->
+<script th:src="@{/js/topbar.js}"></script>
+<script th:src="@{/js/navbar.js}"></script>
+
+<!-- Session Timeout -->
+<div th:replace="~{fragments/session :: sessionTimeoutScripts}"></div>
+
+<main class="home-content">
+  <section class="developer-detail">
+    <div class="developer-card">
+      <div class="developer-layout">
+        <!-- Profile Image -->
+        <div class="developer-image">
+          <img th:src="@{${image}}" th:alt="${name}">
+        </div>
+
+        <!-- Info -->
+        <div class="developer-info">
+          <h1 class="dev-name" th:text="${name}">Name</h1>
+          <p class="dev-bio" th:text="${bio}">Bio goes here</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

@@ -13,16 +13,131 @@
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Home'"></div>
 
-<script th:src="@{/js/topbar.js}"></script>
-<!-- Include Navbar Fragment -->
+<!-- Navbar fragment -->
 <div th:replace="fragments/navbar :: navbar"></div>
 
 <!-- Shared session timeout script -->
 <div th:replace="fragments/session :: sessionTimeoutScripts"></div>
 
+<!-- Main Content -->
+<main class="home-content">
 
-<!-- Navbar JS -->
+    <!-- Recommended Songs -->
+    <section class="recommended-songs">
+        <h2>Recommended for You</h2>
+        <div class="song-grid">
+            <!-- Placeholder song cards -->
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Previously Played Songs -->
+    <section class="previously-played">
+        <h2>Previously Played</h2>
+        <div class="song-grid">
+            <!-- Placeholder recent songs -->
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="album-placeholder">
+                    <p class="song-title">Song Title</p>
+                    <p class="song-artist">Artist Name</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Profiles -->
+    <section class="developers">
+        <h2>Meet the Developers</h2>
+        <div class="developer-cards">
+            <div class="developer-card">
+                <div class="image-wrapper">
+                    <img th:src="@{/images/Jace.jpg}" alt="Jace Claassen">
+                    <div class="overlay">
+                        <p class="dev-name">Jace Claassen</p>
+                        <a th:href="@{'/jace'}" class="dev-link">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="developer-card">
+                <div class="image-wrapper">
+                    <img th:src="@{/images/Universe.jpg}" alt="Zack">
+                    <div class="overlay">
+                        <p class="dev-name">Zack</p>
+                        <a th:href="@{'/zack'}" class="dev-link">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="developer-card">
+                <div class="image-wrapper">
+                    <img th:src="@{/images/Forest.jpg}" alt="Nevin">
+                    <div class="overlay">
+                        <p class="dev-name">Nevin</p>
+                        <a th:href="@{'/nevin'}" class="dev-link">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- JS Scripts -->
+<script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/navbar.js}"></script>
+<script th:src="@{/js/home.js}"></script>
 
 </body>
 </html>
