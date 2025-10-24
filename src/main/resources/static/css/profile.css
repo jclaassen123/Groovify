@@ -214,7 +214,7 @@ header h1 {
 .profile-info h3.preferred-genres {
     text-align: center;
     margin-top: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #ffffff;  /* red like previous error text */
     font-size: 18px;
     font-weight: bold;
