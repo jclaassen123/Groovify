@@ -134,7 +134,6 @@ header h1 {
 /* Gallery overlay */
 .image-gallery {
     position: absolute;
-    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -147,7 +146,7 @@ header h1 {
     z-index: 10;
     width: 380px;
     max-height: 140px;
-    pointer-events: none;
+    pointer-events: auto; /* allow clicks */
 }
 
 .image-gallery img {
@@ -218,11 +217,17 @@ header h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px; /* now works */
+    gap: 10px;       /* space between genres */
+    margin-top: 10px; /* optional spacing from header */
 }
 
 #userGenres span {
-    display: inline-block; /* each genre is now a flex item */
+    display: inline-block;
+    padding: 4px 10px;          /* adds internal spacing */
+    background-color: rgba(255, 255, 255, 0.1); /* optional styling */
+    border-radius: 12px;        /* pill shape */
+    font-size: 14px;
+    color: #fff;
 }
 
 /* Preferred Genres Header */
