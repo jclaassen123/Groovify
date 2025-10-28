@@ -1,7 +1,7 @@
 package com.groovify.service;
 
 import com.groovify.jpa.model.Genre;
-import com.groovify.jpa.model.Users;
+import com.groovify.jpa.model.Client;
 import com.groovify.jpa.repo.GenreRepo;
 import com.groovify.jpa.repo.UsersRepo;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class ProfileServiceImpl {
         this.genreRepo = genreRepo;
     }
 
-    public Optional<Users> getUserByUsername(String username) {
+    public Optional<Client> getUserByUsername(String username) {
         return usersRepo.findByName(username);
     }
 
@@ -30,12 +30,12 @@ public class ProfileServiceImpl {
     }
 
     public boolean isUsernameTaken(String username, String currentUsername) {
-        Optional<Users> user = usersRepo.findByName(username);
+        Optional<Client> user = usersRepo.findByName(username);
         return user.isPresent() && !user.get().getName().equals(currentUsername);
     }
 
     @Transactional
-    public void updateProfile(Users user, String name, String description, String imageFileName, List<Long> genreIds) {
+    public void updateProfile(Client user, String name, String description, String imageFileName, List<Long> genreIds) {
         user.setName(name.trim());
         user.setDescription(description.trim());
         user.setImageFileName(imageFileName);

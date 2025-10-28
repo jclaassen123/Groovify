@@ -20,9 +20,9 @@
 <div id="songHolder">
   <div class="song-card" th:each="song : ${songs}" th:data-filename="${song.filename}">
     <!-- Song image (clickable to play) -->
-    <img class="song-image"
-         th:alt="${song.title}"
-         />
+    <img class="song-image"/>
+<!--         th:alt="${song.title}"-->
+
 <!--         th:src="@{/images/{img}(img=${song.image})}"-->
 
 

@@ -1,7 +1,7 @@
 package com.groovify.service;
 
 import org.springframework.stereotype.Service;
-import com.groovify.jpa.model.Users;
+import com.groovify.jpa.model.Client;
 import com.groovify.jpa.repo.LoginRepository;
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  * Implementation of {@link LoginService} that provides user authentication functionality.
  * <p>
  * This service is responsible for validating user credentials against the database.
- * It uses {@link LoginRepository} to perform queries on the {@link Users} entity.
+ * It uses {@link LoginRepository} to perform queries on the {@link Client} entity.
  * </p>
  */
 @Service
@@ -38,15 +38,15 @@ public class LoginServiceImpl implements LoginService {
      * @return {@code true} if the username exists and the password matches; {@code false} otherwise
      */
     @Override
-    public boolean validateUser(String username, String password) {
+    public boolean validateClient(String username, String password) {
         // Find users matching the username (case-insensitive)
-        List<Users> users = loginRepo.findByNameIgnoreCase(username);
+        List<Client> users = loginRepo.findByNameIgnoreCase(username);
 
         if (users.isEmpty()) {
             return false;
         }
 
-        Users u = users.get(0);
+        Client u = users.get(0);
         return u.getPassword().equals(password);
     }
 }

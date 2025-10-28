@@ -75,7 +75,7 @@ public class LandingController {
             return "landingPage";
         }
 
-        if (!loginService.validateUser(username, loginForm.getPassword())) {
+        if (!loginService.validateClient(username, loginForm.getPassword())) {
             log.warn("Invalid login attempt for username '{}'", username);
             result.addError(new ObjectError("globalError", "Invalid username or password."));
             return "landingPage";

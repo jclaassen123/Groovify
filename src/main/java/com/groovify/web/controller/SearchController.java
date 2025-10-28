@@ -1,6 +1,6 @@
 package com.groovify.web.controller;
 
-import com.groovify.jpa.model.Users;
+import com.groovify.jpa.model.Client;
 import com.groovify.jpa.repo.UsersRepo;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class SearchController {
         }
 
         // Fetch full user object for topbar
-        Users user = usersRepo.findByName(username).orElse(null);
+        Client user = usersRepo.findByName(username).orElse(null);
 
         model.addAttribute("user", user);
         model.addAttribute("pageTitle", "Search");

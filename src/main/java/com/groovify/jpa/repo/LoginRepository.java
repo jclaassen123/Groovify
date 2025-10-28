@@ -2,17 +2,17 @@ package com.groovify.jpa.repo;
 
 import java.util.List;
 
-import com.groovify.jpa.model.Users;
+import com.groovify.jpa.model.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * Repository interface for handling login-related database operations for {@link Users}.
+ * Repository interface for handling login-related database operations for {@link Client}.
  * <p>
  * This interface extends {@link JpaRepository}, providing basic CRUD functionality.
  * It includes a custom query method for case-insensitive username lookup, which
  * supports user authentication without requiring exact case matching.
  */
-public interface LoginRepository extends JpaRepository<Users, Integer> {
+public interface LoginRepository extends JpaRepository<Client, Integer> {
     /**
      * Finds users by username, ignoring case sensitivity.
      * <p>
@@ -21,8 +21,8 @@ public interface LoginRepository extends JpaRepository<Users, Integer> {
      * potential exceptions.
      *
      * @param name the username to search for (case-insensitive)
-     * @return a {@link List} of matching {@link Users} entities, which will typically
+     * @return a {@link List} of matching {@link Client} entities, which will typically
      *         contain either zero or one element
      */
-    List<Users> findByNameIgnoreCase(String name);
+    List<Client> findByNameIgnoreCase(String name);
 }

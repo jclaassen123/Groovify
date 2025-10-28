@@ -1,6 +1,6 @@
 package com.groovify.web.controller;
 
-import com.groovify.jpa.model.Users;
+import com.groovify.jpa.model.Client;
 import com.groovify.jpa.repo.UsersRepo;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class RegisterController {
     /** Logger instance for tracking registration events. */
     private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
 
-    /** Repository used to perform CRUD operations on {@link Users} entities. */
+    /** Repository used to perform CRUD operations on {@link Client} entities. */
     @Autowired
     private UsersRepo usersRepo;
 
@@ -36,7 +36,7 @@ public class RegisterController {
      */
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
-        model.addAttribute("user", new Users());
+        model.addAttribute("user", new Client());
         return "register";
     }
 
@@ -47,12 +47,12 @@ public class RegisterController {
      * and the user is prompted to try again. If registration is successful,
      * the user is redirected to the landing page.
      *
-     * @param user  the {@link Users} object populated from form input
+     * @param user  the {@link Client} object populated from form input
      * @param model the {@link Model} used to store messages for the view
      * @return redirect to landing page upon success, or the registration form on failure
      */
     @PostMapping("/register")
-    public String registerUser(@Valid @ModelAttribute Users user,
+    public String registerUser(@Valid @ModelAttribute Client user,
                                BindingResult result,
                                Model model) {
         String username = user.getName();

@@ -15,7 +15,7 @@ public class Genre {
     private String name;
 
     @ManyToMany(mappedBy = "genres")
-    private List<Users> users;
+    private List<Client> users;
 
     public Genre() {}
     public Genre(String name) { this.name = name; }
@@ -26,6 +26,6 @@ public class Genre {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public List<Users> getUsers() { return users; }
-    public void setUsers(List<Users> users) { this.users = users; }
+    public List<Client> getUsers() { return users; }
+    public void setUsers(List<Client> users) { this.users = users; }
 }

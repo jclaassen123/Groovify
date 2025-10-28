@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class Users {
+@Table(name = "Client")
+public class Client {
 
     @Id
     @GeneratedValue
@@ -40,8 +40,8 @@ public class Users {
     )
     private List<Genre> genres;
 
-    public Users() {}
-    public Users(String name, String password) { this.name = name; this.password = password; }
+    public Client() {}
+    public Client(String name, String password) { this.name = name; this.password = password; }
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
