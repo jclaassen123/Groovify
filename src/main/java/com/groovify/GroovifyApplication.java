@@ -1,5 +1,6 @@
 package com.groovify;
 
+import com.groovify.service.GenreImportService;
 import com.groovify.service.SongImportImpl;
 import com.groovify.web.controller.LandingController;
 import org.slf4j.Logger;
@@ -9,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+
+import java.util.List;
 
 /**
  * Main entry point for the Groovify Spring Boot application.
@@ -42,4 +45,23 @@ public class GroovifyApplication {
             log.info("MP3 import complete. Continuing startup...");
         };
     }
+
+    /**
+     * Runs automatically before the web server starts.
+     * Imports predefined genres.
+     */
+    @Bean
+    public ApplicationRunner runGenreImport(GenreImportService genreImportService) {
+        return args -> {
+            log.info("Starting genre import before web server startup...");
+            List<String> genres = List.of(
+                    "Rock", "Pop", "Hip-Hop", "Jazz", "Classical",
+                    "Electronic", "Country", "Reggae", "Blues", "Metal"
+            );
+            genreImportService.importGenres(genres);
+            log.info("Genre import complete. Continuing startup...");
+        };
+    }
+
+
 }
