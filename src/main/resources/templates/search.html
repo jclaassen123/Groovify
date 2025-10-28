@@ -6,21 +6,32 @@
   <link rel="stylesheet" th:href="@{/css/home.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
   <link rel="stylesheet" th:href="@{/css/topbar.css}">
-    <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
+  <link rel="stylesheet" th:href="@{/css/search.css}"> <!-- Added -->
+  <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
 </head>
 <body>
 
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Search'"></div>
 
-<script th:src="@{/js/topbar.js}"></script>
-
 <!-- Include Navbar Fragment -->
 <div th:replace="fragments/navbar :: navbar"></div>
 
-<!-- Navbar JS -->
-<script th:src="@{/js/navbar.js}"></script>
+<!-- Search Section -->
+<div class="search-container">
+  <form class="search-form" th:action="@{/search/results}" method="get">
+    <input
+            type="text"
+            name="query"
+            class="search-input"
+            placeholder="Search by song or artist..."
+            required>
+    <button type="submit" class="search-button">Search</button>
+  </form>
+</div>
 
+<script th:src="@{/js/topbar.js}"></script>
+<script th:src="@{/js/navbar.js}"></script>
 <div th:replace="fragments/session :: sessionTimeoutScripts"></div>
 
 </body>
