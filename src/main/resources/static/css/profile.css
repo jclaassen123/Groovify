@@ -1,11 +1,9 @@
-/* profile.css */
-
-/* Prevent scrolling */
+/* Prevent scrolling on the page */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* disables scrolling */
+    overflow: hidden; /* disables page scroll */
 }
 
 body {
@@ -15,39 +13,55 @@ body {
     min-height: 100vh;
     font-family: 'Helvetica', Arial, sans-serif;
     color: #fff;
+
+    /* Flex layout to allow profile-info to take remaining space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 /* Header styling */
 header h1 {
-    color: #ffffff; /* white text */
+    color: #ffffff;
     font-size: 96px;
     text-align: center;
     font-family: 'Helvetica', Arial, sans-serif;
-
-    /* multiple blue shadows for a stronger outline */
     text-shadow:
             0 0 5px #3A97D4,
             0 0 10px #3A97D4,
             0 0 15px #3A97D4,
             0 0 20px #3A97D4;
-
     display: block;
     padding: 0;
     border-radius: 0;
 }
 
-/* Profile card container */
+/* Profile card takes remaining space */
 .profile-info {
-    position: relative;  /* for gallery overlay */
+    flex: 1 1 auto;                 /* fill remaining vertical space */
+    width: 400px;
+    max-width: 90%;                  /* responsive width */
     background-color: rgba(0, 0, 0, 0.6);
     padding: 30px;
     border-radius: 15px;
-    width: 400px;
-    height: 550px;       /* fixed height */
-    margin: -40px auto;   /* slightly higher */
+    margin: 10px 0;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    overflow-y: auto;    /* allow scrolling inside card only */
+
+    overflow-y: auto;                /* allow internal scrolling */
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+
+    /* ensure bottom buttons are not hidden behind navbar */
+    padding-bottom: clamp(70px, 10vh, 120px);
+}
+
+/* Optional: media query for very short screens */
+@media (max-height: 750px) {
+    .profile-info {
+        max-height: 95vh;         /* leave small padding from viewport top/bottom */
+    }
 }
 
 /* Profile picture styling */
@@ -133,6 +147,7 @@ header h1 {
     z-index: 10;
     width: 380px;
     max-height: 140px;
+    pointer-events: none;
 }
 
 .image-gallery img {
