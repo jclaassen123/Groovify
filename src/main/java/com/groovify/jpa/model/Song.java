@@ -3,7 +3,7 @@ package com.groovify.jpa.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Songs")
+@Table(name = "Song")
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

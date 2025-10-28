@@ -1,11 +1,9 @@
 package com.groovify.web.controller;
 
-import com.groovify.jpa.model.Users;
-import com.groovify.jpa.repo.SongRepo;
-import com.groovify.jpa.repo.UsersRepo;
+import com.groovify.jpa.model.Client;
+import com.groovify.jpa.repo.ClientRepo;
 import com.groovify.service.SongService;
 import jakarta.servlet.http.HttpSession;
-import com.groovify.service.SongServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,16 +19,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class SongController {
 
     private final SongService songService;
-    private final UsersRepo usersRepo;
+    private final ClientRepo clientRepo;
 
     /**
      * Constructor for SongController.
      *
      * @param songService Repository for accessing songs data
      */
-    public SongController(SongService songService, UsersRepo usersRepo) {
+    public SongController(SongService songService, ClientRepo clientRepo) {
         this.songService = songService;
-        this.usersRepo = usersRepo;
+        this.clientRepo = clientRepo;
     }
 
     /**
@@ -52,7 +50,7 @@ public class SongController {
         }
 
         // Fetch full user object for topbar
-        Users user = usersRepo.findByName(username).orElse(null);
+        Client user = clientRepo.findByName(username).orElse(null);
 
         model.addAttribute("user", user);        // For topbar profile picture
         model.addAttribute("pageTitle", "Songs");

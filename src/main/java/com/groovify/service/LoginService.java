@@ -7,5 +7,5 @@ public interface LoginService {
      * @param password - Raw password provided by the user logging in
      * @return true if data exists and matches what's on record, false otherwise
      */
-    boolean validateUser(String username, String password);
+    boolean validateClient(String username, String password);
 }

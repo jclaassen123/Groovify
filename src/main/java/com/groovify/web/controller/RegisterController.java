@@ -1,7 +1,7 @@
 package com.groovify.web.controller;
 
-import com.groovify.jpa.model.Users;
-import com.groovify.jpa.repo.UsersRepo;
+import com.groovify.jpa.model.Client;
+import com.groovify.jpa.repo.ClientRepo;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,9 +24,9 @@ public class RegisterController {
     /** Logger instance for tracking registration events. */
     private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
 
-    /** Repository used to perform CRUD operations on {@link Users} entities. */
+    /** Repository used to perform CRUD operations on {@link Client} entities. */
     @Autowired
-    private UsersRepo usersRepo;
+    private ClientRepo clientRepo;
 
     /**
      * Displays the registration page where a user can create a new account.
@@ -36,7 +36,7 @@ public class RegisterController {
      */
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
-        model.addAttribute("user", new Users());
+        model.addAttribute("user", new Client());
         return "register";
     }
 
@@ -47,12 +47,12 @@ public class RegisterController {
      * and the user is prompted to try again. If registration is successful,
      * the user is redirected to the landing page.
      *
-     * @param user  the {@link Users} object populated from form input
+     * @param user  the {@link Client} object populated from form input
      * @param model the {@link Model} used to store messages for the view
      * @return redirect to landing page upon success, or the registration form on failure
      */
     @PostMapping("/register")
-    public String registerUser(@Valid @ModelAttribute Users user,
+    public String registerUser(@Valid @ModelAttribute Client user,
                                BindingResult result,
                                Model model) {
         String username = user.getName();
@@ -66,7 +66,7 @@ public class RegisterController {
         }
 
         // Check for duplicate username
-        if (usersRepo.findByName(username).isPresent()) {
+        if (clientRepo.findByName(username).isPresent()) {
             log.warn("Registration failed: username '{}' already exists", username);
             model.addAttribute("user", user);  // ✅ add user back
             model.addAttribute("error", "Username already exists.");
@@ -74,7 +74,7 @@ public class RegisterController {
         }
 
         // Save the new user
-        usersRepo.save(user);
+        clientRepo.save(user);
         log.info("User '{}' successfully registered", username);
 
         return "redirect:/"; // landing page after registration

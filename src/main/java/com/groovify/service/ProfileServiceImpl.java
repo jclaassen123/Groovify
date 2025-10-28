@@ -1,9 +1,9 @@
 package com.groovify.service;
 
 import com.groovify.jpa.model.Genre;
-import com.groovify.jpa.model.Users;
+import com.groovify.jpa.model.Client;
 import com.groovify.jpa.repo.GenreRepo;
-import com.groovify.jpa.repo.UsersRepo;
+import com.groovify.jpa.repo.ClientRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,16 +13,16 @@ import java.util.Optional;
 @Service
 public class ProfileServiceImpl {
 
-    private final UsersRepo usersRepo;
+    private final ClientRepo clientRepo;
     private final GenreRepo genreRepo;
 
-    public ProfileServiceImpl(UsersRepo usersRepo, GenreRepo genreRepo) {
-        this.usersRepo = usersRepo;
+    public ProfileServiceImpl(ClientRepo clientRepo, GenreRepo genreRepo) {
+        this.clientRepo = clientRepo;
         this.genreRepo = genreRepo;
     }
 
-    public Optional<Users> getUserByUsername(String username) {
-        return usersRepo.findByName(username);
+    public Optional<Client> getUserByUsername(String username) {
+        return clientRepo.findByName(username);
     }
 
     public List<Genre> getAllGenres() {
@@ -30,12 +30,12 @@ public class ProfileServiceImpl {
     }
 
     public boolean isUsernameTaken(String username, String currentUsername) {
-        Optional<Users> user = usersRepo.findByName(username);
+        Optional<Client> user = clientRepo.findByName(username);
         return user.isPresent() && !user.get().getName().equals(currentUsername);
     }
 
     @Transactional
-    public void updateProfile(Users user, String name, String description, String imageFileName, List<Long> genreIds) {
+    public void updateProfile(Client user, String name, String description, String imageFileName, List<Long> genreIds) {
         user.setName(name.trim());
         user.setDescription(description.trim());
         user.setImageFileName(imageFileName);
@@ -45,6 +45,6 @@ public class ProfileServiceImpl {
             user.setGenres(genres);
         }
 
-        usersRepo.save(user);
+        clientRepo.save(user);
     }
 }

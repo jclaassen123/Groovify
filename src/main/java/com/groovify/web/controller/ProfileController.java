@@ -1,6 +1,6 @@
 package com.groovify.web.controller;
 
-import com.groovify.jpa.model.Users;
+import com.groovify.jpa.model.Client;
 import com.groovify.service.ProfileServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -24,10 +24,10 @@ public class ProfileController {
         String username = (String) session.getAttribute("username");
         if (username == null) return "redirect:/";
 
-        Optional<Users> optionalUser = profileService.getUserByUsername(username);
+        Optional<Client> optionalUser = profileService.getUserByUsername(username);
         if (optionalUser.isEmpty()) return "redirect:/";
 
-        Users user = optionalUser.get();
+        Client user = optionalUser.get();
         model.addAttribute("user", user);
         model.addAttribute("allGenres", profileService.getAllGenres());
         return "profile";
@@ -43,9 +43,9 @@ public class ProfileController {
         String username = (String) session.getAttribute("username");
         if (username == null) return "redirect:/";
 
-        Optional<Users> optionalUser = profileService.getUserByUsername(username);
+        Optional<Client> optionalUser = profileService.getUserByUsername(username);
         if (optionalUser.isPresent()) {
-            Users user = optionalUser.get();
+            Client user = optionalUser.get();
             profileService.updateProfile(user, name, description, image_file_name, genres);
             session.setAttribute("username", name);
         }

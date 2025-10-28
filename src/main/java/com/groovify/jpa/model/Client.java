@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class Users {
+@Table(name = "Client")
+public class Client {
 
     @Id
     @GeneratedValue
@@ -34,14 +34,14 @@ public class Users {
 
     @ManyToMany
     @JoinTable(
-            name = "User_genres",
-            joinColumns = @JoinColumn(name = "Users_ID"),
-            inverseJoinColumns = @JoinColumn(name = "Genres_ID")
+            name = "Client_Genre",
+            joinColumns = @JoinColumn(name = "Client_ID"),
+            inverseJoinColumns = @JoinColumn(name = "Genre_ID")
     )
     private List<Genre> genres;
 
-    public Users() {}
-    public Users(String name, String password) { this.name = name; this.password = password; }
+    public Client() {}
+    public Client(String name, String password) { this.name = name; this.password = password; }
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }

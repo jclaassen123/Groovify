@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "genre")
+@Table(name = "Genre")
 public class Genre {
 
     @Id
@@ -14,8 +14,8 @@ public class Genre {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "genres")
-    private List<Users> users;
+    @ManyToMany(mappedBy = "Genre")
+    private List<Client> clients;
 
     public Genre() {}
     public Genre(String name) { this.name = name; }
@@ -26,6 +26,6 @@ public class Genre {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public List<Users> getUsers() { return users; }
-    public void setUsers(List<Users> users) { this.users = users; }
+    public List<Client> getClient() { return clients; }
+    public void setClients(List<Client> users) { this.clients = users; }
 }

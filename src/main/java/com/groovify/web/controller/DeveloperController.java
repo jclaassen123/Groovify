@@ -1,7 +1,7 @@
 package com.groovify.web.controller;
 
-import com.groovify.jpa.model.Users;
-import com.groovify.jpa.repo.UsersRepo;
+import com.groovify.jpa.model.Client;
+import com.groovify.jpa.repo.ClientRepo;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DeveloperController {
 
     @Autowired
-    private UsersRepo usersRepo;
+    private ClientRepo clientRepo;
 
     @GetMapping("/jace")
     public String jacePage(HttpSession session, Model model) {
@@ -35,7 +35,7 @@ public class DeveloperController {
             return "redirect:/";
         }
 
-        Users user = usersRepo.findByName(username).orElse(null);
+        Client user = clientRepo.findByName(username).orElse(null);
 
         model.addAttribute("user", user);
         model.addAttribute("pageTitle", devName);

@@ -26,7 +26,7 @@ class LandingControllerTest {
         RedirectAttributes attrs = mock(RedirectAttributes.class);
 
         when(result.hasErrors()).thenReturn(false);
-        when(loginService.validateUser("testuser", "password")).thenReturn(true);
+        when(loginService.validateClient("testuser", "password")).thenReturn(true);
 
         String view = controller.loginPost(form, result, session, attrs);
 
@@ -45,7 +45,7 @@ class LandingControllerTest {
         RedirectAttributes attrs = mock(RedirectAttributes.class);
 
         when(result.hasErrors()).thenReturn(false);
-        when(loginService.validateUser("wronguser", "badpassword")).thenReturn(false);
+        when(loginService.validateClient("wronguser", "badpassword")).thenReturn(false);
 
         String view = controller.loginPost(form, result, session, attrs);
 
