@@ -33,6 +33,7 @@ public class Song {
         this.artist = artist;
         this.album = album;
         this.year = year;
+        this.genreId = null;
     }
 
     public String getFilename() {

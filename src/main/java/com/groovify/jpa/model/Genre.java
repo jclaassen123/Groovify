@@ -14,7 +14,7 @@ public class Genre {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "Genre")
+    @ManyToMany(mappedBy = "genres")
     private List<Client> clients;
 
     public Genre() {}
