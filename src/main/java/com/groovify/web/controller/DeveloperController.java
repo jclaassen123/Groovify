@@ -16,17 +16,17 @@ public class DeveloperController {
 
     @GetMapping("/jace")
     public String jacePage(HttpSession session, Model model) {
-        return loadDeveloperPage(session, model, "Jace Claassen", "/images/Jace.jpg", "Hi, I'm Jace — I'm nasty at rocket league.");
+        return loadDeveloperPage(session, model, "Jace Claassen", "/images/developer/Jace.jpg", "Hi, I'm Jace — I'm nasty at rocket league.");
     }
 
     @GetMapping("/zack")
     public String zackPage(HttpSession session, Model model) {
-        return loadDeveloperPage(session, model, "Zack Gaz", "/images/Universe.jpg","Hi im zack");
+        return loadDeveloperPage(session, model, "Zack Gaz", "/images/developer/Zack.jpg","Hi im zack");
     }
 
     @GetMapping("/nevin")
     public String nevinPage(HttpSession session, Model model) {
-        return loadDeveloperPage(session, model, "Nevin F", "/images/Forest.jpg","Hi im nevin");
+        return loadDeveloperPage(session, model, "Nevin F", "/images/developer/Nevin.jpg","Hi im nevin");
     }
 
     private String loadDeveloperPage(HttpSession session, Model model, String devName, String imagePath, String bio) {

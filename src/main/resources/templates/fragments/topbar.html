@@ -12,7 +12,7 @@
     <div class="profile">
       <!-- Profile circle -->
       <div class="profile-circle" id="profileCircle">
-        <img th:src="@{/images/{img}(img=${user != null ? user.imageFileName : 'Fishing.jpg'})}"
+        <img th:src="@{/images/profile/{img}(img=${user != null ? user.imageFileName : 'Fishing.jpg'})}"
              alt="Profile Picture">
       </div>
 

@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/navbar.css}">
     <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
 </head>
-<body th:style="'background-image: url(/images/' + ${user.getImageFileName()} + ');'">
+<body th:style="'background-image: url(/images/profile/' + ${user.getImageFileName()} + ');'">
 
 <!-- Groovify Text at Top -->
 <header>
@@ -21,7 +21,7 @@
         <input type="hidden" th:value="${user.id}" name="id">
 
         <!-- Profile Picture -->
-        <img id="profilePic" th:src="@{/images/{img}(img=${user.getImageFileName()})}"
+        <img id="profilePic" th:src="@{/images/profile/{img}(img=${user.getImageFileName()})}"
              alt="Profile Picture" class="profile-picture"><br><br>
 
         <!-- Hidden input to store selected image filename -->
@@ -29,13 +29,13 @@
 
         <!-- Scrollable image gallery -->
         <div id="imageGallery" class="image-gallery" style="display:none;">
-            <img src="/images/Sunset.jpg" class="selectable-img">
-            <img src="/images/Forest.jpg" class="selectable-img">
-            <img src="/images/Universe.jpg" class="selectable-img">
-            <img src="/images/Concert.jpg" class="selectable-img">
-            <img src="/images/City.jpg" class="selectable-img">
-            <img src="/images/Mountains.jpg" class="selectable-img">
-            <img src="/images/Fishing.jpg" class="selectable-img">
+            <img src="/images/profile/Sunset.jpg" class="selectable-img">
+            <img src="/images/profile/Forest.jpg" class="selectable-img">
+            <img src="/images/profile/Universe.jpg" class="selectable-img">
+            <img src="/images/profile/Concert.jpg" class="selectable-img">
+            <img src="/images/profile/City.jpg" class="selectable-img">
+            <img src="/images/profile/Mountains.jpg" class="selectable-img">
+            <img src="/images/profile/Fishing.jpg" class="selectable-img">
         </div>
 
         <label>Username:</label>

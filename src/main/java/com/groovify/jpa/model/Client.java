@@ -54,7 +54,7 @@ public class Client {
 
     public String getImageFileName() {
         String defaultImage = "Fishing.jpg";
-        Path imagesFolder = Paths.get("src/main/resources/static/images");
+        Path imagesFolder = Paths.get("src/main/resources/static/images/profile/");
 
         if (image_file_name == null) return defaultImage;
 
