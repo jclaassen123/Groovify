@@ -1,0 +1,56 @@
+/* Responsive grid container for songs */
+.songs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 300px; /* Keep cards vertical rectangle */
+    gap: 20px; /* spacing between cards */
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Individual song card */
+.song-card {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    /* subtle white glow */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 0 18px rgba(255,255,255,0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.song-card:hover {
+    transform: scale(1.05);
+    /* slightly stronger glow on hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.55);
+}
+
+/* Gradient overlay behind song info */
+.song-info {
+    width: 100%;
+    height: 80px; /* fixed height so all overlays are consistent */
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.75));
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.song-info h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.song-info p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+}
