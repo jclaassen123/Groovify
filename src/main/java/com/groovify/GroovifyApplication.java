@@ -55,8 +55,8 @@ public class GroovifyApplication {
         return args -> {
             log.info("Starting genre import before web server startup...");
             List<String> genres = List.of(
-                    "Rock", "Pop", "Hip-Hop", "Jazz", "Classical",
-                    "Electronic", "Country", "Reggae", "Blues", "Metal"
+                    "Rock", "Pop","Classical",
+                    "Tech", "Country", "Folk"
             );
             genreImportService.importGenres(genres);
             log.info("Genre import complete. Continuing startup...");
