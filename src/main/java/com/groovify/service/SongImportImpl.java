@@ -1,8 +1,9 @@
 package com.groovify.service;
 
 import com.groovify.jpa.model.Song;
+import com.groovify.jpa.model.Genre;
 import com.groovify.jpa.repo.SongRepo;
-import com.groovify.web.controller.LandingController;
+import com.groovify.jpa.repo.GenreRepo;
 import com.mpatric.mp3agic.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -17,65 +18,79 @@ public class SongImportImpl implements SongImportService {
     private static final Logger log = LoggerFactory.getLogger(SongImportImpl.class);
 
     private final SongRepo songRepository;
+    private final GenreRepo genreRepository;
 
-    // The folder where your MP3 files live
     @Value("${music.directory:src/main/resources/static/songs}")
     private String musicDirectory;
 
-    public SongImportImpl(SongRepo songRepository) {
+    public SongImportImpl(SongRepo songRepository, GenreRepo genreRepository) {
         this.songRepository = songRepository;
+        this.genreRepository = genreRepository;
     }
 
     public void importSongs() {
-        File folder = new File(musicDirectory);
-        if (!folder.exists() || !folder.isDirectory()) {
-            log.error("Music directory not found: '{}'", folder.getAbsolutePath());
+        File songsRoot = new File(musicDirectory);
+        if (!songsRoot.exists() || !songsRoot.isDirectory()) {
+            log.error("Music directory not found: '{}'", songsRoot.getAbsolutePath());
             return;
         }
 
-        File[] files = folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp3"));
-        if (files == null || files.length == 0) {
-            log.warn("No MP3 files found in '{}'", folder.getAbsolutePath());
+        // Iterate over genre folders
+        File[] genreFolders = songsRoot.listFiles(File::isDirectory);
+        if (genreFolders == null || genreFolders.length == 0) {
+            log.warn("No genre folders found in '{}'", songsRoot.getAbsolutePath());
             return;
         }
 
-        for (File file : Objects.requireNonNull(files)) {
-            if (songRepository.existsByFilename(file.getName())) {
-                log.warn("File '{}' already exists", file.getName());
+        for (File genreFolder : genreFolders) {
+            String genreName = genreFolder.getName();
+            Genre genre = genreRepository.findByName(genreName).orElse(null);
+            if (genre == null) {
+                log.warn("Genre '{}' not found in database, skipping folder", genreName);
                 continue;
             }
 
-            try {
-                log.info("Importing '{}'", file.getName());
-                Mp3File mp3 = new Mp3File(file);
-                String title = file.getName();
-                String artist = "Unknown";
-                String album = "Unknown";
-                int year = 0;
+            File[] mp3Files = genreFolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp3"));
+            if (mp3Files == null || mp3Files.length == 0) {
+                log.warn("No MP3 files found in '{}'", genreFolder.getAbsolutePath());
+                continue;
+            }
 
-                if (mp3.hasId3v2Tag()) {
-                    log.debug("Found ID3v2Tag: {}", mp3.getId3v2Tag());
-                    ID3v2 tag = mp3.getId3v2Tag();
-                    title = safeString(tag.getTitle(), title);
-                    artist = safeString(tag.getArtist(), artist);
-                    album = safeString(tag.getAlbum(), album);
-                    year = parseYear(tag.getYear());
-                } else if (mp3.hasId3v1Tag()) {
-                    log.debug("Found ID3v1Tag: {}", mp3.getId3v1Tag());
-                    ID3v1 tag = mp3.getId3v1Tag();
-                    title = safeString(tag.getTitle(), title);
-                    artist = safeString(tag.getArtist(), artist);
-                    album = safeString(tag.getAlbum(), album);
-                    year = parseYear(tag.getYear());
+            for (File file : mp3Files) {
+                if (songRepository.existsByFilename(file.getName())) {
+                    log.warn("File '{}' already exists", file.getName());
+                    continue;
                 }
 
-                log.info("Song info: '{}': '{}'", title, artist);
-                Song song = new Song(file.getName(), title, artist, album, year);
-                songRepository.save(song);
-                log.info("Imported: '{}'", file.getName());
+                try {
+                    Mp3File mp3 = new Mp3File(file);
+                    String title = formatTitle(file.getName());
+                    String artist = "Unknown";
+                    String album = "Unknown";
+                    int year = 0;
 
-            } catch (Exception e) {
-                log.error("Error reading '{}' '{}'", file.getName(), e.getMessage());
+                    if (mp3.hasId3v2Tag()) {
+                        ID3v2 tag = mp3.getId3v2Tag();
+                        title = safeString(tag.getTitle(), title);
+                        artist = safeString(tag.getArtist(), artist);
+                        album = safeString(tag.getAlbum(), album);
+                        year = parseYear(tag.getYear());
+                    } else if (mp3.hasId3v1Tag()) {
+                        ID3v1 tag = mp3.getId3v1Tag();
+                        title = safeString(tag.getTitle(), title);
+                        artist = safeString(tag.getArtist(), artist);
+                        album = safeString(tag.getAlbum(), album);
+                        year = parseYear(tag.getYear());
+                    }
+
+                    Song song = new Song(file.getName(), title, artist, album, year);
+                    song.setGenreId(genre.getId()); // Set genre ID from folder match
+                    songRepository.save(song);
+                    log.info("Imported '{}': '{}', Genre='{}'", file.getName(), title, genreName);
+
+                } catch (Exception e) {
+                    log.error("Error reading '{}' '{}'", file.getName(), e.getMessage());
+                }
             }
         }
     }
@@ -92,5 +107,12 @@ public class SongImportImpl implements SongImportService {
         } catch (NumberFormatException e) {
             return 0;
         }
+    }
+
+    private String formatTitle(String filename) {
+        // Remove .mp3
+        String name = filename.replace(".mp3", "");
+        // Insert spaces before capital letters
+        return name.replaceAll("(?<!^)(?=[A-Z])", " ").trim();
     }
 }

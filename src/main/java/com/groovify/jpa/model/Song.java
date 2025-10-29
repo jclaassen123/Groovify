@@ -36,6 +36,7 @@ public class Song {
         this.genreId = null;
     }
 
+    // Getters
     public String getFilename() {
         return filename;
     }
@@ -48,10 +49,20 @@ public class Song {
         return artist;
     }
 
-    public String getAlbum() { return album; }
+    public String getAlbum() {
+        return album;
+    }
 
-    public int getYear() { return year; }
+    public int getYear() {
+        return year;
+    }
 
-    public long getGenreId() { return genreId; }
+    public Long getGenreId() {
+        return genreId;
+    }
 
+    // Setter for Genre ID
+    public void setGenreId(Long genreId) {
+        this.genreId = genreId;
+    }
 }
