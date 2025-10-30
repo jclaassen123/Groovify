@@ -29,7 +29,14 @@
   </form>
 </div>
 
+<!-- Songs Container -->
 <div id="songHolder" class="songs-container">
+  <!-- Show message only if a search has been performed and no results -->
+  <div th:if="${query != null and #lists.isEmpty(songList)}">
+    <p>No songs found for "<span th:text="${query}"></span>"</p>
+  </div>
+
+  <!-- Display search results -->
   <div th:each="song : ${songList}">
     <div th:replace="fragments/songFragment :: songCard" th:with="song=${song}"></div>
   </div>
