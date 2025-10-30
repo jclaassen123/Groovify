@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private ClientRepo clientRepo;
+    private final ClientRepo clientRepo;
+
+    public HomeController(ClientRepo clientRepo) {
+        this.clientRepo = clientRepo;
+    }
 
     /**
      * Handles GET requests to "/home".

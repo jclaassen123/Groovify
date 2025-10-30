@@ -25,8 +25,11 @@ public class RegisterController {
     private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
 
     /** Repository used to perform CRUD operations on {@link Client} entities. */
-    @Autowired
-    private ClientRepo clientRepo;
+    private final ClientRepo clientRepo;
+
+    public RegisterController(ClientRepo clientRepo) {
+        this.clientRepo = clientRepo;
+    }
 
     /**
      * Displays the registration page where a user can create a new account.

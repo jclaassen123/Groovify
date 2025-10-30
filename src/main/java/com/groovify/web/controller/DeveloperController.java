@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class DeveloperController {
 
-    @Autowired
-    private ClientRepo clientRepo;
+    private final ClientRepo clientRepo;
 
+    public DeveloperController(ClientRepo clientRepo) {
+        this.clientRepo = clientRepo;
+    }
     @GetMapping("/jace")
     public String jacePage(HttpSession session, Model model) {
         return loadDeveloperPage(session, model, "Jace Claassen", "/images/developer/Jace.jpg", "Hi, I'm Jace — I'm nasty at rocket league.");

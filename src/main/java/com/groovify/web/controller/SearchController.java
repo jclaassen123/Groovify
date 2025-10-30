@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SearchController {
 
-    @Autowired
-    private ClientRepo clientRepo;
+    private final ClientRepo clientRepo;
+
+    public SearchController(ClientRepo clientRepo) {
+        this.clientRepo = clientRepo;
+    }
 
     /**
      * Handles GET requests to "/search".
