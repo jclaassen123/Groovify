@@ -15,10 +15,9 @@
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
 
-<!-- Songs grid -->
-<div class="songs-container">
+<div id="songHolder" class="songs-container">
   <div th:each="song : ${songList}">
-    <div th:replace="fragments/songFragment :: songCard" th:each="song : ${songList}" th:with="song=${song}"></div>
+    <div th:replace="fragments/songFragment :: songCard" th:with="song=${song}"></div>
   </div>
 </div>
 

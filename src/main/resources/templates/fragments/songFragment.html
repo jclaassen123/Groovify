@@ -1,4 +1,5 @@
 <div th:fragment="songCard" class="song-card"
+     th:attr="data-filename=${song.filename}, data-genre=${song.genreName}"
      th:style="|background-image: url('/images/album/${song.genreName}.jpg');|">
   <div class="song-info">
     <h3 th:text="${song.title}">Song Title</h3>

@@ -14,4 +14,8 @@ public class SongView {
     public String getTitle() { return title; }
     public String getArtist() { return artist; }
     public String getGenreName() { return genreName; }
+    public String getFilename() {
+        // remove all spaces for filename
+        return title.replaceAll("\\s+", "") + ".mp3";
+    }
 }
