@@ -46,7 +46,7 @@ class SongControllerTest {
     void songsPage_redirectsWhenUserNotLoggedIn() {
         when(session.getAttribute("username")).thenReturn(null);
 
-        String result = songController.songsPage(session, model);
+        String result = songController.songPage(session, model);
 
         assertEquals("redirect:", result);
         verifyNoInteractions(clientRepo, songService, model);
@@ -64,7 +64,7 @@ class SongControllerTest {
         when(clientRepo.findByName("nevin")).thenReturn(Optional.of(user));
         when(songService.getAllSongs()).thenReturn(List.of(song1, song2));
 
-        String result = songController.songsPage(session, model);
+        String result = songController.songPage(session, model);
 
         assertEquals("songs", result);
         verify(model).addAttribute("user", user);
@@ -85,7 +85,7 @@ class SongControllerTest {
         when(songService.getAllSongs()).thenReturn(List.of(song1, song2));
 
         // Act
-        String result = songController.songsPage(session, model);
+        String result = songController.songPage(session, model);
 
         // Assert
         assertEquals("songs", result);
