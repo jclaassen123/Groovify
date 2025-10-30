@@ -65,3 +65,15 @@
         font-size: 0.875rem;
     }
 }
+
+/* No Songs Found Message */
+.no-songs {
+    color: white;
+    font-size: 1.25rem;
+    margin: 8rem auto 2rem auto; /* push below the fixed search bar */
+    text-align: center;          /* center horizontally */
+    max-width: 40rem;            /* matches search bar width */
+    width: 90%;                  /* responsive */
+}
+
+

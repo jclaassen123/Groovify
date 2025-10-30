@@ -16,7 +16,6 @@
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Search'"></div>
 
-<!-- Search Section -->
 <div class="search-container">
   <form class="search-form" th:action="@{/search/results}" method="get">
     <input
@@ -24,19 +23,19 @@
             name="query"
             class="search-input"
             placeholder="Search by song or artist..."
-            required>
+            required
+            th:value="${query}">
     <button type="submit" class="search-button">Search</button>
   </form>
 </div>
 
+<!-- No songs found message -->
+<div th:if="${query != null and #lists.isEmpty(songList)}" class="no-songs">
+  No songs found for "<span th:text="${query}"></span>"
+</div>
+
 <!-- Songs Container -->
 <div id="songHolder" class="songs-container">
-  <!-- Show message only if a search has been performed and no results -->
-  <div th:if="${query != null and #lists.isEmpty(songList)}">
-    <p>No songs found for "<span th:text="${query}"></span>"</p>
-  </div>
-
-  <!-- Display search results -->
   <div th:each="song : ${songList}">
     <div th:replace="fragments/songFragment :: songCard" th:with="song=${song}"></div>
   </div>
