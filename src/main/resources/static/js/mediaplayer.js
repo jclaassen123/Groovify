@@ -84,3 +84,16 @@ function formatTime(seconds) {
     const secs = Math.floor(seconds % 60);
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
+
+const toggleButton = document.getElementById("toggleMediaplayer");
+const mediaPlayer = document.querySelector(".mediaplayer");
+
+toggleButton.addEventListener('click', () => {
+    mediaPlayer.classList.toggle('folded');
+
+    if (mediaPlayer.classList.contains('folded')) {
+        toggleButton.textContent = "▲"; // folded → arrow points up
+    } else {
+        toggleButton.textContent = "▼"; // expanded → arrow points down
+    }
+});
