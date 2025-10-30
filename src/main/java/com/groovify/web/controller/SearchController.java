@@ -1,37 +1,31 @@
 package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Client;
+import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.ClientRepo;
+import com.groovify.jpa.repo.SongRepo;
+import com.groovify.jpa.repo.GenreRepo;
+import com.groovify.web.dto.SongView;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-/**
- * Controller responsible for handling requests related to the search page.
- * <p>
- * Ensures that only logged-in users can access the search page and
- * passes user-specific information to the view for the topbar.
- * </p>
- */
+import java.util.List;
+
 @Controller
 public class SearchController {
 
     @Autowired
     private ClientRepo clientRepo;
 
-    /**
-     * Handles GET requests to "/search".
-     * <p>
-     * Checks if a user is logged in via the session. If not, redirects to the landing page.
-     * Otherwise, fetches the user object and passes it along with page title to the view.
-     * </p>
-     *
-     * @param session HTTP session containing logged-in user info
-     * @param model   Model object to pass data to the view
-     * @return name of the Thymeleaf template to render
-     */
+    @Autowired
+    private SongRepo songRepo;
+
+    @Autowired
+    private GenreRepo genreRepo;
+
     @GetMapping("/search")
     public String searchPage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
@@ -39,11 +33,23 @@ public class SearchController {
             return "redirect:";
         }
 
-        // Fetch full user object for topbar
         Client user = clientRepo.findByName(username).orElse(null);
+
+        // Fetch all songs
+        List<Song> songs = songRepo.findAll();
+
+        // Map songs to SongView with genre name
+        List<SongView> songList = songs.stream().map(song -> {
+            String genreName = genreRepo.findById(song.getGenreId())
+                    .map(genre -> genre.getName())
+                    .orElse("Unknown");
+            return new SongView(song.getTitle(), song.getArtist(), genreName);
+        }).toList();
 
         model.addAttribute("user", user);
         model.addAttribute("pageTitle", "Search");
+        model.addAttribute("songList", songList);
+
         return "search";
     }
 }

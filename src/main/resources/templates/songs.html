@@ -7,6 +7,7 @@
   <link rel="stylesheet" th:href="@{/css/songs.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
   <link rel="stylesheet" th:href="@{/css/topbar.css}">
+  <link rel="stylesheet" th:href="@{/css/songCard.css}">
   <link rel="stylesheet" th:href="@{/css/mediaplayer.css}">
 </head>
 <body>
@@ -14,41 +15,26 @@
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
 
-<script th:src="@{/js/topbar.js}"></script>
-
 <!-- Songs grid -->
-<div id="songHolder">
-  <div class="song-card" th:each="song : ${songs}" th:data-filename="${song.filename}">
-    <!-- Song image (clickable to play) -->
-    <img class="song-image"/>
-<!--         th:alt="${song.title}"-->
-
-<!--         th:src="@{/images/{img}(img=${song.image})}"-->
-
-
-    <!-- Song info -->
-    <div class="song-info">
-      <div class="song-title" th:text="${song.title}"></div>
-      <div class="song-artist" th:text="${song.artist}"></div>
-    </div>
+<div class="songs-container">
+  <div th:each="song : ${songList}">
+    <div th:replace="fragments/songFragment :: songCard" th:each="song : ${songList}" th:with="song=${song}"></div>
   </div>
 </div>
 
-<audio id = "player"></audio>
+<!-- Audio element -->
+<audio id="player"></audio>
 
 <!-- Mediaplayer fragment -->
 <div th:replace="fragments/mediaplayer :: mediaplayer"></div>
+
 <!-- Navbar fragment -->
 <div th:replace="fragments/navbar :: navbar"></div>
 
-
-<!-- Navbar JS -->
+<!-- JS scripts -->
 <script th:src="@{/js/mediaplayer.js}"></script>
-
-<!-- Navbar JS -->
+<script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/navbar.js}"></script>
-
-
 <div th:replace="fragments/session :: sessionTimeoutScripts"></div>
 
 </body>

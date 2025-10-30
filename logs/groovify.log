@@ -1,802 +1,196 @@
-2025-10-29 09:39:56,185 - [INFO] - from org.hibernate.validator.internal.util.Version in background-preinit 
-HV000001: Hibernate Validator 8.0.3.Final
+2025-10-30 00:02:18,803 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m28s58ms).
 
-2025-10-29 09:39:56,204 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.4 with PID 29914 (/Users/jaceclaassen/Desktop/Groovify/build/classes/java/main started by jaceclaassen in /Users/jaceclaassen/Desktop/Groovify)
+2025-10-30 00:24:03,980 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m45s177ms).
 
-2025-10-29 09:39:56,204 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
+2025-10-30 00:41:01,052 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m57s72ms).
 
-2025-10-29 09:39:56,218 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-30 00:57:43,889 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m12s845ms).
 
-2025-10-29 09:39:56,218 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-30 01:16:04,441 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m20s552ms).
 
-2025-10-29 09:39:56,440 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-30 01:33:28,086 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m23s645ms).
 
-2025-10-29 09:39:56,461 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
+2025-10-30 01:51:46,798 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m18s712ms).
 
-2025-10-29 09:39:56,646 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat initialized with port 8080 (http)
+2025-10-30 02:07:35,512 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m48s714ms).
 
-2025-10-29 09:39:56,656 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-30 02:23:42,064 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m6s552ms).
 
-2025-10-29 09:39:56,657 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
-Starting service [Tomcat]
+2025-10-30 02:40:28,687 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m46s623ms).
 
-2025-10-29 09:39:56,657 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
-Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-30 02:57:26,318 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m57s631ms).
 
-2025-10-29 09:39:56,671 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
-Initializing Spring embedded WebApplicationContext
+2025-10-30 03:13:50,750 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m24s432ms).
 
-2025-10-29 09:39:56,671 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 453 ms
+2025-10-30 03:32:11,324 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m20s574ms).
 
-2025-10-29 09:39:56,730 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
-HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-30 03:49:42,966 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m31s641ms).
 
-2025-10-29 09:39:56,753 - [INFO] - from org.hibernate.Version in restartedMain 
-HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-30 03:53:02,258 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m19s293ms).
 
-2025-10-29 09:39:56,765 - [INFO] - from org.hibernate.cache.internal.RegionFactoryInitiator in restartedMain 
-HHH000026: Second-level cache disabled
+2025-10-30 04:10:13,128 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m10s870ms).
 
-2025-10-29 09:39:56,872 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
-No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-30 04:27:50,784 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m37s656ms).
 
-2025-10-29 09:39:56,883 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
-HikariPool-1 - Starting...
+2025-10-30 04:45:08,829 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m18s45ms).
 
-2025-10-29 09:39:57,025 - [INFO] - from com.zaxxer.hikari.pool.HikariPool in restartedMain 
-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@291ac422
+2025-10-30 05:03:15,510 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m6s681ms).
 
-2025-10-29 09:39:57,026 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
-HikariPool-1 - Start completed.
+2025-10-30 05:20:49,278 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m33s768ms).
 
-2025-10-29 09:39:57,041 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
-HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-30 05:38:29,293 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m9s440ms).
 
-2025-10-29 09:39:57,042 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
-HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-30 05:55:36,361 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m7s68ms).
 
-2025-10-29 09:39:57,047 - [INFO] - from org.hibernate.orm.connections.pooling in restartedMain 
-HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
+2025-10-30 06:13:21,195 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m44s834ms).
 
-2025-10-29 09:39:57,369 - [INFO] - from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
-HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-30 06:31:42,981 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m21s786ms).
 
-2025-10-29 09:39:57,611 - [WARN] - from org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl in restartedMain 
-GenerationTarget encountered exception accepting command : Error executing DDL "create table song (id bigint not null auto_increment, album varchar(255), artist varchar(255), filename varchar(255), genre_id bigint, title varchar(255), year integer, primary key (id)) engine=InnoDB" via JDBC [Table 'song' already exists]
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table song (id bigint not null auto_increment, album varchar(255), artist varchar(255), filename varchar(255), genre_id bigint, title varchar(255), year integer, primary key (id)) engine=InnoDB" via JDBC [Table 'song' already exists]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:316)
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.groovify.GroovifyApplication.main(GroovifyApplication.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'song' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
-	... 40 common frames omitted
+2025-10-30 06:48:01,850 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m18s869ms).
 
-2025-10-29 09:39:57,623 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
-Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-30 06:56:27,515 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m25s665ms).
 
-2025-10-29 09:39:57,752 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-30 07:13:25,904 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m58s389ms).
 
-2025-10-29 09:39:57,880 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
-LiveReload server is running on port 35729
+2025-10-30 07:42:06,540 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m40s636ms).
 
-2025-10-29 09:39:57,886 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Starting ProtocolHandler ["http-nio-8080"]
+2025-10-30 07:57:22,360 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m15s819ms).
 
-2025-10-29 09:39:57,893 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat started on port 8080 (http) with context path '/'
+2025-10-30 08:00:48,154 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m25s795ms).
 
-2025-10-29 09:39:57,897 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 1.863 seconds (process running for 2.014)
+2025-10-30 08:18:41,461 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m53s307ms).
 
-2025-10-29 09:39:57,898 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
+2025-10-30 08:35:02,299 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m20s838ms).
 
-2025-10-29 09:39:57,959 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'February Carnival.mp3' already exists
+2025-10-30 08:52:05,089 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m2s790ms).
 
-2025-10-29 09:39:57,960 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'March Song of the Lark.mp3' already exists
+2025-10-30 09:16:01,186 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m56s97ms).
 
-2025-10-29 09:39:57,961 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'January At the Fireside.mp3' already exists
+2025-10-30 09:32:58,070 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m56s884ms).
 
-2025-10-29 09:39:57,961 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete. Continuing startup...
+2025-10-30 09:38:43,513 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m45s443ms).
 
-2025-10-29 09:39:57,961 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
+2025-10-30 09:56:15,797 - [WARN] - from com.zaxxer.hikari.pool.HikariPool in HikariPool-1:housekeeper 
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m32s284ms).
 
-2025-10-29 09:39:57,978 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete. Continuing startup...
-
-2025-10-29 09:39:58,847 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
-Initializing Spring DispatcherServlet 'dispatcherServlet'
-
-2025-10-29 09:39:58,847 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Initializing Servlet 'dispatcherServlet'
-
-2025-10-29 09:39:58,848 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Completed initialization in 1 ms
-
-2025-10-29 09:40:01,083 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
-User 'JaceClaassen' attempting to log in
-
-2025-10-29 09:40:01,091 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
-User 'JaceClaassen' successfully logged in
-
-2025-10-29 09:40:01,114 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-5 
-[THYMELEAF][http-nio-8080-exec-5][home] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template home, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:40:01,130 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-5 
-[THYMELEAF][http-nio-8080-exec-5][home] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template home, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:40:01,132 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-5 
-[THYMELEAF][http-nio-8080-exec-5][home] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template home, line 20, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:40:02,743 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
-[THYMELEAF][http-nio-8080-exec-7][profile] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template profile, line 66, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:40:02,745 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
-[THYMELEAF][http-nio-8080-exec-7][profile] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template profile, line 68, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:40:23,959 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-10 
-[THYMELEAF][http-nio-8080-exec-10][profile] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template profile, line 66, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:40:23,960 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-10 
-[THYMELEAF][http-nio-8080-exec-10][profile] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template profile, line 68, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:40:23,981 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
-[THYMELEAF][http-nio-8080-exec-2][profile] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template profile, line 66, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:40:23,981 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
-[THYMELEAF][http-nio-8080-exec-2][profile] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template profile, line 68, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:40:35,368 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-8 
-User 'Jace' attempting to log in
-
-2025-10-29 09:40:35,371 - [WARN] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-8 
-Invalid login attempt for username 'Jace'
-
-2025-10-29 09:40:43,242 - [INFO] - from com.groovify.web.controller.RegisterController in http-nio-8080-exec-3 
-User 'Jace' attempting to register
-
-2025-10-29 09:40:43,263 - [INFO] - from com.groovify.web.controller.RegisterController in http-nio-8080-exec-3 
-User 'Jace' successfully registered
-
-2025-10-29 09:40:48,965 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-1 
-User 'Jace' attempting to log in
-
-2025-10-29 09:40:48,969 - [WARN] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-1 
-Invalid login attempt for username 'Jace'
-
-2025-10-29 09:41:29,383 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-10 
-User 'Jace' attempting to log in
-
-2025-10-29 09:41:29,387 - [WARN] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-10 
-Invalid login attempt for username 'Jace'
-
-2025-10-29 09:41:42,320 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-1 
-User 'Jace' attempting to log in
-
-2025-10-29 09:41:42,325 - [WARN] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-1 
-Invalid login attempt for username 'Jace'
-
-2025-10-29 09:41:55,047 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+2025-10-30 09:56:32,658 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
 Commencing graceful shutdown. Waiting for active requests to complete
 
-2025-10-29 09:41:55,049 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+2025-10-30 09:56:32,661 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
 Graceful shutdown complete
 
-2025-10-29 09:41:55,053 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+2025-10-30 09:56:32,665 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
 Closing JPA EntityManagerFactory for persistence unit 'default'
 
-2025-10-29 09:41:55,054 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+2025-10-30 09:56:32,667 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
 HikariPool-1 - Shutdown initiated...
 
-2025-10-29 09:41:55,056 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+2025-10-30 09:56:32,669 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
 HikariPool-1 - Shutdown completed.
 
-2025-10-29 09:42:00,803 - [INFO] - from org.hibernate.validator.internal.util.Version in background-preinit 
+2025-10-30 09:56:55,754 - [INFO] - from org.hibernate.validator.internal.util.Version in background-preinit 
 HV000001: Hibernate Validator 8.0.3.Final
 
-2025-10-29 09:42:00,818 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.4 with PID 29943 (/Users/jaceclaassen/Desktop/Groovify/build/classes/java/main started by jaceclaassen in /Users/jaceclaassen/Desktop/Groovify)
+2025-10-30 09:56:55,769 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+Starting GroovifyApplication using Java 21.0.4 with PID 41221 (/Users/jaceclaassen/Desktop/Groovify/build/classes/java/main started by jaceclaassen in /Users/jaceclaassen/Desktop/Groovify)
 
-2025-10-29 09:42:00,818 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+2025-10-30 09:56:55,769 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
 No active profile set, falling back to 1 default profile: "default"
 
-2025-10-29 09:42:00,830 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+2025-10-30 09:56:55,782 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
 Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
 
-2025-10-29 09:42:00,830 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+2025-10-30 09:56:55,782 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
 For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
 
-2025-10-29 09:42:01,023 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+2025-10-30 09:56:55,968 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
 Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 
-2025-10-29 09:42:01,041 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Finished Spring Data repository scanning in 16 ms. Found 4 JPA repository interfaces.
-
-2025-10-29 09:42:01,199 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat initialized with port 8080 (http)
-
-2025-10-29 09:42:01,203 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Initializing ProtocolHandler ["http-nio-8080"]
-
-2025-10-29 09:42:01,203 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
-Starting service [Tomcat]
-
-2025-10-29 09:42:01,203 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
-Starting Servlet engine: [Apache Tomcat/10.1.44]
-
-2025-10-29 09:42:01,215 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
-Initializing Spring embedded WebApplicationContext
-
-2025-10-29 09:42:01,216 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 386 ms
-
-2025-10-29 09:42:01,266 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
-HHH000204: Processing PersistenceUnitInfo [name: default]
-
-2025-10-29 09:42:01,279 - [INFO] - from org.hibernate.Version in restartedMain 
-HHH000412: Hibernate ORM core version 6.6.26.Final
-
-2025-10-29 09:42:01,288 - [INFO] - from org.hibernate.cache.internal.RegionFactoryInitiator in restartedMain 
-HHH000026: Second-level cache disabled
-
-2025-10-29 09:42:01,378 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
-No LoadTimeWeaver setup: ignoring JPA class transformer
-
-2025-10-29 09:42:01,387 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
-HikariPool-1 - Starting...
-
-2025-10-29 09:42:01,520 - [INFO] - from com.zaxxer.hikari.pool.HikariPool in restartedMain 
-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e775e86
-
-2025-10-29 09:42:01,520 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
-HikariPool-1 - Start completed.
-
-2025-10-29 09:42:01,537 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
-HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-
-2025-10-29 09:42:01,537 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
-HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-
-2025-10-29 09:42:01,542 - [INFO] - from org.hibernate.orm.connections.pooling in restartedMain 
-HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-
-2025-10-29 09:42:01,830 - [INFO] - from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
-HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-
-2025-10-29 09:42:02,079 - [WARN] - from org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl in restartedMain 
-GenerationTarget encountered exception accepting command : Error executing DDL "create table song (id bigint not null auto_increment, album varchar(255), artist varchar(255), filename varchar(255), genre_id bigint, title varchar(255), year integer, primary key (id)) engine=InnoDB" via JDBC [Table 'song' already exists]
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table song (id bigint not null auto_increment, album varchar(255), artist varchar(255), filename varchar(255), genre_id bigint, title varchar(255), year integer, primary key (id)) engine=InnoDB" via JDBC [Table 'song' already exists]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:316)
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.groovify.GroovifyApplication.main(GroovifyApplication.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'song' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
-	... 40 common frames omitted
-
-2025-10-29 09:42:02,094 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
-Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-2025-10-29 09:42:02,218 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-
-2025-10-29 09:42:02,324 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
-LiveReload server is running on port 35729
-
-2025-10-29 09:42:02,330 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Starting ProtocolHandler ["http-nio-8080"]
-
-2025-10-29 09:42:02,335 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat started on port 8080 (http) with context path '/'
-
-2025-10-29 09:42:02,339 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 1.669 seconds (process running for 1.788)
-
-2025-10-29 09:42:02,340 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
-
-2025-10-29 09:42:02,403 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete. Continuing startup...
-
-2025-10-29 09:42:02,404 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
-
-2025-10-29 09:42:02,406 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'February Carnival.mp3' already exists
-
-2025-10-29 09:42:02,407 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'March Song of the Lark.mp3' already exists
-
-2025-10-29 09:42:02,407 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'January At the Fireside.mp3' already exists
-
-2025-10-29 09:42:02,407 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete. Continuing startup...
-
-2025-10-29 09:42:03,430 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
-Initializing Spring DispatcherServlet 'dispatcherServlet'
-
-2025-10-29 09:42:03,431 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Initializing Servlet 'dispatcherServlet'
-
-2025-10-29 09:42:03,431 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Completed initialization in 0 ms
-
-2025-10-29 09:42:06,049 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
-User 'Jace' attempting to log in
-
-2025-10-29 09:42:06,055 - [WARN] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
-Invalid login attempt for username 'Jace'
-
-2025-10-29 09:44:46,912 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
-User 'JaceClaassen' attempting to log in
-
-2025-10-29 09:44:46,917 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
-User 'JaceClaassen' successfully logged in
-
-2025-10-29 09:44:46,963 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-6 
-[THYMELEAF][http-nio-8080-exec-6][home] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template home, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:44:46,986 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-6 
-[THYMELEAF][http-nio-8080-exec-6][home] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template home, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:44:46,989 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-6 
-[THYMELEAF][http-nio-8080-exec-6][home] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template home, line 20, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:46:44,218 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
-Commencing graceful shutdown. Waiting for active requests to complete
-
-2025-10-29 09:46:44,222 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
-Graceful shutdown complete
-
-2025-10-29 09:46:44,226 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
-Closing JPA EntityManagerFactory for persistence unit 'default'
-
-2025-10-29 09:46:44,228 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
-HikariPool-1 - Shutdown initiated...
-
-2025-10-29 09:46:44,232 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
-HikariPool-1 - Shutdown completed.
-
-2025-10-29 09:55:23,759 - [INFO] - from org.hibernate.validator.internal.util.Version in background-preinit 
-HV000001: Hibernate Validator 8.0.3.Final
-
-2025-10-29 09:55:23,774 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.4 with PID 30115 (/Users/jaceclaassen/Desktop/Groovify/build/classes/java/main started by jaceclaassen in /Users/jaceclaassen/Desktop/Groovify)
-
-2025-10-29 09:55:23,775 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
-
-2025-10-29 09:55:23,790 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-
-2025-10-29 09:55:23,790 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-
-2025-10-29 09:55:23,980 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-
-2025-10-29 09:55:24,002 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
-
-2025-10-29 09:55:24,171 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat initialized with port 8080 (http)
-
-2025-10-29 09:55:24,175 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Initializing ProtocolHandler ["http-nio-8080"]
-
-2025-10-29 09:55:24,176 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
-Starting service [Tomcat]
-
-2025-10-29 09:55:24,176 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
-Starting Servlet engine: [Apache Tomcat/10.1.44]
-
-2025-10-29 09:55:24,189 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
-Initializing Spring embedded WebApplicationContext
-
-2025-10-29 09:55:24,189 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 399 ms
-
-2025-10-29 09:55:24,243 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
-HHH000204: Processing PersistenceUnitInfo [name: default]
-
-2025-10-29 09:55:24,257 - [INFO] - from org.hibernate.Version in restartedMain 
-HHH000412: Hibernate ORM core version 6.6.26.Final
-
-2025-10-29 09:55:24,269 - [INFO] - from org.hibernate.cache.internal.RegionFactoryInitiator in restartedMain 
-HHH000026: Second-level cache disabled
-
-2025-10-29 09:55:24,355 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
-No LoadTimeWeaver setup: ignoring JPA class transformer
-
-2025-10-29 09:55:24,363 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
-HikariPool-1 - Starting...
-
-2025-10-29 09:55:24,484 - [INFO] - from com.zaxxer.hikari.pool.HikariPool in restartedMain 
-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d363d6f
-
-2025-10-29 09:55:24,485 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
-HikariPool-1 - Start completed.
-
-2025-10-29 09:55:24,503 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
-HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-
-2025-10-29 09:55:24,504 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
-HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-
-2025-10-29 09:55:24,509 - [INFO] - from org.hibernate.orm.connections.pooling in restartedMain 
-HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-
-2025-10-29 09:55:24,793 - [INFO] - from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
-HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-
-2025-10-29 09:55:25,069 - [WARN] - from org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl in restartedMain 
-GenerationTarget encountered exception accepting command : Error executing DDL "create table song (id bigint not null auto_increment, album varchar(255), artist varchar(255), filename varchar(255), genre_id bigint, title varchar(255), year integer, primary key (id)) engine=InnoDB" via JDBC [Table 'song' already exists]
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table song (id bigint not null auto_increment, album varchar(255), artist varchar(255), filename varchar(255), genre_id bigint, title varchar(255), year integer, primary key (id)) engine=InnoDB" via JDBC [Table 'song' already exists]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:316)
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.groovify.GroovifyApplication.main(GroovifyApplication.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'song' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
-	... 40 common frames omitted
-
-2025-10-29 09:55:25,089 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
-Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-2025-10-29 09:55:25,231 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-
-2025-10-29 09:55:25,353 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
-LiveReload server is running on port 35729
-
-2025-10-29 09:55:25,359 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Starting ProtocolHandler ["http-nio-8080"]
-
-2025-10-29 09:55:25,365 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat started on port 8080 (http) with context path '/'
-
-2025-10-29 09:55:25,368 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 1.751 seconds (process running for 1.872)
-
-2025-10-29 09:55:25,369 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
-
-2025-10-29 09:55:25,433 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'February Carnival.mp3' already exists
-
-2025-10-29 09:55:25,435 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'March Song of the Lark.mp3' already exists
-
-2025-10-29 09:55:25,436 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'January At the Fireside.mp3' already exists
-
-2025-10-29 09:55:25,436 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete. Continuing startup...
-
-2025-10-29 09:55:25,436 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
-
-2025-10-29 09:55:25,457 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete. Continuing startup...
-
-2025-10-29 09:55:26,287 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
-Initializing Spring DispatcherServlet 'dispatcherServlet'
-
-2025-10-29 09:55:26,287 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Initializing Servlet 'dispatcherServlet'
-
-2025-10-29 09:55:26,288 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Completed initialization in 0 ms
-
-2025-10-29 09:55:33,118 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-8 
-User 'Jace' attempting to log in
-
-2025-10-29 09:55:33,127 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-8 
-User 'Jace' successfully logged in
-
-2025-10-29 09:55:33,440 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
-[THYMELEAF][http-nio-8080-exec-9][home] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template home, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:55:33,463 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
-[THYMELEAF][http-nio-8080-exec-9][home] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template home, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:55:33,466 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
-[THYMELEAF][http-nio-8080-exec-9][home] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template home, line 20, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:55:41,991 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
-[THYMELEAF][http-nio-8080-exec-2][profile] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template profile, line 66, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:55:41,992 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
-[THYMELEAF][http-nio-8080-exec-2][profile] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template profile, line 68, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:55:59,326 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
-[THYMELEAF][http-nio-8080-exec-4][profile] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template profile, line 66, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:55:59,328 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
-[THYMELEAF][http-nio-8080-exec-4][profile] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template profile, line 68, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:56:04,748 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-10 
-[THYMELEAF][http-nio-8080-exec-10][profile] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template profile, line 66, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:56:04,749 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-10 
-[THYMELEAF][http-nio-8080-exec-10][profile] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template profile, line 68, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:56:04,764 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-6 
-[THYMELEAF][http-nio-8080-exec-6][profile] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template profile, line 66, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:56:04,765 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-6 
-[THYMELEAF][http-nio-8080-exec-6][profile] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template profile, line 68, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:56:13,630 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-5 
-User 'JaceClaassen' attempting to log in
-
-2025-10-29 09:56:13,635 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-5 
-User 'JaceClaassen' successfully logged in
-
-2025-10-29 09:56:13,650 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-10 
-[THYMELEAF][http-nio-8080-exec-10][home] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template home, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:56:13,652 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-10 
-[THYMELEAF][http-nio-8080-exec-10][home] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template home, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:56:13,654 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-10 
-[THYMELEAF][http-nio-8080-exec-10][home] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template home, line 20, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:56:17,341 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
-[THYMELEAF][http-nio-8080-exec-8][profile] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template profile, line 66, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:56:17,343 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
-[THYMELEAF][http-nio-8080-exec-8][profile] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template profile, line 68, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:57:17,115 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
-Commencing graceful shutdown. Waiting for active requests to complete
-
-2025-10-29 09:57:17,119 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
-Graceful shutdown complete
-
-2025-10-29 09:57:17,123 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
-Closing JPA EntityManagerFactory for persistence unit 'default'
-
-2025-10-29 09:57:17,125 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
-HikariPool-1 - Shutdown initiated...
-
-2025-10-29 09:57:17,129 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
-HikariPool-1 - Shutdown completed.
-
-2025-10-29 09:57:32,479 - [INFO] - from org.hibernate.validator.internal.util.Version in background-preinit 
-HV000001: Hibernate Validator 8.0.3.Final
-
-2025-10-29 09:57:32,493 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.4 with PID 30158 (/Users/jaceclaassen/Desktop/Groovify/build/classes/java/main started by jaceclaassen in /Users/jaceclaassen/Desktop/Groovify)
-
-2025-10-29 09:57:32,494 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
-
-2025-10-29 09:57:32,506 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-
-2025-10-29 09:57:32,506 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-
-2025-10-29 09:57:32,695 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-
-2025-10-29 09:57:32,713 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+2025-10-30 09:56:55,986 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
 Finished Spring Data repository scanning in 15 ms. Found 4 JPA repository interfaces.
 
-2025-10-29 09:57:32,869 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+2025-10-30 09:56:56,141 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
 Tomcat initialized with port 8080 (http)
 
-2025-10-29 09:57:32,873 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+2025-10-30 09:56:56,145 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
 Initializing ProtocolHandler ["http-nio-8080"]
 
-2025-10-29 09:57:32,874 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+2025-10-30 09:56:56,146 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
 Starting service [Tomcat]
 
-2025-10-29 09:57:32,874 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+2025-10-30 09:56:56,146 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
 Starting Servlet engine: [Apache Tomcat/10.1.44]
 
-2025-10-29 09:57:32,887 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+2025-10-30 09:56:56,158 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
 Initializing Spring embedded WebApplicationContext
 
-2025-10-29 09:57:32,887 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 380 ms
+2025-10-30 09:56:56,158 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 376 ms
 
-2025-10-29 09:57:32,941 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+2025-10-30 09:56:56,205 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
 HHH000204: Processing PersistenceUnitInfo [name: default]
 
-2025-10-29 09:57:32,955 - [INFO] - from org.hibernate.Version in restartedMain 
+2025-10-30 09:56:56,218 - [INFO] - from org.hibernate.Version in restartedMain 
 HHH000412: Hibernate ORM core version 6.6.26.Final
 
-2025-10-29 09:57:32,964 - [INFO] - from org.hibernate.cache.internal.RegionFactoryInitiator in restartedMain 
+2025-10-30 09:56:56,226 - [INFO] - from org.hibernate.cache.internal.RegionFactoryInitiator in restartedMain 
 HHH000026: Second-level cache disabled
 
-2025-10-29 09:57:33,052 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+2025-10-30 09:56:56,314 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
 No LoadTimeWeaver setup: ignoring JPA class transformer
 
-2025-10-29 09:57:33,060 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
+2025-10-30 09:56:56,323 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
 HikariPool-1 - Starting...
 
-2025-10-29 09:57:33,178 - [INFO] - from com.zaxxer.hikari.pool.HikariPool in restartedMain 
-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@41662e6e
+2025-10-30 09:56:56,437 - [INFO] - from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4261748b
 
-2025-10-29 09:57:33,179 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
+2025-10-30 09:56:56,437 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
 HikariPool-1 - Start completed.
 
-2025-10-29 09:57:33,193 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
+2025-10-30 09:56:56,452 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
 HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
 
-2025-10-29 09:57:33,194 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
+2025-10-30 09:56:56,452 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
 HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
 
-2025-10-29 09:57:33,199 - [INFO] - from org.hibernate.orm.connections.pooling in restartedMain 
+2025-10-30 09:56:56,457 - [INFO] - from org.hibernate.orm.connections.pooling in restartedMain 
 HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
@@ -806,388 +200,480 @@ HHH10001005: Database info:
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
 
-2025-10-29 09:57:33,486 - [INFO] - from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+2025-10-30 09:56:56,741 - [INFO] - from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
 HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 
-2025-10-29 09:57:33,734 - [WARN] - from org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl in restartedMain 
-GenerationTarget encountered exception accepting command : Error executing DDL "create table song (id bigint not null auto_increment, album varchar(255), artist varchar(255), filename varchar(255), genre_id bigint, title varchar(255), year integer, primary key (id)) engine=InnoDB" via JDBC [Table 'song' already exists]
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table song (id bigint not null auto_increment, album varchar(255), artist varchar(255), filename varchar(255), genre_id bigint, title varchar(255), year integer, primary key (id)) engine=InnoDB" via JDBC [Table 'song' already exists]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:316)
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-	at com.groovify.GroovifyApplication.main(GroovifyApplication.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'song' already exists
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
-	... 40 common frames omitted
-
-2025-10-29 09:57:33,757 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+2025-10-30 09:56:56,777 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
 Initialized JPA EntityManagerFactory for persistence unit 'default'
 
-2025-10-29 09:57:33,878 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+2025-10-30 09:56:56,902 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 
-2025-10-29 09:57:33,982 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+2025-10-30 09:56:57,007 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
 LiveReload server is running on port 35729
 
-2025-10-29 09:57:33,987 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+2025-10-30 09:56:57,012 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
 Starting ProtocolHandler ["http-nio-8080"]
 
-2025-10-29 09:57:33,993 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+2025-10-30 09:56:57,018 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
 Tomcat started on port 8080 (http) with context path '/'
 
-2025-10-29 09:57:33,997 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 1.657 seconds (process running for 1.779)
+2025-10-30 09:56:57,021 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+Started GroovifyApplication in 1.401 seconds (process running for 1.523)
 
-2025-10-29 09:57:33,998 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
-
-2025-10-29 09:57:34,046 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'February Carnival.mp3' already exists
-
-2025-10-29 09:57:34,048 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'March Song of the Lark.mp3' already exists
-
-2025-10-29 09:57:34,049 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'January At the Fireside.mp3' already exists
-
-2025-10-29 09:57:34,049 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete. Continuing startup...
-
-2025-10-29 09:57:34,049 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+2025-10-30 09:56:57,022 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
 Starting genre import before web server startup...
 
-2025-10-29 09:57:34,065 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+2025-10-30 09:56:57,080 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
 Genre import complete. Continuing startup...
 
-2025-10-29 09:57:34,504 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
-Initializing Spring DispatcherServlet 'dispatcherServlet'
-
-2025-10-29 09:57:34,504 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Initializing Servlet 'dispatcherServlet'
-
-2025-10-29 09:57:34,505 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Completed initialization in 1 ms
-
-2025-10-29 09:57:34,648 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-1 
-[THYMELEAF][http-nio-8080-exec-1][profile] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template profile, line 66, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:57:34,652 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-1 
-[THYMELEAF][http-nio-8080-exec-1][profile] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template profile, line 68, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:57:40,337 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
-[THYMELEAF][http-nio-8080-exec-2][search] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template search, line 15, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:57:40,345 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
-[THYMELEAF][http-nio-8080-exec-2][search] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template search, line 18, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:57:40,348 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
-[THYMELEAF][http-nio-8080-exec-2][search] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template search, line 35, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:57:46,161 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-5 
-[THYMELEAF][http-nio-8080-exec-5][songs] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template songs, line 15, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:57:46,169 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-5 
-[THYMELEAF][http-nio-8080-exec-5][songs] Deprecated unwrapped fragment expression "fragments/mediaplayer :: mediaplayer" found in template songs, line 40, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/mediaplayer :: mediaplayer}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:57:46,171 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-5 
-[THYMELEAF][http-nio-8080-exec-5][songs] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template songs, line 42, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:57:46,173 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-5 
-[THYMELEAF][http-nio-8080-exec-5][songs] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template songs, line 52, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-
-2025-10-29 09:59:39,476 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
-Commencing graceful shutdown. Waiting for active requests to complete
-
-2025-10-29 09:59:39,482 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
-Graceful shutdown complete
-
-2025-10-29 09:59:39,485 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
-Closing JPA EntityManagerFactory for persistence unit 'default'
-
-2025-10-29 09:59:39,487 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
-HikariPool-1 - Shutdown initiated...
-
-2025-10-29 09:59:39,490 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
-HikariPool-1 - Shutdown completed.
-
-2025-10-29 13:04:46,484 - [INFO] - from org.hibernate.validator.internal.util.Version in background-preinit 
-HV000001: Hibernate Validator 8.0.3.Final
-
-2025-10-29 13:04:46,498 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.4 with PID 32868 (/Users/jaceclaassen/Desktop/Groovify/build/classes/java/main started by jaceclaassen in /Users/jaceclaassen/Desktop/Groovify)
-
-2025-10-29 13:04:46,499 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
-
-2025-10-29 13:04:46,511 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-
-2025-10-29 13:04:46,511 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-
-2025-10-29 13:04:46,696 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-
-2025-10-29 13:04:46,714 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Finished Spring Data repository scanning in 15 ms. Found 4 JPA repository interfaces.
-
-2025-10-29 13:04:46,870 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat initialized with port 8080 (http)
-
-2025-10-29 13:04:46,874 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Initializing ProtocolHandler ["http-nio-8080"]
-
-2025-10-29 13:04:46,874 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
-Starting service [Tomcat]
-
-2025-10-29 13:04:46,874 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
-Starting Servlet engine: [Apache Tomcat/10.1.44]
-
-2025-10-29 13:04:46,886 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
-Initializing Spring embedded WebApplicationContext
-
-2025-10-29 13:04:46,887 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 375 ms
-
-2025-10-29 13:04:46,932 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
-HHH000204: Processing PersistenceUnitInfo [name: default]
-
-2025-10-29 13:04:46,945 - [INFO] - from org.hibernate.Version in restartedMain 
-HHH000412: Hibernate ORM core version 6.6.26.Final
-
-2025-10-29 13:04:46,953 - [INFO] - from org.hibernate.cache.internal.RegionFactoryInitiator in restartedMain 
-HHH000026: Second-level cache disabled
-
-2025-10-29 13:04:47,040 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
-No LoadTimeWeaver setup: ignoring JPA class transformer
-
-2025-10-29 13:04:47,048 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
-HikariPool-1 - Starting...
-
-2025-10-29 13:04:47,163 - [INFO] - from com.zaxxer.hikari.pool.HikariPool in restartedMain 
-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@202bd1c2
-
-2025-10-29 13:04:47,164 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
-HikariPool-1 - Start completed.
-
-2025-10-29 13:04:47,180 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
-HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-
-2025-10-29 13:04:47,180 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
-HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-
-2025-10-29 13:04:47,185 - [INFO] - from org.hibernate.orm.connections.pooling in restartedMain 
-HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-
-2025-10-29 13:04:47,472 - [INFO] - from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
-HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-
-2025-10-29 13:04:47,679 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
-Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-2025-10-29 13:04:47,847 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-
-2025-10-29 13:04:47,957 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
-LiveReload server is running on port 35729
-
-2025-10-29 13:04:47,963 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Starting ProtocolHandler ["http-nio-8080"]
-
-2025-10-29 13:04:47,968 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat started on port 8080 (http) with context path '/'
-
-2025-10-29 13:04:47,972 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 1.623 seconds (process running for 1.745)
-
-2025-10-29 13:04:47,973 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
-
-2025-10-29 13:04:48,032 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete. Continuing startup...
-
-2025-10-29 13:04:48,032 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+2025-10-30 09:56:57,080 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
 Starting MP3 import before web server startup...
 
-2025-10-29 13:04:48,033 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+2025-10-30 09:56:57,082 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
 No MP3 files found in '/Users/jaceclaassen/Desktop/Groovify/src/main/resources/static/songs/Pop'
 
-2025-10-29 13:04:48,059 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'FebruaryCarnival.mp3': 'February Carnival', Genre='Classical'
+2025-10-30 09:56:57,084 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'FebruaryCarnival.mp3' already exists
 
-2025-10-29 13:04:48,066 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'JanuaryAtTheFireside.mp3': 'January At The Fireside', Genre='Classical'
+2025-10-30 09:56:57,085 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'JanuaryAtTheFireside.mp3' already exists
 
-2025-10-29 13:04:48,070 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'MarchSongOfTheLark.mp3': 'March Song Of The Lark', Genre='Classical'
+2025-10-30 09:56:57,086 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'MarchSongOfTheLark.mp3' already exists
 
-2025-10-29 13:04:48,071 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+2025-10-30 09:56:57,087 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
 No MP3 files found in '/Users/jaceclaassen/Desktop/Groovify/src/main/resources/static/songs/Rock'
 
-2025-10-29 13:04:48,072 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+2025-10-30 09:56:57,088 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
 No MP3 files found in '/Users/jaceclaassen/Desktop/Groovify/src/main/resources/static/songs/Folk'
 
-2025-10-29 13:04:48,077 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'BeautifulNight.mp3': 'Beautiful Night', Genre='Tech'
+2025-10-30 09:56:57,089 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'BeautifulNight.mp3' already exists
 
-2025-10-29 13:04:48,082 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'TechHouseSpaceJam.mp3': 'Tech House Space Jam', Genre='Tech'
+2025-10-30 09:56:57,090 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'TechHouseSpaceJam.mp3' already exists
 
-2025-10-29 13:04:48,085 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'Floating.mp3': 'Floating', Genre='Tech'
+2025-10-30 09:56:57,091 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Floating.mp3' already exists
 
-2025-10-29 13:04:48,089 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'DeepTech.mp3': 'Deep Tech', Genre='Tech'
+2025-10-30 09:56:57,092 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'DeepTech.mp3' already exists
 
-2025-10-29 13:04:48,092 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'Innovation.mp3': 'Innovation', Genre='Tech'
+2025-10-30 09:56:57,092 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Innovation.mp3' already exists
 
-2025-10-29 13:04:48,097 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'Futurism.mp3': 'Futurism', Genre='Tech'
+2025-10-30 09:56:57,093 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Futurism.mp3' already exists
 
-2025-10-29 13:04:48,101 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'DigitalTech.mp3': 'Digital Tech', Genre='Tech'
+2025-10-30 09:56:57,094 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'DigitalTech.mp3' already exists
 
-2025-10-29 13:04:48,106 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'StarRain.mp3': 'Star Rain', Genre='Tech'
+2025-10-30 09:56:57,095 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'StarRain.mp3' already exists
 
-2025-10-29 13:04:48,109 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'FuturisticTech.mp3': 'Futuristic Tech', Genre='Tech'
+2025-10-30 09:56:57,095 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'FuturisticTech.mp3' already exists
 
-2025-10-29 13:04:48,113 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'CorporateTech.mp3': 'Corporate Tech', Genre='Tech'
+2025-10-30 09:56:57,096 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'CorporateTech.mp3' already exists
 
-2025-10-29 13:04:48,118 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'SweetOnYou.mp3': 'Sweet On You', Genre='Country'
+2025-10-30 09:56:57,097 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'SweetOnYou.mp3' already exists
 
-2025-10-29 13:04:48,122 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'BackroadsCountryMusic.mp3': 'Backroads Country Music', Genre='Country'
+2025-10-30 09:56:57,098 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'BackroadsCountryMusic.mp3' already exists
 
-2025-10-29 13:04:48,125 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'QuietHome.mp3': 'Quiet Home', Genre='Country'
+2025-10-30 09:56:57,099 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'QuietHome.mp3' already exists
 
-2025-10-29 13:04:48,129 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'AutumnRoad.mp3': 'Autumn Road', Genre='Country'
+2025-10-30 09:56:57,099 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'AutumnRoad.mp3' already exists
 
-2025-10-29 13:04:48,134 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'AllIGotIsMe.mp3': 'All I Got Is Me', Genre='Country'
+2025-10-30 09:56:57,100 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'AllIGotIsMe.mp3' already exists
 
-2025-10-29 13:04:48,138 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'MercyEveryMorning.mp3': 'Mercy Every Morning', Genre='Country'
+2025-10-30 09:56:57,101 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'MercyEveryMorning.mp3' already exists
 
-2025-10-29 13:04:48,142 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'LostMyPlace.mp3': 'Lost My Place', Genre='Country'
+2025-10-30 09:56:57,101 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'LostMyPlace.mp3' already exists
 
-2025-10-29 13:04:48,146 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'AmericanaInstrumental.mp3': 'Americana Instrumental', Genre='Country'
+2025-10-30 09:56:57,102 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'AmericanaInstrumental.mp3' already exists
 
-2025-10-29 13:04:48,150 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'BackroadsAndPolaroids.mp3': 'Backroads And Polaroids', Genre='Country'
+2025-10-30 09:56:57,103 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'BackroadsAndPolaroids.mp3' already exists
 
-2025-10-29 13:04:48,154 - [INFO] - from com.groovify.service.SongImportImpl in restartedMain 
-Imported 'Hesitation.mp3': 'Hesitation', Genre='Country'
+2025-10-30 09:56:57,103 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Hesitation.mp3' already exists
 
-2025-10-29 13:04:48,154 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+2025-10-30 09:56:57,103 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
 MP3 import complete. Continuing startup...
 
-2025-10-29 13:04:51,365 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+2025-10-30 09:56:59,674 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
 Initializing Spring DispatcherServlet 'dispatcherServlet'
 
-2025-10-29 13:04:51,365 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+2025-10-30 09:56:59,674 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
 Initializing Servlet 'dispatcherServlet'
 
-2025-10-29 13:04:51,366 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Completed initialization in 1 ms
+2025-10-30 09:56:59,675 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
 
-2025-10-29 13:04:54,236 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-8 
+2025-10-30 09:57:03,375 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-8 
 User 'JaceClaassen' attempting to log in
 
-2025-10-29 13:04:54,245 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-8 
+2025-10-30 09:57:03,385 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-8 
 User 'JaceClaassen' successfully logged in
 
-2025-10-29 13:04:54,267 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+2025-10-30 09:57:03,404 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
 [THYMELEAF][http-nio-8080-exec-9][home] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template home, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
 
-2025-10-29 13:04:54,287 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+2025-10-30 09:57:03,416 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
 [THYMELEAF][http-nio-8080-exec-9][home] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template home, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
 
-2025-10-29 13:04:54,289 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+2025-10-30 09:57:03,418 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
 [THYMELEAF][http-nio-8080-exec-9][home] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template home, line 20, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
 
-2025-10-29 13:04:56,793 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-1 
-[THYMELEAF][http-nio-8080-exec-1][songs] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template songs, line 15, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2025-10-30 09:57:04,868 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template songs, line 16, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
 
-2025-10-29 13:04:56,807 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-1 
-[THYMELEAF][http-nio-8080-exec-1][songs] Deprecated unwrapped fragment expression "fragments/mediaplayer :: mediaplayer" found in template songs, line 40, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/mediaplayer :: mediaplayer}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2025-10-30 09:57:04,871 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
 
-2025-10-29 13:04:56,808 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-1 
-[THYMELEAF][http-nio-8080-exec-1][songs] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template songs, line 42, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2025-10-30 09:57:04,873 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
 
-2025-10-29 13:04:56,809 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-1 
-[THYMELEAF][http-nio-8080-exec-1][songs] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template songs, line 52, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2025-10-30 09:57:04,873 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
 
-2025-10-29 13:05:04,254 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+2025-10-30 09:57:04,874 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,874 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,875 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,876 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,876 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,877 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,877 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,878 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,878 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,879 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,879 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,880 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,880 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,881 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,881 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,882 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,882 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,883 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,883 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,884 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,884 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/mediaplayer :: mediaplayer" found in template songs, line 29, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/mediaplayer :: mediaplayer}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,885 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template songs, line 32, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:04,886 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-4 
+[THYMELEAF][http-nio-8080-exec-4][songs] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template songs, line 38, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:08,858 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
+[THYMELEAF][http-nio-8080-exec-2][playlists] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template playlists, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:08,860 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
+[THYMELEAF][http-nio-8080-exec-2][playlists] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template playlists, line 19, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:08,862 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-2 
+[THYMELEAF][http-nio-8080-exec-2][playlists] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template playlists, line 24, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,783 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template search, line 16, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,784 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template search, line 19, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,785 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,786 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,786 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,787 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,788 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,788 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,789 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,789 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,790 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,790 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,791 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,791 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,792 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,792 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,793 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,794 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,794 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,795 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,795 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,796 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,796 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,796 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,797 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:09,797 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-8 
+[THYMELEAF][http-nio-8080-exec-8][search] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template search, line 42, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,114 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template songs, line 16, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,115 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,116 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,117 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,117 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,118 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,118 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,119 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,119 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,120 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,120 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,120 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,121 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,121 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,122 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,122 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,122 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,123 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,123 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,124 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,124 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,124 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,125 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,125 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template songs, line 21, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,125 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/mediaplayer :: mediaplayer" found in template songs, line 29, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/mediaplayer :: mediaplayer}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,126 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template songs, line 32, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:11,127 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-9 
+[THYMELEAF][http-nio-8080-exec-9][songs] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template songs, line 38, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,749 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/topbar :: topbar" found in template search, line 16, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/topbar :: topbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,751 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/navbar :: navbar" found in template search, line 19, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/navbar :: navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,752 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,753 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,754 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,754 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,755 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,756 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,757 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,757 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,758 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,758 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,759 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,759 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,759 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,759 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,760 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,760 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,761 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,761 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,761 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,761 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,762 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,762 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,762 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/songFragment :: songCard" found in template search, line 36, col 10. Please use the complete syntax of fragment expressions instead ("~{fragments/songFragment :: songCard}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:13,763 - [WARN] - from org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor in http-nio-8080-exec-7 
+[THYMELEAF][http-nio-8080-exec-7][search] Deprecated unwrapped fragment expression "fragments/session :: sessionTimeoutScripts" found in template search, line 42, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments/session :: sessionTimeoutScripts}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+
+2025-10-30 09:57:30,195 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
 Commencing graceful shutdown. Waiting for active requests to complete
 
-2025-10-29 13:05:04,258 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+2025-10-30 09:57:30,200 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
 Graceful shutdown complete
 
-2025-10-29 13:05:04,263 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+2025-10-30 09:57:30,206 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
 Closing JPA EntityManagerFactory for persistence unit 'default'
 
-2025-10-29 13:05:04,265 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+2025-10-30 09:57:30,208 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
 HikariPool-1 - Shutdown initiated...
 
-2025-10-29 13:05:04,268 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+2025-10-30 09:57:30,210 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
 HikariPool-1 - Shutdown completed.
 

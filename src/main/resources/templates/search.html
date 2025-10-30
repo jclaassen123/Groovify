@@ -7,6 +7,7 @@
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
   <link rel="stylesheet" th:href="@{/css/topbar.css}">
   <link rel="stylesheet" th:href="@{/css/search.css}"> <!-- Added -->
+  <link rel="stylesheet" th:href="@{/css/songCard.css}">
   <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
 </head>
 <body>
@@ -28,6 +29,12 @@
             required>
     <button type="submit" class="search-button">Search</button>
   </form>
+</div>
+
+<div class="songs-container">
+  <div th:each="song : ${songList}">
+    <div th:replace="fragments/songFragment :: songCard" th:each="song : ${songList}" th:with="song=${song}"></div>
+  </div>
 </div>
 
 <script th:src="@{/js/topbar.js}"></script>
