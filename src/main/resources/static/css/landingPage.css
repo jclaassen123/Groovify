@@ -102,3 +102,17 @@ a:hover {
 .error-message p {
   margin: 0;
 }
+
+.registration-alert p {
+    color: #00ff00; /* bright green */
+    margin-bottom: 1.5rem;
+    text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
+    font-family: 'Inter', sans-serif;
+}
+
+.logout-alert p {
+    color: #ff6666; /* light red */
+    margin-bottom: 1.5rem;
+    text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
+    font-family: 'Inter', sans-serif;
+}

@@ -17,10 +17,10 @@ public class Client {
     private Long id;
 
     @Column(name = "image_file_name")
-    private String image_file_name;
+    private String image_file_name = "Fishing.jpg";
 
     @Column(name = "description")
-    private String description;
+    private String description = "";
 
     @NotBlank(message = "Username cannot be empty")
     @Size(min = 3, max = 32, message = "Username must be between 3 and 32 characters")
@@ -31,6 +31,10 @@ public class Client {
     @Size(min = 6, max = 100, message = "Password must be at least 6 characters")
     @Column(nullable = false)
     private String password;
+
+    /** Salt used for password hashing (stored separately). */
+    @Column(name = "password_salt")
+    private String passwordSalt;
 
     @ManyToMany
     @JoinTable(
@@ -52,6 +56,10 @@ public class Client {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
+    public String getPasswordSalt() {
+        return passwordSalt;
+    }
+
     public String getImageFileName() {
         String defaultImage = "Fishing.jpg";
         Path imagesFolder = Paths.get("src/main/resources/static/images/profile/");
@@ -62,6 +70,10 @@ public class Client {
         return Files.exists(imagePath) ? image_file_name : defaultImage;
     }
     public void setImageFileName(String image_file_name) { this.image_file_name = image_file_name; }
+
+    public void setPasswordSalt(String passwordSalt) {
+        this.passwordSalt = passwordSalt;
+    }
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }

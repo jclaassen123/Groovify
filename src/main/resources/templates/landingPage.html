@@ -9,6 +9,13 @@
     </head>
     <body>
     <center>
+        <div th:if="${successMessage}" class="registration-alert">
+            <p th:text="${successMessage}"></p>
+        </div>
+        <!-- Logout success -->
+        <div th:if="${logoutMessage}" class="logout-alert">
+            <p>You have been logged out successfully.</p>
+        </div>
         <h1>Groovify</h1></br>
         <form th:action="@{/}" th:object="${loginForm}" method="post">
             <div>
