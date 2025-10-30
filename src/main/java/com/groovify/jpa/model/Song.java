@@ -23,8 +23,6 @@ public class Song {
     @Column(name = "Genre_ID")
     private Long genreId;
 
-    // TODO Images
-
     public Song() {}
 
     public Song(String filename, String title, String artist, String album, int year) {
