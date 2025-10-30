@@ -27,7 +27,7 @@ public class SongController {
     private GenreRepo genreRepo;
 
     @GetMapping("/songs")
-    public String searchPage(HttpSession session, Model model) {
+    public String songPage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         if (username == null) {
             return "redirect:";
