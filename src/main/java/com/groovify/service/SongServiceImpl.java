@@ -9,14 +9,23 @@ import java.util.List;
 @Service
 public class SongServiceImpl implements SongService {
 
-    private final SongRepo songRepository;
+    private final SongRepo songRepo;
 
-    SongServiceImpl(SongRepo songRepository) {
-        this.songRepository = songRepository;
+    // Constructor injection
+    public SongServiceImpl(SongRepo songRepo) {
+        this.songRepo = songRepo;
     }
 
     @Override
     public List<Song> getAllSongs() {
-        return songRepository.findAll();
+        return songRepo.findAll();
+    }
+
+    @Override
+    public List<Song> searchSongsByTitle(String query) {
+        if (query == null || query.isBlank()) {
+            return List.of();
+        }
+        return songRepo.findByTitleContainingIgnoreCase(query);
     }
 }
