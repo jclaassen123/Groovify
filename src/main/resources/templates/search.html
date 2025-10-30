@@ -8,15 +8,13 @@
   <link rel="stylesheet" th:href="@{/css/topbar.css}">
   <link rel="stylesheet" th:href="@{/css/search.css}"> <!-- Added -->
   <link rel="stylesheet" th:href="@{/css/songCard.css}">
+  <link rel="stylesheet" th:href="@{/css/mediaplayer.css}">
   <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
 </head>
 <body>
 
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Search'"></div>
-
-<!-- Include Navbar Fragment -->
-<div th:replace="fragments/navbar :: navbar"></div>
 
 <!-- Search Section -->
 <div class="search-container">
@@ -31,12 +29,23 @@
   </form>
 </div>
 
-<div class="songs-container">
+<div id="songHolder" class="songs-container">
   <div th:each="song : ${songList}">
-    <div th:replace="fragments/songFragment :: songCard" th:each="song : ${songList}" th:with="song=${song}"></div>
+    <div th:replace="fragments/songFragment :: songCard" th:with="song=${song}"></div>
   </div>
 </div>
 
+<!-- Audio element -->
+<audio id="player"></audio>
+
+<!-- Mediaplayer fragment -->
+<div th:replace="fragments/mediaplayer :: mediaplayer"></div>
+
+<!-- Navbar fragment -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<!-- JS scripts -->
+<script th:src="@{/js/mediaplayer.js}"></script>
 <script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/navbar.js}"></script>
 <div th:replace="fragments/session :: sessionTimeoutScripts"></div>
