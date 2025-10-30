@@ -78,7 +78,7 @@ public class LandingController {
         // Add a flash attribute for logout success
         redirectAttributes.addFlashAttribute("logoutMessage", "You have been logged out successfully.");
 
-        return "redirect:/";
+        return "redirect:";
     }
 
 }

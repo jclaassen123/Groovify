@@ -22,10 +22,10 @@ public class ProfileController {
     @GetMapping("/profile")
     public String profilePage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
-        if (username == null) return "redirect:/";
+        if (username == null) return "redirect:";
 
         Optional<Client> optionalUser = profileService.getUserByUsername(username);
-        if (optionalUser.isEmpty()) return "redirect:/";
+        if (optionalUser.isEmpty()) return "redirect:";
 
         Client user = optionalUser.get();
         model.addAttribute("user", user);
