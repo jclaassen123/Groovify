@@ -8,4 +8,6 @@ import java.util.List;
 public interface SongService {
 
     List<Song> getAllSongs();
+    // New search method
+    List<Song> searchSongsByTitle(String query);
 }

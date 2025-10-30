@@ -1,28 +1,32 @@
-/* Search Container */
 .search-container {
+    position: fixed;
+    top: 7rem; /* moved further down */
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* Search Form */
 .search-form {
     display: flex;
-    width: 100%;
-    max-width: 600px;
+    width: 90%;
+    max-width: 40rem; /* responsive max width using rem */
     background-color: #2A2F4A;
-    border-radius: 50px;
+    border-radius: 3rem; /* roughly 50px equivalent */
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.5); /* relative shadow */
 }
 
 .search-input {
     flex: 1;
-    padding: 15px 20px;
+    padding: 1rem 1.25rem;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 1rem;
     background-color: transparent;
     color: white;
 }
@@ -32,11 +36,11 @@
 }
 
 .search-button {
-    padding: 0 25px;
+    padding: 0 1.5rem;
     background: linear-gradient(90deg, rgba(58,151,212,0.8), rgba(30,96,145,0.8));
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     color: white;
     transition: opacity 0.3s ease;
@@ -47,17 +51,29 @@
 }
 
 /* Responsive */
-@media (max-width: 500px) {
+@media (max-width: 31.25em) { /* 500px in rem */
     .search-form {
         max-width: 90%;
     }
 
     .search-input {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .search-button {
-        padding: 0 15px;
-        font-size: 14px;
+        padding: 0 0.9375rem;
+        font-size: 0.875rem;
     }
 }
+
+/* No Songs Found Message */
+.no-songs {
+    color: white;
+    font-size: 1.25rem;
+    margin: 8rem auto 2rem auto; /* push below the fixed search bar */
+    text-align: center;          /* center horizontally */
+    max-width: 40rem;            /* matches search bar width */
+    width: 90%;                  /* responsive */
+}
+
+

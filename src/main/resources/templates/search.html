@@ -7,6 +7,8 @@
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
   <link rel="stylesheet" th:href="@{/css/topbar.css}">
   <link rel="stylesheet" th:href="@{/css/search.css}"> <!-- Added -->
+  <link rel="stylesheet" th:href="@{/css/songCard.css}">
+  <link rel="stylesheet" th:href="@{/css/mediaplayer.css}">
   <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
 </head>
 <body>
@@ -14,10 +16,6 @@
 <!-- Topbar fragment -->
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Search'"></div>
 
-<!-- Include Navbar Fragment -->
-<div th:replace="fragments/navbar :: navbar"></div>
-
-<!-- Search Section -->
 <div class="search-container">
   <form class="search-form" th:action="@{/search/results}" method="get">
     <input
@@ -25,11 +23,35 @@
             name="query"
             class="search-input"
             placeholder="Search by song or artist..."
-            required>
+            required
+            th:value="${query}">
     <button type="submit" class="search-button">Search</button>
   </form>
 </div>
 
+<!-- No songs found message -->
+<div th:if="${query != null and #lists.isEmpty(songList)}" class="no-songs">
+  No songs found for "<span th:text="${query}"></span>"
+</div>
+
+<!-- Songs Container -->
+<div id="songHolder" class="songs-container">
+  <div th:each="song : ${songList}">
+    <div th:replace="fragments/songFragment :: songCard" th:with="song=${song}"></div>
+  </div>
+</div>
+
+<!-- Audio element -->
+<audio id="player"></audio>
+
+<!-- Mediaplayer fragment -->
+<div th:replace="fragments/mediaplayer :: mediaplayer"></div>
+
+<!-- Navbar fragment -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<!-- JS scripts -->
+<script th:src="@{/js/mediaplayer.js}"></script>
 <script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/navbar.js}"></script>
 <div th:replace="fragments/session :: sessionTimeoutScripts"></div>

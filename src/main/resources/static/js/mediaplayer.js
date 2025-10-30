@@ -15,17 +15,21 @@ const songFolderPath = "/songs/";
 const listedSongs = document.querySelectorAll("#songHolder .song-card");
 
 listedSongs.forEach(song => {
-    song.addEventListener('click', () => {
-        const newSong = song.getAttribute("data-filename");
-        if (newSong !== currentSong) {
-            currentSong = newSong;
-            audioPlayer.src = songFolderPath + encodeURIComponent(currentSong); // encode filename to support more browsers
-            playSong();
-            playButton.disabled = false;
+    listedSongs.forEach(song => {
+        song.addEventListener('click', () => {
+            const filename = song.getAttribute("data-filename");
+            const genre = song.getAttribute("data-genre");
 
-        } else {
-            audioPlayer.currentTime = 0;
-        }
+            if (filename !== currentSong) {
+                currentSong = filename;
+                const songPath = `/songs/${encodeURIComponent(genre)}/${encodeURIComponent(filename)}`;
+                audioPlayer.src = songPath;
+                playSong();
+                playButton.disabled = false;
+            } else {
+                audioPlayer.currentTime = 0;
+            }
+        });
     });
 });
 
@@ -80,3 +84,13 @@ function formatTime(seconds) {
     const secs = Math.floor(seconds % 60);
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
+
+const toggleButton = document.getElementById("toggleMediaplayer");
+const mediaPlayer = document.querySelector(".mediaplayer");
+
+toggleButton.addEventListener('click', () => {
+    mediaPlayer.classList.toggle('folded');
+
+    // Correct arrow direction
+    toggleButton.textContent = mediaPlayer.classList.contains('folded') ? "▲" : "▼";
+});
