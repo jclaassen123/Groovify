@@ -46,3 +46,67 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+
+    outputs.upToDateWhen { false }
+
+    testLogging {
+        events "failed"
+        showStandardStreams = false
+        exceptionFormat "short"
+    }
+
+    // ANSI color codes
+    def GREEN = '\u001B[32m'
+    def RED = '\u001B[31m'
+    def RESET = '\u001B[0m'
+
+    def passedTests = []
+    def failedTests = []
+
+    afterTest { desc, result ->
+        def testId = "${desc.className}.${desc.name}"
+        switch (result.resultType) {
+            case org.gradle.api.tasks.testing.TestResult.ResultType.SUCCESS:
+                passedTests << testId
+                break
+            case org.gradle.api.tasks.testing.TestResult.ResultType.FAILURE:
+                failedTests << testId
+                break
+        }
+    }
+
+    afterSuite { desc, result ->
+        if (!desc.parent) {
+            println ""
+            println "------------------------------------------------------"
+            println " Test Summary For: ${project.name}"
+            println "------------------------------------------------------"
+
+            if (passedTests) {
+                println "PASSED:"
+                passedTests.each { println " ${GREEN}- $it${RESET}" }
+            } else {
+                println "No tests passed."
+            }
+
+            println ""
+
+            if (failedTests) {
+                println "FAILED:"
+                failedTests.each { println " ${RED}- $it${RESET}" }
+            } else {
+                println "No tests failed."
+            }
+
+            println ""
+            println String.format(" Tests run: %d", result.testCount)
+            println String.format(" Passed:    %d", result.successfulTestCount)
+            println String.format(" Failed:    %d", result.failedTestCount)
+            println String.format(" Skipped:   %d", result.skippedTestCount)
+            println "------------------------------------------------------"
+        }
+    }
+}
