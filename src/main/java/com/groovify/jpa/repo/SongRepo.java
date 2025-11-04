@@ -10,5 +10,6 @@ public interface SongRepo extends JpaRepository<Song, Long> {
 
     // Search songs by title (case-insensitive)
     List<Song> findByTitleContainingIgnoreCase(String title);
+    List<Song> findByGenreId(Long genreId);
 }
 
