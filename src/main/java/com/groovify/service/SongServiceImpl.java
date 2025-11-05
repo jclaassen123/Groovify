@@ -28,4 +28,12 @@ public class SongServiceImpl implements SongService {
         }
         return songRepo.findByTitleContainingIgnoreCase(query);
     }
+
+    @Override
+    public List<Song> searchSongsByGenre(String genre) {
+        if (genre == null || genre.isBlank()) {
+            return List.of();
+        }
+        return songRepo.findByGenreNameContainingIgnoreCase(genre);
+    }
 }

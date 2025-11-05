@@ -37,15 +37,26 @@ public class SearchController {
         return "search"; // src/main/resources/templates/search.html
     }
 
-    // Show filtered search results
     @GetMapping("/search/results")
-    public String searchResults(@RequestParam("query") String query, HttpSession session, Model model) {
+    public String searchResults(
+            @RequestParam("query") String query,
+            @RequestParam(value = "type", defaultValue = "title") String type,
+            HttpSession session,
+            Model model) {
+
         String username = (String) session.getAttribute("username");
         if (username == null) {
             return "redirect:";
         }
 
-        List<Song> songs = songService.searchSongsByTitle(query);
+        List<Song> songs;
+
+        if ("genre".equalsIgnoreCase(type)) {
+            songs = songService.searchSongsByGenre(query);
+        } else {
+            songs = songService.searchSongsByTitle(query);
+        }
+
         List<SongView> songList = songs.stream().map(song -> {
             String genreName = genreRepo.findById(song.getGenreId())
                     .map(g -> g.getName())
@@ -55,8 +66,9 @@ public class SearchController {
 
         model.addAttribute("songList", songList);
         model.addAttribute("query", query);
+        model.addAttribute("type", type);
         model.addAttribute("pageTitle", "Search Results");
 
-        return "search"; // reuse the same template
+        return "search"; // reuse template
     }
 }

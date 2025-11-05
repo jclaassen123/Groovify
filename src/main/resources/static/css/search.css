@@ -1,6 +1,6 @@
 .search-container {
     position: fixed;
-    top: 7rem; /* moved further down */
+    top: 7rem; /* adjust if needed */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -14,13 +14,14 @@
 .search-form {
     display: flex;
     width: 90%;
-    max-width: 40rem; /* responsive max width using rem */
+    max-width: 40rem;
     background-color: #2A2F4A;
-    border-radius: 3rem; /* roughly 50px equivalent */
+    border-radius: 3rem;
     overflow: hidden;
-    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.5); /* relative shadow */
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.5);
 }
 
+/* Search Input */
 .search-input {
     flex: 1;
     padding: 1rem 1.25rem;
@@ -35,6 +36,41 @@
     color: #a1a1a1;
 }
 
+/* Search Type Dropdown */
+.search-type {
+    padding: 0.9rem 1rem;
+    border: none;
+    outline: none;
+    background-color: #3B4162;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-left: 1px solid rgba(255,255,255,0.15); /* subtle divider */
+    border-radius: 0; /* flush with form */
+    appearance: none; /* remove default arrow */
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+/* Dropdown hover & focus */
+.search-type:hover,
+.search-type:focus {
+    background-color: #50577D;
+}
+
+/* Custom arrow for dropdown */
+.search-type::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: white;
+    font-size: 0.8rem;
+}
+
+/* Search Button */
 .search-button {
     padding: 0 1.5rem;
     background: linear-gradient(90deg, rgba(58,151,212,0.8), rgba(30,96,145,0.8));
@@ -43,26 +79,33 @@
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    border-radius: 0 3rem 3rem 0; /* match the rounded form */
 }
 
 .search-button:hover {
     opacity: 0.85;
+    transform: translateY(-1px);
 }
 
 /* Responsive */
 @media (max-width: 31.25em) { /* 500px in rem */
     .search-form {
         max-width: 90%;
+        flex-direction: column;
+        border-radius: 1.5rem;
     }
 
-    .search-input {
+    .search-input, .search-type, .search-button {
+        width: 100%;
         font-size: 0.875rem;
+        padding: 0.75rem 1rem;
+        border-radius: 1.5rem;
+        margin: 0.25rem 0;
     }
 
     .search-button {
-        padding: 0 0.9375rem;
-        font-size: 0.875rem;
+        margin-top: 0.5rem;
     }
 }
 
@@ -70,10 +113,8 @@
 .no-songs {
     color: white;
     font-size: 1.25rem;
-    margin: 8rem auto 2rem auto; /* push below the fixed search bar */
-    text-align: center;          /* center horizontally */
-    max-width: 40rem;            /* matches search bar width */
-    width: 90%;                  /* responsive */
+    margin: 8rem auto 2rem auto; /* push below fixed search bar */
+    text-align: center;
+    max-width: 40rem;
+    width: 90%;
 }
-
-
