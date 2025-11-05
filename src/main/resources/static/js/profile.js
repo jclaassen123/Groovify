@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageGallery = document.getElementById("imageGallery");
     const imageFileName = document.getElementById("imageFileName");
     const genreSelection = document.getElementById("genreSelection");
-    const userGenres = document.getElementById("userGenres");
+    const userGenres = document.getElementById("userGenres"); // may be null if no genres
     const body = document.body;
 
     let editMode = false;
@@ -20,17 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
     let originalBackground = body.style.backgroundImage;
     const originalGenres = Array.from(genreSelection.querySelectorAll("input[type='checkbox']")).map(cb => cb.checked);
 
+    // --- Edit button ---
     editBtn.addEventListener("click", () => {
         usernameInput.removeAttribute("readonly");
         descriptionInput.removeAttribute("readonly");
         genreSelection.style.display = "block";
-        userGenres.style.display = "none";
+        if (userGenres) userGenres.style.display = "none";
         editBtn.style.display = "none";
         saveBtn.style.display = "inline-block";
         cancelBtn.style.display = "inline-block";
         editMode = true;
     });
 
+    // --- Cancel button ---
     cancelBtn.addEventListener("click", () => {
         usernameInput.value = originalUsername;
         descriptionInput.value = originalDescription;
@@ -41,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         usernameInput.setAttribute("readonly", true);
         descriptionInput.setAttribute("readonly", true);
         genreSelection.style.display = "none";
-        userGenres.style.display = "block";
+        if (userGenres) userGenres.style.display = "block";
         editBtn.style.display = "inline-block";
         saveBtn.style.display = "none";
         cancelBtn.style.display = "none";
@@ -50,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         editMode = false;
     });
 
+    // --- Profile picture selection ---
     profilePic.addEventListener("click", () => {
         if (!editMode) return;
         imageGallery.style.display = imageGallery.style.display === "none" ? "flex" : "none";
@@ -64,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // --- Form submission ---
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
         clearError(usernameInput);
@@ -83,13 +87,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Error updating profile");
                 return;
             }
-            window.location.reload();
+            window.location.reload(); // you could make this dynamic later
         } catch (err) {
             console.error(err);
             alert("Could not submit profile. Try again later.");
         }
     });
 
+    // --- Error helpers ---
     function showError(input, message) {
         clearError(input);
         input.classList.add("input-error");

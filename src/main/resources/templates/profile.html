@@ -44,10 +44,13 @@
         <label>Description:</label>
         <textarea name="description" rows="3" cols="30" th:text="${user.description}" readonly></textarea><br><br>
 
-        <h3 class="preferred-genres">Preferred Genres</h3>
-
-        <div id="userGenres">
-            <span th:each="g : ${user.genres}" th:text="${g.name} + ' '"></span>
+        <div id="preferredGenresWrapper">
+            <div th:if="${#lists.isEmpty(user.genres)} == false">
+                <h3 class="preferred-genres">Preferred Genres</h3>
+                <div id="userGenres">
+                    <span th:each="g : ${user.genres}" th:text="${g.name} + ' '"></span>
+                </div>
+            </div>
         </div>
 
         <div id="genreSelection" style="display:none">

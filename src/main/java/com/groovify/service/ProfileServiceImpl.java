@@ -7,6 +7,7 @@ import com.groovify.jpa.repo.ClientRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,10 +41,8 @@ public class ProfileServiceImpl {
         user.setDescription(description.trim());
         user.setImageFileName(imageFileName);
 
-        if (genreIds != null) {
-            List<Genre> genres = genreRepo.findAllById(genreIds);
-            user.setGenres(genres);
-        }
+        List<Genre> genres = (genreIds != null) ? genreRepo.findAllById(genreIds) : new ArrayList<>();
+        user.setGenres(genres);
 
         clientRepo.save(user);
     }

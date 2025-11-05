@@ -118,3 +118,10 @@
     max-width: 40rem;
     width: 90%;
 }
+
+/* Adjust search bar position for very wide screens */
+@media (min-width: 1400px) {
+    .search-container {
+        top: 8rem; /* move it down slightly on large displays */
+    }
+}
