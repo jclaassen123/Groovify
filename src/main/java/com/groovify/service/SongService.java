@@ -10,4 +10,5 @@ public interface SongService {
     List<Song> getAllSongs();
     // New search method
     List<Song> searchSongsByTitle(String query);
+    List<Song> searchSongsByGenre(String genre);
 }

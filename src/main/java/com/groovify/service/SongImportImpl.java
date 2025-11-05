@@ -11,7 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.util.Objects;
+import java.util.List;
+import java.util.Random;
 
 @Service
 public class SongImportImpl implements SongImportService {
@@ -19,9 +20,23 @@ public class SongImportImpl implements SongImportService {
 
     private final SongRepo songRepository;
     private final GenreRepo genreRepository;
+    private final Random random = new Random();
 
     @Value("${music.directory:src/main/resources/static/songs}")
     private String musicDirectory;
+
+    // Lists of first and last names for generating artist names
+    private static final List<String> FIRST_NAMES = List.of(
+            "Liam", "Olivia", "Noah", "Emma", "Oliver",
+            "Ava", "Elijah", "Sophia", "Lucas", "Isabella",
+            "Mason", "Mia", "Ethan", "Charlotte", "Logan"
+    );
+
+    private static final List<String> LAST_NAMES = List.of(
+            "Smith", "Johnson", "Brown", "Taylor", "Anderson",
+            "Thomas", "Jackson", "White", "Harris", "Martin",
+            "Thompson", "Garcia", "Martinez", "Robinson", "Clark"
+    );
 
     public SongImportImpl(SongRepo songRepository, GenreRepo genreRepository) {
         this.songRepository = songRepository;
@@ -35,7 +50,6 @@ public class SongImportImpl implements SongImportService {
             return;
         }
 
-        // Iterate over genre folders
         File[] genreFolders = songsRoot.listFiles(File::isDirectory);
         if (genreFolders == null || genreFolders.length == 0) {
             log.warn("No genre folders found in '{}'", songsRoot.getAbsolutePath());
@@ -65,28 +79,14 @@ public class SongImportImpl implements SongImportService {
                 try {
                     Mp3File mp3 = new Mp3File(file);
                     String title = formatTitle(file.getName());
-                    String artist = "Unknown";
-                    String album = "Unknown";
-                    int year = 0;
+                    String artist = generateRandomArtist();
 
-                    if (mp3.hasId3v2Tag()) {
-                        ID3v2 tag = mp3.getId3v2Tag();
-                        title = safeString(tag.getTitle(), title);
-                        artist = safeString(tag.getArtist(), artist);
-                        album = safeString(tag.getAlbum(), album);
-                        year = parseYear(tag.getYear());
-                    } else if (mp3.hasId3v1Tag()) {
-                        ID3v1 tag = mp3.getId3v1Tag();
-                        title = safeString(tag.getTitle(), title);
-                        artist = safeString(tag.getArtist(), artist);
-                        album = safeString(tag.getAlbum(), album);
-                        year = parseYear(tag.getYear());
-                    }
+                    Song song = new Song(file.getName(), title, artist);
+                    song.setGenreId(genre.getId());
 
-                    Song song = new Song(file.getName(), title, artist, album, year);
-                    song.setGenreId(genre.getId()); // Set genre ID from folder match
                     songRepository.save(song);
-                    log.info("Imported '{}': '{}', Genre='{}'", file.getName(), title, genreName);
+                    log.info("Imported '{}': '{}', Artist='{}', Genre='{}'",
+                            file.getName(), title, artist, genreName);
 
                 } catch (Exception e) {
                     log.error("Error reading '{}' '{}'", file.getName(), e.getMessage());
@@ -95,24 +95,15 @@ public class SongImportImpl implements SongImportService {
         }
     }
 
-    private String safeString(String value, String fallback) {
-        return (value != null && !value.trim().isEmpty()) ? value.trim() : fallback;
-    }
-
-    private int parseYear(String yearString) {
-        try {
-            return (yearString != null && !yearString.isBlank())
-                    ? Integer.parseInt(yearString.replaceAll("\\D+", ""))
-                    : 0;
-        } catch (NumberFormatException e) {
-            return 0;
-        }
+    private String generateRandomArtist() {
+        String first = FIRST_NAMES.get(random.nextInt(FIRST_NAMES.size()));
+        String last = LAST_NAMES.get(random.nextInt(LAST_NAMES.size()));
+        return first + " " + last;
     }
 
     private String formatTitle(String filename) {
-        // Remove .mp3
-        String name = filename.replace(".mp3", "");
-        // Insert spaces before capital letters
-        return name.replaceAll("(?<!^)(?=[A-Z])", " ").trim();
+        return filename.replace(".mp3", "")
+                .replaceAll("(?<!^)(?=[A-Z])", " ")
+                .trim();
     }
 }

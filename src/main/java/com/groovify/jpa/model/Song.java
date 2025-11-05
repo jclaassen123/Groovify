@@ -16,21 +16,15 @@ public class Song {
     private String title;
     @Column(name = "Artist")
     private String artist;
-    @Column(name = "Album")
-    private String album;
-    @Column(name = "Year")
-    private Integer year;
     @Column(name = "Genre_ID")
     private Long genreId;
 
     public Song() {}
 
-    public Song(String filename, String title, String artist, String album, int year) {
+    public Song(String filename, String title, String artist) {
         this.filename = filename;
         this.title = title;
         this.artist = artist;
-        this.album = album;
-        this.year = year;
         this.genreId = null;
     }
 
@@ -45,14 +39,6 @@ public class Song {
 
     public String getArtist() {
         return artist;
-    }
-
-    public String getAlbum() {
-        return album;
-    }
-
-    public int getYear() {
-        return year;
     }
 
     public Long getGenreId() {
