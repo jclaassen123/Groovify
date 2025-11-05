@@ -114,7 +114,22 @@
     overflow: hidden;
     padding: 5px 15px;
 }
+.song-title-display {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .mediaplayer.folded .controls,
 .mediaplayer.folded .bar-container {
+    display: none;
+}
+
+.mediaplayer.folded .song-title-display {
     display: none;
 }

@@ -35,7 +35,7 @@
 </div>
 
 <!-- Songs Container -->
-<div id="songHolder" class="songs-container">
+<div id="songHolder" class="songs-container with-top-spacing">
   <div th:each="song : ${songList}">
     <div th:replace="fragments/songFragment :: songCard" th:with="song=${song}"></div>
   </div>
