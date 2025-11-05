@@ -1,5 +1,6 @@
 package com.groovify.service;
 
+
 public interface LoginService {
     /**
      * Given a loginForm, determine if the information provided is valid, and the user exists in the system.

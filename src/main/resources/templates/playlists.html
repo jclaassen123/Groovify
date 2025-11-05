@@ -18,8 +18,10 @@
   <button>Create Playlist</button>
 </div>
 
-<div id="playlistHolder">
-
+<div id="playlistHolder" class="playlists-container">
+  <div th:each="playlist : ${playlistList}">
+    <div th:replace="fragments/playlistFragment :: playlistCard" th:with="playlist=${playlist}"></div>
+  </div>
 </div>
 
 <!-- Audio element -->
