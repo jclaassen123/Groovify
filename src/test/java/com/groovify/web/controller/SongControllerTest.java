@@ -57,8 +57,8 @@ class SongControllerTest {
         Client user = new Client();
         user.setName("nevin");
 
-        Song song1 = new Song("file1.mp3", "Song1", "Artist1", "Album1", 2020);
-        Song song2 = new Song("file2.mp3", "Song2", "Artist2", "Album2", 2021);
+        Song song1 = new Song("file1.mp3", "Song1", "Artist1");
+        Song song2 = new Song("file2.mp3", "Song2", "Artist2");
 
         when(session.getAttribute("username")).thenReturn("nevin");
         when(clientRepo.findByName("nevin")).thenReturn(Optional.of(user));
@@ -80,8 +80,8 @@ class SongControllerTest {
         when(clientRepo.findByName("ghost")).thenReturn(Optional.empty());
 
         // Create dummy Song objects
-        Song song1 = new Song("fileA.mp3", "SongA", "ArtistA", "AlbumA", 2019);
-        Song song2 = new Song("fileB.mp3", "SongB", "ArtistB", "AlbumB", 2020);
+        Song song1 = new Song("fileA.mp3", "SongA", "ArtistA");
+        Song song2 = new Song("fileB.mp3", "SongB", "ArtistB");
         when(songService.getAllSongs()).thenReturn(List.of(song1, song2));
 
         // Act

@@ -17,7 +17,7 @@ body {
 
 /* Recommended Songs Section */
 .recommended-songs h2 {
-    margin-bottom: 1rem; /* spacing below header */
+    margin-top: 4rem; /* spacing below header */
 }
 
 /* Songs grid */

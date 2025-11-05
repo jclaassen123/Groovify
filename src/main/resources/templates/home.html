@@ -22,7 +22,7 @@
     <section class="recommended-songs">
         <h2>Recommended for You</h2>
         <!-- Songs Container -->
-        <div id="songHolder" class="songs-container">
+        <div id="songHolder" class="songs-container with-media-player">
             <div th:each="song : ${songList}">
                 <div th:replace="fragments/songFragment :: songCard" th:with="song=${song}"></div>
             </div>

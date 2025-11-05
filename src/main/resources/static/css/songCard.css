@@ -11,6 +11,17 @@
     margin-top: 0; /* default: no extra spacing */
 }
 
+.songs-container.with-media-player {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 300px;
+    gap: 1.25rem;
+    padding: 0.625rem;
+    padding-bottom: 2rem; /* space for media player & navbar */
+    transition: all 0.3s ease;
+    margin-top: 0; /* default: no extra spacing */
+}
+
 /* Add spacing only on pages that need it */
 .songs-container.with-top-spacing {
     margin-top: 7rem;
