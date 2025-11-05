@@ -2,9 +2,16 @@ package com.groovify.jpa.model;
 
 import jakarta.persistence.*;
 
+/**
+ * Entity representing a Song in the system.
+ * <p>
+ * Maps to the "Song" table in the database. Each song has a filename, title,
+ * artist, and an optional reference to a genre.
+ */
 @Entity
 @Table(name = "Song")
 public class Song {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
@@ -12,15 +19,30 @@ public class Song {
 
     @Column(name = "Filename")
     private String filename;
+
     @Column(name = "Title")
     private String title;
+
     @Column(name = "Artist")
     private String artist;
+
     @Column(name = "Genre_ID")
     private Long genreId;
 
+    /**
+     * Default constructor required by JPA.
+     */
     public Song() {}
 
+    /**
+     * Constructs a Song with the specified filename, title, and artist.
+     * <p>
+     * The genreId is left null and can be set later.
+     *
+     * @param filename the filename of the song
+     * @param title    the title of the song
+     * @param artist   the artist of the song
+     */
     public Song(String filename, String title, String artist) {
         this.filename = filename;
         this.title = title;
@@ -29,6 +51,7 @@ public class Song {
     }
 
     // Getters
+
     public String getFilename() {
         return filename;
     }
@@ -46,6 +69,12 @@ public class Song {
     }
 
     // Setter for Genre ID
+
+    /**
+     * Sets the genre ID for this song.
+     *
+     * @param genreId the ID of the genre to associate with this song
+     */
     public void setGenreId(Long genreId) {
         this.genreId = genreId;
     }

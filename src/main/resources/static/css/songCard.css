@@ -1,5 +1,6 @@
-/* Responsive grid container for songs */
-/* Responsive grid container for songs */
+/* ==============================
+   Songs Container (Responsive Grid)
+   ============================== */
 .songs-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -11,6 +12,7 @@
     margin-top: 0; /* default: no extra spacing */
 }
 
+/* Variant: with media player adjustments */
 .songs-container.with-media-player {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -22,20 +24,21 @@
     margin-top: 0; /* default: no extra spacing */
 }
 
-/* Add spacing only on pages that need it */
+/* Variant: add top spacing if page needs it */
 .songs-container.with-top-spacing {
     margin-top: 7rem;
 }
 
-/* Individual song card */
+/* ==============================
+   Individual Song Card
+   ============================== */
 .song-card {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
     border-radius: 12px;
-    /* subtle white glow */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 0 18px rgba(255,255,255,0.45);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 0 18px rgba(255,255,255,0.45); /* subtle white glow */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -46,14 +49,15 @@
 
 .song-card:hover {
     transform: scale(1.05);
-    /* slightly stronger glow on hover */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.55);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.55); /* stronger glow on hover */
 }
 
-/* Gradient overlay behind song info */
+/* ==============================
+   Song Info Overlay
+   ============================== */
 .song-info {
     width: 100%;
-    height: 80px; /* fixed height so all overlays are consistent */
+    height: 80px; /* fixed height for consistency */
     background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.75));
     color: white;
     padding: 10px 15px;

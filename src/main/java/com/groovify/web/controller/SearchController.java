@@ -11,31 +11,60 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+/**
+ * Controller responsible for handling song search functionality.
+ * <p>
+ * Provides endpoints for displaying the search page and search results
+ * based on song title or genre. Converts search results into SongView
+ * DTOs for display in the frontend.
+ */
 @Controller
 public class SearchController {
+
+    private static final Logger log = LoggerFactory.getLogger(SearchController.class);
 
     private final SongService songService;
     private final GenreRepo genreRepo;
     private final ClientRepo clientRepo;
 
+    /**
+     * Constructs a SearchController with required repositories and services.
+     *
+     * @param songService service for querying songs
+     * @param genreRepo   repository for accessing genre information
+     * @param clientRepo  repository for accessing client data
+     */
     public SearchController(SongService songService, GenreRepo genreRepo, ClientRepo clientRepo) {
         this.songService = songService;
         this.genreRepo = genreRepo;
         this.clientRepo = clientRepo;
     }
 
+    /**
+     * Displays the search page.
+     *
+     * @param session the HTTP session containing user information
+     * @param model   the Spring Model used to pass data to the view
+     * @return the search page view or redirect if user is not logged in
+     */
     @GetMapping("/search")
     public String searchPage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
+
         if (username == null) {
+            log.warn("Access to search page denied: no user logged in");
             return "redirect:";
         }
 
         Client user = clientRepo.findByName(username).orElse(null);
+        log.info("User '{}' accessed search page", username);
 
+        // Initialize empty song list
         model.addAttribute("user", user);
         model.addAttribute("songList", List.of());
         model.addAttribute("pageTitle", "Search");
@@ -43,6 +72,15 @@ public class SearchController {
         return "search";
     }
 
+    /**
+     * Displays search results for a given query.
+     *
+     * @param query   the search term entered by the user
+     * @param type    the type of search: "title" or "genre" (default is "title")
+     * @param session the HTTP session containing user information
+     * @param model   the Spring Model used to pass data to the view
+     * @return the search results view or redirect if user is not logged in
+     */
     @GetMapping("/search/results")
     public String searchResults(
             @RequestParam("query") String query,
@@ -51,16 +89,23 @@ public class SearchController {
             Model model) {
 
         String username = (String) session.getAttribute("username");
+
         if (username == null) {
+            log.warn("Access to search results denied: no user logged in");
             return "redirect:";
         }
 
         Client user = clientRepo.findByName(username).orElse(null);
+        log.info("User '{}' performed a '{}' search with query '{}'", username, type, query);
 
+        // Perform search by type
         List<Song> songs = "genre".equalsIgnoreCase(type)
                 ? songService.searchSongsByGenre(query)
                 : songService.searchSongsByTitle(query);
 
+        log.debug("Found {} songs for query '{}' of type '{}'", songs.size(), query, type);
+
+        // Convert songs to SongView DTOs
         List<SongView> songList = songs.stream().map(song -> {
             String genreName = genreRepo.findById(song.getGenreId())
                     .map(g -> g.getName())
@@ -68,6 +113,7 @@ public class SearchController {
             return new SongView(song.getTitle(), song.getArtist(), genreName);
         }).toList();
 
+        // Add attributes for rendering
         model.addAttribute("user", user);
         model.addAttribute("songList", songList);
         model.addAttribute("query", query);

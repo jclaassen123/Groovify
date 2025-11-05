@@ -1,4 +1,6 @@
-/* Topbar container */
+/* ==============================
+   Topbar Container
+   ============================== */
 .topbar {
     position: fixed;
     top: 0;
@@ -27,7 +29,9 @@
     background-color: rgba(255,255,255,0.6);
 }
 
-/* Groovify logo/text */
+/* ==============================
+   Logo / Title
+   ============================== */
 .title .logo {
     font-size: clamp(2.5rem, 6vw, 10rem); /* bigger text */
     font-weight: bold;
@@ -36,7 +40,7 @@
     line-height: 1;
 }
 
-/* Center page title */
+/* Centered Page Title */
 .current_page {
     position: absolute;
     left: 50%;
@@ -53,9 +57,11 @@
     white-space: nowrap;
 }
 
-/* Profile picture */
+/* ==============================
+   Profile Circle / Image
+   ============================== */
 .profile .profile-circle {
-    width: clamp(50px, 8vw, 100px);  /* bigger */
+    width: clamp(50px, 8vw, 100px);
     height: clamp(50px, 8vw, 100px);
     border-radius: 50%;
     overflow: hidden;
@@ -72,13 +78,15 @@
     display: block;
 }
 
-/* Hover effect for profile */
+/* Hover effect for profile circle */
 .profile .profile-circle:hover {
     transform: scale(1.25); /* slightly bigger hover */
     border-color: #fff;
 }
 
-/* Profile dropdown positioned over the circle */
+/* ==============================
+   Profile Dropdown
+   ============================== */
 .profile-dropdown {
     position: absolute;
     top: 50%;        /* center vertically on the circle */
@@ -95,18 +103,18 @@
     z-index: 1001;
 }
 
-/* Remove underline and make <a> full width */
+/* Remove underline & full-width links */
 .profile-dropdown a {
-    text-decoration: none;   /* remove underline */
+    text-decoration: none;
     display: block;
     width: 100%;
 }
 
-/* Buttons inside dropdown - unified size and centered text */
+/* Buttons inside dropdown */
 .profile-dropdown button {
-    width: 100%; /* full width of dropdown */
-    padding: 10px 0; /* vertical padding for consistent height */
-    text-align: center; /* center text horizontally */
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
     border: none;
     border-radius: 6px;
     font-size: 14px;
@@ -115,7 +123,7 @@
     display: block;
 }
 
-/* Edit button */
+/* Edit Profile Button */
 #editProfileBtn {
     background-color: #fff;
     color: #000;
@@ -125,7 +133,7 @@
     background-color: #e0e0e0; /* subtle hover */
 }
 
-/* Logout button */
+/* Logout Button */
 #logoutTopbarBtn {
     background-color: #e63946;
     color: #fff;

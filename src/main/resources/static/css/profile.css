@@ -1,9 +1,11 @@
-/* Prevent scrolling on the page */
+/* ==============================
+   Page Layout
+   ============================== */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* disables page scroll */
+    overflow: hidden; /* prevents page scroll */
 }
 
 body {
@@ -14,14 +16,15 @@ body {
     font-family: 'Helvetica', Arial, sans-serif;
     color: #fff;
 
-    /* Flex layout to allow profile-info to take remaining space */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* Header styling */
+/* ==============================
+   Header
+   ============================== */
 header h1 {
     color: #ffffff;
     font-size: 96px;
@@ -37,11 +40,13 @@ header h1 {
     border-radius: 0;
 }
 
-/* Profile card takes remaining space */
+/* ==============================
+   Profile Card / Info Section
+   ============================== */
 .profile-info {
     flex: 1 1 auto;                 /* fill remaining vertical space */
     width: 400px;
-    max-width: 90%;                  /* responsive width */
+    max-width: 90%;                  /* responsive */
     background-color: rgba(0, 0, 0, 0.6);
     padding: 30px;
     border-radius: 15px;
@@ -49,22 +54,23 @@ header h1 {
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 
-    overflow-y: auto;                /* allow internal scrolling */
+    overflow-y: auto;                /* internal scrolling */
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
 
-    /* ensure bottom buttons are not hidden behind navbar */
-    padding-bottom: clamp(70px, 10vh, 120px);
+    padding-bottom: clamp(70px, 10vh, 120px); /* space for navbar/media player */
 }
 
-/* Optional: media query for very short screens */
+/* Short screen media query */
 @media (max-height: 750px) {
     .profile-info {
-        max-height: 95vh;         /* leave small padding from viewport top/bottom */
+        max-height: 95vh;
     }
 }
 
-/* Profile picture styling */
+/* ==============================
+   Profile Picture
+   ============================== */
 .profile-picture {
     width: 120px;
     height: 120px;
@@ -79,7 +85,9 @@ header h1 {
     transform: scale(1.1);
 }
 
-/* Inputs inside profile card */
+/* ==============================
+   Inputs
+   ============================== */
 .profile-info input[type="text"],
 .profile-info textarea {
     width: 80%;
@@ -95,7 +103,9 @@ header h1 {
     resize: none;
 }
 
-/* Avatar selection */
+/* ==============================
+   Avatar Selection / Gallery
+   ============================== */
 .avatar-selection {
     display: none;
     margin-top: 20px;
@@ -131,7 +141,6 @@ header h1 {
     color: #ccc;
 }
 
-/* Gallery overlay */
 .image-gallery {
     position: absolute;
     left: 50%;
@@ -146,7 +155,7 @@ header h1 {
     z-index: 10;
     width: 380px;
     max-height: 140px;
-    pointer-events: auto; /* allow clicks */
+    pointer-events: auto;
 }
 
 .image-gallery img {
@@ -164,7 +173,9 @@ header h1 {
     border: 3px solid #4da6ff;
 }
 
-/* Common styling for profile form buttons */
+/* ==============================
+   Buttons (Profile / Save / Cancel)
+   ============================== */
 .profile-info button {
     margin-top: 15px;
     padding: 10px 25px;
@@ -175,7 +186,7 @@ header h1 {
     color: #000;
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease;
-    display: inline-block;  /* ensure buttons flow properly */
+    display: inline-block;
 }
 
 .profile-info button:hover {
@@ -183,13 +194,12 @@ header h1 {
     transform: scale(1.05);
 }
 
-/* Save / Cancel buttons (if needed, can add specific IDs) */
-#saveBtn, #cancelBtn, #editBtn {
-    /* inherit styles from .profile-info button */
-    /* spacing handled by margin-top and inline-block */
-}
+/* IDs inherit general button styles */
+#saveBtn, #cancelBtn, #editBtn {}
 
-/* Logout button at top right (fixed) */
+/* ==============================
+   Logout Button (Top Right)
+   ============================== */
 #logoutBtn {
     position: fixed;
     top: 20px;
@@ -210,22 +220,30 @@ header h1 {
     background-color: #c1121f;
 }
 
+/* ==============================
+   Errors / Input Validation
+   ============================== */
 .input-error { border-color: red; }
 .error-message { color: red; font-size: 0.9em; }
+
+/* ==============================
+   Genres
+   ============================== */
 #genreSelection label { display: inline-block; margin-right: 10px; }
+
 #userGenres {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;       /* space between genres */
-    margin-top: 10px; /* optional spacing from header */
+    gap: 10px;
+    margin-top: 10px;
 }
 
 #userGenres span {
     display: inline-block;
-    padding: 4px 10px;          /* adds internal spacing */
-    background-color: rgba(255, 255, 255, 0.1); /* optional styling */
-    border-radius: 12px;        /* pill shape */
+    padding: 4px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     font-size: 14px;
     color: #fff;
 }
@@ -235,7 +253,7 @@ header h1 {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 15px;
-    color: #ffffff;  /* red like previous error text */
+    color: #ffffff;
     font-size: 18px;
     font-weight: bold;
 }

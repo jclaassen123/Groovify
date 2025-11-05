@@ -1,4 +1,17 @@
+/**
+ * profile.js
+ *
+ * Handles the user profile page functionality:
+ * - Edit/cancel/save profile
+ * - Profile picture selection and gallery
+ * - Genre selection toggle
+ * - Client-side form validation
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
+    // -----------------------
+    // DOM elements
+    // -----------------------
     const editBtn = document.getElementById("editBtn");
     const saveBtn = document.getElementById("saveBtn");
     const cancelBtn = document.getElementById("cancelBtn");
@@ -13,33 +26,46 @@ document.addEventListener("DOMContentLoaded", () => {
     const userGenres = document.getElementById("userGenres"); // may be null if no genres
     const body = document.body;
 
+    // -----------------------
+    // State
+    // -----------------------
     let editMode = false;
-    let originalUsername = usernameInput.value;
-    let originalDescription = descriptionInput.value;
-    let originalImage = profilePic.src;
-    let originalBackground = body.style.backgroundImage;
+    const originalUsername = usernameInput.value;
+    const originalDescription = descriptionInput.value;
+    const originalImage = profilePic.src;
+    const originalBackground = body.style.backgroundImage;
     const originalGenres = Array.from(genreSelection.querySelectorAll("input[type='checkbox']")).map(cb => cb.checked);
 
-    // --- Edit button ---
+    // -----------------------
+    // Edit button
+    // -----------------------
     editBtn.addEventListener("click", () => {
         usernameInput.removeAttribute("readonly");
         descriptionInput.removeAttribute("readonly");
         genreSelection.style.display = "block";
         if (userGenres) userGenres.style.display = "none";
+
         editBtn.style.display = "none";
         saveBtn.style.display = "inline-block";
         cancelBtn.style.display = "inline-block";
         editMode = true;
     });
 
-    // --- Cancel button ---
+    // -----------------------
+    // Cancel button
+    // -----------------------
     cancelBtn.addEventListener("click", () => {
+        // Restore original values
         usernameInput.value = originalUsername;
         descriptionInput.value = originalDescription;
         profilePic.src = originalImage;
         body.style.backgroundImage = originalBackground;
         imageFileName.value = originalImage.split("/").pop();
+
+        // Restore genre selections
         genreSelection.querySelectorAll("input[type='checkbox']").forEach((cb, idx) => cb.checked = originalGenres[idx]);
+
+        // Restore readonly and visibility
         usernameInput.setAttribute("readonly", true);
         descriptionInput.setAttribute("readonly", true);
         genreSelection.style.display = "none";
@@ -47,12 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
         editBtn.style.display = "inline-block";
         saveBtn.style.display = "none";
         cancelBtn.style.display = "none";
+
         clearError(usernameInput);
         clearError(descriptionInput);
         editMode = false;
     });
 
-    // --- Profile picture selection ---
+    // -----------------------
+    // Profile picture selection
+    // -----------------------
     profilePic.addEventListener("click", () => {
         if (!editMode) return;
         imageGallery.style.display = imageGallery.style.display === "none" ? "flex" : "none";
@@ -67,7 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- Form submission ---
+    // -----------------------
+    // Form submission
+    // -----------------------
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
         clearError(usernameInput);
@@ -76,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         usernameInput.value = usernameInput.value.trim();
         descriptionInput.value = descriptionInput.value.trim();
 
+        // Client-side validation
         if (usernameInput.value.length < 3) return showError(usernameInput, "Username must be at least 3 characters");
         if (usernameInput.value.length > 32) return showError(usernameInput, "Username must not exceed 32 characters");
         if (descriptionInput.value.length > 250) return showError(descriptionInput, "Description cannot exceed 250 characters");
@@ -87,14 +119,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Error updating profile");
                 return;
             }
-            window.location.reload(); // you could make this dynamic later
+            // Reload the page after successful update
+            window.location.reload();
         } catch (err) {
             console.error(err);
             alert("Could not submit profile. Try again later.");
         }
     });
 
-    // --- Error helpers ---
+    // -----------------------
+    // Error helpers
+    // -----------------------
+
+    /**
+     * Shows an error message for an input element
+     * @param {HTMLInputElement|HTMLTextAreaElement} input
+     * @param {string} message
+     */
     function showError(input, message) {
         clearError(input);
         input.classList.add("input-error");
@@ -104,6 +145,10 @@ document.addEventListener("DOMContentLoaded", () => {
         input.insertAdjacentElement("afterend", error);
     }
 
+    /**
+     * Clears any error message associated with an input
+     * @param {HTMLInputElement|HTMLTextAreaElement} input
+     */
     function clearError(input) {
         input.classList.remove("input-error");
         const nextEl = input.nextElementSibling;

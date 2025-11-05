@@ -1,9 +1,17 @@
-// session-timeout.js
+/**
+ * session-timeout.js
+ *
+ * Automatically redirects the user to the session timeout page
+ * after a specified period of inactivity.
+ */
+
 (function() {
-    // Set timeout in milliseconds (e.g. 5000 = 5 seconds for testing)
+    // Session timeout duration in milliseconds
+    // 3600000 ms = 1 hour
     const SESSION_TIMEOUT = 3600000;
 
-    setTimeout(function() {
+    // Redirect user to timeout page after the session expires
+    setTimeout(() => {
         window.location.href = "/sessionTimedOut";
     }, SESSION_TIMEOUT);
 })();

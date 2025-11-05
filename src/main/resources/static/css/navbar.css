@@ -1,21 +1,25 @@
-/* Bottom navbar container */
+/* ==============================
+   Bottom Navbar Container
+   ============================== */
 .navbar {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: clamp(70px, 10vh, 120px);
+    height: clamp(70px, 10vh, 120px); /* responsive height */
     background: linear-gradient(90deg, rgba(58,151,212,0.85), rgba(30,96,145,0.85));
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(8px);
-    border-top: 2px solid rgba(255,255,255,0.8); /* white outline like topbar */
+    border-top: 2px solid rgba(255,255,255,0.8); /* subtle white outline like topbar */
     z-index: 1000;
 }
 
-/* <ul> horizontal layout with spacing */
+/* ==============================
+   Navbar List Layout
+   ============================== */
 .navbar ul {
     list-style: none;
     margin: 0;
@@ -26,40 +30,48 @@
     max-width: 1400px;
 }
 
-/* Navbar links/buttons */
+/* ==============================
+   Navbar Links / Buttons
+   ============================== */
 .navbar li a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    padding: clamp(10px, 2vh, 20px) clamp(25px, 4vw, 50px);
+    padding: clamp(10px, 2vh, 20px) clamp(25px, 4vw, 50px); /* responsive padding */
     border-radius: 50px;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(1rem, 2.5vw, 1.5rem); /* responsive font */
     transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.12); /* slightly lighter than old version */
+    background-color: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(6px);
-    min-width: clamp(90px, 18vw, 200px);
+    min-width: clamp(90px, 18vw, 200px); /* minimum button width */
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.6); /* subtle white outline on each button */
+    border: 1px solid rgba(255,255,255,0.6); /* subtle white outline */
 }
 
-/* Hover effect */
+/* ==============================
+   Hover Effect
+   ============================== */
 .navbar li a:hover {
     background-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Active link */
+/* ==============================
+   Active Link
+   ============================== */
 .navbar li a.active {
     background-color: #ffffff;
     color: #1e6091;
     font-weight: bold;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    border: 1px solid rgba(255,255,255,0.8); /* highlight active button outline */
+    border: 1px solid rgba(255,255,255,0.8); /* highlight outline */
 }
 
-/* Touch active */
+/* ==============================
+   Touch / Active State
+   ============================== */
 .navbar li a:active {
     transform: translateY(0);
     box-shadow: none;

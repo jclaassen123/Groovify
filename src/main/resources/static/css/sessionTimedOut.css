@@ -1,3 +1,6 @@
+/* ==============================
+   Body / Page Container
+   ============================== */
 body {
     font-family: "Segoe UI", Arial, sans-serif;
     display: flex;
@@ -9,6 +12,9 @@ body {
     color: #333;
 }
 
+/* ==============================
+   Timeout Box / Card
+   ============================== */
 .timeout-box {
     max-width: 400px;
     width: 90%;
@@ -21,6 +27,9 @@ body {
     animation: fadeIn 0.6s ease-out;
 }
 
+/* ==============================
+   Headings
+   ============================== */
 h1 {
     font-size: 26px;
     margin-bottom: 15px;
@@ -28,6 +37,9 @@ h1 {
     font-weight: 600;
 }
 
+/* ==============================
+   Paragraphs
+   ============================== */
 p {
     margin: 0 0 20px;
     font-size: 15px;
@@ -35,6 +47,9 @@ p {
     color: #666;
 }
 
+/* ==============================
+   Buttons
+   ============================== */
 .btn {
     display: inline-block;
     margin-top: 10px;
@@ -54,7 +69,16 @@ p {
     transform: translateY(-2px);
 }
 
+/* ==============================
+   Animations
+   ============================== */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
