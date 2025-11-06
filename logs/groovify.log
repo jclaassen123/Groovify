@@ -13084,3 +13084,343 @@ HikariPool-1 - Shutdown initiated...
 2025-11-05 13:20:33,234 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
 HikariPool-1 - Shutdown completed.
 
+2025-11-06 12:25:41,708 - [INFO] - from org.hibernate.validator.internal.util.Version in background-preinit 
+HV000001: Hibernate Validator 8.0.3.Final
+
+2025-11-06 12:25:41,724 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+Starting GroovifyApplication using Java 21.0.4 with PID 74186 (/Users/jaceclaassen/Desktop/Groovify/build/classes/java/main started by jaceclaassen in /Users/jaceclaassen/Desktop/Groovify)
+
+2025-11-06 12:25:41,724 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+No active profile set, falling back to 1 default profile: "default"
+
+2025-11-06 12:25:41,738 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-06 12:25:41,738 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-06 12:25:41,942 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-06 12:25:41,962 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
+
+2025-11-06 12:25:42,129 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-06 12:25:42,134 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-06 12:25:42,135 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-06 12:25:42,135 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-06 12:25:42,148 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-06 12:25:42,148 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 410 ms
+
+2025-11-06 12:25:42,206 - [INFO] - from org.hibernate.jpa.internal.util.LogHelper in restartedMain 
+HHH000204: Processing PersistenceUnitInfo [name: default]
+
+2025-11-06 12:25:42,222 - [INFO] - from org.hibernate.Version in restartedMain 
+HHH000412: Hibernate ORM core version 6.6.26.Final
+
+2025-11-06 12:25:42,236 - [INFO] - from org.hibernate.cache.internal.RegionFactoryInitiator in restartedMain 
+HHH000026: Second-level cache disabled
+
+2025-11-06 12:25:42,331 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-06 12:25:42,342 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Starting...
+
+2025-11-06 12:25:42,479 - [INFO] - from com.zaxxer.hikari.pool.HikariPool in restartedMain 
+HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3a84096f
+
+2025-11-06 12:25:42,479 - [INFO] - from com.zaxxer.hikari.HikariDataSource in restartedMain 
+HikariPool-1 - Start completed.
+
+2025-11-06 12:25:42,496 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
+HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+
+2025-11-06 12:25:42,497 - [WARN] - from org.hibernate.orm.deprecation in restartedMain 
+HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+
+2025-11-06 12:25:42,502 - [INFO] - from org.hibernate.orm.connections.pooling in restartedMain 
+HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+
+2025-11-06 12:25:42,845 - [INFO] - from org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator in restartedMain 
+HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+
+2025-11-06 12:25:42,883 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-06 12:25:43,017 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-06 12:25:43,370 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-06 12:25:43,500 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-06 12:25:43,506 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-06 12:25:43,513 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-06 12:25:43,517 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+Started GroovifyApplication in 1.946 seconds (process running for 2.072)
+
+2025-11-06 12:25:43,517 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+Starting genre import before web server startup...
+
+2025-11-06 12:25:43,572 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+Genre import complete. Continuing startup...
+
+2025-11-06 12:25:43,572 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+Starting MP3 import before web server startup...
+
+2025-11-06 12:25:43,575 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'FirstLight.mp3' already exists, skipping
+
+2025-11-06 12:25:43,576 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Forever.mp3' already exists, skipping
+
+2025-11-06 12:25:43,576 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'BirdsFlyingFree.mp3' already exists, skipping
+
+2025-11-06 12:25:43,577 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'ThoughtsInTime.mp3' already exists, skipping
+
+2025-11-06 12:25:43,578 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'NightVibes.mp3' already exists, skipping
+
+2025-11-06 12:25:43,579 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'SummerAdventures.mp3' already exists, skipping
+
+2025-11-06 12:25:43,580 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'NeonMemories.mp3' already exists, skipping
+
+2025-11-06 12:25:43,580 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'ChasingTheSun.mp3' already exists, skipping
+
+2025-11-06 12:25:43,581 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'CountryVillageRock.mp3' already exists, skipping
+
+2025-11-06 12:25:43,582 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'DancingShadows.mp3' already exists, skipping
+
+2025-11-06 12:25:43,584 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'CelloSuite.mp3' already exists, skipping
+
+2025-11-06 12:25:43,584 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'EineKleineNachtmusik.mp3' already exists, skipping
+
+2025-11-06 12:25:43,585 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'AllegroDeconcert.mp3' already exists, skipping
+
+2025-11-06 12:25:43,586 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'StringQuartetAllegroModerato.mp3' already exists, skipping
+
+2025-11-06 12:25:43,587 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'FebruaryCarnival.mp3' already exists, skipping
+
+2025-11-06 12:25:43,587 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'ClassicalViolin.mp3' already exists, skipping
+
+2025-11-06 12:25:43,588 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'JanuaryAtTheFireside.mp3' already exists, skipping
+
+2025-11-06 12:25:43,589 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Albumleaf.mp3' already exists, skipping
+
+2025-11-06 12:25:43,590 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'ClairDeLune.mp3' already exists, skipping
+
+2025-11-06 12:25:43,590 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'MarchSongOfTheLark.mp3' already exists, skipping
+
+2025-11-06 12:25:43,592 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'SportsRock.mp3' already exists, skipping
+
+2025-11-06 12:25:43,593 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'TheRock.mp3' already exists, skipping
+
+2025-11-06 12:25:43,594 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'HeavyRain.mp3' already exists, skipping
+
+2025-11-06 12:25:43,594 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'EpicSymphonic.mp3' already exists, skipping
+
+2025-11-06 12:25:43,595 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'CyberneticOnslaught.mp3' already exists, skipping
+
+2025-11-06 12:25:43,596 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'IntenseBlack.mp3' already exists, skipping
+
+2025-11-06 12:25:43,596 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'RunningRock.mp3' already exists, skipping
+
+2025-11-06 12:25:43,597 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Energetic.mp3' already exists, skipping
+
+2025-11-06 12:25:43,598 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'HeavyDoom.mp3' already exists, skipping
+
+2025-11-06 12:25:43,599 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'FunRock.mp3' already exists, skipping
+
+2025-11-06 12:25:43,600 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'ScottishSong.mp3' already exists, skipping
+
+2025-11-06 12:25:43,601 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Flamenco.mp3' already exists, skipping
+
+2025-11-06 12:25:43,602 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'RomanticGuitar.mp3' already exists, skipping
+
+2025-11-06 12:25:43,602 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'TheBrewersRevenge.mp3' already exists, skipping
+
+2025-11-06 12:25:43,603 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'TheMinstrelsLament.mp3' already exists, skipping
+
+2025-11-06 12:25:43,604 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'TheGhostsOfGlitteringGold.mp3' already exists, skipping
+
+2025-11-06 12:25:43,604 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'TheBardWhoStoleTheMoon.mp3' already exists, skipping
+
+2025-11-06 12:25:43,605 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'ReturnToMeMyLove.mp3' already exists, skipping
+
+2025-11-06 12:25:43,606 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'RussianFolk.mp3' already exists, skipping
+
+2025-11-06 12:25:43,607 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'MexicanStyle.mp3' already exists, skipping
+
+2025-11-06 12:25:43,609 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'BeautifulNight.mp3' already exists, skipping
+
+2025-11-06 12:25:43,609 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'TechHouseSpaceJam.mp3' already exists, skipping
+
+2025-11-06 12:25:43,610 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Floating.mp3' already exists, skipping
+
+2025-11-06 12:25:43,611 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'DeepTech.mp3' already exists, skipping
+
+2025-11-06 12:25:43,611 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Innovation.mp3' already exists, skipping
+
+2025-11-06 12:25:43,612 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Futurism.mp3' already exists, skipping
+
+2025-11-06 12:25:43,613 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'DigitalTech.mp3' already exists, skipping
+
+2025-11-06 12:25:43,613 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'StarRain.mp3' already exists, skipping
+
+2025-11-06 12:25:43,614 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'FuturisticTech.mp3' already exists, skipping
+
+2025-11-06 12:25:43,615 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'CorporateTech.mp3' already exists, skipping
+
+2025-11-06 12:25:43,617 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'SweetOnYou.mp3' already exists, skipping
+
+2025-11-06 12:25:43,618 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'BackroadsCountryMusic.mp3' already exists, skipping
+
+2025-11-06 12:25:43,619 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'QuietHome.mp3' already exists, skipping
+
+2025-11-06 12:25:43,619 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'AutumnRoad.mp3' already exists, skipping
+
+2025-11-06 12:25:43,620 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'AllIGotIsMe.mp3' already exists, skipping
+
+2025-11-06 12:25:43,621 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'MercyEveryMorning.mp3' already exists, skipping
+
+2025-11-06 12:25:43,622 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'LostMyPlace.mp3' already exists, skipping
+
+2025-11-06 12:25:43,622 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'AmericanaInstrumental.mp3' already exists, skipping
+
+2025-11-06 12:25:43,623 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'BackroadsAndPolaroids.mp3' already exists, skipping
+
+2025-11-06 12:25:43,624 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
+File 'Hesitation.mp3' already exists, skipping
+
+2025-11-06 12:25:43,624 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
+MP3 import complete. Continuing startup...
+
+2025-11-06 12:25:46,960 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-06 12:25:46,960 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-06 12:25:46,960 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2025-11-06 12:25:46,979 - [WARN] - from com.groovify.web.controller.HomeController in http-nio-8080-exec-1 
+Access to /home denied: no user logged in
+
+2025-11-06 12:26:30,373 - [INFO] - from com.groovify.web.controller.RegisterController in http-nio-8080-exec-2 
+User 'alsjdflkjasdjfalsjdflkjasdlkflkasdjflkasd' attempting to register
+
+2025-11-06 12:26:30,374 - [INFO] - from com.groovify.service.RegisterServiceImpl in http-nio-8080-exec-2 
+User 'alsjdflkjasdjfalsjdflkjasdlkflkasdjflkasd' attempting to register
+
+2025-11-06 12:26:30,374 - [WARN] - from com.groovify.service.RegisterServiceImpl in http-nio-8080-exec-2 
+Validation failed for user 'alsjdflkjasdjfalsjdflkjasdlkflkasdjflkasd'
+
+2025-11-06 12:26:54,338 - [INFO] - from com.groovify.web.controller.RegisterController in http-nio-8080-exec-3 
+User 'ImAUser' attempting to register
+
+2025-11-06 12:26:54,338 - [INFO] - from com.groovify.service.RegisterServiceImpl in http-nio-8080-exec-3 
+User 'ImAUser' attempting to register
+
+2025-11-06 12:26:54,386 - [INFO] - from com.groovify.service.RegisterServiceImpl in http-nio-8080-exec-3 
+User 'ImAUser' successfully registered
+
+2025-11-06 12:26:54,387 - [INFO] - from com.groovify.service.RegisterServiceImpl in http-nio-8080-exec-3 
+Registration completed successfully for 'ImAUser'
+
+2025-11-06 12:28:24,023 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-06 12:28:24,029 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-06 12:28:24,035 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-06 12:28:24,040 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown initiated...
+
+2025-11-06 12:28:24,045 - [INFO] - from com.zaxxer.hikari.HikariDataSource in SpringApplicationShutdownHook 
+HikariPool-1 - Shutdown completed.
+
