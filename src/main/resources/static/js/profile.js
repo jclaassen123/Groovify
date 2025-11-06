@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // State
     // -----------------------
     let editMode = false;
-    const originalUsername = usernameInput.value;
+    let originalUsername = usernameInput.value;
     const originalDescription = descriptionInput.value;
     const originalImage = profilePic.src;
     const originalBackground = body.style.backgroundImage;
@@ -49,23 +49,23 @@ document.addEventListener("DOMContentLoaded", () => {
         saveBtn.style.display = "inline-block";
         cancelBtn.style.display = "inline-block";
         editMode = true;
+
+        // Update originalUsername on entering edit mode
+        originalUsername = usernameInput.value.trim();
     });
 
     // -----------------------
     // Cancel button
     // -----------------------
     cancelBtn.addEventListener("click", () => {
-        // Restore original values
         usernameInput.value = originalUsername;
         descriptionInput.value = originalDescription;
         profilePic.src = originalImage;
         body.style.backgroundImage = originalBackground;
         imageFileName.value = originalImage.split("/").pop();
 
-        // Restore genre selections
         genreSelection.querySelectorAll("input[type='checkbox']").forEach((cb, idx) => cb.checked = originalGenres[idx]);
 
-        // Restore readonly and visibility
         usernameInput.setAttribute("readonly", true);
         descriptionInput.setAttribute("readonly", true);
         genreSelection.style.display = "none";
@@ -97,6 +97,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // -----------------------
+    // Helper: check username availability
+    // -----------------------
+    async function checkUsernameAvailability(username) {
+        if (!editMode || username === originalUsername) return false; // not changed
+        try {
+            const response = await fetch(`/check-username?username=${encodeURIComponent(username)}`);
+            if (!response.ok) throw new Error("Failed to check username");
+            return await response.json(); // true if taken
+        } catch (err) {
+            console.error("Username check failed:", err);
+            return null; // indicate check failed
+        }
+    }
+
+    // -----------------------
+    // Username blur check
+    // -----------------------
+    usernameInput.addEventListener("blur", async () => {
+        clearError(usernameInput);
+        const username = usernameInput.value.trim();
+        if (username.length < 3 || username.length > 32) return;
+
+        const isTaken = await checkUsernameAvailability(username);
+        if (isTaken) showError(usernameInput, "Username already exists. Choose a different one.");
+    });
+
+    // -----------------------
     // Form submission
     // -----------------------
     form.addEventListener("submit", async (e) => {
@@ -104,26 +131,19 @@ document.addEventListener("DOMContentLoaded", () => {
         clearError(usernameInput);
         clearError(descriptionInput);
 
-        usernameInput.value = usernameInput.value.trim();
+        const username = usernameInput.value.trim();
         descriptionInput.value = descriptionInput.value.trim();
 
-        // Client-side validation
-        if (usernameInput.value.length < 3) return showError(usernameInput, "Username must be at least 3 characters");
-        if (usernameInput.value.length > 32) return showError(usernameInput, "Username must not exceed 32 characters");
+        if (username.length < 3) return showError(usernameInput, "Username must be at least 3 characters");
+        if (username.length > 32) return showError(usernameInput, "Username must not exceed 32 characters");
         if (descriptionInput.value.length > 250) return showError(descriptionInput, "Description cannot exceed 250 characters");
 
-        // Check username availability before submitting
-        try {
-            const response = await fetch(`/check-username?username=${encodeURIComponent(usernameInput.value)}`);
-            if (!response.ok) throw new Error("Failed to check username");
-            const isTaken = await response.json();
-            if (isTaken) return showError(usernameInput, "Username already exists. Choose a different one.");
-        } catch (err) {
-            console.error("Username check failed:", err);
-            return showError(usernameInput, "Could not verify username availability. Try again later.");
-        }
+        // Check availability only if username changed
+        const isTaken = await checkUsernameAvailability(username);
+        if (isTaken === true) return showError(usernameInput, "Username already exists. Choose a different one.");
+        if (isTaken === null) return showError(usernameInput, "Could not verify username availability. Try again later.");
 
-        // Submit form normally if all checks pass
+        // Submit form normally
         const formData = new FormData(form);
         try {
             const response = await fetch(form.action, { method: 'POST', body: formData });
@@ -131,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Error updating profile");
                 return;
             }
-            // Reload the page after successful update
             window.location.reload();
         } catch (err) {
             console.error(err);
@@ -140,37 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // -----------------------
-    // Username availability check
-    // -----------------------
-    usernameInput.addEventListener("blur", async () => {
-        clearError(usernameInput);
-
-        const username = usernameInput.value.trim();
-        if (username.length < 3 || username.length > 32) return; // skip invalid lengths
-
-        try {
-            const response = await fetch(`/check-username?username=${encodeURIComponent(username)}`);
-            if (!response.ok) throw new Error("Failed to check username");
-            const isTaken = await response.json();
-
-            if (isTaken) {
-                showError(usernameInput, "Username already exists. Choose a different one.");
-            }
-        } catch (err) {
-            console.error("Username check failed:", err);
-        }
-    });
-
-
-    // -----------------------
     // Error helpers
     // -----------------------
-
-    /**
-     * Shows an error message for an input element
-     * @param {HTMLInputElement|HTMLTextAreaElement} input
-     * @param {string} message
-     */
     function showError(input, message) {
         clearError(input);
         input.classList.add("input-error");
@@ -180,10 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
         input.insertAdjacentElement("afterend", error);
     }
 
-    /**
-     * Clears any error message associated with an input
-     * @param {HTMLInputElement|HTMLTextAreaElement} input
-     */
     function clearError(input) {
         input.classList.remove("input-error");
         const nextEl = input.nextElementSibling;
