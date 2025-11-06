@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Groovify – Playlists</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" th:href="@{/css/home.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
   <link rel="stylesheet" th:href="@{/css/topbar.css}">
   <link rel="stylesheet" th:href="@{/css/mediaplayer.css}">
-    <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
 </head>
 <body>
 
-<!-- Topbar fragment -->
-<div th:replace="fragments/topbar :: topbar" th:with="pageTitle='playlists'"></div>
+<!-- Topbar Fragment -->
+<div th:replace="~{fragments/topbar :: topbar}" th:with="pageTitle='playlists'"></div>
 
-<!-- Audio element -->
+<!-- Audio Player -->
 <audio id="player"></audio>
 
-<!-- Mediaplayer fragment -->
-<div th:replace="fragments/mediaplayer :: mediaplayer"></div>
+<!-- Fragments -->
+<div th:replace="~{fragments/mediaplayer :: mediaplayer}"></div>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div th:replace="~{fragments/session :: sessionTimeoutScripts}"></div>
 
-<!-- Navbar fragment -->
-<div th:replace="fragments/navbar :: navbar"></div>
-
-<!-- JS scripts -->
+<!-- JS Scripts -->
 <script th:src="@{/js/mediaplayer.js}"></script>
 <script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/navbar.js}"></script>
-<div th:replace="fragments/session :: sessionTimeoutScripts"></div>
 
 </body>
 </html>
