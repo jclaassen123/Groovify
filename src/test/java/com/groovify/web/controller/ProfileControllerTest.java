@@ -44,7 +44,7 @@ class ProfileControllerTest {
 
         String result = profileController.profilePage(session, model);
 
-        assertEquals("redirect:/", result);
+        assertEquals("redirect:", result);
         verifyNoInteractions(profileService);
     }
 
@@ -55,7 +55,7 @@ class ProfileControllerTest {
 
         String result = profileController.profilePage(session, model);
 
-        assertEquals("redirect:/", result);
+        assertEquals("redirect:", result);
     }
 
     @Test
@@ -76,7 +76,6 @@ class ProfileControllerTest {
         verify(model).addAttribute("user", user);
         verify(model).addAttribute("allGenres", List.of(genre1, genre2));
     }
-
 
     /* --------------------------------------------------
      * POST /profile/update

@@ -30,7 +30,7 @@ public class SongImportImpl implements SongImportService {
     private final Random random = new Random();
 
     @Value("${music.directory:src/main/resources/static/songs}")
-    private String musicDirectory;
+    String musicDirectory;
 
     // Lists of first and last names for generating artist names
     private static final List<String> FIRST_NAMES = List.of(
