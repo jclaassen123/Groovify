@@ -3,31 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Groovify – Profile</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" th:href="@{/css/profile.css}">
     <link rel="stylesheet" th:href="@{/css/navbar.css}">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
 </head>
 <body th:style="'background-image: url(/images/profile/' + ${user.getImageFileName()} + ');'">
 
-<!-- Groovify Text at Top -->
+<!-- Header -->
 <header>
     <h1>Groovify</h1>
 </header>
 
+<!-- Logout Button -->
 <button id="logoutBtn" class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
 
+<!-- Profile Section -->
 <section class="profile-info">
     <form th:action="@{/profile/update}" method="post" id="profileForm">
         <input type="hidden" th:value="${user.id}" name="id">
 
         <!-- Profile Picture -->
-        <img id="profilePic" th:src="@{/images/profile/{img}(img=${user.getImageFileName()})}"
-             alt="Profile Picture" class="profile-picture"><br><br>
+        <img id="profilePic"
+             th:src="@{/images/profile/{img}(img=${user.getImageFileName()})}"
+             alt="Profile Picture"
+             class="profile-picture"><br><br>
 
         <!-- Hidden input to store selected image filename -->
         <input type="hidden" name="image_file_name" id="imageFileName" th:value="${user.getImageFileName()}">
 
-        <!-- Scrollable image gallery -->
+        <!-- Scrollable Image Gallery -->
         <div id="imageGallery" class="image-gallery" style="display:none;">
             <img src="/images/profile/Sunset.jpg" class="selectable-img">
             <img src="/images/profile/Forest.jpg" class="selectable-img">
@@ -38,12 +46,15 @@
             <img src="/images/profile/Fishing.jpg" class="selectable-img">
         </div>
 
+        <!-- Username -->
         <label>Username:</label>
         <input type="text" th:value="${user.name}" name="name" readonly><br><br>
 
+        <!-- Description -->
         <label>Description:</label>
         <textarea name="description" rows="3" cols="30" th:text="${user.description}" readonly></textarea><br><br>
 
+        <!-- Preferred Genres -->
         <div id="preferredGenresWrapper">
             <div th:if="${#lists.isEmpty(user.genres)} == false">
                 <h3 class="preferred-genres">Preferred Genres</h3>
@@ -53,6 +64,7 @@
             </div>
         </div>
 
+        <!-- Genre Selection (Hidden by default) -->
         <div id="genreSelection" style="display:none">
             <label th:each="g : ${allGenres}">
                 <input type="checkbox" th:value="${g.id}" th:checked="${user.genres.contains(g)}" name="genres" />
@@ -60,15 +72,16 @@
             </label>
         </div>
 
+        <!-- Buttons -->
         <button type="button" id="editBtn">Edit</button>
         <button type="submit" id="saveBtn" style="display:none">Save</button>
         <button type="button" id="cancelBtn" style="display:none">Cancel</button>
     </form>
 </section>
-<!-- Only Navbar -->
-<div th:replace="fragments/navbar :: navbar"></div>
 
-<div th:replace="fragments/session :: sessionTimeoutScripts"></div>
+<!-- Fragments -->
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div th:replace="~{fragments/session :: sessionTimeoutScripts}"></div>
 
 <!-- JS -->
 <script th:src="@{/js/profile.js}"></script>
