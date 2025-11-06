@@ -112,6 +112,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (usernameInput.value.length > 32) return showError(usernameInput, "Username must not exceed 32 characters");
         if (descriptionInput.value.length > 250) return showError(descriptionInput, "Description cannot exceed 250 characters");
 
+        // Check username availability before submitting
+        try {
+            const response = await fetch(`/check-username?username=${encodeURIComponent(usernameInput.value)}`);
+            if (!response.ok) throw new Error("Failed to check username");
+            const isTaken = await response.json();
+            if (isTaken) return showError(usernameInput, "Username already exists. Choose a different one.");
+        } catch (err) {
+            console.error("Username check failed:", err);
+            return showError(usernameInput, "Could not verify username availability. Try again later.");
+        }
+
+        // Submit form normally if all checks pass
         const formData = new FormData(form);
         try {
             const response = await fetch(form.action, { method: 'POST', body: formData });
@@ -126,6 +138,29 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Could not submit profile. Try again later.");
         }
     });
+
+    // -----------------------
+    // Username availability check
+    // -----------------------
+    usernameInput.addEventListener("blur", async () => {
+        clearError(usernameInput);
+
+        const username = usernameInput.value.trim();
+        if (username.length < 3 || username.length > 32) return; // skip invalid lengths
+
+        try {
+            const response = await fetch(`/check-username?username=${encodeURIComponent(username)}`);
+            if (!response.ok) throw new Error("Failed to check username");
+            const isTaken = await response.json();
+
+            if (isTaken) {
+                showError(usernameInput, "Username already exists. Choose a different one.");
+            }
+        } catch (err) {
+            console.error("Username check failed:", err);
+        }
+    });
+
 
     // -----------------------
     // Error helpers
