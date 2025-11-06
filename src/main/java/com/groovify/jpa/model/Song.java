@@ -26,8 +26,17 @@ public class Song {
     @Column(name = "Artist")
     private String artist;
 
-    @Column(name = "Genre_ID")
+    @Column(name = "Genre_ID", insertable = false, updatable = false)
     private Long genreId;
+
+    /**
+     * Many-to-one relationship to Genre.
+     * <p>
+     * Optional: a song may belong to a genre.
+     */
+    @ManyToOne
+    @JoinColumn(name = "Genre_ID")
+    private Genre genre;
 
     /**
      * Default constructor required by JPA.
@@ -37,7 +46,7 @@ public class Song {
     /**
      * Constructs a Song with the specified filename, title, and artist.
      * <p>
-     * The genreId is left null and can be set later.
+     * The genre is left null and can be set later.
      *
      * @param filename the filename of the song
      * @param title    the title of the song
@@ -47,10 +56,14 @@ public class Song {
         this.filename = filename;
         this.title = title;
         this.artist = artist;
-        this.genreId = null;
+        this.genre = null;
     }
 
-    // Getters
+    // ------------------ Getters ------------------
+
+    public Long getId() {
+        return id;
+    }
 
     public String getFilename() {
         return filename;
@@ -68,7 +81,11 @@ public class Song {
         return genreId;
     }
 
-    // Setter for Genre ID
+    public Genre getGenre() {
+        return genre;
+    }
+
+    // ------------------ Setters ------------------
 
     /**
      * Sets the genre ID for this song.
@@ -77,5 +94,14 @@ public class Song {
      */
     public void setGenreId(Long genreId) {
         this.genreId = genreId;
+    }
+
+    /**
+     * Sets the genre object for this song.
+     *
+     * @param genre the Genre to associate with this song
+     */
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 }
