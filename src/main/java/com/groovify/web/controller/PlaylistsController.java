@@ -107,6 +107,7 @@ public class PlaylistsController {
     @PostMapping("/playlists/create")
     public String createPlaylist(HttpSession session,
                                  @RequestParam("name") String name,
+                                 @RequestParam(value = "description", required = false) String description,
                                  Model model) {
         String username = (String) session.getAttribute("username");
         if (username == null) {
@@ -121,7 +122,9 @@ public class PlaylistsController {
         // Create and save playlist
         Playlist playlist = new Playlist();
         playlist.setName(name);
-        playlist.setClientID(user.getId()); // link playlist to logged-in user
+        playlist.setDescription(description); // ✅ now saving the description
+        playlist.setClientID(user.getId());
+
         playlistService.savePlaylist(playlist);
 
         // Redirect back to playlists page

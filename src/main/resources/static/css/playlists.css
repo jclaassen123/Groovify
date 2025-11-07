@@ -78,3 +78,90 @@ body {
 #playlistForm button:hover {
     background-color: #1ed760;
 }
+
+/* Dark theme modal styling to match home.css aesthetic */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #1E2447, #151A33);
+    color: white;
+    margin: 10% auto;
+    padding: 30px 25px;
+    border-radius: 16px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+}
+
+.close {
+    color: #ccc;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #fff;
+}
+
+#playlistForm input,
+#playlistForm textarea {
+    width: 85%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: #2C3158;
+    color: white;
+    font-size: 14px;
+}
+
+#playlistForm textarea {
+    resize: none;
+}
+
+#playlistForm input::placeholder,
+#playlistForm textarea::placeholder {
+    color: #bbb;
+}
+
+#playlistForm button {
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1db954;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#playlistForm button:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
