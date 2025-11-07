@@ -63,7 +63,6 @@ public class SongController {
         model.addAttribute("inPlaylist", false); // we are not in a playlist
         model.addAttribute("playlists", playlists);
 
-
         return "songs";
     }
 

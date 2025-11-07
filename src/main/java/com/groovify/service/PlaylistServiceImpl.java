@@ -4,6 +4,7 @@ import com.groovify.jpa.model.Playlist;
 import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.PlaylistRepo;
 import com.groovify.jpa.repo.SongRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -42,19 +43,19 @@ public class PlaylistServiceImpl implements PlaylistService {
         return playlistRepo.findById(id).orElse(null);
     }
 
+    @Transactional
     @Override
     public void addSongToPlaylist(Long playlistId, Long songId) {
-        Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
-        Song song = songRepo.findById(songId).orElse(null);
+        Playlist playlist = playlistRepo.findById(playlistId)
+                .orElseThrow(() -> new RuntimeException("Playlist not found: " + playlistId));
+        Song song = songRepo.findById(songId)
+                .orElseThrow(() -> new RuntimeException("Song not found: " + songId));
 
-        if (playlist != null && song != null) {
-            if (playlist.getSongs() == null) {
-                playlist.setSongs(new ArrayList<>());
-            }
-            if (!playlist.getSongs().contains(song)) {
-                playlist.getSongs().add(song);
-                playlistRepo.save(playlist);
-            }
+        if (playlist.getSongs() == null) playlist.setSongs(new ArrayList<>());
+
+        if (!playlist.getSongs().contains(song)) {
+            playlist.getSongs().add(song);
+            playlistRepo.save(playlist);
         }
     }
 
