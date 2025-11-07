@@ -1,7 +1,7 @@
 <div th:fragment="playListCard" class="playlist-card"
-     th:attr="data-filename=${playlist.filename}">
+     th:attr="playlist_id=${playlist.id}">
   <div class="song-info">
-    <h3 th:text="${p}">Song Title</h3>
-    <p th:text="${song.artist}">Artist Name</p>
+    <h3 th:text="${playlist.name}">Playlist Title</h3>
+    <p th:text="${playlist.description}">Playlist Description</p>
   </div>
 </div>

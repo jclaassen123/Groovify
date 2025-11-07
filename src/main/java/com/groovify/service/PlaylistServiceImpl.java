@@ -16,11 +16,16 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     @Override
     public List<Playlist> getPlaylists(Long clientID) {
-        return playlistRepo.getUserPlaylists(clientID);
+        return playlistRepo.findByClientID(clientID);
     }
 
     @Override
     public List<Song> getSongs(Long id) {
         return List.of();
+    }
+
+    @Override
+    public Playlist savePlaylist(Playlist playlist) {
+        return playlistRepo.save(playlist);
     }
 }

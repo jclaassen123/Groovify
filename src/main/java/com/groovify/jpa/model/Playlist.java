@@ -46,4 +46,29 @@ public class Playlist {
         return id;
     }
 
+    public void setClientID(Long id) {
+        this.clientID = id;
+    }
+
+    public Long getClientID() {
+        return clientID;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+
 }

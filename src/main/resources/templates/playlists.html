@@ -19,8 +19,21 @@
 </div>
 
 <div id="playlistHolder" class="playlists-container">
-  <div th:each="playlist : ${playlistList}">
-    <div th:replace="fragments/playlistFragment :: playlistCard" th:with="playlist=${playlist.name}"></div>
+  <div th:each="playlist : ${playlists}">
+    <div th:replace="fragments/playlistFragment :: playlistCard" th:with="playlist=${playlist}"></div>
+  </div>
+</div>
+
+<!-- Create Playlist Modal -->
+<div id="playlistModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Create New Playlist</h2>
+    <form id="playlistForm" th:action="@{/playlists/create}" method="post">
+      <input type="text" name="name" placeholder="Playlist Name" required>
+      <br>
+      <button type="submit">Create</button>
+    </form>
   </div>
 </div>
 
