@@ -1,0 +1,71 @@
+/* Responsive grid container for playlists */
+.playlists-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 1.25rem;
+    padding: 0.625rem;
+    padding-bottom: 150px; /* space for media player & navbar */
+    transition: all 0.3s ease;
+    margin-top: 0;
+}
+
+.playlists-container.with-media-player {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 1.25rem;
+    padding: 0.625rem;
+    padding-bottom: 2rem; /* space for media player & navbar */
+    transition: all 0.3s ease;
+    margin-top: 0;
+}
+
+.playlists-container.with-top-spacing {
+    margin-top: 7rem;
+}
+
+/* Individual playlist card */
+.playlist-card {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 0 18px rgba(255,255,255,0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.playlist-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.55);
+}
+
+/* Gradient overlay behind playlist info */
+.playlist-info {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.75));
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.playlist-info h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.playlist-info p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+}

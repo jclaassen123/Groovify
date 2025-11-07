@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Groovify – Playlists</title>
   <link rel="stylesheet" th:href="@{/css/home.css}">
+  <link rel="stylesheet" th:href="@{/css/playlists.css}">
+  <link rel="stylesheet" th:href="@{/css/playlistCard.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
   <link rel="stylesheet" th:href="@{/css/topbar.css}">
   <link rel="stylesheet" th:href="@{/css/mediaplayer.css}">
@@ -15,13 +17,7 @@
 <div th:replace="fragments/topbar :: topbar" th:with="pageTitle='playlists'"></div>
 
 <div id="buttonHolder">
-  <button>Create Playlist</button>
-</div>
-
-<div id="playlistHolder" class="playlists-container">
-  <div th:each="playlist : ${playlists}">
-    <div th:replace="fragments/playlistFragment :: playlistCard" th:with="playlist=${playlist}"></div>
-  </div>
+  <button id="createPlaylistBtn">Create Playlist</button>
 </div>
 
 <!-- Create Playlist Modal -->
@@ -34,6 +30,12 @@
       <br>
       <button type="submit">Create</button>
     </form>
+  </div>
+</div>
+
+<div id="playlistHolder" class="playlists-container">
+  <div th:each="playlist : ${playlists}">
+    <div th:replace="fragments/playlistFragment :: playlistCard" th:with="playlist=${playlist}"></div>
   </div>
 </div>
 
@@ -50,6 +52,7 @@
 <script th:src="@{/js/mediaplayer.js}"></script>
 <script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/navbar.js}"></script>
+<script th:src="@{/js/playlists.js}"></script>
 <div th:replace="fragments/session :: sessionTimeoutScripts"></div>
 
 </body>
