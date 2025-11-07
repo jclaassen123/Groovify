@@ -1,6 +1,20 @@
 <div th:fragment="songCard" class="song-card"
-     th:attr="data-filename=${song.filename}, data-genre=${song.genreName}, data-title =${song.title}"
+     th:attr="data-filename=${song.filename}, data-genre=${song.genreName}, data-title=${song.title}, data-song-id=${song.id}"
      th:style="|background-image: url('/images/album/${song.genreName}.jpg');|">
+
+  <!-- Action button in corner -->
+  <button class="song-action-btn"
+          th:if="${inPlaylist == true}"
+          th:onclick="'location.href=\'/playlists/' + ${playlistId} + '/removeSong/' + ${song.id} + '\';'">
+    – Remove
+  </button>
+
+  <button class="song-action-btn"
+          th:if="${inPlaylist == false}"
+          th:onclick="'location.href=\'/songs/addToPlaylist/' + ${song.id} + '\';'">
+    + Add
+  </button>
+
   <div class="song-info">
     <h3 th:text="${song.title}">Song Title</h3>
     <p th:text="${song.artist}">Artist Name</p>

@@ -5,12 +5,14 @@ import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.ClientRepo;
 import com.groovify.jpa.repo.SongRepo;
 import com.groovify.jpa.repo.GenreRepo;
+import com.groovify.service.PlaylistService;
 import com.groovify.web.dto.SongView;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -25,6 +27,12 @@ public class SongController {
 
     @Autowired
     private GenreRepo genreRepo;
+
+    private final PlaylistService playlistService;
+
+    public SongController(PlaylistService playlistService) {
+        this.playlistService = playlistService;
+    }
 
     @GetMapping("/songs")
     public String songPage(HttpSession session, Model model) {
@@ -52,4 +60,13 @@ public class SongController {
 
         return "songs";
     }
+
+    @GetMapping("/songs/addToPlaylist/{songId}")
+    public String addToPlaylist(@PathVariable Long songId, HttpSession session) {
+        Long playlistId = (Long) session.getAttribute("currentPlaylistId"); // or choose default playlist
+        playlistService.addSongToPlaylist(playlistId, songId);
+        return "redirect:/songs"; // back to all songs page
+    }
+
+
 }

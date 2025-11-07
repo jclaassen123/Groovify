@@ -125,4 +125,11 @@ public class PlaylistsController {
         // Redirect back to playlists page
         return "redirect:/playlists";
     }
+
+    @GetMapping("/playlists/{playlistId}/removeSong/{songId}")
+    public String removeSongFromPlaylist(@PathVariable Long playlistId, @PathVariable Long songId) {
+        playlistService.removeSongFromPlaylist(playlistId, songId);
+        return "redirect:/playlists/" + playlistId; // back to playlist view
+    }
+
 }

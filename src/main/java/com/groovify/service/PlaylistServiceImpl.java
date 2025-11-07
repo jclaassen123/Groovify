@@ -3,16 +3,22 @@ package com.groovify.service;
 import com.groovify.jpa.model.Playlist;
 import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.PlaylistRepo;
+import com.groovify.jpa.repo.SongRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PlaylistServiceImpl implements PlaylistService {
 
     private final PlaylistRepo playlistRepo;
+    private final SongRepo songRepo;
 
-    public PlaylistServiceImpl(PlaylistRepo playlistRepo) {this.playlistRepo = playlistRepo;}
+    public PlaylistServiceImpl(PlaylistRepo playlistRepo, SongRepo songRepo) {
+        this.playlistRepo = playlistRepo;
+        this.songRepo = songRepo;
+    }
 
     @Override
     public List<Playlist> getPlaylists(Long clientID) {
@@ -26,7 +32,6 @@ public class PlaylistServiceImpl implements PlaylistService {
         return playlist.getSongs();
     }
 
-
     @Override
     public Playlist savePlaylist(Playlist playlist) {
         return playlistRepo.save(playlist);
@@ -35,5 +40,32 @@ public class PlaylistServiceImpl implements PlaylistService {
     @Override
     public Playlist getPlaylistById(Long id) {
         return playlistRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public void addSongToPlaylist(Long playlistId, Long songId) {
+        Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
+        Song song = songRepo.findById(songId).orElse(null);
+
+        if (playlist != null && song != null) {
+            if (playlist.getSongs() == null) {
+                playlist.setSongs(new ArrayList<>());
+            }
+            if (!playlist.getSongs().contains(song)) {
+                playlist.getSongs().add(song);
+                playlistRepo.save(playlist);
+            }
+        }
+    }
+
+    @Override
+    public void removeSongFromPlaylist(Long playlistId, Long songId) {
+        Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
+        Song song = songRepo.findById(songId).orElse(null);
+
+        if (playlist != null && song != null && playlist.getSongs() != null) {
+            playlist.getSongs().remove(song);
+            playlistRepo.save(playlist);
+        }
     }
 }
