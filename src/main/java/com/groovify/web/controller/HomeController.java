@@ -1,9 +1,11 @@
 package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Client;
+import com.groovify.jpa.model.Playlist;
 import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.ClientRepo;
 import com.groovify.jpa.repo.GenreRepo;
+import com.groovify.service.PlaylistService;
 import com.groovify.web.dto.SongView;
 import com.groovify.service.RecommendationService;
 import jakarta.servlet.http.HttpSession;
@@ -27,6 +29,7 @@ public class HomeController {
     private final ClientRepo clientRepo;
     private final GenreRepo genreRepo;
     private final RecommendationService recommendationService;
+    private final PlaylistService playlistService;
 
     /**
      * Constructs a HomeController with required repositories and services.
@@ -35,10 +38,11 @@ public class HomeController {
      * @param genreRepo             repository for accessing genre data
      * @param recommendationService service to generate song recommendations
      */
-    public HomeController(ClientRepo clientRepo, GenreRepo genreRepo, RecommendationService recommendationService) {
+    public HomeController(ClientRepo clientRepo, GenreRepo genreRepo, RecommendationService recommendationService, PlaylistService playlistService) {
         this.clientRepo = clientRepo;
         this.genreRepo = genreRepo;
         this.recommendationService = recommendationService;
+        this.playlistService = playlistService;
     }
 
     /**
@@ -82,10 +86,13 @@ public class HomeController {
         }).toList();
         log.debug("Converted recommended songs to SongView list for user '{}'", username);
 
+        List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+
         // Add attributes to model for rendering in the view
         model.addAttribute("user", user);
         model.addAttribute("pageTitle", "Home");
         model.addAttribute("songList", songList);
+        model.addAttribute("playlists", playlists);
         log.info("Model attributes set for home page of user '{}'", username);
 
         return "home";
