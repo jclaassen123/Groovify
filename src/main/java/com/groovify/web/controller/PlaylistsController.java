@@ -91,13 +91,14 @@ public class PlaylistsController {
             String genreName = genreRepo.findById(song.getGenreId())
                     .map(genre -> genre.getName())
                     .orElse("Unknown");
-            return new SongView(song.getTitle(), song.getArtist(), genreName);
+            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName);
         }).toList();
 
         model.addAttribute("user", user);
         model.addAttribute("playlist", playlist);
         model.addAttribute("songList", songList);
         model.addAttribute("pageTitle", playlist.getName());
+        model.addAttribute("inPlaylist", true);
 
         return "playlistSongs"; // single reusable template
     }
@@ -124,6 +125,13 @@ public class PlaylistsController {
 
         // Redirect back to playlists page
         return "redirect:/playlists";
+    }
+
+    @PostMapping("/playlists/{playlistId}/addSong/{songId}")
+    public String addSongToPlaylist(@PathVariable Long playlistId,
+                                    @PathVariable Long songId) {
+        playlistService.addSongToPlaylist(playlistId, songId);
+        return "redirect:/songs";
     }
 
     @GetMapping("/playlists/{playlistId}/removeSong/{songId}")

@@ -29,6 +29,8 @@ public class Song {
     }
 
     // Getters
+    public Long getId() { return id; }
+
     public String getFilename() {
         return filename;
     }

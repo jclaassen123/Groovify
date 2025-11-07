@@ -46,7 +46,7 @@ public class HomeController {
             String genreName = genreRepo.findById(song.getGenreId())
                     .map(g -> g.getName())
                     .orElse("Unknown");
-            return new SongView(song.getTitle(), song.getArtist(), genreName);
+            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName);
         }).toList();
 
         model.addAttribute("user", user);

@@ -1,6 +1,7 @@
 package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Client;
+import com.groovify.jpa.model.Playlist;
 import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.ClientRepo;
 import com.groovify.jpa.repo.SongRepo;
@@ -46,27 +47,24 @@ public class SongController {
         // Fetch all songs
         List<Song> songs = songRepo.findAll();
 
+        List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+
         // Map songs to SongView with genre name
         List<SongView> songList = songs.stream().map(song -> {
             String genreName = genreRepo.findById(song.getGenreId())
                     .map(genre -> genre.getName())
                     .orElse("Unknown");
-            return new SongView(song.getTitle(), song.getArtist(), genreName);
+            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName);
         }).toList();
 
         model.addAttribute("user", user);
         model.addAttribute("pageTitle", "Songs");
         model.addAttribute("songList", songList);
+        model.addAttribute("inPlaylist", false); // we are not in a playlist
+        model.addAttribute("playlists", playlists);
+
 
         return "songs";
     }
-
-    @GetMapping("/songs/addToPlaylist/{songId}")
-    public String addToPlaylist(@PathVariable Long songId, HttpSession session) {
-        Long playlistId = (Long) session.getAttribute("currentPlaylistId"); // or choose default playlist
-        playlistService.addSongToPlaylist(playlistId, songId);
-        return "redirect:/songs"; // back to all songs page
-    }
-
 
 }

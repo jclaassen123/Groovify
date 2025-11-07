@@ -2,7 +2,7 @@
      th:attr="data-filename=${song.filename}, data-genre=${song.genreName}, data-title=${song.title}, data-song-id=${song.id}"
      th:style="|background-image: url('/images/album/${song.genreName}.jpg');|">
 
-  <!-- Action button in corner -->
+  <!-- Action buttons -->
   <button class="song-action-btn"
           th:if="${inPlaylist == true}"
           th:onclick="'location.href=\'/playlists/' + ${playlistId} + '/removeSong/' + ${song.id} + '\';'">
@@ -10,10 +10,11 @@
   </button>
 
   <button class="song-action-btn"
-          th:if="${inPlaylist == false}"
-          th:onclick="'location.href=\'/songs/addToPlaylist/' + ${song.id} + '\';'">
+          th:if="${inPlaylist == false or inPlaylist == null}"
+          th:onclick="'openAddToPlaylistModal(' + ${song.id} + ');'">
     + Add
   </button>
+
 
   <div class="song-info">
     <h3 th:text="${song.title}">Song Title</h3>
