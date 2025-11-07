@@ -69,3 +69,20 @@
     margin: 5px 0 0 0;
     font-size: 0.9em;
 }
+
+.playlist-card {
+    position: relative;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #c62828;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+}

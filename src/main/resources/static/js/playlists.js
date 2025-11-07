@@ -16,3 +16,22 @@
         modal.style.display = "none";
         }
     }
+
+function deletePlaylist(playlistId) {
+    if (!confirm("Are you sure you want to delete this playlist?")) {
+        return;
+    }
+
+    fetch(`/playlists/${playlistId}/delete`, {
+        method: 'POST'
+    }).then(response => {
+        if (response.ok) {
+            window.location.reload(); // Refresh to show change immediately
+        } else {
+            alert('Error deleting playlist');
+        }
+    }).catch(err => {
+        console.error(err);
+        alert('Failed to delete playlist.');
+    });
+}

@@ -128,6 +128,24 @@ public class PlaylistsController {
         return "redirect:/playlists";
     }
 
+    @PostMapping("/playlists/{playlistId}/delete")
+    public String deletePlaylist(@PathVariable Long playlistId, HttpSession session) {
+        String username = (String) session.getAttribute("username");
+        if (username == null) return "redirect:/";
+
+        Client user = clientRepo.findByName(username).orElse(null);
+        if (user == null) return "redirect:/";
+
+        Playlist playlist = playlistService.getPlaylistById(playlistId);
+        if (playlist == null || !playlist.getClientID().equals(user.getId())) {
+            return "redirect:/playlists";
+        }
+
+        playlistService.deletePlaylist(playlistId);
+        return "redirect:/playlists";
+    }
+
+
     @PostMapping("/playlists/{playlistId}/addSong/{songId}")
     public String addSongToPlaylist(@PathVariable Long playlistId,
                                     @PathVariable Long songId) {

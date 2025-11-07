@@ -34,8 +34,13 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
-    public Playlist savePlaylist(Playlist playlist) {
-        return playlistRepo.save(playlist);
+    public void savePlaylist(Playlist playlist) {
+        playlistRepo.save(playlist);
+    }
+
+    @Override
+    public void deletePlaylist(Long id) {
+        playlistRepo.deleteById(id);
     }
 
     @Override
