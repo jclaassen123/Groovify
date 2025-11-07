@@ -1,4 +1,6 @@
-/* Container */
+/* ==============================
+   Global Container Styles
+   ============================== */
 body {
   padding: 0;
   margin: 0;
@@ -6,12 +8,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1A2037;
+  background-color: #1A2037; /* dark blue background */
   font-family: 'Inter', sans-serif;
   color: white;
 }
 
-/* Logo */
+/* ==============================
+   Logo / Header
+   ============================== */
 h1 {
   font-weight: 800;
   font-size: 4rem;
@@ -20,9 +24,11 @@ h1 {
   text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
 }
 
-/* Form */
+/* ==============================
+   Form Container
+   ============================== */
 form {
-  background: #2A2F47;
+  background: #2A2F47; /* darker card background */
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.4);
@@ -34,13 +40,15 @@ form div {
   margin-bottom: 1rem;
 }
 
-/* Inputs */
+/* ==============================
+   Input Fields
+   ============================== */
 input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 0.75rem;
   border-radius: 8px;
-  border: 1px solid #3A97D4;
+  border: 1px solid #3A97D4; /* blue border */
   background-color: #1F253C;
   color: white;
   font-size: 1rem;
@@ -50,11 +58,13 @@ input::placeholder {
   color: #aaa;
 }
 
-/* Button */
+/* ==============================
+   Buttons
+   ============================== */
 button {
   width: 100%;
   padding: 0.75rem;
-  background-color: #3A97D4;
+  background-color: #3A97D4; /* blue */
   border: none;
   border-radius: 8px;
   font-weight: bold;
@@ -68,7 +78,9 @@ button:hover {
   background-color: #3284b8;
 }
 
-/* Text */
+/* ==============================
+   Text and Links
+   ============================== */
 p {
   margin-top: 1.5rem;
   font-size: 0.95rem;
@@ -84,13 +96,15 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Compact error message with slight padding */
+/* ==============================
+   Error Messages
+   ============================== */
 .error-message {
   display: inline-block;
-  background-color: rgba(176, 0, 32, 0.3); /* subtle dark red background */
+  background-color: rgba(176, 0, 32, 0.3); /* subtle dark red */
   color: #ff4d4d;
   border: 1px solid #b00020;
-  padding: 7px 11px;                       /* small padding all around */
+  padding: 7px 11px; /* small padding all around */
   border-radius: 4px;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
@@ -98,21 +112,23 @@ a:hover {
   text-align: center;
 }
 
-/* Remove default paragraph spacing */
 .error-message p {
-  margin: 0;
+  margin: 0; /* remove default paragraph spacing */
 }
 
+/* ==============================
+   Alerts
+   ============================== */
 .registration-alert p {
-    color: #00ff00; /* bright green */
-    margin-bottom: 1.5rem;
-    text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
-    font-family: 'Inter', sans-serif;
+  color: #00ff00; /* bright green */
+  margin-bottom: 1.5rem;
+  text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
+  font-family: 'Inter', sans-serif;
 }
 
 .logout-alert p {
-    color: #ff6666; /* light red */
-    margin-bottom: 1.5rem;
-    text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
-    font-family: 'Inter', sans-serif;
+  color: #ff6666; /* light red */
+  margin-bottom: 1.5rem;
+  text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
+  font-family: 'Inter', sans-serif;
 }

@@ -1,15 +1,23 @@
+/* ==============================
+   Body Background
+   ============================== */
 body {
-    background-color: #1A2037;
+    background-color: #1A2037; /* dark blue background */
 }
 
+/* ==============================
+   Form Controls
+   ============================== */
 .form-control {
-    flex: none !important;
-    width: 20% !important;
-    margin: 0 auto;
-    margin-top: 2%;
-    color: blue;
+    flex: none !important;     /* override flex behavior */
+    width: 20% !important;     /* set fixed width */
+    margin: 2% auto 0 auto;    /* center horizontally and top margin */
+    color: blue;               /* text color */
 }
 
+/* ==============================
+   Login Inputs
+   ============================== */
 .login-inputs {
-    margin-top: 20%;
+    margin-top: 20%;           /* spacing from top of viewport */
 }

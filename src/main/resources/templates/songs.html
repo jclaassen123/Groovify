@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Groovify – Songs</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" th:href="@{/css/home.css}">
   <link rel="stylesheet" th:href="@{/css/songs.css}">
   <link rel="stylesheet" th:href="@{/css/navbar.css}">
@@ -12,40 +14,40 @@
 </head>
 <body>
 
-<!-- Topbar fragment -->
-<div th:replace="fragments/topbar :: topbar" th:with="pageTitle='Songs'"></div>
+<!-- Topbar Fragment -->
+<div th:replace="~{fragments/topbar :: topbar}" th:with="pageTitle='Songs'"></div>
 
+<!-- Songs Container -->
 <div id="songHolder" class="songs-container with-top-spacing">
   <div th:each="song : ${songList}">
-    <div th:replace="fragments/songFragment :: songCard" th:with="song=${song}"></div>
+    <div th:replace="~{fragments/songFragment :: songCard}" th:with="song=${song}"></div>
   </div>
 </div>
 
-<!-- Audio element -->
+<!-- Audio Player -->
 <audio id="player"></audio>
 
-<!-- Mediaplayer fragment -->
-<div th:replace="fragments/mediaplayer :: mediaplayer"></div>
-
-<!-- Navbar fragment -->
-<div th:replace="fragments/navbar :: navbar"></div>
+<!-- Fragments -->
+<div th:replace="~{fragments/mediaplayer :: mediaplayer}"></div>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div th:replace="~{fragments/session :: sessionTimeoutScripts}"></div>
 
 <!-- Add to Playlist Modal -->
 <div id="addToPlaylistModal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close" onclick="closeAddToPlaylistModal()">&times;</span>
-    <h3>Select a Playlist</h3>
-    <ul id="playlistList">
-      <li th:each="playlist : ${playlists}">
-        <a href="#" th:text="${playlist.name}"
-           th:attr="data-playlist-id=${playlist.id}"
-           onclick="addSongToPlaylist(event, this)">Select</a>
-      </li>
-    </ul>
-  </div>
+    <div class="modal-content">
+        <span class="close" onclick="closeAddToPlaylistModal()">&times;</span>
+        <h3>Select a Playlist</h3>
+        <ul id="playlistList">
+            <li th:each="playlist : ${playlists}">
+                <a href="#" th:text="${playlist.name}"
+                   th:attr="data-playlist-id=${playlist.id}"
+                   onclick="addSongToPlaylist(event, this)">Select</a>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<!-- JS scripts -->
+<!-- JS Scripts -->
 <script th:src="@{/js/mediaplayer.js}"></script>
 <script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/navbar.js}"></script>

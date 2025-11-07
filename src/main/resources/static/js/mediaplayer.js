@@ -1,4 +1,14 @@
+/**
+ * mediaplayer.js
+ *
+ * Handles the functionality of the media player on the Groovify site.
+ * Supports play/pause, next/previous song, playlist selection, progress tracking,
+ * volume control, and folding/unfolding the media player UI.
+ */
+
+// -----------------------
 // DOM elements
+// -----------------------
 const playButton = document.getElementById("playPause");
 const lastSongButton = document.getElementById("lastSong");
 const nextSongButton = document.getElementById("nextSong");
@@ -16,25 +26,42 @@ let currentSong = null;
 let currentIndex = -1;
 const listedSongs = document.querySelectorAll("#songHolder .song-card");
 
-// Helper: format time mm:ss
+// -----------------------
+// Helper functions
+// -----------------------
+
+/**
+ * Formats seconds into mm:ss format.
+ * @param {number} seconds
+ * @returns {string} formatted time string
+ */
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
-// Play/pause functions
+/**
+ * Play the currently loaded audio.
+ */
 function playSong() {
     audioPlayer.play();
     playButton.textContent = "⏸";
 }
 
+/**
+ * Pause the currently loaded audio.
+ */
 function pauseSong() {
     audioPlayer.pause();
     playButton.textContent = "▶";
 }
 
-// Play song from a song card
+/**
+ * Load and play a song from a playlist card.
+ * @param {HTMLElement} songElement the song card element
+ * @param {number} index the index of the song in the playlist
+ */
 function playSongFromCard(songElement, index) {
     const filename = songElement.getAttribute("data-filename");
     const genre = songElement.getAttribute("data-genre");
@@ -54,6 +81,10 @@ function playSongFromCard(songElement, index) {
         audioPlayer.currentTime = 0;
     }
 }
+
+// -----------------------
+// Event listeners
+// -----------------------
 
 // Click a song in the playlist
 listedSongs.forEach((song, index) => {
@@ -76,7 +107,7 @@ lastSongButton.addEventListener('click', () => {
     if (currentIndex > 0) {
         playSongFromCard(listedSongs[currentIndex - 1], currentIndex - 1);
     } else {
-        // Wrap to last
+        // Wrap to last song
         playSongFromCard(listedSongs[listedSongs.length - 1], listedSongs.length - 1);
     }
 });
@@ -85,7 +116,7 @@ nextSongButton.addEventListener('click', () => {
     if (currentIndex < listedSongs.length - 1) {
         playSongFromCard(listedSongs[currentIndex + 1], currentIndex + 1);
     } else {
-        // Wrap to first
+        // Wrap to first song
         playSongFromCard(listedSongs[0], 0);
     }
 });
@@ -122,7 +153,7 @@ volumeBar.addEventListener('input', () => {
     audioPlayer.volume = volumeBar.value;
 });
 
-// Fold toggle
+// Fold/unfold media player
 toggleButton.addEventListener('click', () => {
     mediaPlayer.classList.toggle('folded');
     toggleButton.textContent = mediaPlayer.classList.contains('folded') ? "▲" : "▼";

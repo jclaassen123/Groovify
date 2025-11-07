@@ -8,6 +8,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+/**
+ * Entity representing a client (user) in the system.
+ * <p>
+ * Maps to the "Client" table in the database. Each client has a username,
+ * password (with salt), profile image, description, and preferred genres.
+ */
 @Entity
 @Table(name = "Client")
 public class Client {
@@ -44,20 +50,54 @@ public class Client {
     )
     private List<Genre> genres;
 
+    /**
+     * Default constructor required by JPA.
+     */
     public Client() {}
-    public Client(String name, String password) { this.name = name; this.password = password; }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    /**
+     * Constructs a Client with the given username and password.
+     *
+     * @param name     the username
+     * @param password the password (plain text; should be hashed before storing)
+     */
+    public Client(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    // Getters and setters
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getPasswordSalt() {
         return passwordSalt;
+    }
+
+    public void setPasswordSalt(String passwordSalt) {
+        this.passwordSalt = passwordSalt;
     }
 
     public String getImageFileName() {
@@ -69,15 +109,24 @@ public class Client {
         Path imagePath = imagesFolder.resolve(image_file_name);
         return Files.exists(imagePath) ? image_file_name : defaultImage;
     }
-    public void setImageFileName(String image_file_name) { this.image_file_name = image_file_name; }
 
-    public void setPasswordSalt(String passwordSalt) {
-        this.passwordSalt = passwordSalt;
+    public void setImageFileName(String image_file_name) {
+        this.image_file_name = image_file_name;
     }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getDescription() {
+        return description;
+    }
 
-    public List<Genre> getGenres() { return genres; }
-    public void setGenres(List<Genre> genres) { this.genres = genres; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
+    }
 }

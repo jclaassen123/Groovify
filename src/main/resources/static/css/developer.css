@@ -1,9 +1,17 @@
+/* ==============================
+   Global Styles
+   ============================== */
+
 /* Dark background behind the developer card */
 body {
     background-color: #0a1f44; /* dark blue */
     margin: 0;
     font-family: 'Arial', sans-serif;
 }
+
+/* ==============================
+   Home Page Layout
+   ============================== */
 
 /* Center content vertically and horizontally */
 .home-content {
@@ -15,7 +23,11 @@ body {
     padding-bottom: 60px; /* gap from bottom */
 }
 
-/* Developer card styling */
+/* ==============================
+   Developer Card Styles
+   ============================== */
+
+/* Developer card container */
 .developer-card {
     display: flex;
     background-color: #fff;
@@ -26,7 +38,7 @@ body {
     width: 95%;             /* fills more of the screen */
 }
 
-/* Flex layout inside card */
+/* Flex layout inside card: image + info */
 .developer-layout {
     display: flex;
     flex-direction: row;
@@ -35,7 +47,7 @@ body {
     align-items: center;
 }
 
-/* Profile image */
+/* Profile image styling */
 .developer-image img {
     width: 350px;    /* bigger image */
     height: 450px;
@@ -49,24 +61,30 @@ body {
     flex: 1;
 }
 
+/* Developer name */
 .dev-name {
     font-size: 2.5rem;   /* larger name */
     font-weight: bold;
     margin-bottom: 20px;
 }
 
+/* Developer bio */
 .dev-bio {
     font-size: 1.3rem;   /* larger bio */
     line-height: 1.7;
     color: #333;
 }
 
-/* MOBILE RESPONSIVE */
+/* ==============================
+   Mobile Responsive Styles
+   ============================== */
 @media (max-width: 768px) {
+    /* Reduce card padding on smaller screens */
     .developer-card {
         padding: 30px;
     }
 
+    /* Stack image and info vertically */
     .developer-layout {
         flex-direction: column;
         align-items: center;
@@ -74,16 +92,19 @@ body {
         gap: 30px;
     }
 
+    /* Profile image adjustments */
     .developer-image img {
         width: 90%;
         height: auto;
         margin-bottom: 25px;
     }
 
+    /* Developer name font size */
     .dev-name {
         font-size: 2rem;
     }
 
+    /* Developer bio font size */
     .dev-bio {
         font-size: 1.15rem;
     }
