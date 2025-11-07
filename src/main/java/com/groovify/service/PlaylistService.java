@@ -9,5 +9,6 @@ public interface PlaylistService {
     List<Playlist> getPlaylists(Long id);
     List<Song> getSongs(Long id);
     Playlist savePlaylist(Playlist playlist);
+    Playlist getPlaylistById(Long id);
 
 }

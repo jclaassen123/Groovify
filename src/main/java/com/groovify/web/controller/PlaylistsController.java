@@ -2,15 +2,19 @@ package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Client;
 import com.groovify.jpa.model.Playlist;
+import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.ClientRepo;
+import com.groovify.jpa.repo.GenreRepo;
 import com.groovify.jpa.repo.PlaylistRepo;
 import com.groovify.service.PlaylistService;
 import com.groovify.service.PlaylistServiceImpl;
+import com.groovify.web.dto.SongView;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,10 +32,12 @@ public class PlaylistsController {
 
     private final ClientRepo clientRepo;
     private final PlaylistService playlistService;
+    private final GenreRepo genreRepo;
 
-    public PlaylistsController(ClientRepo clientRepo, PlaylistService playlistService) {
+    public PlaylistsController(ClientRepo clientRepo, PlaylistService playlistService, GenreRepo genreRepo) {
         this.clientRepo = clientRepo;
         this.playlistService = playlistService;
+        this.genreRepo = genreRepo;
     }
 
     /**
@@ -63,6 +69,37 @@ public class PlaylistsController {
         model.addAttribute("playlists", playlists);
 
         return "playlists";
+    }
+
+    @GetMapping("/playlists/{id}")
+    public String viewPlaylist(@PathVariable("id") Long playlistId, HttpSession session, Model model) {
+        String username = (String) session.getAttribute("username");
+        if (username == null) return "redirect:";
+
+        Client user = clientRepo.findByName(username).orElse(null);
+        if (user == null) return "redirect:";
+
+        Playlist playlist = playlistService.getPlaylistById(playlistId);
+
+        if (playlist == null || !playlist.getClientID().equals(user.getId())) {
+            return "redirect:/playlists"; // redirect if playlist not found or belongs to another user
+        }
+
+        List<Song> songs = playlistService.getSongs(playlistId);
+
+        List<SongView> songList = songs.stream().map(song -> {
+            String genreName = genreRepo.findById(song.getGenreId())
+                    .map(genre -> genre.getName())
+                    .orElse("Unknown");
+            return new SongView(song.getTitle(), song.getArtist(), genreName);
+        }).toList();
+
+        model.addAttribute("user", user);
+        model.addAttribute("playlist", playlist);
+        model.addAttribute("songList", songList);
+        model.addAttribute("pageTitle", playlist.getName());
+
+        return "playlistSongs"; // single reusable template
     }
 
     @PostMapping("/playlists/create")

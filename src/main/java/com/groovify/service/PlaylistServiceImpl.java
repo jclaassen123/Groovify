@@ -20,12 +20,20 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
-    public List<Song> getSongs(Long id) {
-        return List.of();
+    public List<Song> getSongs(Long playlistId) {
+        Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
+        if (playlist == null) return List.of();
+        return playlist.getSongs();
     }
+
 
     @Override
     public Playlist savePlaylist(Playlist playlist) {
         return playlistRepo.save(playlist);
+    }
+
+    @Override
+    public Playlist getPlaylistById(Long id) {
+        return playlistRepo.findById(id).orElse(null);
     }
 }

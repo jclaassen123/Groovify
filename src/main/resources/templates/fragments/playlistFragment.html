@@ -1,6 +1,8 @@
 <div th:fragment="playlistCard" class="playlist-card" th:attr="playlist_id=${playlist.id}">
-  <div class="playlist-info">
-    <h3 th:text="${playlist.name}">Playlist Title</h3>
-    <p th:text="${playlist.description}">Playlist Description</p>
-  </div>
+  <a th:href="@{'/playlists/' + ${playlist.id}}" style="text-decoration: none; color: inherit; display: block; width: 100%; height: 100%;">
+    <div class="playlist-info">
+      <h3 th:text="${playlist.name}">Playlist Title</h3>
+      <p th:text="${playlist.description}">Playlist Description</p>
+    </div>
+  </a>
 </div>
