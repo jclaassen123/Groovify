@@ -1,5 +1,6 @@
 package com.groovify.service;
 
+import com.groovify.jpa.model.Playlist;
 import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.PlaylistRepo;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,10 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     public PlaylistServiceImpl(PlaylistRepo playlistRepo) {this.playlistRepo = playlistRepo;}
 
+    @Override
+    public List<Playlist> getPlaylists(Long clientID) {
+        return playlistRepo.getUserPlaylists(clientID);
+    }
 
     @Override
     public List<Song> getSongs(Long id) {

@@ -20,7 +20,7 @@
 
 <div id="playlistHolder" class="playlists-container">
   <div th:each="playlist : ${playlistList}">
-    <div th:replace="fragments/playlistFragment :: playlistCard" th:with="playlist=${playlist}"></div>
+    <div th:replace="fragments/playlistFragment :: playlistCard" th:with="playlist=${playlist.name}"></div>
   </div>
 </div>
 
