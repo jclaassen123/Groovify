@@ -1,9 +1,11 @@
 package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Client;
+import com.groovify.jpa.model.Playlist;
 import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.ClientRepo;
 import com.groovify.jpa.repo.GenreRepo;
+import com.groovify.service.PlaylistService;
 import com.groovify.service.SongService;
 import com.groovify.web.dto.SongView;
 import jakarta.servlet.http.HttpSession;
@@ -31,6 +33,7 @@ public class SearchController {
     private final SongService songService;
     private final GenreRepo genreRepo;
     private final ClientRepo clientRepo;
+    private final PlaylistService playlistService;
 
     /**
      * Constructs a SearchController with required repositories and services.
@@ -39,10 +42,11 @@ public class SearchController {
      * @param genreRepo   repository for accessing genre information
      * @param clientRepo  repository for accessing client data
      */
-    public SearchController(SongService songService, GenreRepo genreRepo, ClientRepo clientRepo) {
+    public SearchController(SongService songService, GenreRepo genreRepo, ClientRepo clientRepo, PlaylistService playlistService) {
         this.songService = songService;
         this.genreRepo = genreRepo;
         this.clientRepo = clientRepo;
+        this.playlistService = playlistService;
     }
 
     /**
@@ -64,10 +68,14 @@ public class SearchController {
         Client user = clientRepo.findByName(username).orElse(null);
         log.info("User '{}' accessed search page", username);
 
+        List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+
         // Initialize empty song list
         model.addAttribute("user", user);
         model.addAttribute("songList", List.of());
         model.addAttribute("pageTitle", "Search");
+        model.addAttribute("playlists", playlists);
+
 
         return "search";
     }
@@ -113,9 +121,12 @@ public class SearchController {
             return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName);
         }).toList();
 
+        List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+
         // Add attributes for rendering
         model.addAttribute("user", user);
         model.addAttribute("songList", songList);
+        model.addAttribute("playlists", playlists);
         model.addAttribute("query", query);
         model.addAttribute("type", type);
         model.addAttribute("pageTitle", "Search Results");
