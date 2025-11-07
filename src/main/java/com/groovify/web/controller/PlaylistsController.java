@@ -99,6 +99,7 @@ public class PlaylistsController {
         model.addAttribute("songList", songList);
         model.addAttribute("pageTitle", playlist.getName());
         model.addAttribute("inPlaylist", true);
+        model.addAttribute("playlistId", playlistId);
 
         return "playlistSongs"; // single reusable template
     }
