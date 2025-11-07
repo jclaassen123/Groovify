@@ -77,6 +77,21 @@
 
 </main>
 
+<!-- Add to Playlist Modal -->
+<div id="addToPlaylistModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeAddToPlaylistModal()">&times;</span>
+        <h3>Select a Playlist</h3>
+        <ul id="playlistList">
+            <li th:each="playlist : ${playlists}">
+                <a href="#" th:text="${playlist.name}"
+                   th:attr="data-playlist-id=${playlist.id}"
+                   onclick="addSongToPlaylist(event, this)">Select</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
 <!-- Audio Player -->
 <audio id="player"></audio>
 
@@ -89,6 +104,8 @@
 <script th:src="@{/js/mediaplayer.js}"></script>
 <script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/navbar.js}"></script>
+<script th:src="@{/js/addRemoveSong.js}"></script>
+
 
 </body>
 </html>
