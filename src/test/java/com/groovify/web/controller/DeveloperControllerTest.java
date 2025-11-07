@@ -70,10 +70,10 @@ class DeveloperControllerTest {
         String result = developerController.zackPage(session, model);
 
         assertEquals("developer", result);
-        verify(model).addAttribute("pageTitle", "Zack Gaz");
-        verify(model).addAttribute("name", "Zack Gaz");
+        verify(model).addAttribute("pageTitle", "Zack Gacnik");
+        verify(model).addAttribute("name", "Zack Gacnik");
         verify(model).addAttribute("image", "/images/developer/Zack.jpg");
-        verify(model).addAttribute("bio", "Hi im zack");
+        verify(model).addAttribute("bio", "Hi, I'm Zack - I like hiking in the woods looking for cool stuff.");
     }
 
     @Test
