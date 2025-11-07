@@ -115,7 +115,7 @@ public class SearchController {
 
         // Convert songs to SongView DTOs
         List<SongView> songList = songs.stream().map(song -> {
-            String genreName = genreRepo.findById(song.getGenreId())
+            String genreName = genreRepo.findById(song.getGenre().getId())
                     .map(g -> g.getName())
                     .orElse("Unknown");
             return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName);

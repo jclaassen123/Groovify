@@ -46,7 +46,7 @@ public interface SongRepo extends JpaRepository<Song, Long> {
      * @param genre the genre substring to search for
      * @return a list of songs matching the genre name
      */
-    @Query("SELECT s FROM Song s JOIN Genre g ON s.genreId = g.id " +
+    @Query("SELECT s FROM Song s JOIN Genre g ON s.genre.id = g.id " +
             "WHERE LOWER(g.name) LIKE LOWER(CONCAT('%', :genre, '%'))")
     List<Song> findByGenreNameContainingIgnoreCase(String genre);
 }

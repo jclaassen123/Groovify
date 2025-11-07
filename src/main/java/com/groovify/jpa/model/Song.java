@@ -26,9 +26,6 @@ public class Song {
     @Column(name = "Artist")
     private String artist;
 
-    @Column(name = "Genre_ID", insertable = false, updatable = false)
-    private Long genreId;
-
     /**
      * Many-to-one relationship to Genre.
      * <p>
@@ -77,24 +74,11 @@ public class Song {
         return artist;
     }
 
-    public Long getGenreId() {
-        return genreId;
-    }
-
     public Genre getGenre() {
         return genre;
     }
 
     // ------------------ Setters ------------------
-
-    /**
-     * Sets the genre ID for this song.
-     *
-     * @param genreId the ID of the genre to associate with this song
-     */
-    public void setGenreId(Long genreId) {
-        this.genreId = genreId;
-    }
 
     /**
      * Sets the genre object for this song.

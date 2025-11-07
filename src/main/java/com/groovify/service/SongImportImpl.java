@@ -105,7 +105,7 @@ public class SongImportImpl implements SongImportService {
                     String artist = generateRandomArtist();
 
                     Song song = new Song(file.getName(), title, artist);
-                    song.setGenreId(genre.getId());
+                    song.setGenre(genre);
 
                     songRepository.save(song);
                     log.info("Imported '{}': '{}', Artist='{}', Genre='{}'",
