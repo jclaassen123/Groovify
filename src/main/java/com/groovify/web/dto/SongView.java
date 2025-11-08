@@ -38,25 +38,4 @@ public class SongView {
     public String getTitle() {
         return title;
     }
-
-    /** @return the song artist */
-    public String getArtist() {
-        return artist;
-    }
-
-    /** @return the genre name */
-    public String getGenreName() {
-        return genreName;
-    }
-
-    /**
-     * Generates a filename for the song by removing all whitespace
-     * from the title and appending ".mp3".
-     *
-     * @return the song filename
-     */
-    public String getFilename() {
-        // Remove all spaces for filename
-        return title.replaceAll("\\s+", "") + ".mp3";
-    }
 }

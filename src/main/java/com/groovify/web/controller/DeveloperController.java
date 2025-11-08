@@ -42,7 +42,11 @@ public class DeveloperController {
     public String jacePage(HttpSession session, Model model) {
         log.info("Accessing Jace developer page");
         return loadDeveloperPage(session, model, "Jace Claassen", "/images/developer/Jace.jpg",
-                "Hi, I'm Jace — I'm nasty at rocket league.");
+                "Hi, I'm Jace — I’m an aspiring software engineer at Carroll College and have lived in Helena " +
+                        "my whole life. I love building projects that challenge me to learn and create, but when I’m " +
+                        "not coding, you’ll probably find me snowboarding, hunting, or playing a round of folf. I " +
+                        "enjoy tackling new challenges, both on and off the computer, and I’m always looking for ways " +
+                        "to grow as a developer.");
     }
 
     /**

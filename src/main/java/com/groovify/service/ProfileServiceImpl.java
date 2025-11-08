@@ -20,7 +20,7 @@ import java.util.Optional;
  * check username availability, and update user profiles.
  */
 @Service
-public class ProfileServiceImpl {
+public class ProfileServiceImpl implements ProfileService {
 
     private static final Logger log = LoggerFactory.getLogger(ProfileServiceImpl.class);
 
