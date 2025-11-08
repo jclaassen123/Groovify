@@ -97,24 +97,86 @@ a:hover {
 }
 
 /* ==============================
-   Error Messages
+   Login Error Message
+   ============================== */
+.error-alert {
+  display: inline-block;
+  color: #b00020 !important;    /* force dark red text */
+  background: none !important;  /* no background */
+  border: none !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0.25rem 0;
+  padding: 2px 0;               /* minimal padding */
+  border-radius: 4px;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* ==============================
+   Registration Success Message
+   ============================== */
+.registration-alert {
+  display: inline-block;
+  color: #2e7d32;               /* green for success */
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0.25rem 0;
+  padding: 2px 0;
+  border-radius: 4px;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* ==============================
+   Logout Success Message
+   ============================== */
+.logout-alert {
+  display: inline-block;
+  color: #2e7d32;               /* same green for consistency */
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0.25rem 0;
+  padding: 2px 0;
+  border-radius: 4px;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* ==============================
+   Field Validation Message
    ============================== */
 .error-message {
   display: inline-block;
-  background-color: rgba(176, 0, 32, 0.3); /* subtle dark red */
-  color: #ff4d4d;
-  border: 1px solid #b00020;
-  padding: 7px 11px; /* small padding all around */
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
+  color: #b00020;
+  background-color: rgba(176, 0, 32, 0.05); /* subtle contrast */
   font-size: 0.9rem;
   font-weight: 500;
+  border: none;
+  padding: 2px 2px;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
   text-align: center;
 }
 
-.error-message p {
-  margin: 0; /* remove default paragraph spacing */
+/* Remove default paragraph spacing */
+.error-message p,
+.error-alert p,
+.registration-alert p,
+.logout-alert p {
+  margin: 0;
 }
+
+/* Subtle fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* ==============================
    Alerts
@@ -129,6 +191,22 @@ a:hover {
 .logout-alert p {
   color: #ff6666; /* light red */
   margin-bottom: 1.5rem;
+  text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
+  font-family: 'Inter', sans-serif;
+}
+
+.error-alert,
+.error-alert p {
+  color: #ff3b3b !important;
+  display: inline-block;              /* green for success */
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0.25rem 0;
+  border-radius: 4px;
+  animation: fadeIn 0.6s ease forwards;
   text-shadow: 0px 0px 10px rgba(58,151,212,0.6);
   font-family: 'Inter', sans-serif;
 }
