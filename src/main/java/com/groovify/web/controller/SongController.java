@@ -63,7 +63,7 @@ public class SongController {
 
         if (username == null) {
             log.warn("Access to songs page denied: no user logged in");
-            return "redirect:";
+            return "redirect:/";
         }
 
         Client user = clientRepo.findByName(username).orElse(null);

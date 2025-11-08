@@ -46,13 +46,13 @@ public class ProfileController {
 
         if (username == null) {
             log.warn("Access denied to profile page: no user logged in");
-            return "redirect:";
+            return "redirect:/";
         }
 
         Optional<Client> optionalUser = profileService.getUserByUsername(username);
         if (optionalUser.isEmpty()) {
             log.warn("User '{}' not found when accessing profile page", username);
-            return "redirect:";
+            return "redirect:/";
         }
 
         Client user = optionalUser.get();

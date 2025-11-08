@@ -84,7 +84,7 @@ public class LandingController {
 
             // Use a flash message to persist feedback across redirect
             attrs.addFlashAttribute("errorMessage", "Please correct the highlighted fields.");
-            return "redirect:"; // stays on same page, with feedback
+            return "redirect:/"; // stays on same page, with feedback
         }
 
         // --- Validate login credentials ---
@@ -132,6 +132,6 @@ public class LandingController {
         redirectAttributes.addFlashAttribute("logoutMessage", "You have been logged out successfully.");
         log.debug("Logout flash message added");
 
-        return "redirect:";
+        return "redirect:/";
     }
 }

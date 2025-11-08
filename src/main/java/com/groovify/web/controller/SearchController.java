@@ -62,7 +62,7 @@ public class SearchController {
 
         if (username == null) {
             log.warn("Access to search page denied: no user logged in");
-            return "redirect:";
+            return "redirect:/";
         }
 
         Client user = clientRepo.findByName(username).orElse(null);
@@ -100,7 +100,7 @@ public class SearchController {
 
         if (username == null) {
             log.warn("Access to search results denied: no user logged in");
-            return "redirect:";
+            return "redirect:/";
         }
 
         Client user = clientRepo.findByName(username).orElse(null);

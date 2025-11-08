@@ -61,7 +61,7 @@ public class HomeController {
         // If no username is in session, redirect to landing page
         if (username == null) {
             log.warn("Access to /home denied: no user logged in");
-            return "redirect:";
+            return "redirect:/";
         }
         log.info("User '{}' accessed home page", username);
 
@@ -69,7 +69,7 @@ public class HomeController {
         Client user = clientRepo.findByName(username).orElse(null);
         if (user == null) {
             log.warn("User '{}' not found in database", username);
-            return "redirect:";
+            return "redirect:/";
         }
         log.debug("User '{}' retrieved from database: {}", username, user);
 
