@@ -29,8 +29,7 @@ public class PlaylistServiceImpl implements PlaylistService {
     @Override
     public List<Song> getSongs(Long playlistId) {
         Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
-        if (playlist == null) return List.of();
-        return playlist.getSongs();
+        return playlist != null ? playlist.getSongs() : List.of();
     }
 
     @Override
@@ -59,23 +58,28 @@ public class PlaylistServiceImpl implements PlaylistService {
         if (playlist.getSongs() == null) playlist.setSongs(new ArrayList<>());
 
         if (playlist.getSongs().contains(song)) {
-            return false; // Song is already in the playlist
+            return false; // Already in playlist
         }
 
         playlist.getSongs().add(song);
         playlistRepo.save(playlist);
-        return true; // Added successfully
+        return true;
     }
 
-
+    @Transactional
     @Override
-    public void removeSongFromPlaylist(Long playlistId, Long songId) {
+    public boolean removeSongFromPlaylist(Long playlistId, Long songId) {
         Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
         Song song = songRepo.findById(songId).orElse(null);
 
         if (playlist != null && song != null && playlist.getSongs() != null) {
-            playlist.getSongs().remove(song);
-            playlistRepo.save(playlist);
+            boolean removed = playlist.getSongs().remove(song);
+            if (removed) playlistRepo.save(playlist);
+            return removed;
         }
+        return false;
     }
+
+
 }
+

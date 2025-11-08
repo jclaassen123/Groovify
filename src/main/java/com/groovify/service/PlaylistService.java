@@ -12,6 +12,6 @@ public interface PlaylistService {
     void savePlaylist(Playlist playlist);
     void deletePlaylist(Long id);
     boolean addSongToPlaylist(Long playlistId, Long songId);
-    void removeSongFromPlaylist(Long playlistId, Long songId);
+    boolean removeSongFromPlaylist(Long playlistId, Long songId);
 
 }

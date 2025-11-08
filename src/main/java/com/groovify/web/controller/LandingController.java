@@ -81,7 +81,7 @@ public class LandingController {
             result.getAllErrors().forEach(error ->
                     log.debug("Validation error: {}", error.getDefaultMessage())
             );
-            return "landingPage";
+            return "redirect:";
         }
 
         // Validate credentials via the login service
@@ -91,7 +91,7 @@ public class LandingController {
         if (!isValid) {
             log.warn("Invalid login attempt for username '{}'", username);
             result.addError(new ObjectError("globalError", "Invalid username or password."));
-            return "landingPage";
+            return "redirect:";
         }
 
         // Set username in session to maintain login state

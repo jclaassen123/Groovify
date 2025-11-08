@@ -88,4 +88,16 @@ public class Song {
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Song)) return false;
+        return id != null && id.equals(((Song) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
+    }
 }

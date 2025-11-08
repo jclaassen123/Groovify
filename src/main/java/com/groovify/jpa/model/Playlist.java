@@ -70,5 +70,17 @@ public class Playlist {
         return description;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Playlist)) return false;
+        return id != null && id.equals(((Playlist) o).id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
+    }
+
 
 }

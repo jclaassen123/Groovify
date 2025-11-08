@@ -180,9 +180,16 @@ public class PlaylistsController {
     }
 
     @GetMapping("/playlists/{playlistId}/removeSong/{songId}")
-    public String removeSongFromPlaylist(@PathVariable Long playlistId, @PathVariable Long songId) {
-        playlistService.removeSongFromPlaylist(playlistId, songId);
-        return "redirect:/playlists/" + playlistId; // back to playlist view
-    }
+    public String removeSongFromPlaylist(@PathVariable Long playlistId,
+                                         @PathVariable Long songId) {
+        boolean removed = playlistService.removeSongFromPlaylist(playlistId, songId);
 
+        if (removed) {
+            // Redirect with success query param
+            return "redirect:/playlists/" + playlistId + "?removed=true";
+        } else {
+            // Redirect with failure query param
+            return "redirect:/playlists/" + playlistId + "?removed=false";
+        }
+    }
 }
