@@ -54,7 +54,7 @@ public class PlaylistsController {
     public String playlistsPage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         if (username == null) {
-            return "redirect:";
+            return "redirect:/";
         }
 
         // Fetch full user object for topbar
@@ -73,10 +73,10 @@ public class PlaylistsController {
     @GetMapping("/playlists/{id}")
     public String viewPlaylist(@PathVariable("id") Long playlistId, HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
-        if (username == null) return "redirect:";
+        if (username == null) return "redirect:/";
 
         Client user = clientRepo.findByName(username).orElse(null);
-        if (user == null) return "redirect:";
+        if (user == null) return "redirect:/";
 
         Playlist playlist = playlistService.getPlaylistById(playlistId);
 
@@ -109,10 +109,10 @@ public class PlaylistsController {
                                  @RequestParam(value = "description", required = false) String description,
                                  Model model) {
         String username = (String) session.getAttribute("username");
-        if (username == null) return "redirect:";
+        if (username == null) return "redirect:/";
 
         Client user = clientRepo.findByName(username).orElse(null);
-        if (user == null) return "redirect:";
+        if (user == null) return "redirect:/";
 
         boolean hasError = false;
 
@@ -152,10 +152,10 @@ public class PlaylistsController {
     @PostMapping("/playlists/{playlistId}/delete")
     public String deletePlaylist(@PathVariable Long playlistId, HttpSession session) {
         String username = (String) session.getAttribute("username");
-        if (username == null) return "redirect:";
+        if (username == null) return "redirect:/";
 
         Client user = clientRepo.findByName(username).orElse(null);
-        if (user == null) return "redirect:";
+        if (user == null) return "redirect:/";
 
         Playlist playlist = playlistService.getPlaylistById(playlistId);
         if (playlist == null || !playlist.getClientID().equals(user.getId())) {
