@@ -30,8 +30,14 @@
     <span class="close">&times;</span>
     <h2>Create New Playlist</h2>
     <form id="playlistForm" th:action="@{/playlists/create}" method="post">
-      <input type="text" name="name" placeholder="Playlist Name" required>
-      <textarea name="description" placeholder="Playlist Description" rows="3"></textarea>
+      <input type="text" name="name" placeholder="Playlist Name"
+             th:value="${name != null} ? ${name} : ''">
+      <div th:if="${nameError}" class="form-error" th:text="${nameError}"></div>
+
+      <textarea name="description" placeholder="Playlist Description" rows="3"
+                th:text="${description != null} ? ${description} : ''"></textarea>
+      <div th:if="${descriptionError}" class="form-error" th:text="${descriptionError}"></div>
+
       <button type="submit">Create</button>
     </form>
   </div>
@@ -60,4 +66,8 @@
 <div th:replace="fragments/session :: sessionTimeoutScripts"></div>
 
 </body>
+<script th:if="${nameError != null or descriptionError != null}">
+  modal.style.display = 'block';
+</script>
+
 </html>

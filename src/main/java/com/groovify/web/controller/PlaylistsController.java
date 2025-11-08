@@ -110,34 +110,53 @@ public class PlaylistsController {
                                  @RequestParam(value = "description", required = false) String description,
                                  Model model) {
         String username = (String) session.getAttribute("username");
-        if (username == null) {
-            return "redirect:";
-        }
+        if (username == null) return "redirect:";
 
         Client user = clientRepo.findByName(username).orElse(null);
-        if (user == null) {
-            return "redirect:";
+        if (user == null) return "redirect:";
+
+        boolean hasError = false;
+
+        name = name != null ? name.trim() : "";
+        description = description != null ? description.trim() : "";
+
+        if (name.isEmpty() || name.length() > 30) {
+            model.addAttribute("nameError", "Playlist name must be 1–30 characters.");
+            hasError = true;
         }
 
-        // Create and save playlist
+        if (description.length() > 100) {
+            model.addAttribute("descriptionError", "Description cannot exceed 100 characters.");
+            hasError = true;
+        }
+
+        if (hasError) {
+            // Re-populate the playlists list and user for the page
+            List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+            model.addAttribute("playlists", playlists);
+            model.addAttribute("user", user);
+            model.addAttribute("pageTitle", "Playlists");
+            return "playlists"; // render the same page with error messages
+        }
+
+        // Create playlist if validation passed
         Playlist playlist = new Playlist();
         playlist.setName(name);
-        playlist.setDescription(description); // ✅ now saving the description
+        playlist.setDescription(description);
         playlist.setClientID(user.getId());
-
         playlistService.savePlaylist(playlist);
 
-        // Redirect back to playlists page
         return "redirect:/playlists";
     }
+
 
     @PostMapping("/playlists/{playlistId}/delete")
     public String deletePlaylist(@PathVariable Long playlistId, HttpSession session) {
         String username = (String) session.getAttribute("username");
-        if (username == null) return "redirect:/";
+        if (username == null) return "redirect:";
 
         Client user = clientRepo.findByName(username).orElse(null);
-        if (user == null) return "redirect:/";
+        if (user == null) return "redirect:";
 
         Playlist playlist = playlistService.getPlaylistById(playlistId);
         if (playlist == null || !playlist.getClientID().equals(user.getId())) {
