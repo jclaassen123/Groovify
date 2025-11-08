@@ -1,6 +1,9 @@
 <div th:fragment="playlistCard" class="playlist-card" th:attr="data-playlist-id=${playlist.id}">
 
-  <!-- Clickable area for viewing playlist -->
+  <!-- Decorative overlay area -->
+  <div class="playlist-visual"></div>
+
+  <!-- Clickable info -->
   <a th:href="@{'/playlists/' + ${playlist.id}}" class="playlist-info-link">
     <div class="playlist-info">
       <h3 th:text="${playlist.name}">Playlist Title</h3>
@@ -14,4 +17,3 @@
     ✕ Delete
   </button>
 </div>
-

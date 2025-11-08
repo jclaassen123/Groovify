@@ -11,6 +11,7 @@
   <link rel="stylesheet" th:href="@{/css/search.css}"> <!-- Specific for search page -->
   <link rel="stylesheet" th:href="@{/css/songCard.css}">
   <link rel="stylesheet" th:href="@{/css/mediaplayer.css}">
+  <link rel="stylesheet" th:href="@{/css/addToPlaylistModel.css}">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="64x64" href="../images/logo.png">
@@ -54,20 +55,8 @@
 <!-- Audio Player -->
 <audio id="player"></audio>
 
-<!-- Add to Playlist Modal -->
-<div id="addToPlaylistModal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close" onclick="closeAddToPlaylistModal()">&times;</span>
-    <h3>Select a Playlist</h3>
-    <ul id="playlistList">
-      <li th:each="playlist : ${playlists}">
-        <a href="#" th:text="${playlist.name}"
-           th:attr="data-playlist-id=${playlist.id}"
-           onclick="addSongToPlaylist(event, this)">Select</a>
-      </li>
-    </ul>
-  </div>
-</div>
+<div th:replace="~{fragments/addToPlaylistModal :: addToPlaylistModal}"></div>
+
 
 <!-- Fragments -->
 <div th:replace="~{fragments/mediaplayer :: mediaplayer}"></div>
