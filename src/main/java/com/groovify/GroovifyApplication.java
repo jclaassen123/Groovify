@@ -34,34 +34,20 @@ public class GroovifyApplication {
         SpringApplication.run(GroovifyApplication.class, args);
     }
 
-    /**
-     * Runs automatically right before the web server starts listening for requests.
-     */
     @Bean
-    public ApplicationRunner runMusicImport(SongImportImpl importService) {
-        return args -> {
-            log.info("Starting MP3 import before web server startup...");
-            importService.importSongs();
-            log.info("MP3 import complete. Continuing startup...");
-        };
-    }
-
-    /**
-     * Runs automatically before the web server starts.
-     * Imports predefined genres.
-     */
-    @Bean
-    public ApplicationRunner runGenreImport(GenreImportService genreImportService) {
+    public ApplicationRunner importGenresAndSongs(GenreImportService genreImportService, SongImportImpl songImportService) {
         return args -> {
             log.info("Starting genre import before web server startup...");
             List<String> genres = List.of(
-                    "Rock", "Pop","Classical",
+                    "Rock", "Pop", "Classical",
                     "Tech", "Country", "Folk"
             );
             genreImportService.importGenres(genres);
-            log.info("Genre import complete. Continuing startup...");
+            log.info("Genre import complete.");
+
+            log.info("Starting MP3 import before web server startup...");
+            songImportService.importSongs();
+            log.info("MP3 import complete.");
         };
     }
-
-
 }
