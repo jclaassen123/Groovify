@@ -30,3 +30,21 @@ function deletePlaylist(playlistId) {
             alert('Failed to delete playlist.');
         });
 }
+
+
+function setupCharCounter(inputId, counterId, maxChars) {
+    const input = document.getElementById(inputId);
+    const counter = document.getElementById(counterId);
+
+    // Initial counter
+    counter.textContent = `${input.value.length} / ${maxChars}`;
+
+    // Remove placeholder on input
+    input.addEventListener("input", () => {
+        counter.textContent = `${input.value.length} / ${maxChars}`;
+    });
+}
+
+// Initialize counters
+setupCharCounter("playlistName", "nameCounter", 20);
+setupCharCounter("playlistDescription", "descCounter", 100);

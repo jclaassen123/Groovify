@@ -120,7 +120,7 @@ public class PlaylistsController {
         name = name != null ? name.trim() : "";
         description = description != null ? description.trim() : "";
 
-        if (name.isEmpty() || name.length() > 30) {
+        if (name.isEmpty() || name.length() > 20) {
             model.addAttribute("nameError", "Playlist name must be 1–30 characters.");
             hasError = true;
         }
