@@ -11,12 +11,11 @@ import com.groovify.service.PlaylistServiceImpl;
 import com.groovify.web.dto.SongView;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -169,10 +168,15 @@ public class PlaylistsController {
 
 
     @PostMapping("/playlists/{playlistId}/addSong/{songId}")
-    public String addSongToPlaylist(@PathVariable Long playlistId,
-                                    @PathVariable Long songId) {
-        playlistService.addSongToPlaylist(playlistId, songId);
-        return "redirect:/songs";
+    @ResponseBody
+    public ResponseEntity<Void> addSongToPlaylist(@PathVariable Long playlistId,
+                                                  @PathVariable Long songId) {
+        boolean added = playlistService.addSongToPlaylist(playlistId, songId);
+        if (added) {
+            return ResponseEntity.ok().build(); // Song successfully added
+        } else {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // Already in playlist
+        }
     }
 
     @GetMapping("/playlists/{playlistId}/removeSong/{songId}")

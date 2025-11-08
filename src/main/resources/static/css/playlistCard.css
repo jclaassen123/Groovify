@@ -23,7 +23,7 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(3px);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    cursor: pointer;
+    cursor: default; /* only show pointer on actual link */
 }
 
 .playlist-card:hover {
@@ -59,6 +59,7 @@
     text-decoration: none;
     color: inherit;
     z-index: 2;
+    display: block; /* ensure link wraps the info */
 }
 
 .playlist-info {
@@ -85,6 +86,18 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+/* --- Only make text clickable indicator --- */
+.playlist-info-link h3,
+.playlist-info-link p {
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.playlist-info-link:hover h3,
+.playlist-info-link:hover p {
+    color: yellow;
 }
 
 /* --- Delete button --- */

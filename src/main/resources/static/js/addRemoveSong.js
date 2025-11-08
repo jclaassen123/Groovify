@@ -12,20 +12,20 @@ function closeAddToPlaylistModal() {
     currentSongId = null;
 }
 
-// Handle adding song to playlist
 function addSongToPlaylist(event, playlistElement) {
-    event.preventDefault(); // prevent link navigation
+    event.preventDefault();
     const playlistId = playlistElement.getAttribute('data-playlist-id');
 
     if (!currentSongId || !playlistId) return;
 
-    // Make a POST request to add the song to the playlist
     fetch(`/playlists/${playlistId}/addSong/${currentSongId}`, {
         method: 'POST'
     }).then(response => {
         if (response.ok) {
             alert('Song added to playlist!');
             closeAddToPlaylistModal();
+        } else if (response.status === 409) {
+            alert('This song is already in the playlist.');
         } else {
             alert('Failed to add song.');
         }

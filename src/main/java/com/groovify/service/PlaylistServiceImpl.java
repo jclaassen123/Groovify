@@ -50,7 +50,7 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     @Transactional
     @Override
-    public void addSongToPlaylist(Long playlistId, Long songId) {
+    public boolean addSongToPlaylist(Long playlistId, Long songId) {
         Playlist playlist = playlistRepo.findById(playlistId)
                 .orElseThrow(() -> new RuntimeException("Playlist not found: " + playlistId));
         Song song = songRepo.findById(songId)
@@ -58,11 +58,15 @@ public class PlaylistServiceImpl implements PlaylistService {
 
         if (playlist.getSongs() == null) playlist.setSongs(new ArrayList<>());
 
-        if (!playlist.getSongs().contains(song)) {
-            playlist.getSongs().add(song);
-            playlistRepo.save(playlist);
+        if (playlist.getSongs().contains(song)) {
+            return false; // Song is already in the playlist
         }
+
+        playlist.getSongs().add(song);
+        playlistRepo.save(playlist);
+        return true; // Added successfully
     }
+
 
     @Override
     public void removeSongFromPlaylist(Long playlistId, Long songId) {
