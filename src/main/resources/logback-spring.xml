@@ -38,29 +38,37 @@
     -->
 
     <!-- ======== Services ======== -->
-    <logger name="com.groovify.service.GenreImportServiceImpl" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.service.LoginServiceImpl" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.service.PlaylistServiceImpl" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.service.ProfileServiceImpl" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.service.RecommendationService" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.service.RegisterServiceImpl" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.service.SongImportImpl" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.service.SongServiceImpl" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.service.GenreImportServiceImpl" level="OFF" additivity="true" />
+    <logger name="com.groovify.service.LoginServiceImpl" level="OFF" additivity="true" />
+    <logger name="com.groovify.service.PlaylistServiceImpl" level="OFF" additivity="true" />
+    <logger name="com.groovify.service.ProfileServiceImpl" level="OFF" additivity="true" />
+    <logger name="com.groovify.service.RecommendationService" level="OFF" additivity="true" />
+    <logger name="com.groovify.service.RegisterServiceImpl" level="OFF" additivity="true" />
+    <logger name="com.groovify.service.SongImportImpl" level="OFF" additivity="true" />
+    <logger name="com.groovify.service.SongServiceImpl" level="OFF" additivity="true" />
 
     <!-- ======== Controllers ======== -->
-    <logger name="com.groovify.web.controller.CustomErrorController" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.web.controller.DeveloperController" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.web.controller.HomeController" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.web.controller.LandingController" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.web.controller.PlaylistsController" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.web.controller.ProfileController" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.web.controller.RegisterController" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.web.controller.SearchController" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.web.controller.SessionController" level="DEBUG" additivity="true" />
-    <logger name="com.groovify.web.controller.SongController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.CustomErrorController" level="OFF" additivity="true" />
+    <logger name="com.groovify.web.controller.DeveloperController" level="OFF" additivity="true" />
+    <logger name="com.groovify.web.controller.HomeController" level="OFF" additivity="true" />
+    <logger name="com.groovify.web.controller.LandingController" level="OFF" additivity="true" />
+    <logger name="com.groovify.web.controller.PlaylistsController" level="OFF" additivity="true" />
+    <logger name="com.groovify.web.controller.ProfileController" level="OFF" additivity="true" />
+    <logger name="com.groovify.web.controller.RegisterController" level="OFF" additivity="true" />
+    <logger name="com.groovify.web.controller.SearchController" level="OFF" additivity="true" />
+    <logger name="com.groovify.web.controller.SessionController" level="OFF" additivity="true" />
+    <logger name="com.groovify.web.controller.SongController" level="OFF" additivity="true" />
 
     <!-- ======== Main Application ======== -->
-    <logger name="com.groovify.GroovifyApplication" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.GroovifyApplication" level="OFF" additivity="true" />
+
+    <!--
+       Method 2: Disable via system property when running the app
+       ./gradlew bootRun -DLOGIN_SERVICE_LOG=OFF -> turns off logging
+    -->
+    <logger name="com.groovify.service.LoginServiceImpl"
+            level="${LOGIN_SERVICE_LOG:-DEBUG}"
+            additivity="true" />
 
     <!-- Default logging level -->
     <root level="INFO">

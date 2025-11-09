@@ -2271,3 +2271,873 @@ Graceful shutdown complete
 2025-11-09 13:10:33,240 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
 Closing JPA EntityManagerFactory for persistence unit 'default'
 
+2025-11-09 14:34:07,544 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:34:07,544 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:34:07,744 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:34:07,765 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:34:07,930 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:34:07,935 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:34:07,936 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:34:07,936 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:34:07,948 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:34:07,949 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 403 ms
+
+2025-11-09 14:34:08,117 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:34:08,916 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:34:09,024 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:34:09,651 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:34:10,034 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:34:10,052 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:34:10,068 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:34:10,595 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:34:10,595 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:34:10,601 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 6 ms
+
+2025-11-09 14:34:24,242 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:34:24,245 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:34:24,249 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:34:29,982 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:34:29,982 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:34:30,202 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:34:30,225 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 19 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:34:30,401 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:34:30,406 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:34:30,407 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:34:30,407 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:34:30,421 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:34:30,422 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 440 ms
+
+2025-11-09 14:34:30,632 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:34:31,394 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:34:31,498 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:34:31,862 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:34:31,974 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:34:31,980 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:34:31,985 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:34:37,666 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:34:37,666 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:34:37,667 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:34:41,842 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:34:46,994 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:34:47,001 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:34:47,005 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:35:05,241 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:35:05,242 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:35:05,427 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:35:05,446 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:35:05,602 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:35:05,606 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:35:05,606 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:35:05,607 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:35:05,619 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:35:05,619 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 377 ms
+
+2025-11-09 14:35:05,777 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:35:06,612 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:35:06,735 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:35:07,073 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:35:07,180 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:35:07,186 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:35:07,191 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:35:18,382 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:35:18,382 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:35:18,383 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:35:21,341 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:35:55,442 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:35:55,450 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:35:55,454 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:36:05,964 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:38:39,315 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:38:39,315 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:38:39,507 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:38:39,527 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:38:39,693 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:38:39,697 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:38:39,698 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:38:39,698 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:38:39,711 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:38:39,711 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 396 ms
+
+2025-11-09 14:38:39,880 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:38:40,640 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:38:40,772 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:38:41,122 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:38:41,258 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:38:41,264 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:38:41,271 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:38:49,889 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:38:49,889 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:38:49,890 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:38:52,397 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:38:55,506 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:38:55,510 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:38:55,515 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:38:59,442 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:38:59,442 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:38:59,641 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:38:59,662 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:38:59,829 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:38:59,833 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:38:59,834 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:38:59,834 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:38:59,847 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:38:59,848 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 405 ms
+
+2025-11-09 14:39:00,018 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:39:00,849 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:39:00,960 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:39:01,305 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:39:01,419 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:39:01,425 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:39:01,430 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:39:02,834 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:39:02,834 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:39:02,835 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:39:04,577 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:39:16,061 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:39:16,067 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:39:16,071 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:40:41,607 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:40:41,608 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:40:41,793 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:40:41,812 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:40:41,982 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:40:41,986 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:40:41,987 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:40:41,987 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:40:41,999 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:40:42,000 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 391 ms
+
+2025-11-09 14:40:42,159 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:40:42,905 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:40:43,006 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:40:43,354 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:40:43,467 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:40:43,473 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:40:43,479 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:40:47,490 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:40:47,490 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:40:47,491 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:41:00,402 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:41:00,411 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:41:00,415 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:41:05,135 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:41:05,135 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:41:05,331 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:41:05,352 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:41:05,514 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:41:05,518 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:41:05,519 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:41:05,519 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:41:05,532 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:41:05,532 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 397 ms
+
+2025-11-09 14:41:05,700 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:41:06,441 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:41:06,549 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:41:06,891 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:41:07,005 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:41:07,011 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:41:07,016 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:41:09,423 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:41:09,423 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:41:09,424 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:41:12,379 - [DEBUG] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+Validating login for username 'ThisIsMyAccount'
+
+2025-11-09 14:41:12,391 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:41:15,282 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:41:15,290 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:41:15,295 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:41:19,670 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:41:19,671 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:41:19,858 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:41:19,876 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:41:20,085 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:41:20,090 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:41:20,091 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:41:20,091 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:41:20,104 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:41:20,104 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 433 ms
+
+2025-11-09 14:41:20,282 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:41:21,022 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:41:21,125 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:41:21,457 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:41:21,566 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:41:21,571 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:41:21,577 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:41:22,264 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:41:22,264 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:41:22,264 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2025-11-09 14:45:01,310 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:45:01,317 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:45:01,321 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:45:21,962 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:45:21,962 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:45:22,184 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:45:22,212 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 24 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:45:22,393 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:45:22,398 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:45:22,399 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:45:22,399 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:45:22,412 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:45:22,413 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 450 ms
+
+2025-11-09 14:45:22,591 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:45:23,452 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:45:23,593 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:45:23,940 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:45:24,100 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:45:24,107 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:45:24,113 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:45:25,563 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:45:25,564 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:45:25,564 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2025-11-09 14:46:00,885 - [DEBUG] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+Validating login for username 'ThisIsMyAccount'
+
+2025-11-09 14:46:00,892 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:46:04,489 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:46:04,494 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:46:04,499 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:46:11,815 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:46:11,815 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:46:12,002 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:46:12,021 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:46:12,179 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:46:12,184 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:46:12,185 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:46:12,185 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:46:12,201 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:46:12,202 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 386 ms
+
+2025-11-09 14:46:12,411 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:46:13,143 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:46:13,246 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:46:13,585 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:46:13,697 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:46:13,702 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:46:13,708 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:46:14,684 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:46:14,684 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:46:14,685 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2025-11-09 14:46:31,685 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:46:31,692 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:46:31,696 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:47:48,638 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:47:48,638 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:47:48,851 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:47:48,870 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:47:49,038 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:47:49,042 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:47:49,043 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:47:49,043 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:47:49,058 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:47:49,058 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 420 ms
+
+2025-11-09 14:47:49,261 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:47:50,192 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:47:50,309 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:47:50,671 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:47:50,793 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:47:50,799 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:47:50,805 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:47:53,564 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:47:53,564 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:47:53,564 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2025-11-09 14:47:56,520 - [DEBUG] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+Validating login for username 'ThisIsMyAccount'
+
+2025-11-09 14:47:56,531 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:48:24,927 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:48:24,934 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:48:24,938 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:48:44,514 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:48:44,515 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:48:44,714 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:48:44,735 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 18 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:48:44,905 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:48:44,910 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:48:44,911 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:48:44,911 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:48:44,925 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:48:44,925 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 410 ms
+
+2025-11-09 14:48:45,103 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:48:46,002 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:48:46,108 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:48:46,451 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:48:46,583 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:48:46,589 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:48:46,595 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:48:47,911 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:48:47,911 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:48:47,912 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:48:47,926 - [DEBUG] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-1 
+Serving landing page view
+
+2025-11-09 14:49:14,832 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' attempting to log in
+
+2025-11-09 14:49:14,834 - [DEBUG] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+Validating login for username 'ThisIsMyAccount'
+
+2025-11-09 14:49:14,844 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:49:14,845 - [DEBUG] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
+Login validation result for user 'ThisIsMyAccount': true
+
+2025-11-09 14:49:14,845 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully logged in
+

@@ -110,3 +110,8 @@ tasks.withType(Test) {
         }
     }
 }
+
+tasks.named('bootRun') {
+    // Make sure system properties are forwarded to the JVM
+    systemProperties System.properties
+}
