@@ -1,7 +1,9 @@
 package com.groovify.jpa.model;
 
+import com.groovify.validation.OnCreate;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,15 +28,28 @@ public class Client {
     private String image_file_name = "Fishing.jpg";
 
     @Column(name = "description")
+    @Pattern(
+            regexp = "^[^<>\"'%;()&+]*$",
+            message = "Description contains invalid characters."
+    )
     private String description = "";
 
     @NotBlank(message = "Username cannot be empty")
-    @Size(min = 3, max = 32, message = "Username must be between 3 and 32 characters")
+    @Size(min = 3, max = 32, message = "Username must be between 3 and 32 characters.")
+    @Pattern(
+            regexp = "^[a-zA-Z0-9._-]+$",
+            message = "Username can only contain letters, numbers, dots, underscores, or hyphens."
+    )
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
     @NotBlank(message = "Password cannot be empty")
-    @Size(min = 6, max = 100, message = "Password must be at least 6 characters")
+    @Size(min = 6, max = 100, message = "Password must be between 6 and 100 characters.")
+    @Pattern(
+            regexp = "^[^<>\"'%;()&+]*$",
+            message = "Password contains invalid characters.",
+            groups = OnCreate.class
+    )
     @Column(nullable = false)
     private String password;
 

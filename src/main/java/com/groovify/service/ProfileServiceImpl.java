@@ -4,6 +4,7 @@ import com.groovify.jpa.model.Genre;
 import com.groovify.jpa.model.Client;
 import com.groovify.jpa.repo.GenreRepo;
 import com.groovify.jpa.repo.ClientRepo;
+import com.groovify.web.form.ProfileUpdateForm;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.slf4j.Logger;
@@ -73,31 +74,31 @@ public class ProfileServiceImpl implements ProfileService {
         return taken;
     }
 
-    /**
-     * Updates a user's profile with new data.
-     *
-     * @param user          the user to update
-     * @param name          the new username
-     * @param description   the new description
-     * @param imageFileName the new profile image filename
-     * @param genreIds      list of genre IDs to associate with the user
-     */
+
     @Transactional
-    public void updateProfile(Client user, String name, String description, String imageFileName, List<Long> genreIds) {
-        log.info("Updating profile for user '{}'", user.getName());
+    public boolean updateProfile(String username, ProfileUpdateForm form) {
+        Optional<Client> optionalUser = clientRepo.findByName(username);
+        if (optionalUser.isEmpty()) return false;
 
-        // Update basic profile fields
-        user.setName(name.trim());
-        user.setDescription(description.trim());
-        user.setImageFileName(imageFileName);
+        Client user = optionalUser.get();
 
-        // Update user's genres
-        List<Genre> genres = (genreIds != null) ? genreRepo.findAllById(genreIds) : new ArrayList<>();
+        // Only update fields we want to change
+        user.setName(form.getName().trim());
+        user.setDescription(form.getDescription().trim());
+        user.setImageFileName(form.getImageFileName());
+
+        List<Genre> genres = (form.getGenres() != null)
+                ? genreRepo.findAllById(form.getGenres())
+                : new ArrayList<>();
         user.setGenres(genres);
-        log.debug("Updated genres for user '{}': {} genres assigned", user.getName(), genres.size());
 
-        // Save updated user
+        // Save entity while skipping password validation
+        // This works because we're not modifying the password
         clientRepo.save(user);
-        log.info("Profile updated successfully for user '{}'", user.getName());
+
+        log.info("Profile updated successfully for '{}'", username);
+        return true;
     }
+
+
 }

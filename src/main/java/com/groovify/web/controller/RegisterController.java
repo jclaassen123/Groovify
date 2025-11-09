@@ -2,13 +2,18 @@ package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Client;
 import com.groovify.service.RegisterService;
+import com.groovify.validation.OnCreate;
 import jakarta.validation.Valid;
+import jakarta.validation.groups.Default;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -40,7 +45,12 @@ public class RegisterController {
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         log.debug("Displaying registration form");
-        model.addAttribute("user", new Client());
+
+        // Only add a new Client if one doesn’t already exist (to preserve user input on redisplay)
+        if (!model.containsAttribute("user")) {
+            model.addAttribute("user", new Client());
+        }
+
         return "register";
     }
 
@@ -54,11 +64,24 @@ public class RegisterController {
      * @return redirect to landing page if successful, otherwise redisplay the registration form
      */
     @PostMapping("/register")
-    public String registerUser(@Valid @ModelAttribute Client user,
-                               BindingResult result,
-                               Model model,
-                               RedirectAttributes redirectAttributes) {
+    public String registerUser(
+            @Validated({Default.class, OnCreate.class}) @ModelAttribute("user") Client user,
+            BindingResult result,
+            Model model,
+            RedirectAttributes redirectAttributes) {
+
+        // Log the attempt
         log.info("User '{}' attempting to register", user.getName());
+
+        // Validation errors
+        if (result.hasErrors()) {
+            log.debug("Validation errors for user '{}': {}", user.getName(), result.getAllErrors());
+            model.addAttribute("user", user);
+            return "register";
+        }
+
+        // Delegate to service for saving user
         return registerService.registerUser(user, result, model, redirectAttributes);
     }
+
 }
