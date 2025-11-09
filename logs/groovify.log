@@ -2271,1092 +2271,873 @@ Graceful shutdown complete
 2025-11-09 13:10:33,240 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
 Closing JPA EntityManagerFactory for persistence unit 'default'
 
-2025-11-09 13:24:19,762 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.7 with PID 25732 (C:\Users\zackg\CS341-Projects\Groovify\build\classes\java\main started by zgacnik in C:\Users\zackg\CS341-Projects\Groovify)
-
-2025-11-09 13:24:19,763 - [DEBUG] - from com.groovify.GroovifyApplication in restartedMain 
-Running with Spring Boot v3.5.5, Spring v6.2.10
-
-2025-11-09 13:24:19,764 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
-
-2025-11-09 13:24:19,839 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+2025-11-09 14:34:07,544 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
 Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
 
-2025-11-09 13:24:19,839 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+2025-11-09 14:34:07,544 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
 For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
 
-2025-11-09 13:24:20,834 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+2025-11-09 14:34:07,744 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
 Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 
-2025-11-09 13:24:20,938 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Finished Spring Data repository scanning in 91 ms. Found 5 JPA repository interfaces.
+2025-11-09 14:34:07,765 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 5 JPA repository interfaces.
 
-2025-11-09 13:24:21,618 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+2025-11-09 14:34:07,930 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
 Tomcat initialized with port 8080 (http)
 
-2025-11-09 13:24:21,624 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+2025-11-09 14:34:07,935 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
 Initializing ProtocolHandler ["http-nio-8080"]
 
-2025-11-09 13:24:21,634 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+2025-11-09 14:34:07,936 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
 Starting service [Tomcat]
 
-2025-11-09 13:24:21,634 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+2025-11-09 14:34:07,936 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
 Starting Servlet engine: [Apache Tomcat/10.1.44]
 
-2025-11-09 13:24:21,700 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+2025-11-09 14:34:07,948 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
 Initializing Spring embedded WebApplicationContext
 
-2025-11-09 13:24:21,700 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 1854 ms
+2025-11-09 14:34:07,949 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 403 ms
 
-2025-11-09 13:24:22,332 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+2025-11-09 14:34:08,117 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
 No LoadTimeWeaver setup: ignoring JPA class transformer
 
-2025-11-09 13:24:24,263 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+2025-11-09 14:34:08,916 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
 Initialized JPA EntityManagerFactory for persistence unit 'default'
 
-2025-11-09 13:24:24,659 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+2025-11-09 14:34:09,024 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
 Hibernate is in classpath; If applicable, HQL parser will be used.
 
-2025-11-09 13:24:25,583 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+2025-11-09 14:34:09,651 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 
-2025-11-09 13:24:26,035 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+2025-11-09 14:34:10,034 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
 LiveReload server is running on port 35729
 
-2025-11-09 13:24:26,051 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+2025-11-09 14:34:10,052 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
 Starting ProtocolHandler ["http-nio-8080"]
 
-2025-11-09 13:24:26,077 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+2025-11-09 14:34:10,068 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
 Tomcat started on port 8080 (http) with context path '/'
 
-2025-11-09 13:24:26,085 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 7.127 seconds (process running for 7.748)
-
-2025-11-09 13:24:26,091 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
-
-2025-11-09 13:24:26,259 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Rock' exists: true
-
-2025-11-09 13:24:26,262 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Rock' already exists, skipping import
-
-2025-11-09 13:24:26,266 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Pop' exists: true
-
-2025-11-09 13:24:26,266 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Pop' already exists, skipping import
-
-2025-11-09 13:24:26,270 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Classical' exists: true
-
-2025-11-09 13:24:26,270 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Classical' already exists, skipping import
-
-2025-11-09 13:24:26,274 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Tech' exists: true
-
-2025-11-09 13:24:26,274 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Tech' already exists, skipping import
-
-2025-11-09 13:24:26,278 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Country' exists: true
-
-2025-11-09 13:24:26,278 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Country' already exists, skipping import
-
-2025-11-09 13:24:26,281 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Folk' exists: true
-
-2025-11-09 13:24:26,281 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+2025-11-09 14:34:10,595 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
 Initializing Spring DispatcherServlet 'dispatcherServlet'
 
-2025-11-09 13:24:26,281 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Folk' already exists, skipping import
-
-2025-11-09 13:24:26,281 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete.
-
-2025-11-09 13:24:26,281 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+2025-11-09 14:34:10,595 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
 Initializing Servlet 'dispatcherServlet'
 
-2025-11-09 13:24:26,281 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
+2025-11-09 14:34:10,601 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 6 ms
 
-2025-11-09 13:24:26,283 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
-Completed initialization in 2 ms
+2025-11-09 14:34:24,242 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
 
-2025-11-09 13:24:26,297 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Albumleaf.mp3' already exists, skipping
+2025-11-09 14:34:24,245 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
 
-2025-11-09 13:24:26,299 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AllegroDeconcert.mp3' already exists, skipping
+2025-11-09 14:34:24,249 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
 
-2025-11-09 13:24:26,302 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CelloSuite.mp3' already exists, skipping
+2025-11-09 14:34:29,982 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
 
-2025-11-09 13:24:26,307 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ClairDeLune.mp3' already exists, skipping
+2025-11-09 14:34:29,982 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
 
-2025-11-09 13:24:26,310 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ClassicalViolin.mp3' already exists, skipping
+2025-11-09 14:34:30,202 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
 
-2025-11-09 13:24:26,313 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'EineKleineNachtmusik.mp3' already exists, skipping
+2025-11-09 14:34:30,225 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 19 ms. Found 5 JPA repository interfaces.
 
-2025-11-09 13:24:26,316 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FebruaryCarnival.mp3' already exists, skipping
+2025-11-09 14:34:30,401 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
 
-2025-11-09 13:24:26,319 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'JanuaryAtTheFireside.mp3' already exists, skipping
+2025-11-09 14:34:30,406 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
 
-2025-11-09 13:24:26,322 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'MarchSongOfTheLark.mp3' already exists, skipping
+2025-11-09 14:34:30,407 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
 
-2025-11-09 13:24:26,325 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'StringQuartetAllegroModerato.mp3' already exists, skipping
+2025-11-09 14:34:30,407 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
 
-2025-11-09 13:24:26,333 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AllIGotIsMe.mp3' already exists, skipping
+2025-11-09 14:34:30,421 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
 
-2025-11-09 13:24:26,334 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AmericanaInstrumental.mp3' already exists, skipping
+2025-11-09 14:34:30,422 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 440 ms
 
-2025-11-09 13:24:26,336 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AutumnRoad.mp3' already exists, skipping
+2025-11-09 14:34:30,632 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
 
-2025-11-09 13:24:26,340 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BackroadsAndPolaroids.mp3' already exists, skipping
+2025-11-09 14:34:31,394 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
 
-2025-11-09 13:24:26,343 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BackroadsCountryMusic.mp3' already exists, skipping
+2025-11-09 14:34:31,498 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
 
-2025-11-09 13:24:26,345 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Hesitation.mp3' already exists, skipping
+2025-11-09 14:34:31,862 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 
-2025-11-09 13:24:26,348 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'LostMyPlace.mp3' already exists, skipping
+2025-11-09 14:34:31,974 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
 
-2025-11-09 13:24:26,351 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'MercyEveryMorning.mp3' already exists, skipping
+2025-11-09 14:34:31,980 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
 
-2025-11-09 13:24:26,354 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'QuietHome.mp3' already exists, skipping
+2025-11-09 14:34:31,985 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
 
-2025-11-09 13:24:26,354 - [DEBUG] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-1 
+2025-11-09 14:34:37,666 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:34:37,666 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:34:37,667 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:34:41,842 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:34:46,994 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:34:47,001 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:34:47,005 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:35:05,241 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:35:05,242 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:35:05,427 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:35:05,446 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:35:05,602 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:35:05,606 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:35:05,606 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:35:05,607 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:35:05,619 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:35:05,619 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 377 ms
+
+2025-11-09 14:35:05,777 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:35:06,612 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:35:06,735 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:35:07,073 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:35:07,180 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:35:07,186 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:35:07,191 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:35:18,382 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:35:18,382 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:35:18,383 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:35:21,341 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:35:55,442 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:35:55,450 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:35:55,454 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:36:05,964 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:38:39,315 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:38:39,315 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:38:39,507 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:38:39,527 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:38:39,693 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:38:39,697 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:38:39,698 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:38:39,698 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:38:39,711 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:38:39,711 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 396 ms
+
+2025-11-09 14:38:39,880 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:38:40,640 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:38:40,772 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:38:41,122 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:38:41,258 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:38:41,264 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:38:41,271 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:38:49,889 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:38:49,889 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:38:49,890 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:38:52,397 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:38:55,506 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:38:55,510 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:38:55,515 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:38:59,442 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:38:59,442 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:38:59,641 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:38:59,662 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:38:59,829 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:38:59,833 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:38:59,834 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:38:59,834 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:38:59,847 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:38:59,848 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 405 ms
+
+2025-11-09 14:39:00,018 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:39:00,849 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:39:00,960 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:39:01,305 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:39:01,419 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:39:01,425 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:39:01,430 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:39:02,834 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:39:02,834 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:39:02,835 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:39:04,577 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:39:16,061 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:39:16,067 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:39:16,071 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:40:41,607 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:40:41,608 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:40:41,793 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:40:41,812 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:40:41,982 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:40:41,986 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:40:41,987 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:40:41,987 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:40:41,999 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:40:42,000 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 391 ms
+
+2025-11-09 14:40:42,159 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:40:42,905 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:40:43,006 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:40:43,354 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:40:43,467 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:40:43,473 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:40:43,479 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:40:47,490 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:40:47,490 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:40:47,491 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:41:00,402 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:41:00,411 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:41:00,415 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:41:05,135 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:41:05,135 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:41:05,331 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:41:05,352 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 17 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:41:05,514 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:41:05,518 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:41:05,519 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:41:05,519 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:41:05,532 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:41:05,532 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 397 ms
+
+2025-11-09 14:41:05,700 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:41:06,441 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:41:06,549 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:41:06,891 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:41:07,005 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:41:07,011 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:41:07,016 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:41:09,423 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:41:09,423 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:41:09,424 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:41:12,379 - [DEBUG] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+Validating login for username 'ThisIsMyAccount'
+
+2025-11-09 14:41:12,391 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:41:15,282 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:41:15,290 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:41:15,295 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:41:19,670 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:41:19,671 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:41:19,858 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:41:19,876 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:41:20,085 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:41:20,090 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:41:20,091 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:41:20,091 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:41:20,104 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:41:20,104 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 433 ms
+
+2025-11-09 14:41:20,282 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:41:21,022 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:41:21,125 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:41:21,457 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:41:21,566 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:41:21,571 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:41:21,577 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:41:22,264 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:41:22,264 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:41:22,264 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2025-11-09 14:45:01,310 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:45:01,317 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:45:01,321 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:45:21,962 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:45:21,962 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:45:22,184 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:45:22,212 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 24 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:45:22,393 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:45:22,398 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:45:22,399 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:45:22,399 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:45:22,412 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:45:22,413 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 450 ms
+
+2025-11-09 14:45:22,591 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:45:23,452 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:45:23,593 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:45:23,940 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:45:24,100 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:45:24,107 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:45:24,113 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:45:25,563 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:45:25,564 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:45:25,564 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2025-11-09 14:46:00,885 - [DEBUG] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+Validating login for username 'ThisIsMyAccount'
+
+2025-11-09 14:46:00,892 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:46:04,489 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:46:04,494 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:46:04,499 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:46:11,815 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:46:11,815 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:46:12,002 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:46:12,021 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:46:12,179 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:46:12,184 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:46:12,185 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:46:12,185 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:46:12,201 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:46:12,202 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 386 ms
+
+2025-11-09 14:46:12,411 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:46:13,143 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:46:13,246 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:46:13,585 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:46:13,697 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:46:13,702 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:46:13,708 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:46:14,684 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:46:14,684 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:46:14,685 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2025-11-09 14:46:31,685 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:46:31,692 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:46:31,696 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:47:48,638 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:47:48,638 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:47:48,851 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:47:48,870 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 16 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:47:49,038 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:47:49,042 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:47:49,043 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:47:49,043 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:47:49,058 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:47:49,058 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 420 ms
+
+2025-11-09 14:47:49,261 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:47:50,192 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:47:50,309 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:47:50,671 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:47:50,793 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:47:50,799 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:47:50,805 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:47:53,564 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:47:53,564 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:47:53,564 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 0 ms
+
+2025-11-09 14:47:56,520 - [DEBUG] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+Validating login for username 'ThisIsMyAccount'
+
+2025-11-09 14:47:56,531 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
+
+2025-11-09 14:48:24,927 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in SpringApplicationShutdownHook 
+Commencing graceful shutdown. Waiting for active requests to complete
+
+2025-11-09 14:48:24,934 - [INFO] - from org.springframework.boot.web.embedded.tomcat.GracefulShutdown in tomcat-shutdown 
+Graceful shutdown complete
+
+2025-11-09 14:48:24,938 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in SpringApplicationShutdownHook 
+Closing JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:48:44,514 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+
+2025-11-09 14:48:44,515 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+
+2025-11-09 14:48:44,714 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+
+2025-11-09 14:48:44,735 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
+Finished Spring Data repository scanning in 18 ms. Found 5 JPA repository interfaces.
+
+2025-11-09 14:48:44,905 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat initialized with port 8080 (http)
+
+2025-11-09 14:48:44,910 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Initializing ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:48:44,911 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
+Starting service [Tomcat]
+
+2025-11-09 14:48:44,911 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
+Starting Servlet engine: [Apache Tomcat/10.1.44]
+
+2025-11-09 14:48:44,925 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
+Initializing Spring embedded WebApplicationContext
+
+2025-11-09 14:48:44,925 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
+Root WebApplicationContext: initialization completed in 410 ms
+
+2025-11-09 14:48:45,103 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
+No LoadTimeWeaver setup: ignoring JPA class transformer
+
+2025-11-09 14:48:46,002 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+
+2025-11-09 14:48:46,108 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
+Hibernate is in classpath; If applicable, HQL parser will be used.
+
+2025-11-09 14:48:46,451 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
+spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+
+2025-11-09 14:48:46,583 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
+LiveReload server is running on port 35729
+
+2025-11-09 14:48:46,589 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
+Starting ProtocolHandler ["http-nio-8080"]
+
+2025-11-09 14:48:46,595 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
+Tomcat started on port 8080 (http) with context path '/'
+
+2025-11-09 14:48:47,911 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in http-nio-8080-exec-1 
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+2025-11-09 14:48:47,911 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Initializing Servlet 'dispatcherServlet'
+
+2025-11-09 14:48:47,912 - [INFO] - from org.springframework.web.servlet.DispatcherServlet in http-nio-8080-exec-1 
+Completed initialization in 1 ms
+
+2025-11-09 14:48:47,926 - [DEBUG] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-1 
 Serving landing page view
 
-2025-11-09 13:24:26,356 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'SweetOnYou.mp3' already exists, skipping
+2025-11-09 14:49:14,832 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' attempting to log in
 
-2025-11-09 13:24:26,362 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Flamenco.mp3' already exists, skipping
+2025-11-09 14:49:14,834 - [DEBUG] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+Validating login for username 'ThisIsMyAccount'
 
-2025-11-09 13:24:26,365 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'MexicanStyle.mp3' already exists, skipping
+2025-11-09 14:49:14,844 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully validated
 
-2025-11-09 13:24:26,370 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ReturnToMeMyLove.mp3' already exists, skipping
+2025-11-09 14:49:14,845 - [DEBUG] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
+Login validation result for user 'ThisIsMyAccount': true
 
-2025-11-09 13:24:26,373 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'RomanticGuitar.mp3' already exists, skipping
-
-2025-11-09 13:24:26,373 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'RussianFolk.mp3' already exists, skipping
-
-2025-11-09 13:24:26,382 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ScottishSong.mp3' already exists, skipping
-
-2025-11-09 13:24:26,384 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheBardWhoStoleTheMoon.mp3' already exists, skipping
-
-2025-11-09 13:24:26,392 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheBrewersRevenge.mp3' already exists, skipping
-
-2025-11-09 13:24:26,396 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheGhostsOfGlitteringGold.mp3' already exists, skipping
-
-2025-11-09 13:24:26,401 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheMinstrelsLament.mp3' already exists, skipping
-
-2025-11-09 13:24:26,411 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BirdsFlyingFree.mp3' already exists, skipping
-
-2025-11-09 13:24:26,416 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ChasingTheSun.mp3' already exists, skipping
-
-2025-11-09 13:24:26,420 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CountryVillageRock.mp3' already exists, skipping
-
-2025-11-09 13:24:26,425 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'DancingShadows.mp3' already exists, skipping
-
-2025-11-09 13:24:26,427 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FirstLight.mp3' already exists, skipping
-
-2025-11-09 13:24:26,427 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Forever.mp3' already exists, skipping
-
-2025-11-09 13:24:26,434 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'NeonMemories.mp3' already exists, skipping
-
-2025-11-09 13:24:26,437 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'NightVibes.mp3' already exists, skipping
-
-2025-11-09 13:24:26,440 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'SummerAdventures.mp3' already exists, skipping
-
-2025-11-09 13:24:26,443 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ThoughtsInTime.mp3' already exists, skipping
-
-2025-11-09 13:24:26,451 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CyberneticOnslaught.mp3' already exists, skipping
-
-2025-11-09 13:24:26,451 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Energetic.mp3' already exists, skipping
-
-2025-11-09 13:24:26,457 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'EpicSymphonic.mp3' already exists, skipping
-
-2025-11-09 13:24:26,460 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FunRock.mp3' already exists, skipping
-
-2025-11-09 13:24:26,464 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'HeavyDoom.mp3' already exists, skipping
-
-2025-11-09 13:24:26,468 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'HeavyRain.mp3' already exists, skipping
-
-2025-11-09 13:24:26,472 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'IntenseBlack.mp3' already exists, skipping
-
-2025-11-09 13:24:26,478 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'RunningRock.mp3' already exists, skipping
-
-2025-11-09 13:24:26,482 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'SportsRock.mp3' already exists, skipping
-
-2025-11-09 13:24:26,486 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheRock.mp3' already exists, skipping
-
-2025-11-09 13:24:26,489 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BeautifulNight.mp3' already exists, skipping
-
-2025-11-09 13:24:26,489 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CorporateTech.mp3' already exists, skipping
-
-2025-11-09 13:24:26,505 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'DeepTech.mp3' already exists, skipping
-
-2025-11-09 13:24:26,507 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'DigitalTech.mp3' already exists, skipping
-
-2025-11-09 13:24:26,513 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Floating.mp3' already exists, skipping
-
-2025-11-09 13:24:26,517 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Futurism.mp3' already exists, skipping
-
-2025-11-09 13:24:26,522 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FuturisticTech.mp3' already exists, skipping
-
-2025-11-09 13:24:26,526 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Innovation.mp3' already exists, skipping
-
-2025-11-09 13:24:26,530 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'StarRain.mp3' already exists, skipping
-
-2025-11-09 13:24:26,533 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TechHouseSpaceJam.mp3' already exists, skipping
-
-2025-11-09 13:24:26,534 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete.
-
-2025-11-09 13:24:32,279 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-10 
-User 'zgacnik' attempting to log in
-
-2025-11-09 13:24:32,280 - [DEBUG] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-10 
-Validating login for username 'zgacnik'
-
-2025-11-09 13:24:32,291 - [INFO] - from com.groovify.service.LoginServiceImpl in http-nio-8080-exec-10 
-User 'zgacnik' successfully validated
-
-2025-11-09 13:24:32,291 - [DEBUG] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-10 
-Login validation result for user 'zgacnik': true
-
-2025-11-09 13:24:32,292 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-10 
-User 'zgacnik' successfully logged in
-
-2025-11-09 13:24:32,301 - [INFO] - from com.groovify.web.controller.HomeController in http-nio-8080-exec-6 
-User 'zgacnik' accessed home page
-
-2025-11-09 13:24:32,306 - [DEBUG] - from com.groovify.web.controller.HomeController in http-nio-8080-exec-6 
-User 'zgacnik' retrieved from database: com.groovify.jpa.model.Client@6c5f18c4
-
-2025-11-09 13:24:32,306 - [DEBUG] - from com.groovify.service.RecommendationService in http-nio-8080-exec-6 
-Generating recommended songs for user 'zgacnik'
-
-2025-11-09 13:24:32,373 - [INFO] - from com.groovify.service.RecommendationService in http-nio-8080-exec-6 
-Returning 5 recommended songs from full database
-
-2025-11-09 13:24:32,373 - [DEBUG] - from com.groovify.web.controller.HomeController in http-nio-8080-exec-6 
-Retrieved 5 recommended songs for user 'zgacnik'
-
-2025-11-09 13:24:32,392 - [DEBUG] - from com.groovify.web.controller.HomeController in http-nio-8080-exec-6 
-Converted recommended songs to SongView list for user 'zgacnik'
-
-2025-11-09 13:24:32,392 - [INFO] - from com.groovify.web.controller.HomeController in http-nio-8080-exec-6 
-Model attributes set for home page of user 'zgacnik'
-
-2025-11-09 13:25:53,587 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.7 with PID 10764 (C:\Users\zackg\CS341-Projects\Groovify\build\classes\java\main started by zgacnik in C:\Users\zackg\CS341-Projects\Groovify)
-
-2025-11-09 13:25:53,589 - [DEBUG] - from com.groovify.GroovifyApplication in restartedMain 
-Running with Spring Boot v3.5.5, Spring v6.2.10
-
-2025-11-09 13:25:53,589 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
-
-2025-11-09 13:25:59,392 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 6.482 seconds (process running for 7.037)
-
-2025-11-09 13:25:59,392 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
-
-2025-11-09 13:25:59,543 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Rock' exists: true
-
-2025-11-09 13:25:59,543 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Rock' already exists, skipping import
-
-2025-11-09 13:25:59,543 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Pop' exists: true
-
-2025-11-09 13:25:59,543 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Pop' already exists, skipping import
-
-2025-11-09 13:25:59,543 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Classical' exists: true
-
-2025-11-09 13:25:59,543 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Classical' already exists, skipping import
-
-2025-11-09 13:25:59,543 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Tech' exists: true
-
-2025-11-09 13:25:59,543 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Tech' already exists, skipping import
-
-2025-11-09 13:25:59,556 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Country' exists: true
-
-2025-11-09 13:25:59,556 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Country' already exists, skipping import
-
-2025-11-09 13:25:59,556 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Folk' exists: true
-
-2025-11-09 13:25:59,556 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Folk' already exists, skipping import
-
-2025-11-09 13:25:59,556 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete.
-
-2025-11-09 13:25:59,556 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
-
-2025-11-09 13:25:59,572 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Albumleaf.mp3' already exists, skipping
-
-2025-11-09 13:25:59,576 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AllegroDeconcert.mp3' already exists, skipping
-
-2025-11-09 13:25:59,579 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CelloSuite.mp3' already exists, skipping
-
-2025-11-09 13:25:59,583 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ClairDeLune.mp3' already exists, skipping
-
-2025-11-09 13:25:59,587 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ClassicalViolin.mp3' already exists, skipping
-
-2025-11-09 13:25:59,589 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'EineKleineNachtmusik.mp3' already exists, skipping
-
-2025-11-09 13:25:59,589 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FebruaryCarnival.mp3' already exists, skipping
-
-2025-11-09 13:25:59,589 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'JanuaryAtTheFireside.mp3' already exists, skipping
-
-2025-11-09 13:25:59,599 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'MarchSongOfTheLark.mp3' already exists, skipping
-
-2025-11-09 13:25:59,600 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'StringQuartetAllegroModerato.mp3' already exists, skipping
-
-2025-11-09 13:25:59,609 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AllIGotIsMe.mp3' already exists, skipping
-
-2025-11-09 13:25:59,609 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AmericanaInstrumental.mp3' already exists, skipping
-
-2025-11-09 13:25:59,615 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AutumnRoad.mp3' already exists, skipping
-
-2025-11-09 13:25:59,616 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BackroadsAndPolaroids.mp3' already exists, skipping
-
-2025-11-09 13:25:59,616 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BackroadsCountryMusic.mp3' already exists, skipping
-
-2025-11-09 13:25:59,616 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Hesitation.mp3' already exists, skipping
-
-2025-11-09 13:25:59,616 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'LostMyPlace.mp3' already exists, skipping
-
-2025-11-09 13:25:59,616 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'MercyEveryMorning.mp3' already exists, skipping
-
-2025-11-09 13:25:59,616 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'QuietHome.mp3' already exists, skipping
-
-2025-11-09 13:25:59,630 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'SweetOnYou.mp3' already exists, skipping
-
-2025-11-09 13:25:59,635 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Flamenco.mp3' already exists, skipping
-
-2025-11-09 13:25:59,636 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'MexicanStyle.mp3' already exists, skipping
-
-2025-11-09 13:25:59,636 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ReturnToMeMyLove.mp3' already exists, skipping
-
-2025-11-09 13:25:59,636 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'RomanticGuitar.mp3' already exists, skipping
-
-2025-11-09 13:25:59,636 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'RussianFolk.mp3' already exists, skipping
-
-2025-11-09 13:25:59,647 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ScottishSong.mp3' already exists, skipping
-
-2025-11-09 13:25:59,649 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheBardWhoStoleTheMoon.mp3' already exists, skipping
-
-2025-11-09 13:25:59,650 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheBrewersRevenge.mp3' already exists, skipping
-
-2025-11-09 13:25:59,653 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheGhostsOfGlitteringGold.mp3' already exists, skipping
-
-2025-11-09 13:25:59,653 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheMinstrelsLament.mp3' already exists, skipping
-
-2025-11-09 13:25:59,653 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BirdsFlyingFree.mp3' already exists, skipping
-
-2025-11-09 13:25:59,653 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ChasingTheSun.mp3' already exists, skipping
-
-2025-11-09 13:25:59,666 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CountryVillageRock.mp3' already exists, skipping
-
-2025-11-09 13:25:59,670 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'DancingShadows.mp3' already exists, skipping
-
-2025-11-09 13:25:59,674 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FirstLight.mp3' already exists, skipping
-
-2025-11-09 13:25:59,678 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Forever.mp3' already exists, skipping
-
-2025-11-09 13:25:59,681 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'NeonMemories.mp3' already exists, skipping
-
-2025-11-09 13:25:59,684 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'NightVibes.mp3' already exists, skipping
-
-2025-11-09 13:25:59,688 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'SummerAdventures.mp3' already exists, skipping
-
-2025-11-09 13:25:59,693 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ThoughtsInTime.mp3' already exists, skipping
-
-2025-11-09 13:25:59,699 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CyberneticOnslaught.mp3' already exists, skipping
-
-2025-11-09 13:25:59,702 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Energetic.mp3' already exists, skipping
-
-2025-11-09 13:25:59,707 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'EpicSymphonic.mp3' already exists, skipping
-
-2025-11-09 13:25:59,711 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FunRock.mp3' already exists, skipping
-
-2025-11-09 13:25:59,712 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'HeavyDoom.mp3' already exists, skipping
-
-2025-11-09 13:25:59,712 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'HeavyRain.mp3' already exists, skipping
-
-2025-11-09 13:25:59,719 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'IntenseBlack.mp3' already exists, skipping
-
-2025-11-09 13:25:59,721 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'RunningRock.mp3' already exists, skipping
-
-2025-11-09 13:25:59,726 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'SportsRock.mp3' already exists, skipping
-
-2025-11-09 13:25:59,729 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheRock.mp3' already exists, skipping
-
-2025-11-09 13:25:59,729 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BeautifulNight.mp3' already exists, skipping
-
-2025-11-09 13:25:59,729 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CorporateTech.mp3' already exists, skipping
-
-2025-11-09 13:25:59,729 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'DeepTech.mp3' already exists, skipping
-
-2025-11-09 13:25:59,743 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'DigitalTech.mp3' already exists, skipping
-
-2025-11-09 13:25:59,746 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Floating.mp3' already exists, skipping
-
-2025-11-09 13:25:59,746 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Futurism.mp3' already exists, skipping
-
-2025-11-09 13:25:59,750 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FuturisticTech.mp3' already exists, skipping
-
-2025-11-09 13:25:59,750 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Innovation.mp3' already exists, skipping
-
-2025-11-09 13:25:59,750 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'StarRain.mp3' already exists, skipping
-
-2025-11-09 13:25:59,750 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TechHouseSpaceJam.mp3' already exists, skipping
-
-2025-11-09 13:25:59,750 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete.
-
-2025-11-09 13:26:48,028 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.7 with PID 37256 (C:\Users\zackg\CS341-Projects\Groovify\build\classes\java\main started by zgacnik in C:\Users\zackg\CS341-Projects\Groovify)
-
-2025-11-09 13:26:48,028 - [DEBUG] - from com.groovify.GroovifyApplication in restartedMain 
-Running with Spring Boot v3.5.5, Spring v6.2.10
-
-2025-11-09 13:26:48,028 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
-
-2025-11-09 13:26:48,094 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-
-2025-11-09 13:26:48,094 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-
-2025-11-09 13:26:48,966 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-
-2025-11-09 13:26:49,085 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Finished Spring Data repository scanning in 97 ms. Found 5 JPA repository interfaces.
-
-2025-11-09 13:26:49,730 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat initialized with port 8080 (http)
-
-2025-11-09 13:26:49,736 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Initializing ProtocolHandler ["http-nio-8080"]
-
-2025-11-09 13:26:49,745 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
-Starting service [Tomcat]
-
-2025-11-09 13:26:49,746 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
-Starting Servlet engine: [Apache Tomcat/10.1.44]
-
-2025-11-09 13:26:49,792 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
-Initializing Spring embedded WebApplicationContext
-
-2025-11-09 13:26:49,807 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 1713 ms
-
-2025-11-09 13:26:50,400 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
-No LoadTimeWeaver setup: ignoring JPA class transformer
-
-2025-11-09 13:26:52,227 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
-Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-2025-11-09 13:26:52,617 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
-Hibernate is in classpath; If applicable, HQL parser will be used.
-
-2025-11-09 13:26:53,473 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-
-2025-11-09 13:26:53,890 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
-LiveReload server is running on port 35729
-
-2025-11-09 13:26:53,906 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Starting ProtocolHandler ["http-nio-8080"]
-
-2025-11-09 13:26:53,941 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat started on port 8080 (http) with context path '/'
-
-2025-11-09 13:26:53,941 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 6.619 seconds (process running for 7.196)
-
-2025-11-09 13:26:53,941 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
-
-2025-11-09 13:26:54,107 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Rock' exists: true
-
-2025-11-09 13:26:54,109 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Rock' already exists, skipping import
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Pop' exists: true
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Pop' already exists, skipping import
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Classical' exists: true
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Classical' already exists, skipping import
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Tech' exists: true
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Tech' already exists, skipping import
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Country' exists: true
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Country' already exists, skipping import
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Folk' exists: true
-
-2025-11-09 13:26:54,112 - [DEBUG] - from com.groovify.service.GenreImportServiceImpl in restartedMain 
-Genre 'Folk' already exists, skipping import
-
-2025-11-09 13:26:54,112 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete.
-
-2025-11-09 13:26:54,112 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
-
-2025-11-09 13:26:54,277 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete.
-
-2025-11-09 13:27:33,282 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.7 with PID 32420 (C:\Users\zackg\CS341-Projects\Groovify\build\classes\java\main started by zgacnik in C:\Users\zackg\CS341-Projects\Groovify)
-
-2025-11-09 13:27:33,282 - [DEBUG] - from com.groovify.GroovifyApplication in restartedMain 
-Running with Spring Boot v3.5.5, Spring v6.2.10
-
-2025-11-09 13:27:33,282 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
-
-2025-11-09 13:27:33,349 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-
-2025-11-09 13:27:33,349 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-
-2025-11-09 13:27:34,304 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-
-2025-11-09 13:27:34,414 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Finished Spring Data repository scanning in 100 ms. Found 5 JPA repository interfaces.
-
-2025-11-09 13:27:35,144 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat initialized with port 8080 (http)
-
-2025-11-09 13:27:35,153 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Initializing ProtocolHandler ["http-nio-8080"]
-
-2025-11-09 13:27:35,153 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
-Starting service [Tomcat]
-
-2025-11-09 13:27:35,153 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
-Starting Servlet engine: [Apache Tomcat/10.1.44]
-
-2025-11-09 13:27:35,226 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
-Initializing Spring embedded WebApplicationContext
-
-2025-11-09 13:27:35,226 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 1877 ms
-
-2025-11-09 13:27:35,867 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
-No LoadTimeWeaver setup: ignoring JPA class transformer
-
-2025-11-09 13:27:37,694 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
-Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-2025-11-09 13:27:38,076 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
-Hibernate is in classpath; If applicable, HQL parser will be used.
-
-2025-11-09 13:27:38,995 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-
-2025-11-09 13:27:39,457 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
-LiveReload server is running on port 35729
-
-2025-11-09 13:27:39,475 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Starting ProtocolHandler ["http-nio-8080"]
-
-2025-11-09 13:27:39,506 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat started on port 8080 (http) with context path '/'
-
-2025-11-09 13:27:39,514 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 6.968 seconds (process running for 7.57)
-
-2025-11-09 13:27:39,516 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
-
-2025-11-09 13:27:39,695 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete.
-
-2025-11-09 13:27:39,695 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
-
-2025-11-09 13:27:39,842 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete.
-
-2025-11-09 13:30:44,060 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.7 with PID 22200 (C:\Users\zackg\CS341-Projects\Groovify\build\classes\java\main started by zgacnik in C:\Users\zackg\CS341-Projects\Groovify)
-
-2025-11-09 13:30:44,062 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
-
-2025-11-09 13:30:44,125 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-
-2025-11-09 13:30:44,125 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-
-2025-11-09 13:30:45,012 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-
-2025-11-09 13:30:45,116 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Finished Spring Data repository scanning in 91 ms. Found 5 JPA repository interfaces.
-
-2025-11-09 13:30:45,743 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat initialized with port 8080 (http)
-
-2025-11-09 13:30:45,763 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Initializing ProtocolHandler ["http-nio-8080"]
-
-2025-11-09 13:30:45,763 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
-Starting service [Tomcat]
-
-2025-11-09 13:30:45,763 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
-Starting Servlet engine: [Apache Tomcat/10.1.44]
-
-2025-11-09 13:30:45,823 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
-Initializing Spring embedded WebApplicationContext
-
-2025-11-09 13:30:45,823 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 1698 ms
-
-2025-11-09 13:30:46,428 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
-No LoadTimeWeaver setup: ignoring JPA class transformer
-
-2025-11-09 13:30:48,182 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
-Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-2025-11-09 13:30:48,544 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
-Hibernate is in classpath; If applicable, HQL parser will be used.
-
-2025-11-09 13:30:49,390 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-
-2025-11-09 13:30:49,813 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
-LiveReload server is running on port 35729
-
-2025-11-09 13:30:49,827 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Starting ProtocolHandler ["http-nio-8080"]
-
-2025-11-09 13:30:49,850 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat started on port 8080 (http) with context path '/'
-
-2025-11-09 13:30:49,853 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 6.465 seconds (process running for 7.034)
-
-2025-11-09 13:30:49,860 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
-
-2025-11-09 13:30:50,022 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete.
-
-2025-11-09 13:30:50,029 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
-
-2025-11-09 13:30:50,038 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Albumleaf.mp3' already exists, skipping
-
-2025-11-09 13:30:50,043 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AllegroDeconcert.mp3' already exists, skipping
-
-2025-11-09 13:30:50,046 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CelloSuite.mp3' already exists, skipping
-
-2025-11-09 13:30:50,051 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ClairDeLune.mp3' already exists, skipping
-
-2025-11-09 13:30:50,053 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ClassicalViolin.mp3' already exists, skipping
-
-2025-11-09 13:30:50,055 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'EineKleineNachtmusik.mp3' already exists, skipping
-
-2025-11-09 13:30:50,055 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FebruaryCarnival.mp3' already exists, skipping
-
-2025-11-09 13:30:50,055 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'JanuaryAtTheFireside.mp3' already exists, skipping
-
-2025-11-09 13:30:50,055 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'MarchSongOfTheLark.mp3' already exists, skipping
-
-2025-11-09 13:30:50,062 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'StringQuartetAllegroModerato.mp3' already exists, skipping
-
-2025-11-09 13:30:50,069 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AllIGotIsMe.mp3' already exists, skipping
-
-2025-11-09 13:30:50,069 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AmericanaInstrumental.mp3' already exists, skipping
-
-2025-11-09 13:30:50,073 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'AutumnRoad.mp3' already exists, skipping
-
-2025-11-09 13:30:50,075 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BackroadsAndPolaroids.mp3' already exists, skipping
-
-2025-11-09 13:30:50,075 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BackroadsCountryMusic.mp3' already exists, skipping
-
-2025-11-09 13:30:50,078 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Hesitation.mp3' already exists, skipping
-
-2025-11-09 13:30:50,080 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'LostMyPlace.mp3' already exists, skipping
-
-2025-11-09 13:30:50,080 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'MercyEveryMorning.mp3' already exists, skipping
-
-2025-11-09 13:30:50,085 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'QuietHome.mp3' already exists, skipping
-
-2025-11-09 13:30:50,085 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'SweetOnYou.mp3' already exists, skipping
-
-2025-11-09 13:30:50,090 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Flamenco.mp3' already exists, skipping
-
-2025-11-09 13:30:50,090 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'MexicanStyle.mp3' already exists, skipping
-
-2025-11-09 13:30:50,096 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ReturnToMeMyLove.mp3' already exists, skipping
-
-2025-11-09 13:30:50,098 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'RomanticGuitar.mp3' already exists, skipping
-
-2025-11-09 13:30:50,098 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'RussianFolk.mp3' already exists, skipping
-
-2025-11-09 13:30:50,098 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ScottishSong.mp3' already exists, skipping
-
-2025-11-09 13:30:50,098 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheBardWhoStoleTheMoon.mp3' already exists, skipping
-
-2025-11-09 13:30:50,106 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheBrewersRevenge.mp3' already exists, skipping
-
-2025-11-09 13:30:50,108 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheGhostsOfGlitteringGold.mp3' already exists, skipping
-
-2025-11-09 13:30:50,110 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheMinstrelsLament.mp3' already exists, skipping
-
-2025-11-09 13:30:50,114 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BirdsFlyingFree.mp3' already exists, skipping
-
-2025-11-09 13:30:50,114 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ChasingTheSun.mp3' already exists, skipping
-
-2025-11-09 13:30:50,117 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CountryVillageRock.mp3' already exists, skipping
-
-2025-11-09 13:30:50,117 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'DancingShadows.mp3' already exists, skipping
-
-2025-11-09 13:30:50,117 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FirstLight.mp3' already exists, skipping
-
-2025-11-09 13:30:50,117 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Forever.mp3' already exists, skipping
-
-2025-11-09 13:30:50,125 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'NeonMemories.mp3' already exists, skipping
-
-2025-11-09 13:30:50,127 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'NightVibes.mp3' already exists, skipping
-
-2025-11-09 13:30:50,127 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'SummerAdventures.mp3' already exists, skipping
-
-2025-11-09 13:30:50,127 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'ThoughtsInTime.mp3' already exists, skipping
-
-2025-11-09 13:30:50,132 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CyberneticOnslaught.mp3' already exists, skipping
-
-2025-11-09 13:30:50,137 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Energetic.mp3' already exists, skipping
-
-2025-11-09 13:30:50,137 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'EpicSymphonic.mp3' already exists, skipping
-
-2025-11-09 13:30:50,140 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FunRock.mp3' already exists, skipping
-
-2025-11-09 13:30:50,143 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'HeavyDoom.mp3' already exists, skipping
-
-2025-11-09 13:30:50,147 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'HeavyRain.mp3' already exists, skipping
-
-2025-11-09 13:30:50,150 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'IntenseBlack.mp3' already exists, skipping
-
-2025-11-09 13:30:50,153 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'RunningRock.mp3' already exists, skipping
-
-2025-11-09 13:30:50,157 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'SportsRock.mp3' already exists, skipping
-
-2025-11-09 13:30:50,160 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TheRock.mp3' already exists, skipping
-
-2025-11-09 13:30:50,168 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'BeautifulNight.mp3' already exists, skipping
-
-2025-11-09 13:30:50,171 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'CorporateTech.mp3' already exists, skipping
-
-2025-11-09 13:30:50,174 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'DeepTech.mp3' already exists, skipping
-
-2025-11-09 13:30:50,177 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'DigitalTech.mp3' already exists, skipping
-
-2025-11-09 13:30:50,179 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Floating.mp3' already exists, skipping
-
-2025-11-09 13:30:50,185 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Futurism.mp3' already exists, skipping
-
-2025-11-09 13:30:50,185 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'FuturisticTech.mp3' already exists, skipping
-
-2025-11-09 13:30:50,191 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'Innovation.mp3' already exists, skipping
-
-2025-11-09 13:30:50,193 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'StarRain.mp3' already exists, skipping
-
-2025-11-09 13:30:50,198 - [WARN] - from com.groovify.service.SongImportImpl in restartedMain 
-File 'TechHouseSpaceJam.mp3' already exists, skipping
-
-2025-11-09 13:30:50,198 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete.
-
-2025-11-09 13:31:35,774 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting GroovifyApplication using Java 21.0.7 with PID 4928 (C:\Users\zackg\CS341-Projects\Groovify\build\classes\java\main started by zgacnik in C:\Users\zackg\CS341-Projects\Groovify)
-
-2025-11-09 13:31:35,774 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-No active profile set, falling back to 1 default profile: "default"
-
-2025-11-09 13:31:35,836 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-
-2025-11-09 13:31:35,836 - [INFO] - from org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor in restartedMain 
-For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-
-2025-11-09 13:31:36,795 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-
-2025-11-09 13:31:36,914 - [INFO] - from org.springframework.data.repository.config.RepositoryConfigurationDelegate in restartedMain 
-Finished Spring Data repository scanning in 95 ms. Found 5 JPA repository interfaces.
-
-2025-11-09 13:31:37,562 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat initialized with port 8080 (http)
-
-2025-11-09 13:31:37,569 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Initializing ProtocolHandler ["http-nio-8080"]
-
-2025-11-09 13:31:37,578 - [INFO] - from org.apache.catalina.core.StandardService in restartedMain 
-Starting service [Tomcat]
-
-2025-11-09 13:31:37,578 - [INFO] - from org.apache.catalina.core.StandardEngine in restartedMain 
-Starting Servlet engine: [Apache Tomcat/10.1.44]
-
-2025-11-09 13:31:37,681 - [INFO] - from org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] in restartedMain 
-Initializing Spring embedded WebApplicationContext
-
-2025-11-09 13:31:37,681 - [INFO] - from org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext in restartedMain 
-Root WebApplicationContext: initialization completed in 1845 ms
-
-2025-11-09 13:31:38,273 - [INFO] - from org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo in restartedMain 
-No LoadTimeWeaver setup: ignoring JPA class transformer
-
-2025-11-09 13:31:40,014 - [INFO] - from org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean in restartedMain 
-Initialized JPA EntityManagerFactory for persistence unit 'default'
-
-2025-11-09 13:31:40,387 - [INFO] - from org.springframework.data.jpa.repository.query.QueryEnhancerFactory in restartedMain 
-Hibernate is in classpath; If applicable, HQL parser will be used.
-
-2025-11-09 13:31:41,249 - [WARN] - from org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration in restartedMain 
-spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-
-2025-11-09 13:31:41,695 - [INFO] - from org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer in restartedMain 
-LiveReload server is running on port 35729
-
-2025-11-09 13:31:41,707 - [INFO] - from org.apache.coyote.http11.Http11NioProtocol in restartedMain 
-Starting ProtocolHandler ["http-nio-8080"]
-
-2025-11-09 13:31:41,731 - [INFO] - from org.springframework.boot.web.embedded.tomcat.TomcatWebServer in restartedMain 
-Tomcat started on port 8080 (http) with context path '/'
-
-2025-11-09 13:31:41,733 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Started GroovifyApplication in 6.625 seconds (process running for 7.201)
-
-2025-11-09 13:31:41,743 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting genre import before web server startup...
-
-2025-11-09 13:31:41,905 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Genre import complete.
-
-2025-11-09 13:31:41,907 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-Starting MP3 import before web server startup...
-
-2025-11-09 13:31:42,077 - [INFO] - from com.groovify.GroovifyApplication in restartedMain 
-MP3 import complete.
+2025-11-09 14:49:14,845 - [INFO] - from com.groovify.web.controller.LandingController in http-nio-8080-exec-4 
+User 'ThisIsMyAccount' successfully logged in
 
