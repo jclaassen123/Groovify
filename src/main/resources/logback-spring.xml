@@ -29,12 +29,13 @@
     <!--
     Logback Logging Levels:
 
-    TRACE   - Most detailed information, typically only for debugging.
-    DEBUG   - General debugging information.
-    INFO    - Routine information about application progress.
-    WARN    - Potential issues or important situations that are not errors.
-    ERROR   - Serious issues that require attention.
     OFF     - Turns off logging completely for this logger.
+    FATAL   - Signifying a critical system failure.
+    ERROR   - Serious issues that require attention.
+    WARN    - Potential issues or important situations that are not errors.
+    INFO    - Routine information about application progress.
+    DEBUG   - General debugging information.
+    TRACE   - Most detailed information, typically only for debugging.
     -->
 
     <!-- ======== Services ======== -->
