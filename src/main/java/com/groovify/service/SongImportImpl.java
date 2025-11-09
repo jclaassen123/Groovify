@@ -95,7 +95,7 @@ public class SongImportImpl implements SongImportService {
 
             for (File file : mp3Files) {
                 if (songRepository.existsByFilename(file.getName())) {
-                    log.warn("File '{}' already exists, skipping", file.getName());
+                    log.debug("File '{}' already exists, skipping", file.getName());
                     continue;
                 }
 
