@@ -90,7 +90,7 @@ public class PlaylistsController {
             String genreName = genreRepo.findById(song.getGenre().getId())
                     .map(genre -> genre.getName())
                     .orElse("Unknown");
-            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName);
+            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName, song.getFilename());
         }).toList();
 
         model.addAttribute("user", user);

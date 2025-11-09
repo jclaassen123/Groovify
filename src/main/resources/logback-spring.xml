@@ -23,8 +23,44 @@
     </appender>
 
     <!-- Reduce DB + connection pool verbosity -->
-    <logger name="org.hibernate" level="INFO" />
-    <logger name="com.zaxxer.hikari" level="INFO" />
+    <logger name="org.hibernate" level="OFF" />
+    <logger name="com.zaxxer.hikari" level="OFF" />
+
+    <!--
+    Logback Logging Levels:
+
+    TRACE   - Most detailed information, typically only for debugging.
+    DEBUG   - General debugging information.
+    INFO    - Routine information about application progress.
+    WARN    - Potential issues or important situations that are not errors.
+    ERROR   - Serious issues that require attention.
+    OFF     - Turns off logging completely for this logger.
+    -->
+
+    <!-- ======== Services ======== -->
+    <logger name="com.groovify.service.GenreImportServiceImpl" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.service.LoginServiceImpl" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.service.PlaylistServiceImpl" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.service.ProfileServiceImpl" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.service.RecommendationService" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.service.RegisterServiceImpl" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.service.SongImportImpl" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.service.SongServiceImpl" level="DEBUG" additivity="true" />
+
+    <!-- ======== Controllers ======== -->
+    <logger name="com.groovify.web.controller.CustomErrorController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.DeveloperController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.HomeController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.LandingController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.PlaylistsController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.ProfileController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.RegisterController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.SearchController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.SessionController" level="DEBUG" additivity="true" />
+    <logger name="com.groovify.web.controller.SongController" level="DEBUG" additivity="true" />
+
+    <!-- ======== Main Application ======== -->
+    <logger name="com.groovify.GroovifyApplication" level="DEBUG" additivity="true" />
 
     <!-- Default logging level -->
     <root level="INFO">
