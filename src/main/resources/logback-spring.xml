@@ -46,60 +46,60 @@
 
     <!-- ======== Services ======== -->
     <logger name="com.groovify.service.GenreImportServiceImpl"
-            level="${GENRE_IMPORT_SERVICE_LOG:-ERROR}"
+            level="${GENRE_IMPORT_SERVICE_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.service.LoginServiceImpl"
             level="${LOGIN_SERVICE_LOG:-DEBUG}"
             additivity="true" />
     <logger name="com.groovify.service.PlaylistServiceImpl"
-            level="${PLAYLIST_SERVICE_LOG:-DEBUG}"
+            level="${PLAYLIST_SERVICE_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.service.ProfileServiceImpl"
-            level="${PROFILE_SERVICE_LOG:-DEBUG}"
+            level="${PROFILE_SERVICE_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.service.RecommendationService"
-            level="${RECOMMENDATION_SERVICE_LOG:-DEBUG}"
+            level="${RECOMMENDATION_SERVICE_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.service.RegisterServiceImpl"
-            level="${REGISTER_SERVICE_LOG:-DEBUG}"
+            level="${REGISTER_SERVICE_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.service.SongImportImpl"
-            level="${SONG_IMPORT_SERVICE_LOG:-DEBUG}"
+            level="${SONG_IMPORT_SERVICE_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.service.SongServiceImpl"
-            level="${SONG_SERVICE_LOG:-DEBUG}"
+            level="${SONG_SERVICE_LOG:-OFF}"
             additivity="true" />
 
     <!-- ======== Controllers ======== -->
     <logger name="com.groovify.web.controller.CustomErrorController"
-            level="${CUSTOM_ERROR_CONTROLLER_LOG:-DEBUG}"
+            level="${CUSTOM_ERROR_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.DeveloperController"
-            level="${DEVELOPER_CONTROLLER_LOG:-DEBUG}"
+            level="${DEVELOPER_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.HomeController"
-            level="${HOME_CONTROLLER_LOG:-DEBUG}"
+            level="${HOME_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.LandingController"
             level="${LANDING_CONTROLLER_LOG:-DEBUG}"
             additivity="true" />
     <logger name="com.groovify.web.controller.PlaylistsController"
-            level="${PLAYLISTS_CONTROLLER_LOG:-DEBUG}"
+            level="${PLAYLISTS_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.ProfileController"
-            level="${PROFILE_CONTROLLER_LOG:-DEBUG}"
+            level="${PROFILE_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.RegisterController"
-            level="${REGISTER_CONTROLLER_LOG:-DEBUG}"
+            level="${REGISTER_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.SearchController"
-            level="${SEARCH_CONTROLLER_LOG:-DEBUG}"
+            level="${SEARCH_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.SessionController"
-            level="${SESSION_CONTROLLER_LOG:-DEBUG}"
+            level="${SESSION_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.SongController"
-            level="${SONG_CONTROLLER_LOG:-DEBUG}"
+            level="${SONG_CONTROLLER_LOG:-OFF}"
             additivity="true" />
 
     <!-- ======== Main Application ======== -->
