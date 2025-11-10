@@ -51,14 +51,14 @@ public interface PlaylistService {
      *
      * @param playlist the {@link Playlist} object to be saved
      */
-    void savePlaylist(Playlist playlist);
+    boolean savePlaylist(Playlist playlist);
 
     /**
      * Deletes a playlist by its unique identifier.
      *
      * @param id the ID of the playlist to delete
      */
-    void deletePlaylist(Long id);
+    boolean deletePlaylist(Long id);
 
     /**
      * Adds a song to a specific playlist.
@@ -66,7 +66,7 @@ public interface PlaylistService {
      * @param playlistId the ID of the playlist to which the song will be added
      * @param songId the ID of the song to add
      */
-    void addSongToPlaylist(Long playlistId, Long songId);
+    boolean addSongToPlaylist(Long playlistId, Long songId);
 
     /**
      * Removes a song from a specific playlist.
@@ -74,5 +74,5 @@ public interface PlaylistService {
      * @param playlistId the ID of the playlist from which the song will be removed
      * @param songId the ID of the song to remove
      */
-    void removeSongFromPlaylist(Long playlistId, Long songId);
+    boolean removeSongFromPlaylist(Long playlistId, Long songId);
 }

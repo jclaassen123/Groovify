@@ -5,6 +5,8 @@ import com.groovify.jpa.model.Song;
 import com.groovify.jpa.repo.PlaylistRepo;
 import com.groovify.jpa.repo.SongRepo;
 import jakarta.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -36,6 +38,7 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     private final PlaylistRepo playlistRepo;
     private final SongRepo songRepo;
+    private final Logger log = LoggerFactory.getLogger(PlaylistServiceImpl.class);
 
     /**
      * Constructs a new {@code PlaylistServiceImpl} with the required repositories.
@@ -56,6 +59,7 @@ public class PlaylistServiceImpl implements PlaylistService {
      */
     @Override
     public List<Playlist> getPlaylists(Long clientID) {
+        log.info("Getting playlists for User {}", clientID);
         return playlistRepo.findByClientID(clientID);
     }
 
@@ -67,8 +71,13 @@ public class PlaylistServiceImpl implements PlaylistService {
      */
     @Override
     public List<Song> getSongs(Long playlistId) {
+        log.info("Getting songs for Playlist {}", playlistId);
         Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
-        if (playlist == null) return List.of();
+        if (playlist == null) {
+            log.warn("Song in playlist not found");
+            return List.of();
+        }
+
         return playlist.getSongs();
     }
 
@@ -76,20 +85,42 @@ public class PlaylistServiceImpl implements PlaylistService {
      * Saves or updates a playlist in the database.
      *
      * @param playlist the {@link Playlist} entity to save
+     * @return {@code true} if the playlist was successfully saved, {@code false} otherwise
      */
     @Override
-    public void savePlaylist(Playlist playlist) {
-        playlistRepo.save(playlist);
+    public boolean savePlaylist(Playlist playlist) {
+        log.info("Saving playlist {}, titled {}", playlist.getId(), playlist.getName());
+        try {
+            playlistRepo.save(playlist);
+            log.info("Playlist {} saved", playlist.getId());
+            return true;
+        } catch (Exception e) {
+            log.error("Error while saving playlist {}", playlist.getId(), e);
+            return false;
+        }
     }
 
     /**
      * Deletes a playlist by its unique identifier.
      *
      * @param id the ID of the playlist to delete
+     * @return {@code true} if the playlist was successfully deleted, {@code false} if not found or deletion failed
      */
     @Override
-    public void deletePlaylist(Long id) {
-        playlistRepo.deleteById(id);
+    public boolean deletePlaylist(Long id) {
+        log.info("Deleting playlist {}", id);
+        try {
+            if (!playlistRepo.existsById(id)) {
+                log.warn("Playlist {} not found", id);
+                return false;
+            }
+            playlistRepo.deleteById(id);
+            log.info("Playlist {} deleted", id);
+            return true;
+        } catch (Exception e) {
+            log.error("Error while deleting playlist {}", id, e);
+            return false;
+        }
     }
 
     /**
@@ -100,6 +131,7 @@ public class PlaylistServiceImpl implements PlaylistService {
      */
     @Override
     public Playlist getPlaylistById(Long id) {
+        log.info("Getting playlist {}", id);
         return playlistRepo.findById(id).orElse(null);
     }
 
@@ -110,23 +142,37 @@ public class PlaylistServiceImpl implements PlaylistService {
      *
      * @param playlistId the ID of the playlist to update
      * @param songId the ID of the song to add
-     * @throws RuntimeException if either the playlist or song cannot be found
+     * @return {@code true} if the song was successfully added, {@code false} if not found or already exists
      */
     @Transactional
     @Override
-    public void addSongToPlaylist(Long playlistId, Long songId) {
-        Playlist playlist = playlistRepo.findById(playlistId)
-                .orElseThrow(() -> new RuntimeException("Playlist not found: " + playlistId));
-        Song song = songRepo.findById(songId)
-                .orElseThrow(() -> new RuntimeException("Song not found: " + songId));
+    public boolean addSongToPlaylist(Long playlistId, Long songId) {
+        log.info("Adding song {} to playlist {}", songId, playlistId);
+        try {
+            Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
+            Song song = songRepo.findById(songId).orElse(null);
 
-        if (playlist.getSongs() == null) {
-            playlist.setSongs(new ArrayList<>());
-        }
+            if (playlist == null || song == null) {
+                log.error("Playlist {} not found or Song {} not found", playlistId, songId);
+                return false;
+            }
 
-        if (!playlist.getSongs().contains(song)) {
+            if (playlist.getSongs() == null) {
+                log.warn("No songs in playlist {}", playlistId);
+                playlist.setSongs(new ArrayList<>());
+            }
+
+            if (playlist.getSongs().contains(song)) {
+                log.error("Song {} is already in playlist {}", songId, playlistId);
+                return false; // Song already in playlist
+            }
+
             playlist.getSongs().add(song);
             playlistRepo.save(playlist);
+            log.info("Song {} added to playlist {}", songId, playlistId);
+            return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 
@@ -135,15 +181,29 @@ public class PlaylistServiceImpl implements PlaylistService {
      *
      * @param playlistId the ID of the playlist to modify
      * @param songId the ID of the song to remove
+     * @return {@code true} if the song was successfully removed, {@code false} if not found or removal failed
      */
     @Override
-    public void removeSongFromPlaylist(Long playlistId, Long songId) {
-        Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
-        Song song = songRepo.findById(songId).orElse(null);
+    public boolean removeSongFromPlaylist(Long playlistId, Long songId) {
+        log.info("Removing song {} from playlist {}", songId, playlistId);
+        try {
+            Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
+            Song song = songRepo.findById(songId).orElse(null);
 
-        if (playlist != null && song != null && playlist.getSongs() != null) {
-            playlist.getSongs().remove(song);
-            playlistRepo.save(playlist);
+            if (playlist == null || song == null || playlist.getSongs() == null) {
+                log.error("Playlist {} not found or Song {} not found", playlistId, songId);
+                return false;
+            }
+
+            boolean removed = playlist.getSongs().remove(song);
+            if (removed) {
+                playlistRepo.save(playlist);
+                log.info("Song {} removed from playlist {}", songId, playlistId);
+            }
+            return removed;
+        } catch (Exception e) {
+            log.error("Error while removing song {} from playlist {}", songId, playlistId, e);
+            return false;
         }
     }
 }
