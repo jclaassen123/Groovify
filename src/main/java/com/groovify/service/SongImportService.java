@@ -13,5 +13,5 @@ public interface SongImportService {
      * <p>
      * The exact source of songs (file system, API, etc.) is implementation-dependent.
      */
-    void importSongs();
+    boolean importSongs();
 }

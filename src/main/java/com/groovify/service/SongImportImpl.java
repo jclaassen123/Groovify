@@ -64,18 +64,18 @@ public class SongImportImpl implements SongImportService {
      *     <li>Existing files or missing genres are skipped with logging.</li>
      * </ul>
      */
-    public void importSongs() {
+    public boolean importSongs() {
         File songsRoot = new File(musicDirectory);
 
         if (!songsRoot.exists() || !songsRoot.isDirectory()) {
             log.error("Music directory not found: '{}'", songsRoot.getAbsolutePath());
-            return;
+            return false;
         }
 
         File[] genreFolders = songsRoot.listFiles(File::isDirectory);
         if (genreFolders == null || genreFolders.length == 0) {
             log.warn("No genre folders found in '{}'", songsRoot.getAbsolutePath());
-            return;
+            return false;
         }
 
         for (File genreFolder : genreFolders) {
@@ -116,6 +116,8 @@ public class SongImportImpl implements SongImportService {
                 }
             }
         }
+        log.info("Song import successful.");
+        return true;
     }
 
     /**

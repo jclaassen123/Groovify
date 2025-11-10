@@ -17,12 +17,12 @@ import static org.springframework.test.util.AssertionErrors.*;
 
 @SpringBootTest
 class PlaylistServiceImplFullTest {
-    private static final Playlist fakePlaylist = new Playlist();
-    private static final Playlist fakePlaylist2 = new Playlist();
-    private static final Song fakeSong = new Song("test.mp3", "Test Song", "Test Artist");
-    private static final Song fakeSong2 = new Song("test2.mp3", "Test Song 2", "Test Artist 2");
-    private static final Long playlistId = 1000L;
-    private static final Long playlist2Id = 1001L;
+    private static Playlist fakePlaylist = new Playlist();
+    private static Playlist fakePlaylist2 = new Playlist();
+    private static Song fakeSong = new Song("test.mp3", "Test Song", "Test Artist");
+    private static Song fakeSong2 = new Song("test2.mp3", "Test Song 2", "Test Artist 2");
+    private static Long playlistId = 1000L;
+    private static Long playlist2Id = 1001L;
     private static final Long songId = 2000L;
     private static final Long song2Id = 2001L;
     private static final Long clientID = 10000L;
@@ -40,34 +40,22 @@ class PlaylistServiceImplFullTest {
     private SongRepo songRepo;
 
     @BeforeEach
-    public void beforeTest() {
-        assertNotNull("playlistService must be injected", playlistService);
-        assertNotNull("playlistRepo must be injected", playlistRepo);
-        assertNotNull("songRepo must be injected", songRepo);
+    void setupEntities() {
+        // Fresh entities for each test
+        playlistRepo.deleteAll();
 
-        fakePlaylist2.setId(playlist2Id);
+        fakePlaylist = new Playlist();
+        fakePlaylist.setClientID(clientID);
+        fakePlaylist.setName("test");
+        fakePlaylist.setDescription("test");
+
+
+        fakePlaylist2 = new Playlist();
         fakePlaylist2.setClientID(clientID);
         fakePlaylist2.setName("FakePlaylist2");
 
-        fakeSong.setId(songId);
-
-        fakeSong2.setId(song2Id);
-
-        // Ensure dummy record is in the DB
-        final List<Playlist> playlists = playlistRepo.getPlaylistsById(playlistId);
-        if (playlists.isEmpty()) {
-            fakePlaylist.setId(playlistId);
-            fakePlaylist.setClientID(clientID);
-            fakePlaylist.setName("test");
-            fakePlaylist.setDescription("test");
-
-            playlistRepo.save(fakePlaylist);
-        }
-
-        // Ensure dummy song is in the DB
-        if (!songRepo.existsById(songId)) {
-            songRepo.save(fakeSong);
-        }
+        fakeSong = new Song("test.mp3", "Test Song", "Test Artist");
+        fakeSong2 = new Song("test2.mp3", "Test Song 2", "Test Artist 2");
     }
 
     // Get Playlists Happy Tests
@@ -76,6 +64,7 @@ class PlaylistServiceImplFullTest {
     public void getPlaylistsOneSuccess() {
         List<Playlist> comparePlaylist = new LinkedList<Playlist>();
         comparePlaylist.add(fakePlaylist);
+        playlistRepo.save(fakePlaylist);
         assertEquals("getPlaylistsOneSuccess: Should get the one playlist of the client", comparePlaylist, playlistService.getPlaylists(clientID));
     }
 
@@ -86,6 +75,7 @@ class PlaylistServiceImplFullTest {
         comparePlaylist.add(fakePlaylist2);
 
         playlistRepo.save(fakePlaylist2);
+        playlistRepo.save(fakePlaylist);
 
         assertEquals("getPlaylistsTwoSuccess: Should get the two playlists of the client", comparePlaylist, playlistService.getPlaylists(clientID));
 
@@ -97,6 +87,8 @@ class PlaylistServiceImplFullTest {
         List<Playlist> comparePlaylist = new LinkedList<Playlist>();
         comparePlaylist.add(fakePlaylist);
 
+        playlistRepo.save(fakePlaylist);
+
         assertEquals("getPlaylistsTwice: Should work twice in a row", comparePlaylist, playlistService.getPlaylists(clientID));
         assertEquals("getPlaylistsTwice: Should work twice in a row", comparePlaylist, playlistService.getPlaylists(clientID));
     }
@@ -106,6 +98,7 @@ class PlaylistServiceImplFullTest {
         List<Playlist> comparePlaylist = new LinkedList<Playlist>();
         comparePlaylist.add(fakePlaylist);
 
+        playlistRepo.save(fakePlaylist);
         assertEquals("getPlaylistsCheckAddCheck: Should get the one playlist of the client before insertion", comparePlaylist, playlistService.getPlaylists(clientID));
         playlistRepo.save(fakePlaylist2);
         comparePlaylist.add(fakePlaylist2);
@@ -120,6 +113,7 @@ class PlaylistServiceImplFullTest {
         comparePlaylist.add(fakePlaylist);
         comparePlaylist.add(fakePlaylist2);
 
+        playlistRepo.save(fakePlaylist);
         playlistRepo.save(fakePlaylist2);
 
         assertEquals("getPlaylistsRemoveCheck: Should get the two playlists of the client before removal", comparePlaylist, playlistService.getPlaylists(clientID));
@@ -162,11 +156,13 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void getPlaylistByIdSuccess() {
+        playlistRepo.save(fakePlaylist);
         assertEquals("getPlaylistByIdSuccess: Should return the correct playlist", fakePlaylist, playlistService.getPlaylistById(playlistId));
     }
 
     @Test
     public void getPlaylistByIdTwice() {
+        playlistRepo.save(fakePlaylist);
         assertEquals("getPlaylistByIdTwice: Should work twice in a row", fakePlaylist, playlistService.getPlaylistById(playlistId));
         assertEquals("getPlaylistByIdTwice: Should work twice in a row", fakePlaylist, playlistService.getPlaylistById(playlistId));
     }
@@ -205,6 +201,7 @@ class PlaylistServiceImplFullTest {
     public void getSongsOneSuccess() {
         List<Song> compareSongs = new LinkedList<Song>();
         compareSongs.add(fakeSong);
+        playlistRepo.save(fakePlaylist);
 
         playlistService.addSongToPlaylist(playlistId, songId);
         assertEquals("getSongsOneSuccess: Should return one song", compareSongs, playlistService.getSongs(playlistId));
@@ -217,6 +214,8 @@ class PlaylistServiceImplFullTest {
         List<Song> compareSongs = new LinkedList<Song>();
         compareSongs.add(fakeSong);
         compareSongs.add(fakeSong2);
+
+        playlistRepo.save(fakePlaylist);
 
         songRepo.save(fakeSong2);
         playlistService.addSongToPlaylist(playlistId, songId);
@@ -232,6 +231,8 @@ class PlaylistServiceImplFullTest {
     @Test
     public void getSongsCheckAddCheck() {
         List<Song> compareSongs = new LinkedList<Song>();
+
+        playlistRepo.save(fakePlaylist);
 
         assertEquals("getSongsCheckAddCheck: Should return empty before add", compareSongs, playlistService.getSongs(playlistId));
 
@@ -272,10 +273,11 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void savePlaylistTwoSuccess() {
-        playlistRepo.delete(fakePlaylist);
 
+        playlistRepo.save(fakePlaylist);
         assertTrue("savePlaylistTwoSuccess: Should return true for successful insertion", playlistService.savePlaylist(fakePlaylist));
         assertEquals("savePlaylistTwoSuccess: Playlist should be saved to client", fakePlaylist, playlistService.getPlaylistById(playlistId));
+        playlistRepo.save(fakePlaylist2);
         assertTrue("savePlaylistTwoSuccess: Should return true for successful insertion", playlistService.savePlaylist(fakePlaylist2));
         assertEquals("savePlaylistTwoSuccess: Playlist should be saved to client", fakePlaylist2, playlistService.getPlaylistById(playlist2Id));
 
@@ -285,6 +287,7 @@ class PlaylistServiceImplFullTest {
     @Test
     public void savePlaylistBeforeRemovalFalseAfterTrue() {
         assertNull("savePlaylistBeforeRemovalFalseAfterTrue: Client should not have playlist", playlistService.getPlaylistById(playlist2Id));
+        playlistRepo.save(fakePlaylist);
         assertTrue("savePlaylistBeforeRemovalFalseAfterTrue: Should return true for successful insertion", playlistService.savePlaylist(fakePlaylist2));
         assertEquals("savePlaylistBeforeRemovalFalseAfterTrue: Playlist should be saved to client", fakePlaylist2, playlistService.getPlaylistById(playlist2Id));
 
@@ -295,8 +298,6 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void savePlaylistDuplicate() {
-        playlistRepo.delete(fakePlaylist);
-
         assertTrue("SavePlaylistDuplicate: Should return true for successful insertion", playlistService.savePlaylist(fakePlaylist));
         assertFalse("SavePlaylistDuplicate: Should return false for duplicate", playlistService.savePlaylist(fakePlaylist));
     }
@@ -312,6 +313,7 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void deletePlaylistCheckDeleteCheck() {
+        playlistRepo.save(fakePlaylist);
         playlistRepo.save(fakePlaylist2);
         assertNotNull("deletePlaylistCheckDeleteCheck: Playlist should exist before delete", playlistService.getPlaylistById(playlist2Id));
         assertTrue("deletePlaylistCheckDeleteCheck: Should return true for successful deletion", playlistService.deletePlaylist(playlist2Id));
@@ -336,6 +338,7 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void addSongToPlaylistSuccess() {
+        playlistRepo.save(fakePlaylist);
         assertTrue("addSongToPlaylistSuccess: Should return true for successful addition", playlistService.addSongToPlaylist(playlistId, songId));
         List<Song> songs = playlistService.getSongs(playlistId);
         assertTrue("addSongToPlaylistSuccess: Song should be in playlist", songs.contains(fakeSong));
@@ -345,6 +348,7 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void addSongToPlaylistTwo() {
+        playlistRepo.save(fakePlaylist);
         songRepo.save(fakeSong2);
 
         assertTrue("addSongToPlaylistTwo: Should add first song", playlistService.addSongToPlaylist(playlistId, songId));
@@ -361,6 +365,7 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void addSongToPlaylistCheckAddCheck() {
+        playlistRepo.save(fakePlaylist);
         List<Song> songs = playlistService.getSongs(playlistId);
         assertFalse("addSongToPlaylistCheckAddCheck: Song should not be in playlist before add", songs.contains(fakeSong));
 
@@ -375,6 +380,7 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void addSongToPlaylistDuplicate() {
+        playlistRepo.save(fakePlaylist);
         assertTrue("addSongToPlaylistDuplicate: Should add song first time", playlistService.addSongToPlaylist(playlistId, songId));
         assertFalse("addSongToPlaylistDuplicate: Should return false for duplicate", playlistService.addSongToPlaylist(playlistId, songId));
 
@@ -395,6 +401,7 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void removeSongFromPlaylistSuccess() {
+        playlistRepo.save(fakePlaylist);
         playlistService.addSongToPlaylist(playlistId, songId);
         assertTrue("removeSongFromPlaylistSuccess: Should return true for successful removal", playlistService.removeSongFromPlaylist(playlistId, songId));
         List<Song> songs = playlistService.getSongs(playlistId);
@@ -403,6 +410,7 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void removeSongFromPlaylistCheckRemoveCheck() {
+        playlistRepo.save(fakePlaylist);
         playlistService.addSongToPlaylist(playlistId, songId);
         List<Song> songs = playlistService.getSongs(playlistId);
         assertTrue("removeSongFromPlaylistCheckRemoveCheck: Song should be in playlist before removal", songs.contains(fakeSong));
@@ -414,6 +422,7 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void removeSongFromPlaylistMultiple() {
+        playlistRepo.save(fakePlaylist);
         songRepo.save(fakeSong2);
         playlistService.addSongToPlaylist(playlistId, songId);
         playlistService.addSongToPlaylist(playlistId, song2Id);
@@ -436,6 +445,7 @@ class PlaylistServiceImplFullTest {
 
     @Test
     public void removeSongFromPlaylistTwice() {
+        playlistRepo.save(fakePlaylist);
         playlistService.addSongToPlaylist(playlistId, songId);
         assertTrue("removeSongFromPlaylistTwice: Should return true for first removal", playlistService.removeSongFromPlaylist(playlistId, songId));
         assertFalse("removeSongFromPlaylistTwice: Should return false for second removal", playlistService.removeSongFromPlaylist(playlistId, songId));
