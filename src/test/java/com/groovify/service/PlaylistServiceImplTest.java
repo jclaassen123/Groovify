@@ -16,7 +16,7 @@ import java.util.List;
 import static org.springframework.test.util.AssertionErrors.*;
 
 @SpringBootTest
-class PlaylistServiceImplFullTest {
+class PlaylistServiceImplTest {
     private static Playlist fakePlaylist = new Playlist();
     private static Playlist fakePlaylist2 = new Playlist();
     private static Song fakeSong = new Song("test.mp3", "Test Song", "Test Artist");
@@ -37,9 +37,6 @@ class PlaylistServiceImplFullTest {
 
     @BeforeEach
     void setupEntities() {
-        // Fresh entities for each test
-        playlistRepo.deleteAll();
-
         fakePlaylist = new Playlist();
         fakePlaylist.setClientID(clientID);
         fakePlaylist.setName("test");
