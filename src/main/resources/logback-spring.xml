@@ -23,8 +23,89 @@
     </appender>
 
     <!-- Reduce DB + connection pool verbosity -->
-    <logger name="org.hibernate" level="INFO" />
-    <logger name="com.zaxxer.hikari" level="INFO" />
+    <logger name="org.hibernate" level="OFF" />
+    <logger name="com.zaxxer.hikari" level="OFF" />
+
+    <!--
+     Logback Logging Levels:
+
+     OFF     - Turns off logging completely for this logger.
+     FATAL   - Signifying a critical system failure.
+     ERROR   - Serious issues that require attention.
+     WARN    - Potential issues or important situations that are not errors.
+     INFO    - Routine information about application progress.
+     DEBUG   - General debugging information.
+     TRACE   - Most detailed information, typically only for debugging.
+     -->
+
+    <!--
+      Main Method: Disable via system property when running the app
+      ./gradlew bootRun -D*LEVEL_NAME_LOG*=OFF -> turns off logging
+      ./gradlew bootRun -D*LEVEL_NAME_LOG*=*log level* -> turns on logging for desired level
+   -->
+
+    <!-- ======== Services ======== -->
+    <logger name="com.groovify.service.GenreImportServiceImpl"
+            level="${GENRE_IMPORT_SERVICE_LOG:-ERROR}"
+            additivity="true" />
+    <logger name="com.groovify.service.LoginServiceImpl"
+            level="${LOGIN_SERVICE_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.service.PlaylistServiceImpl"
+            level="${PLAYLIST_SERVICE_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.service.ProfileServiceImpl"
+            level="${PROFILE_SERVICE_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.service.RecommendationService"
+            level="${RECOMMENDATION_SERVICE_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.service.RegisterServiceImpl"
+            level="${REGISTER_SERVICE_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.service.SongImportImpl"
+            level="${SONG_IMPORT_SERVICE_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.service.SongServiceImpl"
+            level="${SONG_SERVICE_LOG:-DEBUG}"
+            additivity="true" />
+
+    <!-- ======== Controllers ======== -->
+    <logger name="com.groovify.web.controller.CustomErrorController"
+            level="${CUSTOM_ERROR_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.web.controller.DeveloperController"
+            level="${DEVELOPER_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.web.controller.HomeController"
+            level="${HOME_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.web.controller.LandingController"
+            level="${LANDING_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.web.controller.PlaylistsController"
+            level="${PLAYLISTS_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.web.controller.ProfileController"
+            level="${PROFILE_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.web.controller.RegisterController"
+            level="${REGISTER_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.web.controller.SearchController"
+            level="${SEARCH_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.web.controller.SessionController"
+            level="${SESSION_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+    <logger name="com.groovify.web.controller.SongController"
+            level="${SONG_CONTROLLER_LOG:-DEBUG}"
+            additivity="true" />
+
+    <!-- ======== Main Application ======== -->
+    <logger name="com.groovify.GroovifyApplication"
+            level="${APPLICATION_LOG:-DEBUG}"
+            additivity="true" />
 
     <!-- Default logging level -->
     <root level="INFO">

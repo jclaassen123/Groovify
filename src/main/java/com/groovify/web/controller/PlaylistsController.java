@@ -8,6 +8,9 @@ import com.groovify.jpa.repo.GenreRepo;
 import com.groovify.service.PlaylistService;
 import com.groovify.web.dto.SongView;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -68,14 +71,16 @@ public class PlaylistsController {
     public String playlistsPage(HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
         if (username == null) {
-            return "redirect:";
+            return "redirect:/";
         }
 
+        // Fetch full user object for topbar
         Client user = clientRepo.findByName(username).orElse(null);
         if (user == null) {
             return "redirect:";
         }
 
+        // Fetch all playlists for this user
         List<Playlist> playlists = playlistService.getPlaylists(user.getId());
 
         model.addAttribute("user", user);
@@ -100,12 +105,13 @@ public class PlaylistsController {
     @GetMapping("/playlists/{id}")
     public String viewPlaylist(@PathVariable("id") Long playlistId, HttpSession session, Model model) {
         String username = (String) session.getAttribute("username");
-        if (username == null) return "redirect:";
+        if (username == null) return "redirect:/";
 
         Client user = clientRepo.findByName(username).orElse(null);
-        if (user == null) return "redirect:";
+        if (user == null) return "redirect:/";
 
         Playlist playlist = playlistService.getPlaylistById(playlistId);
+
         if (playlist == null || !playlist.getClientID().equals(user.getId())) {
             return "redirect:/playlists";
         }
@@ -116,7 +122,7 @@ public class PlaylistsController {
             String genreName = genreRepo.findById(song.getGenre().getId())
                     .map(genre -> genre.getName())
                     .orElse("Unknown");
-            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName);
+            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName, song.getFilename());
         }).toList();
 
         model.addAttribute("user", user);
@@ -147,21 +153,42 @@ public class PlaylistsController {
                                  @RequestParam(value = "description", required = false) String description,
                                  Model model) {
         String username = (String) session.getAttribute("username");
-        if (username == null) {
-            return "redirect:";
-        }
+        if (username == null) return "redirect:/";
 
         Client user = clientRepo.findByName(username).orElse(null);
-        if (user == null) {
-            return "redirect:";
+        if (user == null) return "redirect:/";
+
+        boolean hasError = false;
+
+        name = name != null ? name.trim() : "";
+        description = description != null ? description.trim() : "";
+
+        if (name.isEmpty() || name.length() > 20) {
+            model.addAttribute("nameError", "Playlist name must be 1–30 characters.");
+            hasError = true;
         }
 
+        if (description.length() > 100) {
+            model.addAttribute("descriptionError", "Description cannot exceed 100 characters.");
+            hasError = true;
+        }
+
+        if (hasError) {
+            // Re-populate the playlists list and user for the page
+            List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+            model.addAttribute("playlists", playlists);
+            model.addAttribute("user", user);
+            model.addAttribute("pageTitle", "Playlists");
+            return "playlists"; // render the same page with error messages
+        }
+
+        // Create playlist if validation passed
         Playlist playlist = new Playlist();
         playlist.setName(name);
         playlist.setDescription(description);
         playlist.setClientID(user.getId());
-
         playlistService.savePlaylist(playlist);
+
         return "redirect:/playlists";
     }
 
@@ -175,6 +202,7 @@ public class PlaylistsController {
      * @param session the current HTTP session containing user info
      * @return a redirect instruction back to the playlists page
      */
+
     @PostMapping("/playlists/{playlistId}/delete")
     public String deletePlaylist(@PathVariable Long playlistId, HttpSession session) {
         String username = (String) session.getAttribute("username");
@@ -203,10 +231,15 @@ public class PlaylistsController {
      * @return a redirect instruction to the songs page
      */
     @PostMapping("/playlists/{playlistId}/addSong/{songId}")
-    public String addSongToPlaylist(@PathVariable Long playlistId,
-                                    @PathVariable Long songId) {
-        playlistService.addSongToPlaylist(playlistId, songId);
-        return "redirect:/songs";
+    @ResponseBody
+    public ResponseEntity<Void> addSongToPlaylist(@PathVariable Long playlistId,
+                                                  @PathVariable Long songId) {
+        boolean added = playlistService.addSongToPlaylist(playlistId, songId);
+        if (added) {
+            return ResponseEntity.ok().build(); // Song successfully added
+        } else {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // Already in playlist
+        }
     }
 
     /**
@@ -220,8 +253,17 @@ public class PlaylistsController {
      * @return a redirect instruction back to the playlist view page
      */
     @GetMapping("/playlists/{playlistId}/removeSong/{songId}")
-    public String removeSongFromPlaylist(@PathVariable Long playlistId, @PathVariable Long songId) {
-        playlistService.removeSongFromPlaylist(playlistId, songId);
-        return "redirect:/playlists/" + playlistId;
+    public String removeSongFromPlaylist(@PathVariable Long playlistId,
+                                         @PathVariable Long songId) {
+        boolean removed = playlistService.removeSongFromPlaylist(playlistId, songId);
+
+        if (removed) {
+            // Redirect with success query param
+            return "redirect:/playlists/" + playlistId + "?removed=true";
+        } else {
+            // Redirect with failure query param
+            return "redirect:/playlists/" + playlistId + "?removed=false";
+        }
     }
+
 }

@@ -6,13 +6,13 @@
   <button class="song-action-btn"
           th:if="${inPlaylist == true}"
           th:onclick="'location.href=\'/playlists/' + ${playlistId} + '/removeSong/' + ${song.id} + '\';'">
-    – Remove
+    –
   </button>
 
   <button class="song-action-btn"
           th:if="${inPlaylist == false or inPlaylist == null}"
           th:onclick="'openAddToPlaylistModal(' + ${song.id} + ');'">
-    + Add
+    +
   </button>
 
 

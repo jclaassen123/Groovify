@@ -132,11 +132,44 @@ document.addEventListener("DOMContentLoaded", () => {
         clearError(descriptionInput);
 
         const username = usernameInput.value.trim();
-        descriptionInput.value = descriptionInput.value.trim();
+        const description = descriptionInput.value.trim();
+        descriptionInput.value = description; // update trimmed value
 
-        if (username.length < 3) return showError(usernameInput, "Username must be at least 3 characters");
-        if (username.length > 32) return showError(usernameInput, "Username must not exceed 32 characters");
-        if (descriptionInput.value.length > 250) return showError(descriptionInput, "Description cannot exceed 250 characters");
+        let hasError = false;
+
+        // Username checks
+        if (username.length < 3) {
+            showError(usernameInput, "Username must be at least 3 characters");
+            hasError = true;
+        }
+        if (username.length > 32) {
+            showError(usernameInput, "Username must not exceed 32 characters");
+            hasError = true;
+        }
+
+        const usernameRegex = /^[a-zA-Z0-9._-]+$/;
+        if (!usernameRegex.test(username)) {
+            showError(
+                usernameInput,
+                "Username contains invalid characters. Only letters, numbers, dots (.), underscores (_), and hyphens (-) are allowed."
+            );
+            hasError = true;
+        }
+
+        // Description checks
+        if (description.length > 250) {
+            showError(descriptionInput, "Description cannot exceed 250 characters");
+            hasError = true;
+        }
+
+        const descriptionInvalidChars = /[<>"'%;()&+]/;
+        if (descriptionInvalidChars.test(description)) {
+            showError(descriptionInput, "Description contains invalid characters: < > \" ' % ; ( ) & +");
+            hasError = true;
+        }
+
+        // Stop submission if there are validation errors
+        if (hasError) return;
 
         // Check availability only if username changed
         const isTaken = await checkUsernameAvailability(username);

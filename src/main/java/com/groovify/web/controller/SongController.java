@@ -63,7 +63,7 @@ public class SongController {
 
         if (username == null) {
             log.warn("Access to songs page denied: no user logged in");
-            return "redirect:";
+            return "redirect:/";
         }
 
         Client user = clientRepo.findByName(username).orElse(null);
@@ -80,7 +80,7 @@ public class SongController {
             String genreName = genreRepo.findById(song.getGenre().getId())
                     .map(genre -> genre.getName())
                     .orElse("Unknown");
-            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName);
+            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName,song.getFilename());
         }).toList();
         log.debug("Converted songs to SongView list");
 

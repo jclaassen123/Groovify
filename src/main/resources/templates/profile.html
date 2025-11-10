@@ -33,7 +33,7 @@
              class="profile-picture"><br><br>
 
         <!-- Hidden input to store selected image filename -->
-        <input type="hidden" name="image_file_name" id="imageFileName" th:value="${user.getImageFileName()}">
+        <input type="hidden" name="imageFileName" id="imageFileName" th:value="${user.getImageFileName()}">
 
         <!-- Scrollable Image Gallery -->
         <div id="imageGallery" class="image-gallery" style="display:none;">
@@ -52,7 +52,7 @@
 
         <!-- Description -->
         <label>Description:</label>
-        <textarea name="description" rows="3" cols="30" th:text="${user.description}" readonly></textarea><br><br>
+        <textarea name="description" rows="3" cols="30" th:text="${user.description}" readonly id="descriptionField"></textarea><br><br>
 
         <!-- Preferred Genres -->
         <div id="preferredGenresWrapper">

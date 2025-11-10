@@ -63,13 +63,4 @@ public class Genre {
     public List<Client> getClient() {
         return clients;
     }
-
-    /**
-     * Sets the list of clients associated with this genre.
-     *
-     * @param clients list of clients
-     */
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
-    }
 }

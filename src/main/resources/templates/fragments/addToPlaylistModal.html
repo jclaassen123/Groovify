@@ -1,0 +1,18 @@
+<div th:fragment="addToPlaylistModal">
+  <div id="addToPlaylistModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeAddToPlaylistModal()">&times;</span>
+      <h3>Select a Playlist</h3>
+      <ul id="playlistList">
+        <li th:each="playlist : ${playlists}">
+          <a href="#"
+             th:text="${playlist.name}"
+             th:attr="data-playlist-id=${playlist.id}"
+             onclick="addSongToPlaylist(event, this)">
+            Select
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

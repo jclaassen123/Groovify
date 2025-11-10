@@ -1,88 +1,152 @@
-/* Responsive grid container for playlists */
+/* --- Responsive grid container --- */
 .playlists-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-auto-rows: 250px;
     gap: 1.25rem;
     padding: 0.625rem;
-    padding-bottom: 150px; /* space for media player & navbar */
+    padding-bottom: 150px;
     transition: all 0.3s ease;
-    margin-top: 0;
 }
 
-.playlists-container.with-media-player {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 250px;
-    gap: 1.25rem;
-    padding: 0.625rem;
-    padding-bottom: 2rem; /* space for media player & navbar */
-    transition: all 0.3s ease;
-    margin-top: 0;
-}
-
-.playlists-container.with-top-spacing {
-    margin-top: 7rem;
-}
-
-/* Individual playlist card */
+/* --- Playlist card --- */
 .playlist-card {
+    position: relative;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 0 18px rgba(255,255,255,0.45);
+    border-radius: 14px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(3px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    cursor: default; /* only show pointer on actual link */
 }
 
 .playlist-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.25), 0 0 25px rgba(255,255,255,0.55);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Gradient overlay behind playlist info */
+/* --- Decorative top section --- */
+.playlist-visual {
+    flex: 1;
+    background: linear-gradient(145deg, #2C3158, #1A2037, #2E345F);
+    position: relative;
+}
+
+/* --- Soft glowing animated shimmer --- */
+.playlist-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), transparent 70%);
+    mix-blend-mode: screen;
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+}
+
+.playlist-card:hover .playlist-visual::after {
+    opacity: 1;
+}
+
+/* --- Info overlay --- */
+.playlist-info-link {
+    text-decoration: none;
+    color: inherit;
+    z-index: 2;
+    display: block; /* ensure link wraps the info */
+}
+
 .playlist-info {
     width: 100%;
-    height: 80px;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.75));
-    color: white;
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.5));
+    padding: 12px 16px;
     box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 .playlist-info h3 {
     margin: 0;
     font-size: 1.1em;
-    font-weight: bold;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .playlist-info p {
-    margin: 5px 0 0 0;
+    margin: 4px 0 0 0;
     font-size: 0.9em;
+    color: #dcdcdc;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.playlist-card {
-    position: relative;
+/* --- Only make text clickable indicator --- */
+.playlist-info-link h3,
+.playlist-info-link p {
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
 }
 
+.playlist-info-link:hover h3,
+.playlist-info-link:hover p {
+    color: yellow;
+}
+
+/* --- Delete button --- */
 .delete-btn {
     position: absolute;
     top: 8px;
     right: 8px;
-    background: #c62828;
+    background: rgba(198, 40, 40, 0.9);
     color: #fff;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     padding: 6px 8px;
     font-size: 0.8rem;
+    font-weight: 500;
+    backdrop-filter: blur(3px);
+    transition: background 0.25s ease, transform 0.2s ease;
+    z-index: 3;
+}
+
+.delete-btn:hover {
+    background: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+    .playlists-container {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        grid-auto-rows: 220px;
+        gap: 1rem;
+    }
+
+    .playlist-info {
+        padding: 8px 12px;
+    }
+
+    .playlist-info h3 {
+        font-size: 1rem;
+    }
+
+    .playlist-info p {
+        font-size: 0.85rem;
+    }
+
+    .delete-btn {
+        top: 6px;
+        right: 6px;
+        padding: 5px 7px;
+        font-size: 0.75rem;
+    }
 }

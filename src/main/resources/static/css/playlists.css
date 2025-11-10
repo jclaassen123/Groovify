@@ -7,79 +7,67 @@ body {
     padding-bottom: 80px; /* push content above bottom navbar */
 }
 
-
-/* Popup modal styling */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 400px;
-    text-align: center;
+/* =======================================
+   Create Playlist Button Styling
+   ======================================= */
+#buttonHolder {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto 30px; /* ensures it's visible below the topbar */
+    width: 100%;
+    z-index: 10;
 }
 
-.close {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: #000;
-}
-
+/* =======================================
+   Create Playlist Button Styling (Faded Blue)
+   ======================================= */
 #createPlaylistBtn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    background-color: #1db954;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    background: linear-gradient(90deg, rgba(58,151,212,0.8), rgba(30,96,145,0.8));
     color: white;
     border: none;
     cursor: pointer;
+    box-shadow: 0 0 15px rgba(58,151,212,0.4);
+    transition: all 0.3s ease;
 }
 
 #createPlaylistBtn:hover {
-    background-color: #1ed760;
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(58,151,212,0.6);
+    background: linear-gradient(90deg, rgba(58,151,212,1), rgba(30,96,145,1));
 }
 
-#playlistForm input {
-    width: 80%;
-    padding: 8px;
-    margin: 10px 0;
+/* Adjust button spacing dynamically for smaller screens */
+@media (max-width: 768px) {
+    #buttonHolder {
+        margin: 120px auto 20px;
+    }
+
+    #createPlaylistBtn {
+        font-size: 1rem;
+        padding: 12px 22px;
+    }
 }
 
-#playlistForm button {
-    padding: 8px 16px;
-    margin-top: 10px;
-    background-color: #1db954;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+@media (max-width: 480px) {
+    #buttonHolder {
+        margin: 130px auto 15px;
+    }
+
+    #createPlaylistBtn {
+        font-size: 0.95rem;
+        padding: 10px 18px;
+    }
 }
 
-#playlistForm button:hover {
-    background-color: #1ed760;
-}
-
-/* Dark theme modal styling to match home.css aesthetic */
+/* =======================================
+   Popup Modal Styling
+   ======================================= */
 .modal {
     display: none;
     position: fixed;
@@ -149,19 +137,52 @@ body {
     color: #bbb;
 }
 
+/* Form Submit Button */
 #playlistForm button {
     padding: 10px 20px;
     margin-top: 15px;
     border: none;
     border-radius: 8px;
-    background-color: #1db954;
+    background: linear-gradient(90deg, rgba(58,151,212,0.8), rgba(30,96,145,0.8));
     color: white;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 10px rgba(58,151,212,0.3);
 }
 
 #playlistForm button:hover {
-    background-color: #1ed760;
+    background: linear-gradient(90deg, rgba(58,151,212,1), rgba(30,96,145,1));
     transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(58,151,212,0.5);
 }
+
+.form-error {
+    color: #e63946; /* red */
+    font-size: 0.9rem;
+    margin: 5px 0 0 0;
+    text-align: left;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-container input,
+.input-container textarea {
+    width: 100%;
+    padding-right: 60px; /* space for counter */
+    box-sizing: border-box;
+}
+
+.char-counter {
+    position: absolute;
+    top: 50%;
+    right: -15px;  /* moved outside the box */
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #fff;   /* white text */
+    font-weight: bold;
+}
+

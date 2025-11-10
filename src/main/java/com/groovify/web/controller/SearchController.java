@@ -62,7 +62,7 @@ public class SearchController {
 
         if (username == null) {
             log.warn("Access to search page denied: no user logged in");
-            return "redirect:";
+            return "redirect:/";
         }
 
         Client user = clientRepo.findByName(username).orElse(null);
@@ -100,7 +100,7 @@ public class SearchController {
 
         if (username == null) {
             log.warn("Access to search results denied: no user logged in");
-            return "redirect:";
+            return "redirect:/";
         }
 
         Client user = clientRepo.findByName(username).orElse(null);
@@ -118,7 +118,7 @@ public class SearchController {
             String genreName = genreRepo.findById(song.getGenre().getId())
                     .map(g -> g.getName())
                     .orElse("Unknown");
-            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName);
+            return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName,song.getFilename());
         }).toList();
 
         List<Playlist> playlists = playlistService.getPlaylists(user.getId());

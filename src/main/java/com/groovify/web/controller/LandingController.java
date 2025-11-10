@@ -75,26 +75,31 @@ public class LandingController {
         String username = loginForm.getUsername();
         log.info("User '{}' attempting to log in", username);
 
-        // Check for validation errors in the submitted form
+        // --- Handle validation errors ---
         if (result.hasErrors()) {
             log.warn("Validation error during login attempt by '{}'", username);
             result.getAllErrors().forEach(error ->
                     log.debug("Validation error: {}", error.getDefaultMessage())
             );
-            return "landingPage";
+
+            // Use a flash message to persist feedback across redirect
+            attrs.addFlashAttribute("errorMessage", "Please correct the highlighted fields.");
+            return "redirect:/"; // stays on same page, with feedback
         }
 
-        // Validate credentials via the login service
+        // --- Validate login credentials ---
         boolean isValid = loginService.validateClient(username, loginForm.getPassword());
         log.debug("Login validation result for user '{}': {}", username, isValid);
 
         if (!isValid) {
             log.warn("Invalid login attempt for username '{}'", username);
-            result.addError(new ObjectError("globalError", "Invalid username or password."));
-            return "landingPage";
+
+            // Add flash message to show error after redirect
+            attrs.addFlashAttribute("errorMessage", "Invalid username or password.");
+            return "redirect:"; // stays on landing page, with error message
         }
 
-        // Set username in session to maintain login state
+        // --- Success: store session + redirect to home ---
         session.setAttribute("username", username);
         log.info("User '{}' successfully logged in", username);
 
@@ -127,6 +132,6 @@ public class LandingController {
         redirectAttributes.addFlashAttribute("logoutMessage", "You have been logged out successfully.");
         log.debug("Logout flash message added");
 
-        return "redirect:";
+        return "redirect:/";
     }
 }
