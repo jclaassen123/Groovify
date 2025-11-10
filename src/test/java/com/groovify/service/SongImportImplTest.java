@@ -30,7 +30,7 @@ class SongImportImplTest {
     }
 
     @Test
-    void importSongs_ShouldSkipUnknownGenre() {
+    void importSongsShouldSkipUnknownGenre() {
         File fakeGenreFolder = new File(songImportService.musicDirectory + "/UnknownGenre");
         // If folder exists, Repo will return empty -> should skip
         songImportService.importSongs();
@@ -38,7 +38,7 @@ class SongImportImplTest {
     }
 
     @Test
-    void importSongs_ShouldSkipExistingFile() {
+    void importSongsShouldSkipExistingFile() {
         // Pick a real genre folder
         String genreName = "Rock";
         Genre genre = new Genre(genreName);
@@ -54,7 +54,7 @@ class SongImportImplTest {
     }
 
     @Test
-    void importSongs_ShouldFailWhenMusicDirMissing() {
+    void importSongsShouldFailWhenMusicDirMissing() {
         songImportService.musicDirectory = "nonexistent-folder";
         songImportService.importSongs();
         verifyNoInteractions(songRepo, genreRepo);
