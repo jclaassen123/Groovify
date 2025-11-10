@@ -82,7 +82,7 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     /**
-     * Saves or updates a playlist in the database.
+     * Saves a playlist in the database.
      *
      * @param playlist the {@link Playlist} entity to save
      * @return {@code true} if the playlist was successfully saved, {@code false} otherwise
@@ -91,6 +91,12 @@ public class PlaylistServiceImpl implements PlaylistService {
     public boolean savePlaylist(Playlist playlist) {
         log.info("Saving playlist {}, titled {}", playlist.getId(), playlist.getName());
         try {
+
+            if (playlistRepo.existsById(playlist.getId())) {
+                log.error("Playlist {} already exists, not overwriting", playlist.getId());
+                return false;
+            }
+
             playlistRepo.save(playlist);
             log.info("Playlist {} saved", playlist.getId());
             return true;
@@ -172,6 +178,7 @@ public class PlaylistServiceImpl implements PlaylistService {
             log.info("Song {} added to playlist {}", songId, playlistId);
             return true;
         } catch (Exception e) {
+            log.error("Error while adding song {}", songId, e);
             return false;
         }
     }
