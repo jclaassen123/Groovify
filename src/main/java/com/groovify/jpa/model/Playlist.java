@@ -68,7 +68,11 @@ public class Playlist {
      * @return a list of {@link Song} objects associated with this playlist
      */
     public List<Song> getSongs() {
-        return songs;
+        if (songs == null) {
+            return List.of();
+        } else {
+            return songs;
+        }
     }
 
     /**

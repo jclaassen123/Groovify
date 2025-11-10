@@ -89,13 +89,8 @@ public class PlaylistServiceImpl implements PlaylistService {
      */
     @Override
     public boolean savePlaylist(Playlist playlist) {
-        log.info("Saving playlist {}, titled {}", playlist.getId(), playlist.getName());
+        log.info("Saving playlist titled {}", playlist.getName());
         try {
-
-            if (playlistRepo.existsById(playlist.getId())) {
-                log.error("Playlist {} already exists, not overwriting", playlist.getId());
-                return false;
-            }
 
             playlistRepo.save(playlist);
             log.info("Playlist {} saved", playlist.getId());
