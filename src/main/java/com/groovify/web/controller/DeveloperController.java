@@ -74,7 +74,7 @@ public class DeveloperController {
     public String nevinPage(HttpSession session, Model model) {
         log.info("Accessing Nevin developer page");
         return loadDeveloperPage(session, model, "Nevin F", "/images/developer/Nevin.jpg",
-                "Hi im nevin");
+                "Hi im nevin - I like reading sci-fi and coding.");
     }
 
     /**
