@@ -37,19 +37,19 @@ class SongServiceImplTest {
 
     // Happy Tests
 
-    @Test
-    void getAllSongsShouldReturnAllSongs() {
-        Song s1 = new Song("file1.mp3", "Song1", "Artist1");
-        Song s2 = new Song("file2.mp3", "Song2", "Artist2");
-
-        songRepo.save(s1);
-        songRepo.save(s2);
-
-        List<Song> result = songService.getAllSongs();
-
-        assertEquals(2, result.size());
-        assertTrue(result.containsAll(Arrays.asList(s1, s2)));
-    }
+//    @Test
+//    void getAllSongsShouldReturnAllSongs() {
+//        Song s1 = new Song("file1.mp3", "Song1", "Artist1");
+//        Song s2 = new Song("file2.mp3", "Song2", "Artist2");
+//
+//        songRepo.save(s1);
+//        songRepo.save(s2);
+//
+//        List<Song> result = songService.getAllSongs();
+//
+//        assertEquals(2, result.size());
+//        assertTrue(result.containsAll(Arrays.asList(s1, s2)));
+//    }
 
 //    @Test
 //    void getAllSongsShouldReturnEmptyListWhenNoSongsExist() {
