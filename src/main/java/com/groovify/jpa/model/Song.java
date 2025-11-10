@@ -88,4 +88,7 @@ public class Song {
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
+
+    public void setId(Long id) {this.id = id;}
+
 }
