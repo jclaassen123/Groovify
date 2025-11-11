@@ -1,7 +1,7 @@
 package com.groovify.service;
 
 import com.groovify.jpa.model.Client;
-import com.groovify.jpa.repo.LoginRepository;
+import com.groovify.jpa.repo.LoginRepo;
 import com.groovify.util.PasswordUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,12 +15,12 @@ import static org.mockito.Mockito.*;
 
 class LoginServiceImplTest {
 
-    private LoginRepository loginRepo;
+    private LoginRepo loginRepo;
     private LoginServiceImpl loginService;
 
     @BeforeEach
     void setUp() {
-        loginRepo = mock(LoginRepository.class);
+        loginRepo = mock(LoginRepo.class);
         loginService = new LoginServiceImpl(loginRepo);
     }
 

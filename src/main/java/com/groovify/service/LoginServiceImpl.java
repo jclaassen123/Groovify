@@ -2,7 +2,7 @@ package com.groovify.service;
 
 import org.springframework.stereotype.Service;
 import com.groovify.jpa.model.Client;
-import com.groovify.jpa.repo.LoginRepository;
+import com.groovify.jpa.repo.LoginRepo;
 import com.groovify.util.PasswordUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,21 +13,21 @@ import java.util.List;
  * Implementation of {@link LoginService} that provides user authentication functionality.
  * <p>
  * This service validates user credentials against the database using
- * {@link LoginRepository} and verifies passwords with {@link PasswordUtil}.
+ * {@link LoginRepo} and verifies passwords with {@link PasswordUtil}.
  */
 @Service
 public class LoginServiceImpl implements LoginService {
 
     private static final Logger log = LoggerFactory.getLogger(LoginServiceImpl.class);
 
-    private final LoginRepository loginRepo;
+    private final LoginRepo loginRepo;
 
     /**
      * Constructs a LoginServiceImpl with the given LoginRepository.
      *
      * @param loginRepo repository for accessing Client entities
      */
-    public LoginServiceImpl(LoginRepository loginRepo) {
+    public LoginServiceImpl(LoginRepo loginRepo) {
         this.loginRepo = loginRepo;
     }
 

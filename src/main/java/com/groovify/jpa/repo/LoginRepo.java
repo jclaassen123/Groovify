@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * It includes a custom query method for case-insensitive username lookup, which
  * supports user authentication without requiring exact case matching.
  */
-public interface LoginRepository extends JpaRepository<Client, Integer> {
+public interface LoginRepo extends JpaRepository<Client, Integer> {
     /**
      * Finds users by username, ignoring case sensitivity.
      * <p>
