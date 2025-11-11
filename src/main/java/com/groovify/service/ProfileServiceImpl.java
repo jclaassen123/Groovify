@@ -17,8 +17,10 @@ import java.util.Optional;
 /**
  * Service implementation for managing user profiles.
  * <p>
- * Provides methods to fetch user data, retrieve available genres,
- * check username availability, and update user profiles.
+ * Provides concrete implementations of {@link ProfileService} methods
+ * for retrieving user information, listing genres, checking username availability,
+ * and updating user profile data.
+ * </p>
  */
 @Service
 public class ProfileServiceImpl implements ProfileService {
@@ -29,10 +31,10 @@ public class ProfileServiceImpl implements ProfileService {
     private final GenreRepo genreRepo;
 
     /**
-     * Constructs a ProfileServiceImpl with required repositories.
+     * Constructs a {@code ProfileServiceImpl} with the required repositories.
      *
-     * @param clientRepo repository for accessing Client entities
-     * @param genreRepo  repository for accessing Genre entities
+     * @param clientRepo repository for accessing {@link Client} entities
+     * @param genreRepo  repository for accessing {@link Genre} entities
      */
     public ProfileServiceImpl(ClientRepo clientRepo, GenreRepo genreRepo) {
         this.clientRepo = clientRepo;
@@ -41,10 +43,16 @@ public class ProfileServiceImpl implements ProfileService {
 
     /**
      * Retrieves a user by their username.
+     * <p>
+     * Delegates to the {@link ClientRepo} to fetch a {@link Client} entity
+     * matching the provided username.
+     * </p>
      *
      * @param username the username to search for
-     * @return an Optional containing the Client if found, otherwise empty
+     * @return an {@link Optional} containing the {@link Client} if found,
+     *         otherwise an empty {@link Optional}
      */
+    @Override
     public Optional<Client> getUserByUsername(String username) {
         log.debug("Fetching user by username '{}'", username);
         return clientRepo.findByName(username);
@@ -52,9 +60,14 @@ public class ProfileServiceImpl implements ProfileService {
 
     /**
      * Retrieves all available genres from the database.
+     * <p>
+     * Useful for populating dropdowns or selection lists where users
+     * can choose their favorite genres.
+     * </p>
      *
-     * @return a list of all genres
+     * @return a {@link List} of all {@link Genre} entities
      */
+    @Override
     public List<Genre> getAllGenres() {
         log.debug("Fetching all genres");
         return genreRepo.findAll();
@@ -62,11 +75,17 @@ public class ProfileServiceImpl implements ProfileService {
 
     /**
      * Checks whether a username is already taken by another user.
+     * <p>
+     * This method ensures username uniqueness across all clients.
+     * The currently logged-in user's own username is excluded from the check.
+     * </p>
      *
-     * @param username       the username to check
-     * @param currentUsername the username of the current user to exclude
-     * @return true if the username is taken by someone else, false otherwise
+     * @param username        the username to verify
+     * @param currentUsername the username of the current user (excluded from comparison)
+     * @return {@code true} if the username is already in use by another user,
+     *         {@code false} otherwise
      */
+    @Override
     public boolean isUsernameTaken(String username, String currentUsername) {
         Optional<Client> user = clientRepo.findByName(username);
         boolean taken = user.isPresent() && !user.get().getName().equals(currentUsername);
@@ -74,31 +93,53 @@ public class ProfileServiceImpl implements ProfileService {
         return taken;
     }
 
-
+    /**
+     * Updates the profile information for the specified user.
+     * <p>
+     * Applies the updated values from the {@link ProfileUpdateForm}
+     * to the user's {@link Client} entity. Fields such as name, description,
+     * profile image, and preferred genres are updated. Passwords are not modified
+     * as part of this operation.
+     * </p>
+     *
+     * <p>
+     * The method is annotated with {@link Transactional} to ensure that
+     * all updates are applied atomically. If any operation fails,
+     * changes will be rolled back automatically.
+     * </p>
+     *
+     * @param username the username of the profile being updated
+     * @param form     the form containing updated profile data
+     * @return {@code true} if the update succeeded, {@code false} if the user was not found
+     */
+    @Override
     @Transactional
     public boolean updateProfile(String username, ProfileUpdateForm form) {
+        log.debug("Attempting to update profile for '{}'", username);
+
         Optional<Client> optionalUser = clientRepo.findByName(username);
-        if (optionalUser.isEmpty()) return false;
+        if (optionalUser.isEmpty()) {
+            log.warn("User '{}' not found — profile update aborted", username);
+            return false;
+        }
 
         Client user = optionalUser.get();
 
-        // Only update fields we want to change
+        // Update relevant profile fields
         user.setName(form.getName().trim());
         user.setDescription(form.getDescription().trim());
         user.setImageFileName(form.getImageFileName());
 
+        // Map selected genre IDs to actual Genre entities
         List<Genre> genres = (form.getGenres() != null)
                 ? genreRepo.findAllById(form.getGenres())
                 : new ArrayList<>();
         user.setGenres(genres);
 
-        // Save entity while skipping password validation
-        // This works because we're not modifying the password
+        // Save updated entity
         clientRepo.save(user);
 
         log.info("Profile updated successfully for '{}'", username);
         return true;
     }
-
-
 }

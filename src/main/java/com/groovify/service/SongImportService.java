@@ -11,7 +11,6 @@ public interface SongImportService {
     /**
      * Imports songs into the system.
      * <p>
-     * The exact source of songs (file system, API, etc.) is implementation-dependent.
      */
     boolean importSongs();
 }
