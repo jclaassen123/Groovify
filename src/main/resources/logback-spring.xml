@@ -49,7 +49,7 @@
             level="${GENRE_IMPORT_SERVICE_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.service.LoginServiceImpl"
-            level="${LOGIN_SERVICE_LOG:-DEBUG}"
+            level="${LOGIN_SERVICE_LOG:-INFO}"
             additivity="true" />
     <logger name="com.groovify.service.PlaylistServiceImpl"
             level="${PLAYLIST_SERVICE_LOG:-OFF}"
@@ -81,7 +81,7 @@
             level="${HOME_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.LandingController"
-            level="${LANDING_CONTROLLER_LOG:-DEBUG}"
+            level="${LANDING_CONTROLLER_LOG:-OFF}"
             additivity="true" />
     <logger name="com.groovify.web.controller.PlaylistsController"
             level="${PLAYLISTS_CONTROLLER_LOG:-OFF}"
