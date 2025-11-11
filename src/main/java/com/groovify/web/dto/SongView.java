@@ -6,13 +6,7 @@ package com.groovify.web.dto;
  * Contains the song ID, title, artist, genre name, and filename.
  * Provides helper methods to generate or retrieve values for use in templates.
  */
-public class SongView {
-    private Long id;
-    private String title;
-    private String artist;
-    private String genreName;
-    private String filename;
-
+public record SongView(Long id, String title, String artist, String genreName, String filename) {
     /**
      * Constructs a SongView DTO with the given ID, title, artist, genre, and filename.
      *
@@ -22,31 +16,38 @@ public class SongView {
      * @param genreName the name of the genre
      * @param filename  the filename of the song
      */
-    public SongView(Long id, String title, String artist, String genreName, String filename) {
-        this.id = id;
-        this.title = title;
-        this.artist = artist;
-        this.genreName = genreName;
-        this.filename = filename;
+    public SongView {
     }
 
-    /** @return the song ID */
-    public Long getId() {
+    /**
+     * @return the song ID
+     */
+    @Override
+    public Long id() {
         return id;
     }
 
-    /** @return the song title */
-    public String getTitle() {
+    /**
+     * @return the song title
+     */
+    @Override
+    public String title() {
         return title;
     }
 
-    /** @return the artist name */
-    public String getArtist() {
+    /**
+     * @return the artist name
+     */
+    @Override
+    public String artist() {
         return artist;
     }
 
-    /** @return the genre name */
-    public String getGenreName() {
+    /**
+     * @return the genre name
+     */
+    @Override
+    public String genreName() {
         return genreName;
     }
 
@@ -57,7 +58,8 @@ public class SongView {
      *
      * @return the song filename
      */
-    public String getFilename() {
+    @Override
+    public String filename() {
         return filename;
     }
 }

@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Entity representing a client (user) in the system.
@@ -143,5 +144,17 @@ public class Client {
 
     public void setGenres(List<Genre> genres) {
         this.genres = genres;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(image_file_name, client.image_file_name) && Objects.equals(description, client.description) && Objects.equals(name, client.name) && Objects.equals(password, client.password) && Objects.equals(passwordSalt, client.passwordSalt) && Objects.equals(genres, client.genres);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(image_file_name, description, name, password, passwordSalt, genres);
     }
 }
