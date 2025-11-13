@@ -33,4 +33,9 @@ public interface SongService {
      * @return a list of songs belonging to the specified genre
      */
     List<Song> searchSongsByGenre(String genre);
+
+    /**
+     *
+     */
+    boolean addSong(Song song);
 }
