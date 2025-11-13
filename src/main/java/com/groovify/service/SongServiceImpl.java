@@ -73,4 +73,12 @@ public class SongServiceImpl implements SongService {
         log.debug("Searching songs by genre containing '{}'", genre);
         return songRepo.findByGenreNameContainingIgnoreCase(genre);
     }
+
+    @Override
+    public boolean addSong(Song song) {
+        songRepo.save(song);
+        return true;
+    }
+
+
 }

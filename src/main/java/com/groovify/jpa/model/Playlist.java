@@ -2,6 +2,7 @@ package com.groovify.jpa.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -69,7 +70,8 @@ public class Playlist {
      */
     public List<Song> getSongs() {
         if (songs == null) {
-            return List.of();
+            songs = new ArrayList<>();
+            return songs;
         } else {
             return songs;
         }
