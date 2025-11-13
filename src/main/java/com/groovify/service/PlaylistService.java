@@ -50,6 +50,7 @@ public interface PlaylistService {
      * Saves or updates a playlist in the database.
      *
      * @param playlist the {@link Playlist} object to be saved
+     * @return Whether insertion was successful
      */
     boolean savePlaylist(Playlist playlist);
 
@@ -57,6 +58,7 @@ public interface PlaylistService {
      * Deletes a playlist by its unique identifier.
      *
      * @param id the ID of the playlist to delete
+     * @return Whether deletion was successful
      */
     boolean deletePlaylist(Long id);
 
@@ -65,6 +67,7 @@ public interface PlaylistService {
      *
      * @param playlistId the ID of the playlist to which the song will be added
      * @param songId the ID of the song to add
+     * @return Whether song addition was successful
      */
     boolean addSongToPlaylist(Long playlistId, Long songId);
 
@@ -73,6 +76,7 @@ public interface PlaylistService {
      *
      * @param playlistId the ID of the playlist from which the song will be removed
      * @param songId the ID of the song to remove
+     * @return Whether song removal was successful
      */
     boolean removeSongFromPlaylist(Long playlistId, Long songId);
 }
