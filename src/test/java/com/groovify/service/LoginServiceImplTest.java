@@ -3,89 +3,97 @@ package com.groovify.service;
 import com.groovify.jpa.model.Client;
 import com.groovify.jpa.repo.LoginRepo;
 import com.groovify.util.PasswordUtil;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
-
-import java.util.Collections;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
-class LoginServiceImplTest {
+/**
+ * Integration tests for {@link LoginServiceImpl} using H2 database and real PasswordUtil.
+ */
+@Transactional
+@SpringBootTest
+public class LoginServiceImplTest {
 
+    @Autowired
+    private LoginService loginService;
+
+    @Autowired
     private LoginRepo loginRepo;
-    private LoginServiceImpl loginService;
+
+    private Client existingUser;
+    private String rawPassword;
 
     @BeforeEach
-    void setUp() {
-        loginRepo = mock(LoginRepo.class);
-        loginService = new LoginServiceImpl(loginRepo);
+    void setup() {
+        // Real password setup
+        rawPassword = "MySecurePassword123";
+        String salt = PasswordUtil.generateSalt();
+        String hashedPassword = PasswordUtil.hashPassword(rawPassword, salt);
+
+        existingUser = new Client();
+        existingUser.setName("ExistingUser");
+        existingUser.setPasswordSalt(salt);
+        existingUser.setPassword(hashedPassword);
+        loginRepo.save(existingUser);
     }
 
-    // ------------------ validateClient ------------------
+    // -------------------------------
+    // Happy Path Tests
+    // -------------------------------
 
     @Test
-    void validateClient_ShouldReturnTrue_WhenCredentialsAreValid() {
-        String username = "jace";
-        String password = "password123";
-        Client client = new Client();
-        client.setName(username);
-        client.setPassword("hashedPassword");
-        client.setPasswordSalt("salt");
-
-        when(loginRepo.findByNameIgnoreCase(username)).thenReturn(List.of(client));
-
-        // Mock static PasswordUtil.verifyPassword
-        try (MockedStatic<PasswordUtil> passwordUtilMock = mockStatic(PasswordUtil.class)) {
-            passwordUtilMock.when(() -> PasswordUtil.verifyPassword(password, client.getPasswordSalt(), client.getPassword()))
-                    .thenReturn(true);
-
-            boolean result = loginService.validateClient(username, password);
-            assertTrue(result);
-        }
+    void validateClientHappyValidUserReturnsTrue() {
+        boolean result = loginService.validateClient("ExistingUser", rawPassword);
+        assertTrue(result);
     }
 
     @Test
-    void validateClient_ShouldReturnFalse_WhenUsernameDoesNotExist() {
-        String username = "unknown";
-        String password = "password123";
+    void validateClientHappyUsernameCaseInsensitive() {
+        boolean result = loginService.validateClient("existinguser", rawPassword);
+        assertTrue(result);
+    }
 
-        when(loginRepo.findByNameIgnoreCase(username)).thenReturn(Collections.emptyList());
+    // -------------------------------
+    // Crappy Path Tests
+    // -------------------------------
 
-        boolean result = loginService.validateClient(username, password);
+    @Test
+    void validateClientCrappyInvalidPasswordReturnsFalse() {
+        boolean result = loginService.validateClient("ExistingUser", "WrongPassword");
         assertFalse(result);
     }
 
     @Test
-    void validateClient_ShouldReturnFalse_WhenPasswordIsInvalid() {
-        String username = "jace";
-        String password = "wrongPassword";
-        Client client = new Client();
-        client.setName(username);
-        client.setPassword("hashedPassword");
-        client.setPasswordSalt("salt");
-
-        when(loginRepo.findByNameIgnoreCase(username)).thenReturn(List.of(client));
-
-        try (MockedStatic<PasswordUtil> passwordUtilMock = mockStatic(PasswordUtil.class)) {
-            passwordUtilMock.when(() -> PasswordUtil.verifyPassword(password, client.getPasswordSalt(), client.getPassword()))
-                    .thenReturn(false);
-
-            boolean result = loginService.validateClient(username, password);
-            assertFalse(result);
-        }
+    void validateClientCrappyNonExistentUserReturnsFalse() {
+        boolean result = loginService.validateClient("NoUser", "AnyPassword");
+        assertFalse(result);
     }
 
     @Test
-    void validateClient_ShouldFail_WhenRepoThrowsException() {
-        String username = "jace";
-        String password = "password123";
+    void validateClientCrappyNullUsernameReturnsFalse() {
+        boolean result = loginService.validateClient(null, rawPassword);
+        assertFalse(result);
+    }
 
-        when(loginRepo.findByNameIgnoreCase(username)).thenThrow(new RuntimeException("DB error"));
+    @Test
+    void validateClientCrappyBlankUsernameReturnsFalse() {
+        boolean result = loginService.validateClient("   ", rawPassword);
+        assertFalse(result);
+    }
 
-        Exception exception = assertThrows(RuntimeException.class, () -> loginService.validateClient(username, password));
-        assertEquals("DB error", exception.getMessage());
+    @Test
+    void validateClientCrappyNullPasswordReturnsFalse() {
+        boolean result = loginService.validateClient("ExistingUser", null);
+        assertFalse(result);
+    }
+
+    @Test
+    void validateClientCrappyBlankPasswordReturnsFalse() {
+        boolean result = loginService.validateClient("ExistingUser", "   ");
+        assertFalse(result);
     }
 }
