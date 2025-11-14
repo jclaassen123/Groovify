@@ -3,6 +3,7 @@ package com.groovify.service;
 import com.groovify.jpa.model.Client;
 import com.groovify.jpa.repo.ClientRepo;
 import com.groovify.util.PasswordUtil;
+import com.groovify.validation.RegexUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -82,6 +83,10 @@ public class RegisterServiceImpl implements RegisterService {
             log.warn("Username '{}' is too short or too long", user.getName());
             return false;
         }
+        if (RegexUtil.isUsernameValid(user.getName())) {
+            log.warn("Username '{}' contains invalid characters", user.getName());
+            return false;
+        }
         return true;
     }
 
@@ -120,6 +125,10 @@ public class RegisterServiceImpl implements RegisterService {
         }
         if (user.getPassword() == null || user.getPassword().isBlank()) {
             log.warn("Password is null or blank for user '{}'", user.getName());
+            return false;
+        }
+        if (RegexUtil.isPasswordValid(user.getPassword())) {
+            log.warn("Password contains invalid characters for user '{}'", user.getName());
             return false;
         }
         return true;

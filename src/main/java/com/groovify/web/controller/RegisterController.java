@@ -2,7 +2,7 @@ package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Client;
 import com.groovify.service.RegisterService;
-import com.groovify.validation.OnCreate;
+import com.groovify.validation.RegexUtil;
 import jakarta.validation.groups.Default;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +45,6 @@ public class RegisterController {
     public String showRegistrationForm(Model model) {
         log.debug("Displaying registration form");
 
-        // Only add a new Client if one doesn’t already exist (to preserve user input on redisplay)
         if (!model.containsAttribute("user")) {
             model.addAttribute("user", new Client());
         }
@@ -64,14 +63,24 @@ public class RegisterController {
      */
     @PostMapping("/register")
     public String registerUser(
-            @Validated({Default.class, OnCreate.class}) @ModelAttribute("user") Client user,
+            @Validated({Default.class}) @ModelAttribute("user") Client user,
             BindingResult result,
             Model model,
             RedirectAttributes redirectAttributes) {
 
         log.info("User '{}' attempting to register", user.getName());
 
-        // Handle validation errors (from @Valid/@Validated)
+        // --- NEW: Regex validation for user feedback ---
+        if (!result.hasErrors()) { // only check regex if basic validation passed
+            if (RegexUtil.isUsernameValid(user.getName())) {
+                result.rejectValue("name", "invalid", "Username can only contain letters, numbers, dots, underscores, or hyphens.");
+            }
+            if (RegexUtil.isPasswordValid(user.getPassword())) {
+                result.rejectValue("password", "invalid", "Password cannot contain: <>\"'%;()&+");
+            }
+        }
+
+        // Handle validation errors (from @Valid/@Validated or regex)
         if (result.hasErrors()) {
             log.debug("Validation errors for user '{}': {}", user.getName(), result.getAllErrors());
             model.addAttribute("user", user);
@@ -92,4 +101,5 @@ public class RegisterController {
             return "register";
         }
     }
+
 }
