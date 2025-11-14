@@ -68,7 +68,7 @@ public class SearchController {
         Client user = clientRepo.findByName(username).orElse(null);
         log.info("User '{}' accessed search page", username);
 
-        List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+        List<Playlist> playlists = playlistService.getPlaylistsByClientId(user.getId());
 
         // Initialize empty song list
         model.addAttribute("user", user);
@@ -121,7 +121,7 @@ public class SearchController {
             return new SongView(song.getId(), song.getTitle(), song.getArtist(), genreName,song.getFilename());
         }).toList();
 
-        List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+        List<Playlist> playlists = playlistService.getPlaylistsByClientId(user.getId());
 
         // Add attributes for rendering
         model.addAttribute("user", user);

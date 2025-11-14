@@ -58,7 +58,7 @@ public class PlaylistServiceImpl implements PlaylistService {
      * @return a list of {@link Playlist} objects belonging to the specified client
      */
     @Override
-    public List<Playlist> getPlaylists(Long clientID) {
+    public List<Playlist> getPlaylistsByClientId(Long clientID) {
         log.info("Getting playlists for User {}", clientID);
         return playlistRepo.findByClientID(clientID);
     }

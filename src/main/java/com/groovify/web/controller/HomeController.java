@@ -86,7 +86,7 @@ public class HomeController {
         }).toList();
         log.debug("Converted recommended songs to SongView list for user '{}'", username);
 
-        List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+        List<Playlist> playlists = playlistService.getPlaylistsByClientId(user.getId());
 
         // Add attributes to model for rendering in the view
         model.addAttribute("user", user);

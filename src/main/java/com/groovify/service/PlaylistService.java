@@ -28,7 +28,7 @@ public interface PlaylistService {
      * @param id the ID of the client
      * @return a list of {@link Playlist} objects owned by the client
      */
-    List<Playlist> getPlaylists(Long id);
+    List<Playlist> getPlaylistsByClientId(Long id);
 
     /**
      * Retrieves a single playlist by its unique identifier.

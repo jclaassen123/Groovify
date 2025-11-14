@@ -81,7 +81,7 @@ public class PlaylistsController {
         }
 
         // Fetch all playlists for this user
-        List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+        List<Playlist> playlists = playlistService.getPlaylistsByClientId(user.getId());
 
         model.addAttribute("user", user);
         model.addAttribute("pageTitle", "Playlists");
@@ -175,7 +175,7 @@ public class PlaylistsController {
 
         if (hasError) {
             // Re-populate the playlists list and user for the page
-            List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+            List<Playlist> playlists = playlistService.getPlaylistsByClientId(user.getId());
             model.addAttribute("playlists", playlists);
             model.addAttribute("user", user);
             model.addAttribute("pageTitle", "Playlists");

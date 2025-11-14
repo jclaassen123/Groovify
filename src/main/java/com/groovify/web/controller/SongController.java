@@ -73,7 +73,7 @@ public class SongController {
         List<Song> songs = songRepo.findAll();
         log.debug("Fetched {} songs from database", songs.size());
 
-        List<Playlist> playlists = playlistService.getPlaylists(user.getId());
+        List<Playlist> playlists = playlistService.getPlaylistsByClientId(user.getId());
 
         // Map songs to SongView DTOs with genre names
         List<SongView> songList = songs.stream().map(song -> {
