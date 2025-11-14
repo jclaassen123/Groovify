@@ -36,22 +36,6 @@ public record SongView(Long id, String title, String artist, String genreName, S
     }
 
     /**
-     * @return the artist name
-     */
-    @Override
-    public String artist() {
-        return artist;
-    }
-
-    /**
-     * @return the genre name
-     */
-    @Override
-    public String genreName() {
-        return genreName;
-    }
-
-    /**
      * Returns the filename of the song for use in templates.
      * <p>
      * Can be used in Thymeleaf as ${song.filename}.
