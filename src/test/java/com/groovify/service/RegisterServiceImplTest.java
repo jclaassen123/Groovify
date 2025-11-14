@@ -1018,9 +1018,7 @@ public class RegisterServiceImplTest {
 
     @Test
     void saveUserWithValidUserReturnsTrue() {
-        Client user = new Client();
-        user.setName("Alice");
-        user.setPassword("password");
+        user.setPassword("pass");
         boolean result = service.saveUser(user);
         assertTrue(result);
     }
