@@ -68,6 +68,19 @@ public class PlaylistServiceImplTest {
         assertTrue("Valid playlist", playlistService.getPlaylistById(playlistID).equals(playlist));
     }
 
+    @Test
+    public void getPlaylistByValidIdTwiceTest() {
+        Playlist playlist = makeTestPlaylist();
+        Playlist playlist2 = makeTestPlaylist();
+
+        assertTrue("Playlist should be persisted", playlistService.savePlaylist(playlist));
+        assertTrue("Playlist 2 should be persisted", playlistService.savePlaylist(playlist2));
+        Long playlistID = playlist.getId();
+        Long playlistID2 = playlist2.getId();
+        assertTrue("Valid playlist", playlistService.getPlaylistById(playlistID).equals(playlist));
+        assertTrue("Valid playlist 2", playlistService.getPlaylistById(playlistID2).equals(playlist2));
+    }
+
     // getPlaylistByID Crappy
 
     @Test
@@ -75,15 +88,21 @@ public class PlaylistServiceImplTest {
         assertNull("Return false with invalid playlist", playlistService.getPlaylistById(1000L));
     }
 
+    @Test
+    public void getPlaylistByInvalidIdTwiceTest() {
+        assertNull("Return false with invalid playlist", playlistService.getPlaylistById(1000L));
+        assertNull("Return false with invalid playlist", playlistService.getPlaylistById(1001L));
+    }
+
 
     /**
      *  getPlaylistsByClientID
      *  */
 
-    // getPlaylists Happy Path TODO multiple playlists
+    // getPlaylists Happy Path
 
     @Test
-    public void getPlaylistsValidClientTest() {
+    public void getPlaylistsByClientIdOnceTest() {
         Playlist playlist = makeTestPlaylist();
 
         assertTrue("Should be no playlists before insertion", playlistService.getPlaylistsByClientId(clientID).isEmpty());
@@ -91,10 +110,21 @@ public class PlaylistServiceImplTest {
         assertFalse("getPlaylistsValidClientTest: Return true with valid playlist", playlistService.getPlaylistsByClientId(clientID).isEmpty());
     }
 
+    @Test
+    public void getPlaylistsByClientIdTwiceTest() {
+        Playlist playlist = makeTestPlaylist();
+        Playlist playlist2 = makeTestPlaylist();
+
+        assertTrue("Should be no playlists before insertion", playlistService.getPlaylistsByClientId(clientID).isEmpty());
+        assertTrue("Playlist should be persisted", playlistService.savePlaylist(playlist));
+        assertTrue("Playlist 2 should be persisted", playlistService.savePlaylist(playlist2));
+        assertTrue("getPlaylistsValidClientTest: Return true with valid playlist", playlistService.getPlaylistsByClientId(clientID).size() == 2);
+    }
+
     // getPlaylists Crappy
 
     @Test
-    public void getPlaylistByInvalidClientTest() {
+    public void getPlaylistByClientIdInvalidTest() {
         assertTrue("Return true with an empty list", playlistService.getPlaylistsByClientId(clientID + 1).equals(List.of()));
     }
 
@@ -116,12 +146,28 @@ public class PlaylistServiceImplTest {
         assertFalse("Return true with the song in the playlist", playlistService.getSongs(playlistID).isEmpty());
     }
 
+    @Test
+    public void getSongsTwoSongTest() {
+        Playlist playlist = makeTestPlaylist();
+
+        assertTrue("Playlist should be persisted", playlistService.savePlaylist(playlist));
+        Long playlistID = playlist.getId();
+
+        assertTrue("Return true with no song in the playlist", playlistService.getSongs(playlistID).isEmpty());
+        assertTrue("Playlist song should be added", playlistService.addSongToPlaylist(playlistID, songID1));
+        assertFalse("Return true with the song in the playlist", playlistService.getSongs(playlistID).isEmpty());
+        assertTrue("Playlist song 2 should be added", playlistService.addSongToPlaylist(playlistID, songID2));
+        assertTrue("Should have two songs", playlistService.getSongs(playlistID).size() == 2);
+    }
+
     // getSongs Crappy
 
     @Test
     public void getSongsInvalidPlaylistTest() {
-        assertTrue("getPlaylistByInvalidClient: Return true with valid playlist", playlistService.getPlaylistsByClientId(clientID + 1).equals(List.of()));
+        assertTrue("Return true with empty list", playlistService.getSongs(1000L).isEmpty());
     }
+
+    // TODO null test for getters?
 
     /**
      * savePlayLists
@@ -146,14 +192,50 @@ public class PlaylistServiceImplTest {
 
         assertTrue("There should be no playlist", playlistService.getPlaylistsByClientId(clientID).isEmpty());
         assertTrue("Playlist should be persisted", playlistService.savePlaylist(playlist));
+        assertFalse("There should be a playlist", playlistService.getPlaylistsByClientId(clientID).isEmpty());
+        assertTrue("Playlist 2 should be persisted", playlistService.savePlaylist(playlist2));
+        assertTrue("There should be two playlists", playlistService.getPlaylistsByClientId(clientID).size() == 2);
+    }
 
+    @Test
+    public void savePlaylistNoNameWithDescriptionTest() {
+        Playlist playlist = makeTestPlaylist();
+        playlist.setName("");
+
+        assertTrue("There should be no playlist", playlistService.getPlaylistsByClientId(clientID).isEmpty());
+        assertTrue("Valid playlist should be saved", playlistService.savePlaylist(playlist));
+        assertFalse("Playlist should be persisted", playlistService.getPlaylistsByClientId(clientID).isEmpty());
+    }
+
+    @Test
+    public void savePlaylistWithNameNoDescriptionTest() {
+        Playlist playlist = makeTestPlaylist();
+        playlist.setDescription("");
+
+        assertTrue("There should be no playlist", playlistService.getPlaylistsByClientId(clientID).isEmpty());
+        assertTrue("Valid playlist should be saved", playlistService.savePlaylist(playlist));
+        assertFalse("Playlist should be persisted", playlistService.getPlaylistsByClientId(clientID).isEmpty());
+    }
+
+    @Test
+    public void savePlaylistNoNameNoDescriptionTest() {
+        Playlist playlist = makeTestPlaylist();
+        playlist.setName("");
+        playlist.setDescription("");
+
+        assertTrue("There should be no playlist", playlistService.getPlaylistsByClientId(clientID).isEmpty());
+        assertTrue("Valid playlist should be saved", playlistService.savePlaylist(playlist));
+        assertFalse("Playlist should be persisted", playlistService.getPlaylistsByClientId(clientID).isEmpty());
     }
 
     // Crappy Path
 
     @Test
-    public void savePlaylistInvalidTest() {
+    public void savePlaylistInvalidClientIdTest() {
         Playlist playlist = makeTestPlaylist();
+        playlist.setClientID(clientID + 1);
+
+        assertTrue("Valid playlist should be saved", playlistService.savePlaylist(playlist));
     }
 
     /**
@@ -188,7 +270,7 @@ public class PlaylistServiceImplTest {
 
     @Test
     public void addSongToPlaylistSuccessTest() {
-        Playlist playlist = new Playlist();
+        Playlist playlist = makeTestPlaylist();
 
         assertTrue("Playlist should be persisted", playlistService.savePlaylist(playlist));
         Long playlistID = playlist.getId();

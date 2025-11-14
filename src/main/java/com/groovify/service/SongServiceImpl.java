@@ -40,6 +40,12 @@ public class SongServiceImpl implements SongService {
         return songRepo.findAll();
     }
 
+    @Override
+    public Song getSongById(Long songId) {
+        log.debug("Fetching song by id {}", songId);
+        return songRepo.findById(songId).orElse(null);
+    }
+
     /**
      * Searches for songs by title.
      *

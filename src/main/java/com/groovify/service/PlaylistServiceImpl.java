@@ -2,6 +2,7 @@ package com.groovify.service;
 
 import com.groovify.jpa.model.Playlist;
 import com.groovify.jpa.model.Song;
+import com.groovify.jpa.repo.ClientRepo;
 import com.groovify.jpa.repo.PlaylistRepo;
 import com.groovify.jpa.repo.SongRepo;
 import jakarta.transaction.Transactional;
@@ -37,18 +38,18 @@ import java.util.List;
 public class PlaylistServiceImpl implements PlaylistService {
 
     private final PlaylistRepo playlistRepo;
-    private final SongRepo songRepo;
+    private final SongService songService;
     private final Logger log = LoggerFactory.getLogger(PlaylistServiceImpl.class);
 
     /**
      * Constructs a new {@code PlaylistServiceImpl} with the required repositories.
      *
      * @param playlistRepo the repository for managing {@link Playlist} entities
-     * @param songRepo the repository for managing {@link Song} entities
+     * @param songService the repository for managing {@link Song} entities
      */
-    public PlaylistServiceImpl(PlaylistRepo playlistRepo, SongRepo songRepo) {
+    public PlaylistServiceImpl(PlaylistRepo playlistRepo, SongService songService) {
         this.playlistRepo = playlistRepo;
-        this.songRepo = songRepo;
+        this.songService = songService;
     }
 
     /**
@@ -91,6 +92,16 @@ public class PlaylistServiceImpl implements PlaylistService {
     public boolean savePlaylist(Playlist playlist) {
         log.info("Saving playlist titled {}", playlist.getName());
         try {
+
+            // Ensure client exists in database
+//            if (clientRepo.findByName(clientRepo.getReferenceById(playlist.getClientID()).getName()).get(0) == null) {
+//                log.error("Client with id {} not found", playlist.getId());
+//                return false;
+//            }
+            if (playlist.getClientID() == null) {
+                log.error("Playlist titled {} has null client id", playlist.getName());
+                return false;
+            }
 
             playlistRepo.save(playlist);
             log.info("Playlist {} saved", playlist.getId());
@@ -151,7 +162,7 @@ public class PlaylistServiceImpl implements PlaylistService {
         log.info("Adding song {} to playlist {}", songId, playlistId);
         try {
             Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
-            Song song = songRepo.findById(songId).orElse(null);
+            Song song = songService.getSongById(songId);
 
             if (playlist == null || song == null) {
                 log.error("Playlist {} not found or Song {} not found", playlistId, songId);
@@ -190,7 +201,7 @@ public class PlaylistServiceImpl implements PlaylistService {
         log.info("Removing song {} from playlist {}", songId, playlistId);
         try {
             Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
-            Song song = songRepo.findById(songId).orElse(null);
+            Song song = songService.getSongById(songId);
 
             if (playlist == null || song == null || playlist.getSongs() == null) {
                 log.error("Playlist {} not found or Song {} not found", playlistId, songId);

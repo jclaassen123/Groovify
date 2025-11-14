@@ -18,6 +18,8 @@ public interface SongService {
      */
     List<Song> getAllSongs();
 
+    Song getSongById(Long songId);
+
     /**
      * Searches for songs by their title.
      *
@@ -35,7 +37,9 @@ public interface SongService {
     List<Song> searchSongsByGenre(String genre);
 
     /**
-     *
+     * Adds song to database
+     * @param song Song to be added to Song table
+     * @return If insertion was successful
      */
     boolean addSong(Song song);
 }
