@@ -3,7 +3,6 @@ package com.groovify.web.controller;
 import com.groovify.jpa.model.Client;
 import com.groovify.service.RegisterService;
 import com.groovify.validation.OnCreate;
-import jakarta.validation.Valid;
 import jakarta.validation.groups.Default;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,18 +69,27 @@ public class RegisterController {
             Model model,
             RedirectAttributes redirectAttributes) {
 
-        // Log the attempt
         log.info("User '{}' attempting to register", user.getName());
 
-        // Validation errors
+        // Handle validation errors (from @Valid/@Validated)
         if (result.hasErrors()) {
             log.debug("Validation errors for user '{}': {}", user.getName(), result.getAllErrors());
             model.addAttribute("user", user);
             return "register";
         }
 
-        // Delegate to service for saving user
-        return registerService.registerUser(user, result, model, redirectAttributes);
-    }
+        // Delegate to service (pure business logic)
+        boolean success = registerService.registerUser(user);
 
+        if (success) {
+            redirectAttributes.addFlashAttribute("successMessage", "Registration successful! You can now log in.");
+            log.info("User '{}' successfully registered", user.getName());
+            return "redirect:/"; // or redirect to home if you prefer
+        } else {
+            model.addAttribute("user", user);
+            model.addAttribute("error", "Registration failed. Username may already exist or internal error occurred.");
+            log.warn("Registration failed for user '{}'", user.getName());
+            return "register";
+        }
+    }
 }

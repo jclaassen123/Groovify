@@ -25,8 +25,8 @@ public class Client {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "image_file_name")
-    private String image_file_name = "Fishing.jpg";
+    @Column(name = "imageFileName")
+    private String imageFileName = "Fishing.jpg";
 
     @Column(name = "description")
     @Pattern(
@@ -120,14 +120,14 @@ public class Client {
         String defaultImage = "Fishing.jpg";
         Path imagesFolder = Paths.get("src/main/resources/static/images/profile/");
 
-        if (image_file_name == null) return defaultImage;
+        if (imageFileName == null) return defaultImage;
 
-        Path imagePath = imagesFolder.resolve(image_file_name);
-        return Files.exists(imagePath) ? image_file_name : defaultImage;
+        Path imagePath = imagesFolder.resolve(imageFileName);
+        return Files.exists(imagePath) ? imageFileName : defaultImage;
     }
 
-    public void setImageFileName(String image_file_name) {
-        this.image_file_name = image_file_name;
+    public void setImageFileName(String imageFileName) {
+        this.imageFileName = imageFileName;
     }
 
     public String getDescription() {
@@ -150,11 +150,11 @@ public class Client {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return Objects.equals(image_file_name, client.image_file_name) && Objects.equals(description, client.description) && Objects.equals(name, client.name) && Objects.equals(password, client.password) && Objects.equals(passwordSalt, client.passwordSalt) && Objects.equals(genres, client.genres);
+        return Objects.equals(imageFileName, client.imageFileName) && Objects.equals(description, client.description) && Objects.equals(name, client.name) && Objects.equals(password, client.password) && Objects.equals(passwordSalt, client.passwordSalt) && Objects.equals(genres, client.genres);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(image_file_name, description, name, password, passwordSalt, genres);
+        return Objects.hash(imageFileName, description, name, password, passwordSalt, genres);
     }
 }
