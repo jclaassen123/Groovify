@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RegisterServiceImplTest {
 
     @Autowired
-    private RegisterServiceImpl service;
+    private RegisterService service;
 
     private Client user;
     private Client existingUser;

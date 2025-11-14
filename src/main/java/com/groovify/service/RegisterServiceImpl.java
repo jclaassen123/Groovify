@@ -9,16 +9,34 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Service implementation responsible for handling user registration logic.
+ * This includes validation, password hashing, default field population,
+ * and persistence of the {@link Client} entity.
+ */
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
     private static final Logger log = LoggerFactory.getLogger(RegisterServiceImpl.class);
     private final ClientRepo clientRepo;
 
+    /**
+     * Constructs a new {@code RegisterServiceImpl} with the given repository.
+     *
+     * @param clientRepo the repository used to persist and query {@link Client} entities
+     */
     public RegisterServiceImpl(ClientRepo clientRepo) {
         this.clientRepo = clientRepo;
     }
 
+    /**
+     * Registers a new user by validating input, checking username availability,
+     * verifying the password, hashing and salting it, applying default values,
+     * and saving the user to the database.
+     *
+     * @param user the client attempting to register
+     * @return {@code true} if registration succeeds, otherwise {@code false}
+     */
     @Override
     public boolean registerUser(Client user) {
 
@@ -43,6 +61,13 @@ public class RegisterServiceImpl implements RegisterService {
         return true;
     }
 
+    /**
+     * Validates the required input fields for user registration.
+     * Ensures the user object and username are non-null and meet length constraints.
+     *
+     * @param user the client being validated
+     * @return {@code true} if input is valid, otherwise {@code false}
+     */
     @Override
     public boolean validateInput(Client user) {
         if (user == null) {
@@ -60,6 +85,12 @@ public class RegisterServiceImpl implements RegisterService {
         return true;
     }
 
+    /**
+     * Checks whether the provided username is available for registration.
+     *
+     * @param user the client whose username should be checked
+     * @return {@code true} if the username is not already in use, otherwise {@code false}
+     */
     @Override
     public boolean checkUsernameAvailability(Client user) {
         if (user == null || user.getName() == null || user.getName().isBlank()) {
@@ -75,6 +106,12 @@ public class RegisterServiceImpl implements RegisterService {
         return true;
     }
 
+    /**
+     * Validates that the user has provided a non-null, non-empty password.
+     *
+     * @param user the client whose password should be validated
+     * @return {@code true} if the password is valid, otherwise {@code false}
+     */
     @Override
     public boolean validatePassword(Client user) {
         if (user == null) {
@@ -88,6 +125,13 @@ public class RegisterServiceImpl implements RegisterService {
         return true;
     }
 
+    /**
+     * Hashes and salts the user's password using {@link PasswordUtil}.
+     * The resulting hash and salt are stored in the user object.
+     *
+     * @param user the client whose password is being hashed
+     * @return {@code true} if hashing succeeds, otherwise {@code false}
+     */
     @Override
     public boolean hashAndSetPassword(Client user) {
         if (user == null) {
@@ -112,6 +156,12 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
+    /**
+     * Applies default values to optional user fields such as description and image filename
+     * if they were not provided.
+     *
+     * @param user the client whose optional fields are being defaulted
+     */
     @Override
     public void setDefaultValues(Client user) {
         if (user == null) return;
@@ -120,6 +170,12 @@ public class RegisterServiceImpl implements RegisterService {
         log.debug("Default values applied for optional fields for '{}'", user.getName());
     }
 
+    /**
+     * Attempts to persist the user to the database.
+     *
+     * @param user the client being saved
+     * @return {@code true} if saving succeeds, otherwise {@code false}
+     */
     @Override
     public boolean saveUser(Client user) {
         try {
