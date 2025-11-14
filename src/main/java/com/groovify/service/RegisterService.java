@@ -1,68 +1,54 @@
 package com.groovify.service;
 
 import com.groovify.jpa.model.Client;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
- * Service interface for handling user registration logic.
- * <p>
- * Encapsulates validation, password hashing, default value management,
- * and persistence logic for registering new users.
+ * Core service for handling user registration logic.
+ *
+ * Handles validation, password hashing, default value management,
+ * and persistence logic for registering new users — no web-layer dependencies.
  */
 public interface RegisterService {
 
     /**
-     * Main entry point for user registration.
+     * Registers a new user.
      *
-     * @param user               the submitted Client object
-     * @param result             binding/validation results
-     * @param model              model for returning data to the view
-     * @param redirectAttributes redirect attributes for flash messages
-     * @return the view name to render or redirect to
+     * @param user the submitted Client object
+     * @return true if registration succeeded, false otherwise
      */
-    String registerUser(Client user,
-                        BindingResult result,
-                        Model model,
-                        RedirectAttributes redirectAttributes);
+    boolean registerUser(Client user);
 
     /**
-     * Validates binding results from @Valid annotation.
+     * Validates that the provided user data is correct.
      *
-     * @param user   the Client being registered
-     * @param result the validation result
-     * @param model  model to attach errors to
+     * @param user the Client being registered
      * @return true if valid, false otherwise
      */
-    boolean validateInput(Client user, BindingResult result, Model model);
+    boolean validateInput(Client user);
 
     /**
-     * Checks if the username already exists.
+     * Checks if the username already exists in the database.
      *
-     * @param user  the Client being registered
-     * @param model model to attach errors to
+     * @param user the Client being registered
      * @return true if available, false otherwise
      */
-    boolean checkUsernameAvailability(Client user, Model model);
+    boolean checkUsernameAvailability(Client user);
 
     /**
      * Validates that the user’s password is not null or blank.
      *
-     * @param user  the Client being registered
-     * @param model model to attach errors to
+     * @param user the Client being registered
      * @return true if valid, false otherwise
      */
-    boolean validatePassword(Client user, Model model);
+    boolean validatePassword(Client user);
 
     /**
      * Generates a salt, hashes the user’s password, and sets them on the entity.
      *
-     * @param user  the Client being registered
-     * @param model model to attach errors to
+     * @param user the Client being registered
      * @return true if hashing succeeded, false otherwise
      */
-    boolean hashAndSetPassword(Client user, Model model);
+    boolean hashAndSetPassword(Client user);
 
     /**
      * Sets default values for optional user fields if not provided.
@@ -74,17 +60,10 @@ public interface RegisterService {
     /**
      * Persists the new user to the database.
      *
-     * @param user  the Client being registered
-     * @param model model to attach errors to
+     * @param user the Client being registered
      * @return true if save succeeded, false otherwise
      */
-    boolean saveUser(Client user, Model model);
 
-    /**
-     * Adds a success message and logs completion.
-     *
-     * @param redirectAttributes redirect attributes for flash message
-     * @param username           the username that was registered
-     */
-    void addSuccessRedirect(RedirectAttributes redirectAttributes, String username);
+
+    boolean saveUser(Client user);
 }

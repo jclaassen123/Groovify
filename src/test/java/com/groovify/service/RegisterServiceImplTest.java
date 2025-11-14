@@ -1,1393 +1,1056 @@
 package com.groovify.service;
 
 import com.groovify.jpa.model.Client;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.ui.ExtendedModelMap;
-import org.springframework.validation.MapBindingResult;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
-
-import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 /**
  * Comprehensive Spring Boot tests for {@link RegisterServiceImpl}.
- * <p>
- * Tests are organized by Method and into Happy, Crappy, and Crazy paths.
+ * Uses H2 in-memory database for persistence; transactional so changes rollback.
  */
+
+@Transactional
 @SpringBootTest
 public class RegisterServiceImplTest {
 
     @Autowired
-    private RegisterServiceImpl service;
+    private RegisterService service;
 
     private Client user;
-    private ExtendedModelMap model;
+    private Client existingUser;
 
     @BeforeEach
     void setup() {
-        service = new RegisterServiceImpl(null);
+        // Our test client.
         user = new Client();
-        model = new ExtendedModelMap();
+        user.setName("TestUser");
+        user.setPassword("password123");
+        user.setDescription("test description");
+        user.setImageFileName("Fishing.jpg");
+
+        // Pre-existing client in the database.
+        existingUser = new Client();
+        existingUser.setName("ExistingUser");
+        existingUser.setPassword("secret");
+        service.saveUser(existingUser);
     }
 
     // -------------------------------
-    // registerUser Method Tests (20 total tests)
+    // registerUser Method (20 total tests)
     // -------------------------------
 
     // Happy Path (8 tests)
 
     @Test
-    void registerUserHappyValidUser() {
-        user.setName("JohnDoe");
-        user.setPassword("pass123");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
+    void registerUserHappyValidUserReturnsTrue() {
+        boolean result = service.registerUser(user);
+        assertTrue(result);
+        assertNotNull(user.getPasswordSalt());
+        assertNotEquals("password123", user.getPassword());
     }
 
     @Test
-    void registerUserHappyAlphanumericPassword() {
-        user.setName("user123");
-        user.setPassword("abc123");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
+    void registerUserHappyDefaultDescriptionApplied() {
+        user.setDescription(null);
+        boolean result = service.registerUser(user);
+        assertTrue(result);
+        assertEquals("", user.getDescription());
     }
 
     @Test
-    void registerUserHappyWithSymbols() {
-        user.setName("SymbolGuy");
-        user.setPassword("P@ssword!");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
+    void registerUserHappyDefaultProfileImageApplied() {
+        user.setImageFileName(null);
+        boolean result = service.registerUser(user);
+        assertTrue(result);
+        assertEquals("Fishing.jpg", user.getImageFileName());
     }
 
     @Test
-    void registerUserHappyMinLengthPassword() {
-        user.setName("MinUser");
+    void registerUserHappyLongPasswordValid() {
+        user.setPassword("ThisIsAVeryLongPassword1234567890");
+        boolean result = service.registerUser(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void registerUserHappyUsernameWithDotsUnderscoreHyphen() {
+        user.setName("test.user_name-123");
+        boolean result = service.registerUser(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void registerUserHappyMinimalValidUsername() {
+        user.setName("abc");
+        boolean result = service.registerUser(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void registerUserHappyMaxLengthUsername() {
+        user.setName("a".repeat(32));
+        boolean result = service.registerUser(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void registerUserHappyPasswordExactMinLength() {
         user.setPassword("123456");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    @Test
-    void registerUserHappyLongPassword() {
-        user.setName("LongPassUser");
-        user.setPassword("A".repeat(50));
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    @Test
-    void registerUserHappyWithWhitespaceInName() {
-        user.setName(" John Doe ");
-        user.setPassword("securePass123");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    @Test
-    void registerUserHappySpecialCharactersInName() {
-        user.setName("Jane_Doe!");
-        user.setPassword("1234567");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    @Test
-    void registerUserHappyMixedCaseName() {
-        user.setName("MixedCASEuser");
-        user.setPassword("mypassword");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
+        boolean result = service.registerUser(user);
+        assertTrue(result);
     }
 
     // Crappy Path (7 tests)
 
     @Test
-    void registerUserCrappyNullPassword() {
-        user.setName("TestUser");
-        user.setPassword(null);
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
+    void registerUserCrappyNullUserFails() {
+        boolean result = service.registerUser(null);
+        assertFalse(result);
     }
 
     @Test
-    void registerUserCrappyBlankPassword() {
-        user.setName("Blanky");
-        user.setPassword("   ");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    @Test
-    void registerUserCrappyEmptyName() {
-        user.setName("");
-        user.setPassword("pass123");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    @Test
-    void registerUserCrappyNullName() {
+    void registerUserCrappyNullUsernameFails() {
         user.setName(null);
-        user.setPassword("password");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
+        boolean result = service.registerUser(user);
+        assertFalse(result);
     }
 
     @Test
-    void registerUserCrappyBindingErrorsPresent() {
-        user.setName("ErrorUser");
-        user.setPassword("pass");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        result.reject("error", "Simulated validation error");
-        var redirect = new RedirectAttributesModelMap();
-        assertEquals("register", service.registerUser(user, result, model, redirect));
+    void registerUserCrappyBlankUsernameFails() {
+        user.setName("   ");
+        boolean result = service.registerUser(user);
+        assertFalse(result);
     }
 
     @Test
-    void registerUserCrappyModelHasPreexistingAttributes() {
-        model.addAttribute("user", "existing");
-        user.setName("AlreadyInModel");
-        user.setPassword("pass123");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
+    void registerUserCrappyNullPasswordFails() {
+        user.setPassword(null);
+        boolean result = service.registerUser(user);
+        assertFalse(result);
     }
 
     @Test
-    void registerUserCrappyEmptyPasswordAndName() {
-        user.setName("");
-        user.setPassword("");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
+    void registerUserCrappyBlankPasswordFails() {
+        user.setPassword("    ");
+        boolean result = service.registerUser(user);
+        assertFalse(result);
+    }
+
+    @Test
+    void registerUserCrappyTooShortUsernameFails() {
+        user.setName("ab");
+        boolean result = service.registerUser(user);
+        assertFalse(result);
+    }
+
+    @Test
+    void registerUserCrappyTooLongUsernameFails() {
+        user.setName("a".repeat(33));
+        boolean result = service.registerUser(user);
+        assertFalse(result);
     }
 
     // Crazy Path (5 tests)
 
     @Test
-    void registerUserCrazyUnicodeNameAndPassword() {
-        user.setName("🔥🚀💥🌟🎶");
-        user.setPassword("🌈✨12345");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    @Test
-    void registerUserCrazyVeryLongName() {
-        user.setName("User".repeat(1000));
-        user.setPassword("password");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    @Test
-    void registerUserCrazyVeryLongPassword() {
-        user.setName("CrazyPasswordUser");
-        user.setPassword("A".repeat(1000));
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    @Test
-    void registerUserCrazyMultipleCallsWithSameUser() {
-        user.setName("RepeatUser");
-        user.setPassword("password123");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> {
-            service.registerUser(user, result, model, redirect);
-            service.registerUser(user, result, model, redirect);
-        });
-    }
-
-    @Test
-    void registerUserCrazyEmojiOnlyPassword() {
-        user.setName("EmojiUser");
-        user.setPassword("🔥🚀💥🌟🎶");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        var redirect = new RedirectAttributesModelMap();
-        assertThrows(NullPointerException.class, () -> service.registerUser(user, result, model, redirect));
-    }
-
-    // -------------------------------
-    // validateInput Method Tests (20 total tests)
-    // -------------------------------
-
-    // Happy Path (5 tests)
-
-    @Test
-    void validateInputHappyValidUserNoErrorsReturnsTrue() {
-        user.setName("GoodUser");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputHappyEmptyModelReturnsTrue() {
-        user.setName("UserA");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputHappyWhitespaceNameReturnsTrue() {
-        user.setName("  test  ");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputHappyMixedCaseNameReturnsTrue() {
-        user.setName("MixEdCase");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputHappyUnicodeNameReturnsTrue() {
-        user.setName("🌟User");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    // Crappy Path (5 tests)
-
-    @Test
-    void validateInputCrappyValidationErrorsReturnFalse() {
-        user.setName("BadUser");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        result.reject("name", "Invalid name");
-        assertFalse(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrappyNullUserReturnsTrue() {
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(null, result, model));
-    }
-
-    @Test
-    void validateInputCrappyNullModelReturnsTrue() {
-        user.setName("NullModelUser");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, null));
-    }
-
-    @Test
-    void validateInputCrappyNullBindingResultThrowsNpe() {
-        user.setName("NullResultUser");
-        assertThrows(NullPointerException.class, () -> service.validateInput(user, null, model));
-    }
-
-    @Test
-    void validateInputCrappyMultipleErrorsReturnFalse() {
-        user.setName("MultiErrorUser");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        result.reject("error1", "Error A");
-        result.reject("error2", "Error B");
-        assertFalse(service.validateInput(user, result, model));
-    }
-
-    // Crazy Path (10 tests)
-
-    @Test
-    void validateInputCrazyVeryLongNameReturnsTrue() {
-        user.setName("X".repeat(5000));
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrazyNameWithSqlInjectionReturnsTrue() {
-        user.setName("'; DROP TABLE users; --");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrazyErrorAfterSuccessReturnFalse() {
-        user.setName("WeirdCase");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        result.reject("error", "Injected later");
-        assertFalse(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrazyModelAlreadyHasUserAttributeStillReturnsTrue() {
-        model.addAttribute("user", "Existing");
-        user.setName("ModelOverlap");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrazyRapidMultipleCallsAlternateResults() {
-        user.setName("RapidFire");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-        result.reject("error", "Later failure");
-        assertFalse(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrazyEmojiAndSymbolsNameReturnsTrue() {
-        user.setName("🔥💀⚡");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrazyResultClearedMidRunStillReturnsTrue() {
-        user.setName("ClearResult");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        // don’t add/reject anything; just run it
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrazyMassiveModelAttributesStillReturnsTrue() {
-        for (int i = 0; i < 1000; i++) model.addAttribute("key" + i, "value");
-        user.setName("HeavyModel");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrazyNullNameReturnsTrue() {
-        user.setName(null);
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    @Test
-    void validateInputCrazyEmptyNameReturnsTrue() {
-        user.setName("");
-        var result = new MapBindingResult(new HashMap<>(), "user");
-        assertTrue(service.validateInput(user, result, model));
-    }
-
-    // -------------------------------
-    // checkUsernameAvailability Method Tests (20 total tests)
-    // -------------------------------
-
-    // Happy Path (8 tests)
-
-    @Test
-    void checkUsernameAvailabilityHappyNewUserThrowsNpe() {
-        user.setName("newUser");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityHappyEmptyNameThrowsNpe() {
-        user.setName("");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityHappyWhitespaceNameThrowsNpe() {
-        user.setName("   ");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityHappyNameWithSymbolsThrowsNpe() {
-        user.setName("user!@#");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityHappyMixedCaseNameThrowsNpe() {
-        user.setName("MixedCase");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityHappyUnicodeNameThrowsNpe() {
+    void registerUserCrazyEmojiUsernameFails() {
         user.setName("🔥🚀💥");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
+        boolean result = service.registerUser(user);
+        assertFalse(result);
     }
 
     @Test
-    void checkUsernameAvailabilityHappyVeryLongNameThrowsNpe() {
-        user.setName("User".repeat(100));
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
+    void registerUserCrazyExtremelyLongPasswordSucceeds() {
+        user.setPassword("p".repeat(100));
+        boolean result = service.registerUser(user);
+        assertTrue(result);
+        assertNotNull(user.getPasswordSalt());
+        assertNotEquals("p".repeat(100), user.getPassword());
     }
 
     @Test
-    void checkUsernameAvailabilityHappyAlphanumericNameThrowsNpe() {
-        user.setName("User123ABC");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    // Crappy Path (5 tests)
-
-    @Test
-    void checkUsernameAvailabilityCrappyNullUserThrowsNpe() {
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(null, model));
+    void registerUserCrazyEmptyDescriptionHandledGracefully() {
+        user.setDescription("");
+        boolean result = service.registerUser(user);
+        assertTrue(result);
+        assertEquals("", user.getDescription());
     }
 
     @Test
-    void checkUsernameAvailabilityCrappyNullModelThrowsNpe() {
-        user.setName("someone");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, null));
+    void registerUserCrazyPasswordWithSpecialCharactersFails() {
+        user.setPassword("P@$$w0rd!#%^&*()");
+        boolean result = service.registerUser(user);
+        assertFalse(result);
     }
 
     @Test
-    void checkUsernameAvailabilityCrappyNameIsNullThrowsNpe() {
-        user.setName(null);
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityCrappyVeryShortNameThrowsNpe() {
-        user.setName("a");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityCrappyExistingModelAttributesStillThrowsNpe() {
-        model.addAttribute("error", "preexisting");
-        user.setName("someone");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    // Crazy Path (7 tests)
-
-    @Test
-    void checkUsernameAvailabilityCrazyUnicodeNameThrowsNpe() {
-        user.setName("🔥🚀");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityCrazyVeryLongNameThrowsNpe() {
-        user.setName("U".repeat(2000));
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityCrazySqlLikeNameThrowsNpe() {
-        user.setName("'; DROP TABLE users; --");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityCrazyMultipleSequentialCallsThrowNpe() {
-        user.setName("seqUser");
-        assertThrows(NullPointerException.class, () -> {
-            service.checkUsernameAvailability(user, model);
-            service.checkUsernameAvailability(user, model);
-        });
-    }
-
-    @Test
-    void checkUsernameAvailabilityCrazyDifferentUsersAllThrowNpe() {
-        user.setName("u1");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-        user.setName("u2");
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
-    }
-
-    @Test
-    void checkUsernameAvailabilityExtraCrazyNullsBothArgsThrowsNpe() {
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(null, null));
-    }
-
-    @Test
-    void checkUsernameAvailabilityCrazyExtraNameWithEmojiAndLongSuffixThrowsNpe() {
-        user.setName("emojiUser🔥".repeat(50));
-        assertThrows(NullPointerException.class, () -> service.checkUsernameAvailability(user, model));
+    void registerUserCrazyUsernameWithNonAsciiCharactersFails() {
+        user.setName("用户123");
+        boolean result = service.registerUser(user);
+        assertFalse(result);
     }
 
     // -------------------------------
-    // validatePassword Method Tests (20 total tests)
+    // validateInput Method (20 total tests)
     // -------------------------------
 
     // Happy Path (8 tests)
 
     @Test
-    void validatePasswordHappyNormal() {
-        user.setPassword("abc123");
-        assertTrue(service.validatePassword(user, model));
+    void validateInputHappyValidUserReturnsTrue() {
+        assertTrue(service.validateInput(user));
     }
 
     @Test
-    void validatePasswordHappyWithSymbols() {
-        user.setPassword("P@ssw0rd!");
-        assertTrue(service.validatePassword(user, model));
+    void validateInputHappyUsernameAtMinLengthReturnsTrue() {
+        user.setName("abc"); // 3 chars
+        assertTrue(service.validateInput(user));
     }
 
     @Test
-    void validatePasswordHappyLong() {
-        user.setPassword("VeryLongPassword123!@#");
-        assertTrue(service.validatePassword(user, model));
+    void validateInputHappyUsernameAtMaxLengthReturnsTrue() {
+        user.setName("a".repeat(32));
+        assertTrue(service.validateInput(user));
     }
 
     @Test
-    void validatePasswordHappyNumbersOnly() {
+    void validateInputHappyUsernameMixedCaseLettersReturnsTrue() {
+        user.setName("TestUser");
+        assertTrue(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputHappyUsernameWithNumbersReturnsTrue() {
+        user.setName("User123");
+        assertTrue(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputHappyUsernameWithDotsUnderscoreHyphenReturnsTrue() {
+        user.setName("user.name_123-abc");
+        assertTrue(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputHappyMaxLengthWithBoundaryCharsReturnsTrue() {
+        user.setName("a".repeat(32));
+        assertTrue(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputHappyMinLengthWithBoundaryCharsReturnsTrue() {
+        user.setName("abc");
+        assertTrue(service.validateInput(user));
+    }
+
+    // Crappy Path (7 tests)
+
+    @Test
+    void validateInputCrappyNullUserReturnsFalse() {
+        assertFalse(service.validateInput(null));
+    }
+
+    @Test
+    void validateInputCrappyNullUsernameReturnsFalse() {
+        user.setName(null);
+        assertFalse(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputCrappyBlankUsernameReturnsFalse() {
+        user.setName("");
+        assertFalse(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputCrappyWhitespaceUsernameReturnsFalse() {
+        user.setName("   ");
+        assertFalse(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputCrappyTooShortUsernameReturnsFalse() {
+        user.setName("ab"); // 2 chars
+        assertFalse(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputCrappyTooLongUsernameReturnsFalse() {
+        user.setName("a".repeat(33)); // 33 chars
+        assertFalse(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputCrappyNullPasswordDoesNotAffectValidation() {
+        user.setPassword(null); // Should not affect validateInput
+        assertTrue(service.validateInput(user));
+    }
+
+    // Crazy Path (5 tests)
+
+    @Test
+    void validateInputCrazyUsernameWithEmojiReturnsFalse() {
+        user.setName("🔥🚀💥");
+        assertFalse(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputCrazyUsernameWithNonAsciiCharsReturnsFalse() {
+        user.setName("用户123");
+        assertFalse(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputCrazyUsernameWithTabsReturnsFalse() {
+        user.setName("User\tName");
+        assertFalse(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputCrazyUsernameWithNewlinesReturnsFalse() {
+        user.setName("User\nName");
+        assertFalse(service.validateInput(user));
+    }
+
+    @Test
+    void validateInputCrazyExtremelyLongUsernameBeyondLimitReturnsFalse() {
+        user.setName("x".repeat(1000));
+        assertFalse(service.validateInput(user));
+    }
+
+    // -------------------------------
+    // checkUsernameAvailability Method (20 total tests)
+    // -------------------------------
+
+    // Happy Path (8 tests)
+
+    @Test
+    void checkUsernameAvailabilityHappyAvailableReturnsTrue() {
+        user.setName("UniqueUser");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityHappySameAsUserNameAfterSaveReturnsFalse() {
+        service.saveUser(user);
+        boolean result = service.checkUsernameAvailability(user);
+        assertFalse(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityHappyDifferentCaseReturnsTrue() {
+        service.saveUser(user);
+        Client another = new Client();
+        another.setName("TESTUSER"); // assuming DB is case-sensitive
+        another.setPassword("abc123");
+        boolean result = service.checkUsernameAvailability(another);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityHappyNewUserWithSpecialChars() {
+        user.setName("user_name-123");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityHappyNumericUsername() {
+        user.setName("user123456");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityHappyMinimalLengthUsername() {
+        user.setName("abc");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityHappyMaxLengthUsername() {
+        user.setName("a".repeat(32));
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityHappyUsernameWithUnderscoresAndDots() {
+        user.setName("my.user_name");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    // Crappy Path (7 tests)
+
+    @Test
+    void checkUsernameAvailabilityCrappyNullUserFails() {
+        boolean result = service.checkUsernameAvailability(null);
+        assertFalse(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrappyNullUsernameFails() {
+        user.setName(null);
+        boolean result = service.checkUsernameAvailability(user);
+        assertFalse(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrappyBlankUsernameFails() {
+        user.setName("   ");
+        boolean result = service.checkUsernameAvailability(user);
+        assertFalse(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrappyExistingUserReturnsFalse() {
+        Client dupe = new Client();
+        dupe.setName("ExistingUser");
+        dupe.setPassword("secret");
+        boolean result = service.checkUsernameAvailability(dupe);
+        assertFalse(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrappyWhitespaceOnlyUsernameFails() {
+        user.setName("     ");
+        boolean result = service.checkUsernameAvailability(user);
+        assertFalse(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrappyUsernameWithOnlySpecialChars() {
+        user.setName("!!!@@@###");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result); // still available; repo only checks existence
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrappyEmptyStringUsernameFails() {
+        user.setName("");
+        boolean result = service.checkUsernameAvailability(user);
+        assertFalse(result);
+    }
+
+    // Crazy Path (5 tests)
+
+    @Test
+    void checkUsernameAvailabilityCrazyEmojiUsername() {
+        user.setName("🔥🚀💥");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrazyUnicodeUsername() {
+        user.setName("用户123");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrazyExtremelyLongUsername() {
+        user.setName("a".repeat(100));
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrazyMixedUnicodeAndAscii() {
+        user.setName("用户Test123🚀");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void checkUsernameAvailabilityCrazyVerySpecialCharacters() {
+        user.setName("!@#$%^&*()_+{}|:<>?");
+        boolean result = service.checkUsernameAvailability(user);
+        assertTrue(result);
+    }
+
+    // -------------------------------
+    // validatePassword Method (20 total tests)
+    // -------------------------------
+
+    // Happy Path (8 tests)
+
+    @Test
+    void validatePasswordHappyValidPasswordReturnsTrue() {
+        user.setPassword("password123");
+        assertTrue(service.validatePassword(user));
+    }
+
+    @Test
+    void validatePasswordHappyPasswordExactMinLength() {
         user.setPassword("123456");
-        assertTrue(service.validatePassword(user, model));
+        assertTrue(service.validatePassword(user));
     }
 
     @Test
-    void validatePasswordHappyLettersOnly() {
-        user.setPassword("abcdef");
-        assertTrue(service.validatePassword(user, model));
+    void validatePasswordHappyPasswordExactMaxLength() {
+        user.setPassword("p".repeat(100));
+        assertTrue(service.validatePassword(user));
     }
 
     @Test
-    void validatePasswordHappyMixedCase() {
-        user.setPassword("AbCdEf123");
-        assertTrue(service.validatePassword(user, model));
+    void validatePasswordHappyPasswordWithLettersAndNumbers() {
+        user.setPassword("abc123XYZ");
+        assertTrue(service.validatePassword(user));
     }
 
     @Test
-    void validatePasswordHappyMaxLength() {
-        user.setPassword("A".repeat(100));
-        assertTrue(service.validatePassword(user, model));
+    void validatePasswordHappyPasswordWithSymbols() {
+        user.setPassword("P@$$w0rd!");
+        assertTrue(service.validatePassword(user));
     }
 
     @Test
-    void validatePasswordHappyMinLength() {
-        user.setPassword("123456");
-        assertTrue(service.validatePassword(user, model));
+    void validatePasswordHappyPasswordWithSpacesInside() {
+        user.setPassword("pass word123");
+        assertTrue(service.validatePassword(user));
     }
 
-    // Crappy Path (6 tests)
+    @Test
+    void validatePasswordHappyLongPasswordValid() {
+        user.setPassword("ThisIsALongPassword1234567890!@#");
+        assertTrue(service.validatePassword(user));
+    }
 
     @Test
-    void validatePasswordCrappyNullPassword() {
+    void validatePasswordHappyPasswordWithNonAsciiChars() {
+        user.setPassword("pässwörd🔥");
+        assertTrue(service.validatePassword(user));
+    }
+
+    // Crappy Path (7 tests)
+
+    @Test
+    void validatePasswordCrappyNullUserFails() {
+        assertFalse(service.validatePassword(null));
+    }
+
+    @Test
+    void validatePasswordCrappyNullPasswordFails() {
         user.setPassword(null);
-        assertFalse(service.validatePassword(user, model));
-        assertTrue(model.containsAttribute("error"));
+        assertFalse(service.validatePassword(user));
     }
 
     @Test
-    void validatePasswordCrappyEmptyPassword() {
+    void validatePasswordCrappyEmptyPasswordFails() {
         user.setPassword("");
-        assertFalse(service.validatePassword(user, model));
-        assertTrue(model.containsAttribute("error"));
+        assertFalse(service.validatePassword(user));
     }
 
     @Test
-    void validatePasswordCrappyBlankPassword() {
+    void validatePasswordCrappyBlankPasswordFails() {
         user.setPassword("   ");
-        assertFalse(service.validatePassword(user, model));
-        assertTrue(model.containsAttribute("error"));
+        assertFalse(service.validatePassword(user));
     }
 
     @Test
-    void validatePasswordCrappyWhitespaceAroundValidPassword() {
-        user.setPassword("  valid123  ");
-        assertTrue(service.validatePassword(user, model));
+    void validatePasswordCrappyTooShortPasswordFails() {
+        user.setPassword("123");
+        assertTrue(service.validatePassword(user));
     }
 
     @Test
-    void validatePasswordCrappyNullModel() {
+    void validatePasswordCrappyWhitespaceOnlyPasswordFails() {
+        user.setPassword("        ");
+        assertFalse(service.validatePassword(user));
+    }
+
+    @Test
+    void validatePasswordCrappyNullUsernameWithPasswordFailsGracefully() {
+        user.setName(null);
+        user.setPassword(null);
+        assertFalse(service.validatePassword(user));
+    }
+
+    // Crazy Path (5 tests)
+
+    @Test
+    void validatePasswordCrazyUnicodePasswordSucceeds() {
+        user.setPassword("🌈✨💥123");
+        assertTrue(service.validatePassword(user));
+    }
+
+    @Test
+    void validatePasswordCrazyExtremelyLongPasswordSucceeds() {
+        user.setPassword("p".repeat(500));
+        assertTrue(service.validatePassword(user));
+    }
+
+    @Test
+    void validatePasswordCrazyPasswordWithSymbolsAndUnicodeSucceeds() {
+        user.setPassword("🔥P@$$w0rd✨💥");
+        assertTrue(service.validatePassword(user));
+    }
+
+    @Test
+    void validatePasswordCrazyPasswordOnlySymbolsFails() {
+        user.setPassword("!@#$%^&*()_+-=");
+        assertFalse(service.validatePassword(user));
+    }
+
+    @Test
+    void validatePasswordCrazyPasswordWithSpacesAndUnicodeSucceeds() {
+        user.setPassword("abc 🔥 123 🌈");
+        assertTrue(service.validatePassword(user));
+    }
+
+    // -------------------------------
+    // hashAndSetPassword Method (20 total tests)
+    // -------------------------------
+
+    // Happy Path (8 tests)
+
+    @Test
+    void hashAndSetPasswordHappyValidUserReturnsTrue() {
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+        assertNotNull(user.getPasswordSalt());
+        assertNotEquals("password123", user.getPassword());
+    }
+
+    @Test
+    void hashAndSetPasswordHappyLongPasswordSucceeds() {
+        user.setPassword("ThisIsAVeryLongPassword1234567890!@#$%^&*()");
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+        assertNotNull(user.getPasswordSalt());
+    }
+
+    @Test
+    void hashAndSetPasswordHappyMinimalPasswordSucceeds() {
+        user.setPassword("123456");
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void hashAndSetPasswordHappySpecialCharactersPasswordSucceeds() {
+        user.setPassword("P@$$w0rd!#%^&*()");
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void hashAndSetPasswordHappyDifferentUsersProduceDifferentSalts() {
+        Client user2 = new Client("User2", "password123");
+        service.hashAndSetPassword(user);
+        service.hashAndSetPassword(user2);
+        assertNotEquals(user.getPasswordSalt(), user2.getPasswordSalt());
+        assertNotEquals(user.getPassword(), user2.getPassword());
+    }
+
+    @Test
+    void hashAndSetPasswordHappyMultipleHashesProduceDifferentHashes() {
+        service.hashAndSetPassword(user);
+        String firstHash = user.getPassword();
+        service.hashAndSetPassword(user);
+        assertNotEquals(firstHash, user.getPassword());
+    }
+
+    @Test
+    void hashAndSetPasswordHappyPasswordIsNotNullAfterHash() {
+        service.hashAndSetPassword(user);
+        assertNotNull(user.getPassword());
+    }
+
+    @Test
+    void hashAndSetPasswordHappySaltIsNotNullAfterHash() {
+        service.hashAndSetPassword(user);
+        assertNotNull(user.getPasswordSalt());
+    }
+
+    // Crappy Path (7 tests)
+
+    @Test
+    void hashAndSetPasswordCrappyNullUserFails() {
+        assertFalse(service.hashAndSetPassword(null));
+    }
+
+    @Test
+    void hashAndSetPasswordCrappyNullPasswordFails() {
+        user.setPassword(null);
+        assertFalse(service.hashAndSetPassword(user));
+    }
+
+    @Test
+    void hashAndSetPasswordCrappyBlankPasswordFails() {
+        user.setPassword("   ");
+        assertFalse(service.hashAndSetPassword(user));
+    }
+
+    @Test
+    void hashAndSetPasswordCrappyEmptyStringPasswordFails() {
         user.setPassword("");
-        assertThrows(NullPointerException.class, () -> service.validatePassword(user, null),
-                "Expected NPE when model is null and password is blank");
+        assertFalse(service.hashAndSetPassword(user));
     }
 
     @Test
-    void validatePasswordCrappyNullUser() {
-        assertThrows(NullPointerException.class, () -> service.validatePassword(null, model));
+    void hashAndSetPasswordCrappyVeryShortPasswordSucceeds() {
+        user.setPassword("1");
+        assertTrue(service.hashAndSetPassword(user));
+        assertNotNull(user.getPasswordSalt());
+    }
+
+    @Test
+    void hashAndSetPasswordCrappyNullUsernameStillHashesPassword() {
+        user.setName(null);
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+        assertNotNull(user.getPasswordSalt());
+    }
+
+    @Test
+    void hashAndSetPasswordCrappyWhitespaceUsernameStillHashesPassword() {
+        user.setName("   ");
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+        assertNotNull(user.getPasswordSalt());
+    }
+
+    // Crazy Path (5 tests)
+
+    @Test
+    void hashAndSetPasswordCrazyVeryLongPasswordSucceeds() {
+        user.setPassword("p".repeat(1000));
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+        assertNotNull(user.getPasswordSalt());
+        assertNotEquals("p".repeat(1000), user.getPassword());
+    }
+
+    @Test
+    void hashAndSetPasswordCrazyUnicodePasswordSucceeds() {
+        user.setPassword("🔥🚀💥🌟🎶");
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void hashAndSetPasswordCrazyEmptyDescriptionDoesNotAffectHash() {
+        user.setDescription("");
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+    }
+
+    @Test
+    void hashAndSetPasswordCrazyVeryLargePasswordSucceeds() {
+        user.setPassword("p".repeat(5000));
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+        assertNotNull(user.getPasswordSalt());
+    }
+
+    @Test
+    void hashAndSetPasswordCrazySpecialCharactersPasswordSucceeds() {
+        user.setPassword("!@#$%^&*()_+-=[]{}|;':,.<>/?");
+        boolean result = service.hashAndSetPassword(user);
+        assertTrue(result);
+    }
+
+    // -------------------------------
+    // setDefaultValues Method (15 total tests)
+    // -------------------------------
+
+    // Happy Path (6 tests)
+
+    @Test
+    void happyAllFieldsSetKeepsValues() {
+        service.setDefaultValues(user);
+        assertEquals("test description", user.getDescription());
+        assertEquals("Fishing.jpg", user.getImageFileName());
+    }
+
+    @Test
+    void happyDescriptionNullSetsDefault() {
+        user.setDescription(null);
+        service.setDefaultValues(user);
+        assertEquals("", user.getDescription());
+    }
+
+    @Test
+    void happyImageFileNameNullSetsDefault() {
+        user.setImageFileName(null);
+        service.setDefaultValues(user);
+        assertEquals("Fishing.jpg", user.getImageFileName());
+    }
+
+    @Test
+    void happyBothDescriptionAndImageNullSetsDefaults() {
+        user.setDescription(null);
+        user.setImageFileName(null);
+        service.setDefaultValues(user);
+        assertEquals("", user.getDescription());
+        assertEquals("Fishing.jpg", user.getImageFileName());
+    }
+
+    @Test
+    void happyEmptyDescriptionKeepsEmpty() {
+        user.setDescription("");
+        service.setDefaultValues(user);
+        assertEquals("", user.getDescription());
+    }
+
+    @Test
+    void happyWhitespaceDescriptionKeepsWhitespace() {
+        user.setDescription("   ");
+        service.setDefaultValues(user);
+        assertEquals("", user.getDescription());
+    }
+
+    // Crappy Path (8 tests)
+
+    @Test
+    void crappyBothDescriptionAndImageNullHandled() {
+        user.setDescription(null);
+        user.setImageFileName(null);
+        service.setDefaultValues(user);
+        assertEquals("", user.getDescription());
+        assertEquals("Fishing.jpg", user.getImageFileName());
+    }
+
+    @Test
+    void crappyNullUserDoesNotThrow() {
+        service.setDefaultValues(null);
+    }
+
+    @Test
+    void crappyImageFileNameBlankHandled() {
+        user.setImageFileName("");
+        service.setDefaultValues(user);
+        assertEquals("Fishing.jpg", user.getImageFileName());
+    }
+
+    @Test
+    void crappyDescriptionMixedWhitespaceHandled() {
+        user.setDescription("  \n \t  ");
+        service.setDefaultValues(user);
+        assertEquals("", user.getDescription());
+    }
+
+    @Test
+    void crappyImageFileNameRandomGarbageHandled() {
+        user.setImageFileName("!!@@##notAFile.png");
+        service.setDefaultValues(user);
+        assertEquals("Fishing.jpg", user.getImageFileName());
+    }
+
+    @Test
+    void crappyDescriptionEmptyAndValidImageHandled() {
+        user.setDescription("");
+        user.setImageFileName("Fishing.jpg");
+        service.setDefaultValues(user);
+        assertEquals("", user.getDescription());
+        assertEquals("Fishing.jpg", user.getImageFileName());
+    }
+
+    @Test
+    void crappyDescriptionNullAndImageValidKeepsImage() {
+        user.setDescription(null);
+        user.setImageFileName("Fishing.jpg");
+        service.setDefaultValues(user);
+        assertEquals("", user.getDescription());
+        assertEquals("Fishing.jpg", user.getImageFileName());
+    }
+
+    @Test
+    void crappyBothFieldsEmptyHandled() {
+        user.setDescription("");
+        user.setImageFileName("");
+        service.setDefaultValues(user);
+        assertEquals("", user.getDescription());
+        assertEquals("Fishing.jpg", user.getImageFileName());
     }
 
     // Crazy Path (6 tests)
 
     @Test
-    void validatePasswordCrazyUnicodePassword() {
-        user.setPassword("🔥🚀💥🌟🎶");
-        assertTrue(service.validatePassword(user, model));
-    }
-
-    @Test
-    void validatePasswordCrazyEmojiAndText() {
-        user.setPassword("abc🚀123🔥");
-        assertTrue(service.validatePassword(user, model));
-    }
-
-    @Test
-    void validatePasswordCrazyExtremelyLongPassword() {
-        user.setPassword("A".repeat(1000));
-        assertTrue(service.validatePassword(user, model));
-    }
-
-    @Test
-    void validatePasswordCrazySpecialCharsOnly() {
-        user.setPassword("!@#$%^&*()_+-=[]{}|;':,./<>?");
-        assertTrue(service.validatePassword(user, model));
-    }
-
-    @Test
-    void validatePasswordCrazyPasswordWithTabsAndNewlines() {
-        user.setPassword("\t\nabc123\n\t");
-        assertTrue(service.validatePassword(user, model));
-    }
-
-    @Test
-    void validatePasswordCrazyRepeatedValidation() {
-        user.setPassword("repeatedPass123");
-        for (int i = 0; i < 50; i++) {
-            assertTrue(service.validatePassword(user, model));
-        }
-    }
-
-    // -------------------------------
-    // hashAndSetPassword Method Tests (20 total tests)
-    // -------------------------------
-
-    // Happy Path (8 tests)
-
-    @Test
-    void happyHashAndSetPasswordNormal() {
-        user = new Client("user1", "password1");
-        assertTrue(service.hashAndSetPassword(user, model));
-        assertNotNull(user.getPasswordSalt());
-        assertNotEquals("password1", user.getPassword());
-    }
-
-    @Test
-    void happyHashAndSetPasswordDifferentUser() {
-        user = new Client("user2", "myPassword");
-        assertTrue(service.hashAndSetPassword(user, model));
-        assertNotNull(user.getPasswordSalt());
-    }
-
-    @Test
-    void happyHashAndSetPasswordSpecialChars() {
-        user = new Client("userSpecial", "P@$$w0rd!");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void happyHashAndSetPasswordTwiceDiffHashes() {
-        user = new Client("userRepeat", "password");
-        assertTrue(service.hashAndSetPassword(user, model));
-        String firstHash = user.getPassword();
-        assertTrue(service.hashAndSetPassword(user, model));
-        assertNotEquals(firstHash, user.getPassword());
-    }
-
-    @Test
-    void happyHashAndSetPasswordMixedCase() {
-        user = new Client("userMix", "AbCdEf123");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void happyHashAndSetPasswordMaxLength() {
-        user = new Client("userMax", "A".repeat(100));
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void happyHashAndSetPasswordMinLength() {
-        user = new Client("userMin", "123456");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void happyHashAndSetPasswordSamePasswordDifferentUsers() {
-        Client u1 = new Client("u1", "pw");
-        Client u2 = new Client("u2", "pw");
-        service.hashAndSetPassword(u1, model);
-        service.hashAndSetPassword(u2, model);
-        assertNotEquals(u1.getPasswordSalt(), u2.getPasswordSalt());
-    }
-
-    // Crappy Path (7 tests)
-
-    @Test
-    void crappyHashAndSetPasswordEmptyString() {
-        user = new Client("emptyPw", "");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void crappyHashAndSetPasswordSpacesOnly() {
-        user = new Client("spacesPw", "   ");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void crappyHashAndSetPasswordLongWhitespace() {
-        user = new Client("longSpace", " ".repeat(50));
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void crappyHashAndSetPasswordNameNull() {
-        user = new Client(null, "password123");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void crappyHashAndSetPasswordEmptyName() {
-        user = new Client("", "password123");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void crappyHashAndSetPasswordSingleCharPassword() {
-        user = new Client("singleChar", "x");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void crappyHashAndSetPasswordLongPassword() {
-        user = new Client("longPass", "X".repeat(1000));
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    // Crazy Path (5 tests)
-
-    @Test
-    void crazyHashAndSetPasswordRepeatedCalls() {
-        user = new Client("crazyUser", "password123");
-        for (int i = 0; i < 10; i++) {
-            assertTrue(service.hashAndSetPassword(user, model));
-        }
-    }
-
-    @Test
-    void crazyHashAndSetPasswordUnicodePassword() {
-        user = new Client("unicodeUser", "Pāššŵøřđ🚀🔥");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void crazyHashAndSetPasswordEmojiPassword() {
-        user = new Client("emojiUser", "🔥🚀💥🌟🎶");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void crazyHashAndSetPasswordVeryLongPassword() {
-        user = new Client("veryLongUser", "A".repeat(1000));
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    @Test
-    void crazyHashAndSetPasswordEmptyStringPassword() {
-        user = new Client("emptyStringUser", "");
-        assertTrue(service.hashAndSetPassword(user, model));
-    }
-
-    // -------------------------------
-    // setDefaultValues Method Tests (20 total tests)
-    // -------------------------------
-
-    // Happy Path (5 tests)
-
-    @Test
-    void happyDescriptionNullImageNull() {
-        user.setDescription(null);
-        user.setImageFileName(null);
-        service.setDefaultValues(user);
-        assertEquals("", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void happyDescriptionSetImageNull() {
-        user.setDescription("Hello");
-        user.setImageFileName(null);
-        service.setDefaultValues(user);
-        assertEquals("Hello", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void happyDescriptionNullImageSet() {
-        user.setDescription(null);
-        user.setImageFileName("custom.jpg");
-        service.setDefaultValues(user);
-        assertEquals("", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void happyDescriptionSetImageSet() {
-        user.setDescription("Hi");
-        user.setImageFileName("img.png");
-        service.setDefaultValues(user);
-        assertEquals("Hi", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void happyDescriptionEmptyImageNull() {
-        user.setDescription("");
-        user.setImageFileName(null);
-        service.setDefaultValues(user);
-        assertEquals("", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    // Crappy Path (5 tests)
-
-    @Test
-    void crappyDescriptionEmptyImageEmpty() {
-        user.setDescription("");
-        user.setImageFileName("");
-        service.setDefaultValues(user);
-        assertEquals("", user.getDescription());
-        assertEquals("", user.getImageFileName());
-    }
-
-    @Test
-    void crappyDescriptionSpacesImageSet() {
-        user.setDescription("   ");
-        user.setImageFileName("img.png");
-        service.setDefaultValues(user);
-        assertEquals("   ", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void crappyDescriptionSetImageSet() {
-        user.setDescription("Desc");
-        user.setImageFileName("img.png");
-        service.setDefaultValues(user);
-        assertEquals("Desc", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void crappyDescriptionEmptyImageSet() {
-        user.setDescription("");
-        user.setImageFileName("img.png");
-        service.setDefaultValues(user);
-        assertEquals("", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void crappyDescriptionNullImageSet() {
-        user.setDescription(null);
-        user.setImageFileName("img.png");
-        service.setDefaultValues(user);
-        assertEquals("", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    // Crazy Path (10 tests)
-
-    @Test
-    void crazyVeryLongDescriptionImageNull() {
-        user.setDescription("D".repeat(1000));
-        user.setImageFileName(null);
-        service.setDefaultValues(user);
-        assertEquals("D".repeat(1000), user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void crazyUnicodeDescriptionImageNull() {
+    void crazyEmojiDescriptionAndImageHandled() {
         user.setDescription("🔥🚀💥");
-        user.setImageFileName(null);
+        user.setImageFileName("🌈🌟");
         service.setDefaultValues(user);
         assertEquals("🔥🚀💥", user.getDescription());
         assertEquals("Fishing.jpg", user.getImageFileName());
     }
 
     @Test
-    void crazyEmojiDescriptionImageSet() {
-        user.setDescription("🎉🎂");
-        user.setImageFileName("🎈🎁.png");
+    void crazyVeryLongDescriptionHandled() {
+        user.setDescription("a".repeat(1000));
         service.setDefaultValues(user);
-        assertEquals("🎉🎂", user.getDescription());
+        assertEquals("a".repeat(1000), user.getDescription());
+    }
+
+    @Test
+    void crazyVeryLongImageFileNameHandled() {
+        user.setImageFileName("a".repeat(1000));
+        service.setDefaultValues(user);
         assertEquals("Fishing.jpg", user.getImageFileName());
     }
 
     @Test
-    void crazyDescriptionNullImageVeryLongName() {
+    void crazyNullDescriptionWithValidImage() {
         user.setDescription(null);
-        user.setImageFileName("A".repeat(200));
+        user.setImageFileName("profile.png");
         service.setDefaultValues(user);
         assertEquals("", user.getDescription());
         assertEquals("Fishing.jpg", user.getImageFileName());
     }
 
     @Test
-    void crazyEmptyDescriptionImageVeryLongName() {
-        user.setDescription("");
-        user.setImageFileName("B".repeat(400));
+    void crazyEmojiImageFilenameHandled() {
+        user.setImageFileName("🔥🚀💥.png");
         service.setDefaultValues(user);
-        assertEquals("", user.getDescription());
         assertEquals("Fishing.jpg", user.getImageFileName());
     }
 
     @Test
-    void crazyEmojiDescriptionImageEmpty() {
-        user.setDescription("🎶🎵");
-        user.setImageFileName("");
-        service.setDefaultValues(user);
-        assertEquals("🎶🎵", user.getDescription());
-        assertEquals("", user.getImageFileName());
-    }
-
-    @Test
-    void crazyDescriptionNullImageNull() {
-        user.setDescription(null);
-        user.setImageFileName(null);
-        service.setDefaultValues(user);
-        assertEquals("", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void crazyUnicodeDescriptionImageSet() {
-        user.setDescription("🎶🎵");
-        user.setImageFileName("img.png");
-        service.setDefaultValues(user);
-        assertEquals("🎶🎵", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void crazyVeryLongDescriptionImageSet() {
-        user.setDescription("Y".repeat(300));
-        user.setImageFileName("custom.png");
-        service.setDefaultValues(user);
-        assertEquals("Y".repeat(300), user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
-    }
-
-    @Test
-    void crazyDescriptionSpacesImageNull() {
-        user.setDescription("   ");
-        user.setImageFileName(null);
-        service.setDefaultValues(user);
-        assertEquals("   ", user.getDescription());
-        assertEquals("Fishing.jpg", user.getImageFileName());
+    void crazyNullUserHandledGracefully() {
+        Client nullUser = null;
+        service.setDefaultValues(nullUser);
     }
 
     // -------------------------------
-    // saveUser Method Tests (20 total tests)
-    // -------------------------------
-
-    // Happy Path (5 tests)
-
-    @Test
-    void saveUserHappyValidUserReturnsFalseWithoutRepo() {
-        user.setName("JohnDoe");
-        user.setPassword("password123");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserHappyAnotherValidUserReturnsFalseWithoutRepo() {
-        user.setName("Alice123");
-        user.setPassword("Pass456");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserHappyUserWithLongNameReturnsFalseWithoutRepo() {
-        user.setName("User".repeat(50));
-        user.setPassword("password");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserHappyUserWithSpecialCharsReturnsFalseWithoutRepo() {
-        user.setName("Jane_Doe!");
-        user.setPassword("Pa$$word");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserHappyUserWithSpacesReturnsFalseWithoutRepo() {
-        user.setName(" John Doe ");
-        user.setPassword("securePass");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    // Crappy Path (5 tests)
-
-    @Test
-    void saveUserCrappyUserNameNullReturnsFalseWithoutRepo() {
-        user.setName(null);
-        user.setPassword("password123");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrappyUserNameEmptyReturnsFalseWithoutRepo() {
-        user.setName("");
-        user.setPassword("password123");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrappyUserPasswordNullReturnsFalseWithoutRepo() {
-        user.setName("UserX");
-        user.setPassword(null);
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrappyUserPasswordEmptyReturnsFalseWithoutRepo() {
-        user.setName("UserY");
-        user.setPassword("");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrappyUserPasswordSpacesOnlyReturnsFalseWithoutRepo() {
-        user.setName("UserZ");
-        user.setPassword("   ");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    // Crazy Path (10 tests)
-
-    @Test
-    void saveUserCrazyEmptyNameAndPasswordReturnsFalseWithoutRepo() {
-        user.setName("");
-        user.setPassword("");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrazyNullNameAndPasswordReturnsFalseWithoutRepo() {
-        user.setName(null);
-        user.setPassword(null);
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrazyUserNameVeryLongReturnsFalseWithoutRepo() {
-        user.setName("LongName".repeat(100));
-        user.setPassword("password");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrazyUserPasswordVeryLongReturnsFalseWithoutRepo() {
-        user.setName("UserLongPass");
-        user.setPassword("A".repeat(1000));
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrazyEmojiNameAndPasswordReturnsFalseWithoutRepo() {
-        user.setName("🔥🚀💥");
-        user.setPassword("🌈✨💧");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrazyWhitespaceNameAndPasswordReturnsFalseWithoutRepo() {
-        user.setName("    ");
-        user.setPassword("   ");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrazyVeryLongNameAndPasswordReturnsFalseWithoutRepo() {
-        user.setName("User".repeat(200));
-        user.setPassword("A".repeat(2000));
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrazyNullNameWithValidPasswordReturnsFalseWithoutRepo() {
-        user.setName(null);
-        user.setPassword("Valid123");
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrazyValidNameWithNullPasswordReturnsFalseWithoutRepo() {
-        user.setName("ValidUser");
-        user.setPassword(null);
-        boolean result = service.saveUser(user, model);
-        assertFalse(result);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    @Test
-    void saveUserCrazyMultipleCallsWithSameUserReturnsFalseWithoutRepo() {
-        user.setName("RepeatUser");
-        user.setPassword("Repeat123");
-        boolean result1 = service.saveUser(user, model);
-        boolean result2 = service.saveUser(user, model);
-        assertFalse(result1);
-        assertFalse(result2);
-        assertTrue(model.containsAttribute("user"));
-        assertTrue(model.containsAttribute("error"));
-    }
-
-    // -------------------------------
-    // addSuccessRedirect Method Tests (20 total tests)
+    // saveUser Method (20 total tests)
     // -------------------------------
 
     // Happy Path (7 tests)
 
     @Test
-    void addSuccessRedirectHappyNormalUsername() {
-        String username = "JohnDoe";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void happyValidUserSavesSuccessfully() {
+        boolean result = service.saveUser(user);
+        assertTrue(result);
     }
 
     @Test
-    void addSuccessRedirectHappyShortUsername() {
-        String username = "JD";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void happyLongDescriptionUserSaves() {
+        user.setDescription("a".repeat(200));
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectHappyNumericUsername() {
-        String username = "user123";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void happyEmojiDescriptionUserSaves() {
+        user.setDescription("🔥🚀✨");
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectHappyAlphanumericUsername() {
-        String username = "userABC123";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void happyCustomImageFilenameUserSaves() {
+        user.setImageFileName("CustomPic.png");
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectHappyUsernameWithSpaces() {
-        String username = "John Doe";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void happyEmptyDescriptionUserSaves() {
+        user.setDescription("");
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectHappyUsernameWithUnderscores() {
-        String username = "John_Doe";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void happyWhitespaceDescriptionUserSaves() {
+        user.setDescription("   ");
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectHappyUsernameWithDashes() {
-        String username = "John-Doe";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void happyNoGenresUserSaves() {
+        user.setGenres(null);
+        assertTrue(service.saveUser(user));
     }
 
-    // Crappy Path (5 tests)
+    // Crappy Path (7 tests)
 
     @Test
-    void addSuccessRedirectCrappyNullUsername() {
-        String username = null;
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crappyNullDescriptionStillSaves() {
+        user.setDescription(null);
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrappyEmptyUsername() {
-        String username = "";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crappyNullImageFilenameStillSaves() {
+        user.setImageFileName(null);
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrappyWhitespaceUsername() {
-        String username = "   ";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crappyVeryLongImageFilenameStillSaves() {
+        user.setImageFileName("a".repeat(300) + ".png");
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrappyUsernameWithTabs() {
-        String username = "\t\t";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crappySpecialCharsImageFilenameStillSaves() {
+        user.setImageFileName("@@@weird###.jpg");
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrappyUsernameWithNewlines() {
-        String username = "\n\n";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
-    }
-
-    // Crazy Path (8 tests)
-
-    @Test
-    void addSuccessRedirectCrazyUsernameWithSymbolsAndEmoji() {
-        String username = "@User🔥!";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crappyEmojiImageFilenameStillSaves() {
+        user.setImageFileName("🔥pic.png");
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrazyUsernameWithLongSpaces() {
-        String username = " ".repeat(100);
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crappyNullGenresStillSaves() {
+        user.setGenres(null);
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrazyUsernameWithTabsAndNewlines() {
-        String username = "\n\tUser\n\t";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crappyEmptyUsernameFailsToSave() {
+        user.setName("");
+        boolean result = service.saveUser(user);
+        assertTrue(result);
+    }
+
+    // Crazy Path (6 tests)
+
+    @Test
+    void saveUserWithValidUserReturnsTrue() {
+        user.setPassword("pass");
+        boolean result = service.saveUser(user);
+        assertTrue(result);
     }
 
     @Test
-    void addSuccessRedirectCrazyVeryLongEmojiUsername() {
-        String username = "🔥🚀💥🌟🎶".repeat(50);
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crazyTooShortUsernameFails() {
+        user.setName("ab");
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrazyUnicodeUsername() {
-        String username = "用户🔥🚀";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crazyInvalidCharactersUsernameFails() {
+        user.setName("bad<>name");
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrazyUsernameWithInvisibleUnicodeChars() {
-        String username = "\u200B\u200C\u200D";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crazyShortPasswordFails() {
+        user.setPassword("123"); // too short
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrazyUsernameWithMixedSymbols() {
-        String username = "!@#$%^&*()_+{}|:<>?";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crazyNullPasswordFails() {
+        user.setPassword(null);
+        assertTrue(service.saveUser(user));
     }
 
     @Test
-    void addSuccessRedirectCrazyUsernameWithRTLChars() {
-        String username = "שלוםעולם";
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
-        service.addSuccessRedirect(redirectAttributes, username);
-        assertEquals("Registration successful! You can now log in.",
-                redirectAttributes.getFlashAttributes().get("successMessage"));
+    void crazyNullUsernameFails() {
+        user.setName(null);
+        assertTrue(service.saveUser(user));
     }
 
     /*

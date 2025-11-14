@@ -30,7 +30,4 @@ public interface PlaylistRepo extends JpaRepository<Playlist, Long> {
      * @return a list of {@link Playlist} objects associated with the given client ID
      */
     List<Playlist> findByClientID(Long clientID);
-
-
-    List<Playlist> getPlaylistsById(Long playlistId);
 }

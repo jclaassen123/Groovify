@@ -2,8 +2,7 @@ package com.groovify.web.controller;
 
 import com.groovify.jpa.model.Client;
 import com.groovify.service.RegisterService;
-import com.groovify.validation.OnCreate;
-import jakarta.validation.Valid;
+import com.groovify.validation.RegexUtil;
 import jakarta.validation.groups.Default;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,7 +45,6 @@ public class RegisterController {
     public String showRegistrationForm(Model model) {
         log.debug("Displaying registration form");
 
-        // Only add a new Client if one doesn’t already exist (to preserve user input on redisplay)
         if (!model.containsAttribute("user")) {
             model.addAttribute("user", new Client());
         }
@@ -65,23 +63,43 @@ public class RegisterController {
      */
     @PostMapping("/register")
     public String registerUser(
-            @Validated({Default.class, OnCreate.class}) @ModelAttribute("user") Client user,
+            @Validated({Default.class}) @ModelAttribute("user") Client user,
             BindingResult result,
             Model model,
             RedirectAttributes redirectAttributes) {
 
-        // Log the attempt
         log.info("User '{}' attempting to register", user.getName());
 
-        // Validation errors
+        // --- NEW: Regex validation for user feedback ---
+        if (!result.hasErrors()) { // only check regex if basic validation passed
+            if (RegexUtil.isUsernameValid(user.getName())) {
+                result.rejectValue("name", "invalid", "Username can only contain letters, numbers, dots, underscores, or hyphens.");
+            }
+            if (RegexUtil.isPasswordValid(user.getPassword())) {
+                result.rejectValue("password", "invalid", "Password cannot contain: <>\"'%;()&+");
+            }
+        }
+
+        // Handle validation errors (from @Valid/@Validated or regex)
         if (result.hasErrors()) {
             log.debug("Validation errors for user '{}': {}", user.getName(), result.getAllErrors());
             model.addAttribute("user", user);
             return "register";
         }
 
-        // Delegate to service for saving user
-        return registerService.registerUser(user, result, model, redirectAttributes);
+        // Delegate to service (pure business logic)
+        boolean success = registerService.registerUser(user);
+
+        if (success) {
+            redirectAttributes.addFlashAttribute("successMessage", "Registration successful! You can now log in.");
+            log.info("User '{}' successfully registered", user.getName());
+            return "redirect:/"; // or redirect to home if you prefer
+        } else {
+            model.addAttribute("user", user);
+            model.addAttribute("error", "Registration failed. Username may already exist or internal error occurred.");
+            log.warn("Registration failed for user '{}'", user.getName());
+            return "register";
+        }
     }
 
 }
