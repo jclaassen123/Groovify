@@ -93,7 +93,7 @@ public class RegisterController {
         if (success) {
             redirectAttributes.addFlashAttribute("successMessage", "Registration successful! You can now log in.");
             log.info("User '{}' successfully registered", user.getName());
-            return "redirect:/"; // or redirect to home if you prefer
+            return "redirect:/";
         } else {
             model.addAttribute("user", user);
             model.addAttribute("error", "Registration failed. Username may already exist or internal error occurred.");

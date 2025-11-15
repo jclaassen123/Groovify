@@ -1,11 +1,6 @@
 package com.groovify.jpa.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,13 +24,9 @@ public class Client {
     @Column(name = "description")
     private String description = "";
 
-    @NotBlank(message = "Username cannot be empty")
-    @Size(min = 3, max = 32, message = "Username must be between 3 and 32 characters.")
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @NotBlank(message = "Password cannot be empty")
-    @Size(min = 6, max = 100, message = "Password must be between 6 and 100 characters.")
     @Column(nullable = false)
     private String password;
 
@@ -146,13 +137,7 @@ public class Client {
      * @return the valid profile image file name
      */
     public String getImageFileName() {
-        String defaultImage = "Fishing.jpg";
-        Path imagesFolder = Paths.get("src/main/resources/static/images/profile/");
-
-        if (imageFileName == null) return defaultImage;
-
-        Path imagePath = imagesFolder.resolve(imageFileName);
-        return Files.exists(imagePath) ? imageFileName : defaultImage;
+        return imageFileName;
     }
 
     /**

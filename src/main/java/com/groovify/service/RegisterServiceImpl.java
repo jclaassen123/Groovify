@@ -8,6 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Optional;
 
 /**
@@ -174,10 +177,25 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public void setDefaultValues(Client user) {
         if (user == null) return;
-        if (user.getDescription() == null || user.getDescription().isBlank()) user.setDescription("");
-        if (user.getImageFileName() == null || user.getImageFileName().isBlank()) user.setImageFileName("Fishing.jpg");
+
+        if (user.getDescription() == null || user.getDescription().isBlank())
+            user.setDescription("");
+
+        if (user.getImageFileName() == null || user.getImageFileName().isBlank())
+            user.setImageFileName("Fishing.jpg");
+        else {
+            Path imagesFolder = Paths.get("src/main/resources/static/images/profile/");
+            Path imagePath = imagesFolder.resolve(user.getImageFileName());
+
+            // If file doesn't exist, set default
+            if (!Files.exists(imagePath)) {
+                user.setImageFileName("Fishing.jpg");
+            }
+        }
+
         log.debug("Default values applied for optional fields for '{}'", user.getName());
     }
+
 
     /**
      * Attempts to persist the user to the database.
