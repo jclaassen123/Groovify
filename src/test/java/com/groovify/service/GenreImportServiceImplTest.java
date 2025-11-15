@@ -1,11 +1,8 @@
 package com.groovify.service;
-
-import com.groovify.StartupImportRunner;
 import com.groovify.jpa.model.Genre;
 import com.groovify.jpa.repo.GenreRepo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,12 +12,9 @@ import java.util.List;
 
 import static org.springframework.test.util.AssertionErrors.*;
 
-@SpringBootTest
+@SpringBootTest(properties = {"groovify.import.genres.enabled=false"})
 @Transactional
 class GenreImportServiceImplTest {
-
-    @Mock
-    private StartupImportRunner startupImportRunner;
 
     @Autowired
     private GenreImportService genreImportService;
