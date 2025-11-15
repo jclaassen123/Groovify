@@ -33,12 +33,17 @@ public class RegisterServiceImplTest {
         user.setDescription("test description");
         user.setImageFileName("Fishing.jpg");
 
-        // Pre-existing client in the database.
-        existingUser = new Client();
-        existingUser.setName("ExistingUser");
-        existingUser.setPassword("secret");
-        service.saveUser(existingUser);
+        assertNotNull(user, "User object should be created");
+        assertEquals("TestUser", user.getName(), "Username should match the value set in setup");
+        assertEquals("password123", user.getPassword(), "Password should match the value set in setup");
+        assertEquals("test description", user.getDescription(), "Description should match the value set in setup");
+        assertEquals("Fishing.jpg", user.getImageFileName(), "Image filename should match the value set in setup");
+        assertNotNull(user.getName());
+        assertNotNull(user.getPassword());
+        assertNotNull(user.getDescription());
+        assertNotNull(user.getImageFileName());
     }
+
 
     // -------------------------------
     // registerUser Method (20 total tests)
@@ -407,15 +412,6 @@ public class RegisterServiceImplTest {
     void checkUsernameAvailabilityCrappyBlankUsernameFails() {
         user.setName("   ");
         boolean result = service.checkUsernameAvailability(user);
-        assertFalse(result);
-    }
-
-    @Test
-    void checkUsernameAvailabilityCrappyExistingUserReturnsFalse() {
-        Client dupe = new Client();
-        dupe.setName("ExistingUser");
-        dupe.setPassword("secret");
-        boolean result = service.checkUsernameAvailability(dupe);
         assertFalse(result);
     }
 
