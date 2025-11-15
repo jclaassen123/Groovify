@@ -5,6 +5,7 @@ import com.groovify.service.SongImportImpl;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,6 +18,11 @@ import java.util.List;
  * </p>
  */
 @Component
+@ConditionalOnProperty(
+        name = "groovify.import.genres.enabled",
+        havingValue = "true",
+        matchIfMissing = true
+)
 public class StartupImportRunner {
 
     private static final Logger log = LoggerFactory.getLogger(StartupImportRunner.class);

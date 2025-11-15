@@ -2,17 +2,18 @@ package com.groovify.service;
 
 import com.groovify.jpa.model.Genre;
 import com.groovify.jpa.repo.GenreRepo;
-import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
- * Implementation of {@link GenreImportService} for importing and managing genres.
+ * Service implementation for importing and managing music genres in the database.
  * <p>
- * Handles checking for existing genres, saving new genres, and batch importing
- * a list of genre names.
+ * This service provides methods to import a list of genres, check for the existence
+ * of a genre, and save individual genres. It ensures that genres are not duplicated.
+ * </p>
  */
 @Service
 public class GenreImportServiceImpl implements GenreImportService {
@@ -22,24 +23,32 @@ public class GenreImportServiceImpl implements GenreImportService {
     private final GenreRepo genreRepo;
 
     /**
-     * Constructs a GenreImportServiceImpl with the given GenreRepo.
+     * Constructs a new {@code GenreImportServiceImpl} with the given {@link GenreRepo}.
      *
-     * @param genreRepo repository for accessing and saving Genre entities
+     * @param genreRepo the repository used to persist and query genres
      */
     public GenreImportServiceImpl(GenreRepo genreRepo) {
         this.genreRepo = genreRepo;
     }
 
     /**
-     * Imports a list of genres, saving any that do not already exist.
+     * Imports a list of genre names into the database.
+     * <p>
+     * Skips null or empty names and does not re-import genres that already exist.
+     * </p>
      *
-     * @param genreNames the list of genre names to import
+     * @param genreNames a list of genre names to import
      */
     @Override
     public void importGenres(List<String> genreNames) {
+        if (genreNames == null || genreNames.isEmpty()) return;
+
         for (String name : genreNames) {
+            if (name == null || name.trim().isEmpty()) {
+                log.debug("Skipping null or empty genre name");
+                continue;
+            }
             if (!genreExists(name)) {
-                log.info("Importing new genre '{}'", name);
                 saveGenre(name);
             } else {
                 log.debug("Genre '{}' already exists, skipping import", name);
@@ -48,29 +57,43 @@ public class GenreImportServiceImpl implements GenreImportService {
     }
 
     /**
-     * Checks if a genre with the given name already exists in the database.
+     * Checks if a genre with the given name exists in the database.
      *
      * @param name the genre name to check
-     * @return true if the genre exists, false otherwise
+     * @return {@code true} if the genre exists, {@code false} otherwise
      */
     @Override
     public boolean genreExists(String name) {
-        boolean exists = genreRepo.findByName(name).isPresent();
-        log.debug("Genre '{}' exists: {}", name, exists);
-        return exists;
+        if (name == null || name.trim().isEmpty()) return false;
+        return genreRepo.findByName(name).isPresent();
     }
 
     /**
-     * Saves a new genre with the specified name to the database.
+     * Saves a single genre into the database.
+     * <p>
+     * Does nothing and returns {@code false} if the name is null, empty, or
+     * the genre already exists.
+     * </p>
      *
      * @param name the genre name to save
-     * @return the saved Genre entity
+     * @return {@code true} if the genre was successfully saved, {@code false} otherwise
      */
     @Override
-    public Genre saveGenre(String name) {
-        Genre genre = new Genre(name);
-        Genre savedGenre = genreRepo.save(genre);
+    public boolean saveGenre(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            log.warn("Cannot save genre: name is null or empty");
+            return false;
+        }
+
+        if (genreExists(name)) {
+            log.info("Genre '{}' already exists, skipping save", name);
+            return false;
+        }
+
+        Genre genre = new Genre(name.trim());
+        genreRepo.save(genre);
         log.info("Saved new genre '{}'", name);
-        return savedGenre;
+        return true;
     }
+
 }
