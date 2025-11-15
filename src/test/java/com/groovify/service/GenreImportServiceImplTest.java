@@ -12,8 +12,8 @@ import java.util.List;
 
 import static org.springframework.test.util.AssertionErrors.*;
 
-@SpringBootTest(properties = {"groovify.import.genres.enabled=false"})
 @Transactional
+@SpringBootTest
 class GenreImportServiceImplTest {
 
     @Autowired

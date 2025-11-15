@@ -13,13 +13,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(properties = {"groovify.import.genres.enabled=false"})
 @Transactional
+@SpringBootTest(properties = {"groovify.import.genres.enabled=false"})
 public class RecommendationServiceTest {
 
     @Autowired
