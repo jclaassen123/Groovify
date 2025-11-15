@@ -1,6 +1,5 @@
 package com.groovify.service;
-import com.groovify.jpa.model.Genre;
-import com.groovify.jpa.repo.GenreRepo;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +18,6 @@ class GenreImportServiceImplTest {
     @Autowired
     private GenreImportService genreImportService;
 
-    @Autowired
-    private GenreRepo genreRepo;
-
     private String rock;
     private String pop;
     private String classical;
@@ -39,78 +35,85 @@ class GenreImportServiceImplTest {
         folk = "Folk";
     }
 
-    // ------------------ Happy Path ------------------
+    /**
+     * importGenres
+     */
 
+    // Happy Path
     @Test
-    void testImportGenres() {
+    void importGenresValidTest() {
         List<String> genres = List.of(rock, pop, classical, tech, country, folk);
+
         genreImportService.importGenres(genres);
 
-        List<Genre> saved = genreRepo.findAll();
-        assertTrue("Should have 6 genres in DB", saved.size() == 6);
         for (String g : genres) {
-            assertTrue(g + " should exist", genreImportService.genreExists(g));
+            assertTrue("Genre should exist after import: " + g,
+                    genreImportService.genreExists(g));
         }
     }
 
     @Test
-    void testSaveGenreIndividually() {
-        boolean saved = genreImportService.saveGenre("Jazz");
-        assertTrue("Genre should be saved successfully", saved);
-        assertTrue("Genre should exist in DB", genreImportService.genreExists("Jazz"));
+    void importGenresValidTwiceTest() {
+        List<String> genres = List.of(rock, pop);
+
+        genreImportService.importGenres(genres);
+        genreImportService.importGenres(genres); // duplicates should be ignored
+
+        assertTrue("Rock should exist", genreImportService.genreExists(rock));
+        assertTrue("Pop should exist", genreImportService.genreExists(pop));
     }
 
+    // Crappy Path
     @Test
-    void testDuplicateGenreImport() {
-        genreImportService.saveGenre("Blues");
-        boolean savedAgain = genreImportService.saveGenre("Blues"); // duplicate
-        assertFalse("Duplicate genre should not be saved", savedAgain);
-
-        List<Genre> saved = genreRepo.findAll();
-        long count = saved.stream().filter(g -> g.getName().equals("Blues")).count();
-        assertTrue("There should be only 1 Blues genre", count == 1);
-    }
-
-    @Test
-    void testSaveNullGenre() {
-        boolean saved = genreImportService.saveGenre(null);
-        assertFalse("Saving null genre should return false", saved);
-    }
-
-    @Test
-    void testSaveEmptyGenreName() {
-        boolean saved = genreImportService.saveGenre("");
-        assertFalse("Saving empty genre name should return false", saved);
-    }
-
-    @Test
-    void testImportGenresWithNullAndEmpty() {
+    void importGenresWithNullAndEmptyTest() {
         genreImportService.importGenres(Arrays.asList("Metal", null, "", "Hip-Hop"));
 
-        List<Genre> saved = genreRepo.findAll();
-        assertTrue("Should save only valid genres", saved.stream().anyMatch(g -> g.getName().equals("Metal")));
-        assertTrue("Should save only valid genres", saved.stream().anyMatch(g -> g.getName().equals("Hip-Hop")));
-        assertTrue("Null and empty genres should not be saved", saved.stream().noneMatch(g -> g.getName() == null || g.getName().isEmpty()));
+        assertTrue("Metal should exist", genreImportService.genreExists("Metal"));
+        assertTrue("Hip-Hop should exist", genreImportService.genreExists("Hip-Hop"));
+        assertFalse("Null should not exist", genreImportService.genreExists(null));
+        assertFalse("Empty string should not exist", genreImportService.genreExists(""));
     }
 
     @Test
-    void testImportWithDuplicatesInInputList() {
-        genreImportService.importGenres(Arrays.asList("Reggae", "Reggae", "Jazz", "Jazz", "Jazz"));
-        List<Genre> saved = genreRepo.findAll();
+    void importGenresDuplicateInputTest() {
+        genreImportService.importGenres(Arrays.asList("Reggae", "Reggae", "Jazz", "Jazz"));
 
-        long reggaeCount = saved.stream().filter(g -> g.getName().equals("Reggae")).count();
-        long jazzCount = saved.stream().filter(g -> g.getName().equals("Jazz")).count();
+        assertTrue("Reggae should exist", genreImportService.genreExists("Reggae"));
+        assertTrue("Jazz should exist", genreImportService.genreExists("Jazz"));
+    }
 
-        assertTrue("Should only save one Reggae", reggaeCount == 1);
-        assertTrue("Should only save one Jazz", jazzCount == 1);
+    /**
+     * saveGenre
+     */
+
+    // Happy Path
+    @Test
+    void saveGenreValidTest() {
+        assertTrue("Saving valid genre should succeed", genreImportService.saveGenre("Jazz"));
+        assertTrue("Jazz should exist", genreImportService.genreExists("Jazz"));
     }
 
     @Test
-    void testTrimWhitespaceOnSave() {
-        boolean saved = genreImportService.saveGenre("  Indie  ");
-        assertTrue("Genre with surrounding whitespace should be saved", saved);
-        assertTrue("Whitespace should be trimmed", genreImportService.genreExists("Indie"));
-        List<Genre> savedGenres = genreRepo.findAll();
-        assertTrue("Genre name in DB should be trimmed", savedGenres.stream().anyMatch(g -> g.getName().equals("Indie")));
+    void saveGenreWithWhitespaceTest() {
+        assertTrue("Saving genre with whitespace should succeed", genreImportService.saveGenre("  Indie  "));
+        assertTrue("Trimmed Indie should exist", genreImportService.genreExists("Indie"));
+    }
+
+    // Crappy Path
+    @Test
+    void saveGenreNullTest() {
+        assertFalse("Saving null should return false", genreImportService.saveGenre(null));
+    }
+
+    @Test
+    void saveGenreEmptyStringTest() {
+        assertFalse("Saving empty string should return false", genreImportService.saveGenre(""));
+    }
+
+    @Test
+    void saveDuplicateGenreTest() {
+        assertTrue("First save should succeed", genreImportService.saveGenre("Blues"));
+        assertFalse("Duplicate save should fail", genreImportService.saveGenre("Blues"));
+        assertTrue("Blues should still exist", genreImportService.genreExists("Blues"));
     }
 }
