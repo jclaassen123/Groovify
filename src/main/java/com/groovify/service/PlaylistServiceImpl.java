@@ -103,6 +103,16 @@ public class PlaylistServiceImpl implements PlaylistService {
                 return false;
             }
 
+            if (playlist.getName() == null) {
+                log.error("Playlist titled {} has null name", playlist.getName());
+                return false;
+            }
+
+            if (playlist.getDescription() == null) {
+                log.error("Playlist titled {} has null description", playlist.getName());
+                return false;
+            }
+
             playlistRepo.save(playlist);
             log.info("Playlist {} saved", playlist.getId());
             return true;

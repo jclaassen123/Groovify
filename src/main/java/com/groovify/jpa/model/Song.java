@@ -137,6 +137,12 @@ public class Song {
         this.id = id;
     }
 
+    /**
+     * Sets the title for this song.
+     * @param title
+     */
+    public void setTitle(String title) {this.title = title;}
+
     // ------------------ Object Overrides ------------------
 
     /**
