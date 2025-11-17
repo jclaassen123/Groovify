@@ -19,7 +19,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Transactional
-@SpringBootTest(properties = {"groovify.import.genres.enabled=false"})
+@SpringBootTest
 public class RecommendationServiceTest {
 
     @Autowired

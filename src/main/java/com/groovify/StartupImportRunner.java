@@ -20,8 +20,7 @@ import java.util.List;
 @Component
 @ConditionalOnProperty(
         name = "groovify.import.genres.enabled",
-        havingValue = "true",
-        matchIfMissing = true
+        havingValue = "true"
 )
 public class StartupImportRunner {
 
