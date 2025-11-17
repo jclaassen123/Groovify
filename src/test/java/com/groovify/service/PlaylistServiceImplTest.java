@@ -94,6 +94,11 @@ public class PlaylistServiceImplTest {
         assertNull("Return false with invalid playlist", playlistService.getPlaylistById(1001L));
     }
 
+    @Test
+    public void getPlaylistByNullIdTest() {
+        assertNull("Return false with invalid playlist", playlistService.getPlaylistById(null));
+    }
+
 
     /**
      *  getPlaylistsByClientID

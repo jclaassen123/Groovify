@@ -154,6 +154,12 @@ public class PlaylistServiceImpl implements PlaylistService {
     @Override
     public Playlist getPlaylistById(Long id) {
         log.info("Getting playlist {}", id);
+
+        if (id == null) {
+            log.error("Playlist id is null");
+            return null;
+        }
+
         return playlistRepo.findById(id).orElse(null);
     }
 
