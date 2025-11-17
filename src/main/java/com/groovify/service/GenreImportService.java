@@ -1,20 +1,12 @@
 package com.groovify.service;
 
-import com.groovify.jpa.model.Genre;
-
 import java.util.List;
 
-/**
- * Service interface responsible for importing and managing genres.
- * <p>
- * Provides methods to import a list of genre names, check for the existence
- * of a genre, and save a new genre to the database.
- */
 public interface GenreImportService {
 
     /**
-     * Imports a list of genres by name. Existing genres should be skipped
-     * or handled according to implementation logic.
+     * Imports a list of genres by name.
+     * Existing genres or invalid names are skipped.
      *
      * @param genreNames the list of genre names to import
      */
@@ -30,9 +22,10 @@ public interface GenreImportService {
 
     /**
      * Saves a new genre with the given name to the database.
+     * Null, empty, or duplicate names are ignored.
      *
      * @param name the genre name to save
-     * @return the saved Genre entity
+     * @return true if the genre was saved, false if skipped
      */
-    Genre saveGenre(String name);
+    boolean saveGenre(String name);
 }

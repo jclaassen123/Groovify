@@ -96,7 +96,7 @@ public class LandingController {
 
             // Add flash message to show error after redirect
             attrs.addFlashAttribute("errorMessage", "Invalid username or password.");
-            return "redirect:"; // stays on landing page, with error message
+            return "redirect:/"; // stays on landing page, with error message
         }
 
         // --- Success: store session + redirect to home ---

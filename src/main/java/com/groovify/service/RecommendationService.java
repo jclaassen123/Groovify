@@ -40,7 +40,9 @@ public class RecommendationService {
      * Generates a temporary recommended songs list for the given user.
      * <ul>
      *     <li>If the user has preferred genres, randomly chooses one of them and returns up to 5 random songs from it.</li>
+     *     <li>If fewer than 5 songs exist in the chosen genre, fills the remaining slots with random songs from the full database.</li>
      *     <li>If no preferred genres exist or genre has no songs, returns up to 5 random songs from the entire database.</li>
+     *     <li>Ensures that the total number of recommended songs does not exceed the total number of songs in the database.</li>
      * </ul>
      *
      * @param user the user for whom recommendations are generated
@@ -49,31 +51,103 @@ public class RecommendationService {
     public List<Song> getRecommendedSongs(Client user) {
         log.debug("Generating recommended songs for user '{}'", user.getName());
 
-        List<Genre> userGenres = user.getGenres();
-
-        if (userGenres != null && !userGenres.isEmpty()) {
-            // Pick one random genre from the user's preferred genres
-            Genre chosenGenre = userGenres.get(random.nextInt(userGenres.size()));
-            Long genreId = chosenGenre.getId();
-            log.debug("Chosen genre '{}' (ID: {}) for recommendations", chosenGenre.getName(), genreId);
-
-            // Fetch songs of that genre
-            List<Song> songsOfGenre = songRepo.findByGenreId(genreId);
-
-            if (!songsOfGenre.isEmpty()) {
-                Collections.shuffle(songsOfGenre);
-                List<Song> recommended = songsOfGenre.stream().limit(5).collect(Collectors.toList());
-                log.info("Returning {} recommended songs from genre '{}'", recommended.size(), chosenGenre.getName());
-                return recommended;
-            }
-            log.debug("No songs found for genre '{}', falling back to random songs", chosenGenre.getName());
+        List<Song> allSongs = getAllSongs();
+        if (allSongs.isEmpty()) {
+            log.info("No songs in database, returning empty list");
+            return Collections.emptyList();
         }
 
-        // Fallback: return random 5 songs from the entire song database
-        List<Song> allSongs = songRepo.findAll();
-        Collections.shuffle(allSongs);
-        List<Song> recommended = allSongs.stream().limit(5).collect(Collectors.toList());
-        log.info("Returning {} recommended songs from full database", recommended.size());
-        return recommended;
+        int maxRecommendations = Math.min(5, allSongs.size());
+
+        if (userHasPreferredGenres(user)) {
+            Genre chosenGenre = pickRandomGenre(user);
+            List<Song> recommended = getSongsFromGenre(chosenGenre, maxRecommendations);
+
+            int remaining = maxRecommendations - recommended.size();
+            if (remaining > 0) {
+                recommended.addAll(getRandomSongsExcluding(allSongs, recommended, remaining));
+            }
+
+            log.info("Returning {} recommended songs ({} from genre '{}')",
+                    recommended.size(), recommended.size() - remaining, chosenGenre.getName());
+            return recommended;
+        }
+
+        // Fallback
+        return getRandomSongs(allSongs, maxRecommendations);
+    }
+
+    /**
+     * Fetches all songs from the repository.
+     *
+     * @return a list of all songs in the database
+     */
+    private List<Song> getAllSongs() {
+        return songRepo.findAll();
+    }
+
+    /**
+     * Checks whether the user has any preferred genres.
+     *
+     * @param user the user to check
+     * @return true if the user has preferred genres, false otherwise
+     */
+    private boolean userHasPreferredGenres(Client user) {
+        List<Genre> genres = user.getGenres();
+        return genres != null && !genres.isEmpty();
+    }
+
+    /**
+     * Picks a random genre from the user's preferred genres.
+     *
+     * @param user the user whose genres are considered
+     * @return a randomly chosen genre
+     */
+    private Genre pickRandomGenre(Client user) {
+        List<Genre> genres = user.getGenres();
+        Genre chosenGenre = genres.get(random.nextInt(genres.size()));
+        log.debug("Chosen genre '{}' (ID: {}) for recommendations", chosenGenre.getName(), chosenGenre.getId());
+        return chosenGenre;
+    }
+
+    /**
+     * Returns a list of songs from the specified genre, shuffled and limited to the given number.
+     *
+     * @param genre the genre from which to fetch songs
+     * @param limit the maximum number of songs to return
+     * @return a list of songs from the genre
+     */
+    private List<Song> getSongsFromGenre(Genre genre, int limit) {
+        List<Song> songs = songRepo.findByGenreId(genre.getId());
+        Collections.shuffle(songs);
+        return songs.stream().limit(limit).collect(Collectors.toList());
+    }
+
+    /**
+     * Returns a list of random songs from the full song list, excluding those in the provided exclusion list.
+     *
+     * @param allSongs the list of all available songs
+     * @param exclude  the list of songs to exclude
+     * @param limit    the maximum number of songs to return
+     * @return a list of random songs excluding the specified songs
+     */
+    private List<Song> getRandomSongsExcluding(List<Song> allSongs, List<Song> exclude, int limit) {
+        List<Song> remaining = allSongs.stream()
+                .filter(song -> !exclude.contains(song))
+                .collect(Collectors.toList());
+        Collections.shuffle(remaining);
+        return remaining.stream().limit(limit).collect(Collectors.toList());
+    }
+
+    /**
+     * Returns a list of random songs from the provided list, limited to the given number.
+     *
+     * @param songs the list of songs to choose from
+     * @param limit the maximum number of songs to return
+     * @return a list of random songs
+     */
+    private List<Song> getRandomSongs(List<Song> songs, int limit) {
+        Collections.shuffle(songs);
+        return songs.stream().limit(limit).collect(Collectors.toList());
     }
 }
