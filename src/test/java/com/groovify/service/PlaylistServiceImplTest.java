@@ -99,7 +99,6 @@ public class PlaylistServiceImplTest {
         assertNull("Return false with invalid playlist", playlistService.getPlaylistById(null));
     }
 
-
     /**
      *  getPlaylistsByClientID
      *  */
@@ -131,6 +130,17 @@ public class PlaylistServiceImplTest {
     @Test
     public void getPlaylistByClientIdInvalidTest() {
         assertTrue("Return true with an empty list", playlistService.getPlaylistsByClientId(clientID + 1).equals(List.of()));
+    }
+
+    @Test
+    public void getPlaylistByClientIdInvalidTwiceTest() {
+        assertTrue("Return true with an empty list", playlistService.getPlaylistsByClientId(clientID + 1).equals(List.of()));
+        assertTrue("Return true with an empty list", playlistService.getPlaylistsByClientId(clientID + 1).equals(List.of()));
+    }
+
+    @Test
+    public void getPlaylistByClientIdNullTest() {
+        assertTrue("Return true with an empty list", playlistService.getPlaylistsByClientId(null).equals(List.of()));
     }
 
     /**
@@ -170,6 +180,13 @@ public class PlaylistServiceImplTest {
     @Test
     public void getSongsInvalidPlaylistTest() {
         assertTrue("Return true with empty list", playlistService.getSongs(1000L).isEmpty());
+    }
+
+    @Test
+    public void getSongsInvalidPlaylistTwiceTest() {
+        assertTrue("Return true with empty list", playlistService.getSongs(1000L).isEmpty());
+        assertTrue("Return true with empty list", playlistService.getSongs(1001L).isEmpty());
+
     }
 
     // TODO null test for getters?
@@ -497,7 +514,7 @@ public class PlaylistServiceImplTest {
 
     /**
      * Make a test playlist for unit tests to use
-     * @return Basic playlist with
+     * @return Basic playlist with placeholder properties
      */
     private Playlist makeTestPlaylist() {
         Playlist playlist = new Playlist();
