@@ -73,9 +73,16 @@ public class PlaylistServiceImpl implements PlaylistService {
     @Override
     public List<Song> getSongs(Long playlistId) {
         log.info("Getting songs for Playlist {}", playlistId);
+
+        if (playlistId == null) {
+            log.error("Playlistid is null");
+            return List.of();
+        }
+
         Playlist playlist = playlistRepo.findById(playlistId).orElse(null);
+
         if (playlist == null) {
-            log.warn("Song in playlist not found");
+            log.warn("Playlist not found");
             return List.of();
         }
 
