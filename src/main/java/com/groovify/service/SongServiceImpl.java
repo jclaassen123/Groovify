@@ -80,6 +80,28 @@ public class SongServiceImpl implements SongService {
         return songRepo.findByGenreNameContainingIgnoreCase(genre);
     }
 
+    /**
+     * Check if filename exists in song table
+     * @param filename to search
+     * @return Whether filename is in song table
+     */
+    @Override
+    public boolean searchSongByFilename(String filename) {
+        log.info("Searching songs by filename containing '{}'", filename);
+        if (filename == null || filename.isBlank()) {
+            log.error("Filename is null or empty");
+            return false;
+        }
+
+        try {
+            filename = filename.trim();
+            return songRepo.existsByFilename(filename);
+        } catch (Exception e) {
+            log.error("Error finding song by filename {}", e.getMessage());
+            return false;
+        }
+    }
+
     @Override
     public boolean addSong(Song song) {
         songRepo.save(song);

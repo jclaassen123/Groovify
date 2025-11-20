@@ -26,7 +26,7 @@ public class SongImportImpl implements SongImportService {
 
     private static final Logger log = LoggerFactory.getLogger(SongImportImpl.class);
 
-    private final SongRepo songRepository;
+    private final SongService songService;
     private final GenreRepo genreRepository;
     private final Random random = new Random();
 
@@ -53,11 +53,11 @@ public class SongImportImpl implements SongImportService {
     /**
      * Constructs a {@code SongImportImpl} with required repositories.
      *
-     * @param songRepository  repository for accessing {@link Song} entities
+     * @param songService  repository for accessing {@link Song} entities
      * @param genreRepository repository for accessing {@link Genre} entities
      */
-    public SongImportImpl(SongRepo songRepository, GenreRepo genreRepository) {
-        this.songRepository = songRepository;
+    public SongImportImpl(SongService songService, GenreRepo genreRepository) {
+        this.songService = songService;
         this.genreRepository = genreRepository;
     }
 
@@ -162,7 +162,7 @@ public class SongImportImpl implements SongImportService {
      */
     private void processSongFile(File file, Genre genre) {
         // Skip if song already exists
-        if (songRepository.existsByFilename(file.getName())) {
+        if (songService.searchSongByFilename(file.getName())) {
             log.debug("Skipping '{}': already exists in database.", file.getName());
             return;
         }
@@ -178,7 +178,7 @@ public class SongImportImpl implements SongImportService {
             // Build and save song entity
             Song song = new Song(file.getName(), title, artist);
             song.setGenre(genre);
-            songRepository.save(song);
+            songService.addSong(song);
 
             log.info("Imported '{}': Title='{}', Artist='{}', Genre='{}'",
                     file.getName(), title, artist, genre.getName());

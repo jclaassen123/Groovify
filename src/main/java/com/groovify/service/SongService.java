@@ -37,9 +37,18 @@ public interface SongService {
     List<Song> searchSongsByGenre(String genre);
 
     /**
+     * Checks if filename is in database
+     * @param filename to search
+     * @return Whether filename is in database or not
+     */
+    boolean searchSongByFilename(String filename);
+
+    /**
      * Adds song to database
      * @param song Song to be added to Song table
      * @return If insertion was successful
      */
     boolean addSong(Song song);
+
+
 }
