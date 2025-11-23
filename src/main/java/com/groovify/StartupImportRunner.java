@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Component
 @ConditionalOnProperty(
-        name = "groovify.import.genres.enabled",
+        name = "groovify.import.SongGenre.enabled",
         havingValue = "true"
 )
 public class StartupImportRunner {
