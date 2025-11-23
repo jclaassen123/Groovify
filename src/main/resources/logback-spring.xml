@@ -38,12 +38,6 @@
      TRACE   - Most detailed information, typically only for debugging.
      -->
 
-    <!--
-      Main Method: Disable via system property when running the app
-      ./gradlew bootRun -D*LEVEL_NAME_LOG*=OFF -> turns off logging
-      ./gradlew bootRun -D*LEVEL_NAME_LOG*=*log level* -> turns on logging for desired level
-   -->
-
     <!-- Default logging level -->
     <root level="INFO">
         <appender-ref ref="Console" />
