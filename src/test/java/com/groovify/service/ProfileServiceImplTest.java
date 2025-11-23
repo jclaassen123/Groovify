@@ -14,6 +14,18 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Integration tests for {@link ProfileServiceImpl}, validating profile retrieval,
+ * username availability checks, genre retrieval, and profile update behavior.
+ * <p>
+ * All tests assume intentional behavior including:
+ * <ul>
+ *     <li>Usernames are <strong>case-sensitive</strong></li>
+ *     <li>Usernames are matched exactly with <strong>no whitespace trimming</strong></li>
+ *     <li>Returned genre lists are <strong>mutable</strong></li>
+ *     <li>{@code null} current username is treated as "different user"</li>
+ * </ul>
+ */
 @Transactional
 @SpringBootTest
 class ProfileServiceImplTest {
@@ -29,18 +41,24 @@ class ProfileServiceImplTest {
 
     private Client testUser;
 
+    /**
+     * Registers a default test user before each test.
+     */
     @BeforeEach
     void setUp() {
-        // Register a user via RegisterService
         testUser = new Client();
         testUser.setName("TestUser");
         testUser.setPassword("Password123");
         registerService.registerUser(testUser);
     }
 
-    // -------------------------
+    // ============================
     // getUserByUsername Tests
-    // -------------------------
+    // ============================
+
+    /**
+     * Verifies that retrieving an existing user by exact username returns the user.
+     */
     @Test
     void getUserByUsernameExistingReturnsUser() {
         Optional<Client> user = profileService.getUserByUsername("TestUser");
@@ -48,12 +66,18 @@ class ProfileServiceImplTest {
         assertEquals("TestUser", user.get().getName());
     }
 
+    /**
+     * Ensures that querying a non-existent username returns an empty Optional.
+     */
     @Test
     void getUserByUsernameNonExistentReturnsEmpty() {
         Optional<Client> user = profileService.getUserByUsername("NoUser");
         assertTrue(user.isEmpty());
     }
 
+    /**
+     * Ensures correct retrieval when multiple users exist.
+     */
     @Test
     void getUserByUsernameReturnsCorrectUserForMultipleUsers() {
         Client user2 = new Client();
@@ -66,36 +90,54 @@ class ProfileServiceImplTest {
         assertEquals("UserTwo", user.get().getName());
     }
 
+    /**
+     * Ensures that user lookup does not trim whitespace.
+     * Leading/trailing whitespace must be considered part of the username.
+     */
     @Test
     void getUserByUsernameLeadingTrailingWhitespaceFails() {
         Optional<Client> user = profileService.getUserByUsername(" TestUser ");
         assertTrue(user.isEmpty());
     }
 
+    /**
+     * Verifies that an empty username returns an empty result.
+     */
     @Test
     void getUserByUsernameEmptyStringReturnsEmpty() {
         Optional<Client> user = profileService.getUserByUsername("");
         assertTrue(user.isEmpty());
     }
 
+    /**
+     * Ensures that a null username returns an empty Optional.
+     */
     @Test
     void getUserByUsernameNullReturnsEmpty() {
         Optional<Client> user = profileService.getUserByUsername(null);
         assertTrue(user.isEmpty());
     }
 
+    /**
+     * Ensures username lookup is strictly case-sensitive.
+     */
     @Test
     void getUserByUsernameCaseSensitiveReturnsEmpty() {
-        Optional<Client> user = profileService.getUserByUsername("testuser"); // lowercase
+        Optional<Client> user = profileService.getUserByUsername("testuser");
         assertTrue(user.isEmpty());
     }
 
+    /**
+     * Ensures that after updating a user's username, the old name no longer resolves
+     * and the new name correctly resolves to the updated user.
+     */
     @Test
     void getUserByUsernameExactMatchAfterUpdateReturnsUpdatedUser() {
         ProfileUpdateForm form = new ProfileUpdateForm();
         form.setName("TestUserUpdated");
         form.setDescription("New description");
         form.setImageFileName("NewImage.jpg");
+
         profileService.updateProfile("TestUser", form);
 
         Optional<Client> oldNameUser = profileService.getUserByUsername("TestUser");
@@ -106,16 +148,23 @@ class ProfileServiceImplTest {
         assertEquals("TestUserUpdated", newNameUser.get().getName());
     }
 
-    // -------------------------
+    // ============================
     // getAllGenres Tests
-    // -------------------------
+    // ============================
+
+    /**
+     * Ensures the genre list is initially empty.
+     */
     @Test
     void getAllGenresInitiallyEmpty() {
         List<Genre> genres = profileService.getAllGenres();
         assertNotNull(genres);
-        assertTrue(genres.isEmpty(), "Genres list should be empty initially");
+        assertTrue(genres.isEmpty());
     }
 
+    /**
+     * Ensures genres appear after saving them via the import service.
+     */
     @Test
     void getAllGenresReturnsListAfterAddingGenres() {
         genreImportService.saveGenre("Rock");
@@ -126,6 +175,9 @@ class ProfileServiceImplTest {
         assertEquals(2, genres.size());
     }
 
+    /**
+     * Ensures the genre list contains correct genre names after insertion.
+     */
     @Test
     void getAllGenresContainsCorrectNames() {
         genreImportService.saveGenre("Jazz");
@@ -138,15 +190,22 @@ class ProfileServiceImplTest {
         assertTrue(names.contains("Blues"));
     }
 
+    /**
+     * Ensures duplicate genre names are not saved and only one entry exists.
+     */
     @Test
     void getAllGenresHandlesDuplicates() {
         genreImportService.saveGenre("Rock");
-        genreImportService.saveGenre("Rock"); // duplicate name
+        genreImportService.saveGenre("Rock");
 
         List<Genre> genres = profileService.getAllGenres();
-        assertEquals(1, genres.size(), "Duplicate genre names should not be saved");
+        assertEquals(1, genres.size());
     }
 
+    /**
+     * Ensures the list returned by {@code getAllGenres()} is mutable, and modifying it
+     * does not affect the stored data.
+     */
     @Test
     void getAllGenresListIsMutable() {
         genreImportService.saveGenre("Metal");
@@ -155,21 +214,28 @@ class ProfileServiceImplTest {
         int originalSize = genres.size();
         genres.add(new Genre("Electronic"));
 
-        assertEquals(originalSize + 1, genres.size(), "Returned list should be mutable");
+        assertEquals(originalSize + 1, genres.size());
     }
 
+    /**
+     * Ensures the genre list does not automatically clear if import is called with an empty list.
+     */
     @Test
     void getAllGenresReturnsEmptyAfterClearingGenres() {
         genreImportService.saveGenre("Country");
-        genreImportService.importGenres(List.of()); // no-op to simulate clearing, can't delete via service
+        genreImportService.importGenres(List.of()); // intentionally no-op
 
         List<Genre> genres = profileService.getAllGenres();
-        assertFalse(genres.isEmpty(), "Genres list remains until manually cleared via repo");
+        assertFalse(genres.isEmpty());
     }
 
-    // -------------------------
-// isUsernameTaken Tests
-// -------------------------
+    // ============================
+    // isUsernameTaken Tests
+    // ============================
+
+    /**
+     * Ensures usernames belonging to another user are considered taken.
+     */
     @Test
     void isUsernameTakenReturnsTrueForExistingUsernameDifferentFromCurrent() {
         Client otherUser = new Client();
@@ -178,21 +244,30 @@ class ProfileServiceImplTest {
         registerService.registerUser(otherUser);
 
         boolean taken = profileService.isUsernameTaken("OtherUser", "TestUser");
-        assertTrue(taken, "Username should be taken because it belongs to another user");
+        assertTrue(taken);
     }
 
+    /**
+     * Ensures a username is not considered taken when it matches the current user's username exactly.
+     */
     @Test
     void isUsernameTakenReturnsFalseForSameAsCurrentUsername() {
         boolean taken = profileService.isUsernameTaken("TestUser", "TestUser");
-        assertFalse(taken, "Username should not be considered taken if it's the current user's username");
+        assertFalse(taken);
     }
 
+    /**
+     * Ensures non-existent usernames are not considered taken.
+     */
     @Test
     void isUsernameTakenReturnsFalseForNonExistentUsername() {
         boolean taken = profileService.isUsernameTaken("NonExistent", "TestUser");
-        assertFalse(taken, "Username should not be taken if no user exists with that name");
+        assertFalse(taken);
     }
 
+    /**
+     * Ensures username-taken checks correctly detect multiple existing users.
+     */
     @Test
     void isUsernameTakenReturnsTrueWithMultipleUsers() {
         Client otherUser1 = new Client();
@@ -209,30 +284,46 @@ class ProfileServiceImplTest {
         assertTrue(profileService.isUsernameTaken("UserTwo", "TestUser"));
     }
 
+    /**
+     * Ensures {@code null} current username is treated as "different user",
+     * meaning an existing username is considered taken.
+     */
     @Test
     void isUsernameTakenReturnsFalseWhenCurrentUsernameIsNull() {
         boolean taken = profileService.isUsernameTaken("TestUser", null);
-        assertTrue(taken, "If currentUsername is null, existing username is considered taken");
+        assertTrue(taken);
     }
 
+    /**
+     * Ensures empty usernames are never considered taken.
+     */
     @Test
     void isUsernameTakenReturnsFalseForEmptyUsername() {
         boolean taken = profileService.isUsernameTaken("", "TestUser");
-        assertFalse(taken, "Empty username should not be considered taken");
+        assertFalse(taken);
     }
 
+    /**
+     * Ensures null usernames are never considered taken.
+     */
     @Test
     void isUsernameTakenReturnsFalseForNullUsername() {
         boolean taken = profileService.isUsernameTaken(null, "TestUser");
-        assertFalse(taken, "Null username should not be considered taken");
+        assertFalse(taken);
     }
 
+    /**
+     * Ensures username-taken checks are case-sensitive.
+     */
     @Test
     void isUsernameTakenCaseSensitiveCheck() {
         boolean taken = profileService.isUsernameTaken("testuser", "TestUser");
-        assertFalse(taken, "Username check should be case-sensitive; lowercase differs from registered username");
+        assertFalse(taken);
     }
 
+    /**
+     * Ensures usernames must match exactly and are not trimmed.
+     */
     @Test
     void isUsernameTakenReturnsTrueIfOtherUserExistsWithTrailingWhitespace() {
         Client whitespaceUser = new Client();
@@ -241,20 +332,23 @@ class ProfileServiceImplTest {
         registerService.registerUser(whitespaceUser);
 
         boolean taken = profileService.isUsernameTaken("WhitespaceUser", "TestUser");
-        assertTrue(taken, "Username with exact match including no trimming should be considered taken");
+        assertTrue(taken);
     }
 
-
-    // -------------------------
+    // ============================
     // updateProfile Tests
-    // -------------------------
+    // ============================
+
+    /**
+     * Ensures profile updates modify username, description, and image file name.
+     */
     @Test
     void updateProfileSuccessfullyUpdatesFields() {
         ProfileUpdateForm form = new ProfileUpdateForm();
         form.setName("NewName");
         form.setDescription("NewDesc");
         form.setImageFileName("new.jpg");
-        form.setGenres(List.of()); // empty genre list
+        form.setGenres(List.of());
 
         boolean updated = profileService.updateProfile("TestUser", form);
         assertTrue(updated);
@@ -265,6 +359,9 @@ class ProfileServiceImplTest {
         assertEquals("new.jpg", user.get().getImageFileName());
     }
 
+    /**
+     * Ensures updating a non-existent user returns false and performs no update.
+     */
     @Test
     void updateProfileNonExistentUserReturnsFalse() {
         ProfileUpdateForm form = new ProfileUpdateForm();
@@ -277,13 +374,16 @@ class ProfileServiceImplTest {
         assertFalse(updated);
     }
 
+    /**
+     * Ensures null genre lists clear the user's genres.
+     */
     @Test
     void updateProfileWithNullGenresClearsGenres() {
         ProfileUpdateForm form = new ProfileUpdateForm();
         form.setName("TestUser");
         form.setDescription("Desc");
         form.setImageFileName("img.jpg");
-        form.setGenres(null); // null genres
+        form.setGenres(null);
 
         profileService.updateProfile("TestUser", form);
         Optional<Client> user = profileService.getUserByUsername("TestUser");
@@ -291,6 +391,9 @@ class ProfileServiceImplTest {
         assertTrue(user.get().getGenres().isEmpty());
     }
 
+    /**
+     * Ensures trimmed names and descriptions are saved without surrounding whitespace.
+     */
     @Test
     void updateProfileTrimsNameAndDescription() {
         ProfileUpdateForm form = new ProfileUpdateForm();
@@ -300,6 +403,7 @@ class ProfileServiceImplTest {
         form.setGenres(List.of());
 
         profileService.updateProfile("TestUser", form);
+
         Optional<Client> user = profileService.getUserByUsername("TrimName");
         assertTrue(user.isPresent());
         assertEquals("TrimDesc", user.get().getDescription());

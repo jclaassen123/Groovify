@@ -11,7 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Integration tests for LoginServiceImpl using H2 database and RegisterService for user creation.
+ * Integration tests for {@link LoginService} and {@link RegisterService},
+ * verifying login validation behavior with a real H2 database.
  */
 @SpringBootTest
 @Transactional
@@ -28,6 +29,10 @@ class LoginServiceImplTest {
     private String password1;
     private String password2;
 
+    /**
+     * Sets up two test users before each test, ensuring they are saved
+     * with hashed passwords and unique salts.
+     */
     @BeforeEach
     void setUp() {
         password1 = "Password123!";
@@ -54,29 +59,44 @@ class LoginServiceImplTest {
     // Happy Path Tests (Good)
     // -------------------------------
 
+    /**
+     * Verifies correct credentials return true for multiple users.
+     */
     @Test
     void validateClientWithCorrectCredentialsReturnsTrue() {
         assertTrue(loginService.validateClient("UserOne", password1));
         assertTrue(loginService.validateClient("UserTwo", password2));
     }
 
+    /**
+     * Ensures username lookup is case-insensitive.
+     */
     @Test
     void validateClientUsernameCaseInsensitiveReturnsTrue() {
         assertTrue(loginService.validateClient("userone", password1));
         assertTrue(loginService.validateClient("usertwo", password2));
     }
 
+    /**
+     * Ensures login succeeds when username contains surrounding whitespace.
+     */
     @Test
     void validateClientWithLeadingTrailingWhitespaceReturnsTrue() {
         assertTrue(loginService.validateClient("  UserOne  ", password1));
     }
 
+    /**
+     * Confirms multiple users can authenticate successfully.
+     */
     @Test
     void validateClientMultipleUsersValidCredentialsTest() {
         assertTrue(loginService.validateClient("UserOne", password1));
         assertTrue(loginService.validateClient("UserTwo", password2));
     }
 
+    /**
+     * Ensures login works for newly registered users beyond the initial setup.
+     */
     @Test
     void validateClientAfterRegisteringAdditionalUserReturnsTrue() {
         Client user3 = new Client();
@@ -88,6 +108,9 @@ class LoginServiceImplTest {
         assertTrue(loginService.validateClient("UserThree", "Pass123!"));
     }
 
+    /**
+     * Ensures repeated successful logins do not cause state issues.
+     */
     @Test
     void validateClientDoesNotFailAfterMultipleSuccessfulLogins() {
         for (int i = 0; i < 5; i++) {
@@ -99,37 +122,59 @@ class LoginServiceImplTest {
     // Crappy Path Tests (Expected Failures)
     // -------------------------------
 
+    /**
+     * Verifies incorrect passwords cause login failure.
+     */
     @Test
     void validateClientWithWrongPasswordReturnsFalse() {
         assertFalse(loginService.validateClient("UserOne", "WrongPass"));
     }
 
+    /**
+     * Ensures login fails for non-existent users.
+     */
     @Test
     void validateClientWithNonExistentUserReturnsFalse() {
         assertFalse(loginService.validateClient("NoUser", "AnyPass"));
     }
 
+    /**
+     * Ensures blank usernames are rejected.
+     */
     @Test
     void validateClientWithBlankUsernameReturnsFalse() {
         assertFalse(loginService.validateClient("   ", password1));
     }
 
+    /**
+     * Ensures blank passwords are rejected.
+     */
     @Test
     void validateClientWithBlankPasswordReturnsFalse() {
         assertFalse(loginService.validateClient("UserOne", "   "));
     }
 
+    /**
+     * Ensures wrong usernames with correct passwords still fail.
+     */
     @Test
     void validateClientWithWrongUsernameCorrectPasswordReturnsFalse() {
         assertFalse(loginService.validateClient("UserThree", password1));
     }
 
+    /**
+     * Ensures failed login attempts do not block subsequent correct logins.
+     */
     @Test
     void validateClientAfterFailedLoginDoesNotAffectNextLogin() {
         assertFalse(loginService.validateClient("UserOne", "Incorrect"));
         assertTrue(loginService.validateClient("UserOne", password1));
     }
 
+    /**
+     * Ensures registering a duplicate username fails and does not
+     * overwrite the existing valid user for login.
+     */
     @Test
     void validateClientAfterRegisteringUserWithDuplicateNameFailsIfPasswordDiffers() {
         Client duplicateUser = new Client();
