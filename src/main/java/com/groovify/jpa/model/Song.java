@@ -116,7 +116,7 @@ public class Song {
     // ------------------ Setters ------------------
 
     /**
-     * Sets the genre object for this song.
+     * Set the genre object for this song.
      * <p>
      * This associates the song with a specific musical genre (e.g., Rock, Pop, Jazz).
      *
@@ -127,7 +127,7 @@ public class Song {
     }
 
     /**
-     * Sets the unique identifier for this song.
+     * Set the unique identifier for this song.
      * <p>
      * This method is primarily used by JPA during entity persistence operations.
      *
@@ -138,10 +138,22 @@ public class Song {
     }
 
     /**
-     * Sets the title for this song.
-     * @param title
+     * Set the title for this song.
+     * @param title New title of song
      */
     public void setTitle(String title) {this.title = title;}
+
+    /**
+     * Set artist for this song.
+     * @param artist New artist of song
+     */
+    public void setArtist(String artist) {this.artist = artist;}
+
+    /**
+     * Set filename for this song.
+     * @param filename New Filename of song
+     */
+    public void SetFilename(String filename) {this.filename = filename;}
 
     // ------------------ Object Overrides ------------------
 

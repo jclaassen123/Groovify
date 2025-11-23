@@ -40,8 +40,19 @@ public class SongServiceImpl implements SongService {
         return songRepo.findAll();
     }
 
+    /**
+     * Retrieves song by ID
+     * @param songId ID of song
+     * @return Song corresponding to ID or null
+     */
     @Override
     public Song getSongById(Long songId) {
+
+        if (songId == null) {
+            log.error("Null song id provided");
+            return null;
+        }
+
         log.debug("Fetching song by id {}", songId);
         return songRepo.findById(songId).orElse(null);
     }
@@ -102,8 +113,49 @@ public class SongServiceImpl implements SongService {
         }
     }
 
+    /**
+     * Adds song to database
+     * @param song Song to be added to Song table
+     * @return If insertion was successful
+     */
     @Override
     public boolean addSong(Song song) {
+        if (song == null) {
+            log.error("Null song provided");
+            return false;
+        }
+
+        if (song.getArtist() == null) {
+            log.error("Null artist provided");
+            return false;
+        }
+
+        if (song.getTitle() == null) {
+            log.error("Null title provided");
+            return false;
+        }
+
+        if (song.getGenre() == null) {
+            log.error("Null genre provided");
+            return false;
+        }
+
+        if (song.getFilename() == null) {
+            log.error("Null filename provided");
+            return false;
+        }
+
+        if (!song.getFilename().endsWith(".mp3")) {
+            log.error("Song is not a mp3 file");
+            return false;
+        }
+
+        if (searchSongByFilename(song.getFilename())) {
+            log.error("Song already exists in the database");
+            return false;
+        }
+
+        log.debug("Saving song {} into database", song);
         songRepo.save(song);
         return true;
     }

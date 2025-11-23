@@ -18,6 +18,11 @@ public interface SongService {
      */
     List<Song> getAllSongs();
 
+    /**
+     * Retrieves song by ID
+     * @param songId ID of song
+     * @return Song corresponding to ID or null
+     */
     Song getSongById(Long songId);
 
     /**
