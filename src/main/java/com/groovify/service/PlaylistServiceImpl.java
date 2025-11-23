@@ -99,12 +99,6 @@ public class PlaylistServiceImpl implements PlaylistService {
     public boolean savePlaylist(Playlist playlist) {
         log.info("Saving playlist titled {}", playlist.getName());
         try {
-
-            // Ensure client exists in database
-//            if (clientRepo.findByName(clientRepo.getReferenceById(playlist.getClientID()).getName()).get(0) == null) {
-//                log.error("Client with id {} not found", playlist.getId());
-//                return false;
-//            }
             if (playlist.getClientID() == null) {
                 log.error("Playlist titled {} has null client id", playlist.getName());
                 return false;

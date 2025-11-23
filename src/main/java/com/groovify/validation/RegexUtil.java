@@ -62,15 +62,4 @@ public class RegexUtil {
     public static boolean isPasswordValid(String password) {
         return password == null || !PASSWORD_PATTERN.matcher(password).matches();
     }
-
-    /**
-     * Validates the given description against the {@link #DESCRIPTION_PATTERN}.
-     *
-     * @param description the description to validate; may be {@code null}
-     * @return {@code true} if the description contains only allowed characters,
-     *         {@code false} if it contains invalid characters or is {@code null}
-     */
-    public static boolean isDescriptionValid(String description) {
-        return description == null || DESCRIPTION_PATTERN.matcher(description).matches();
-    }
 }

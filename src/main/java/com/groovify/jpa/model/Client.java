@@ -16,29 +16,30 @@ public class Client {
 
     @Id
     @GeneratedValue
+    @Column(name = "ID")
     private Long id;
 
-    @Column(name = "imageFileName")
+    @Column(name = "ImageFileName")
     private String imageFileName = "Fishing.jpg";
 
-    @Column(name = "description")
+    @Column(name = "Description")
     private String description = "";
 
-    @Column(name = "name", nullable = false, unique = true)
+    @Column(name = "Name", nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "Password", nullable = false)
     private String password;
 
     /** Salt used for password hashing (stored separately). */
-    @Column(name = "password_salt")
+    @Column(name = "PasswordSalt")
     private String passwordSalt;
 
     @ManyToMany
     @JoinTable(
-            name = "Client_Genre",
-            joinColumns = @JoinColumn(name = "Client_ID"),
-            inverseJoinColumns = @JoinColumn(name = "Genre_ID")
+            name = "ClientGenre",
+            joinColumns = @JoinColumn(name = "ClientID"),
+            inverseJoinColumns = @JoinColumn(name = "GenreID")
     )
     private List<Genre> genres;
 

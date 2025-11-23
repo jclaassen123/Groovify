@@ -47,7 +47,7 @@ public class Playlist {
      * The ID of the client (user) who owns this playlist.
      * This acts as a foreign key reference to the {@code Client} entity.
      */
-    @Column(name = "Client_ID")
+    @Column(name = "ClientID")
     private Long clientID;
 
     /**
@@ -57,9 +57,9 @@ public class Playlist {
      */
     @ManyToMany
     @JoinTable(
-            name = "Playlist_Song",
-            joinColumns = @JoinColumn(name = "Playlist_ID"),
-            inverseJoinColumns = @JoinColumn(name = "Song_ID")
+            name = "PlaylistSong",
+            joinColumns = @JoinColumn(name = "PlaylistID"),
+            inverseJoinColumns = @JoinColumn(name = "SongID")
     )
     private List<Song> songs;
 

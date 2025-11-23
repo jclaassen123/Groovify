@@ -63,7 +63,5 @@ public interface RegisterService {
      * @param user the Client being registered
      * @return true if save succeeded, false otherwise
      */
-
-
     boolean saveUser(Client user);
 }
