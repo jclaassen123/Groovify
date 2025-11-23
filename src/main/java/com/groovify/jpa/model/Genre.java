@@ -16,9 +16,10 @@ public class Genre {
 
     @Id
     @GeneratedValue
+    @Column(name = "ID")
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "Name", nullable = false, unique = true)
     private String name;
 
     /**

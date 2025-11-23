@@ -32,7 +32,7 @@ public class Song {
      * Optional: a song may belong to a genre.
      */
     @ManyToOne
-    @JoinColumn(name = "Genre_ID")
+    @JoinColumn(name = "GenreID")
     private Genre genre;
 
     /**

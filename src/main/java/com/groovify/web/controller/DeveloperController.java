@@ -73,7 +73,7 @@ public class DeveloperController {
     @GetMapping("/nevin")
     public String nevinPage(HttpSession session, Model model) {
         log.info("Accessing Nevin developer page");
-        return loadDeveloperPage(session, model, "Nevin F", "/images/developer/Nevin.jpg",
+        return loadDeveloperPage(session, model, "Nevin Fullerton", "/images/developer/Nevin.jpg",
                 "Hi im nevin - I like reading sci-fi and coding.");
     }
 
