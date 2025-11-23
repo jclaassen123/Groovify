@@ -12,10 +12,6 @@ _System Requirements:_
 
 [Google Chrome Web Browser Download](https://www.google.com/chrome/dr/download/?brand=CHBD&ds_kid=558716120152&gclsrc=aw.ds&gad_source=1&gad_campaignid=19930262352&gbraid=0AAAAAoY3CA6yQ2Hl0GJIElsxZAS9Yvunn&gclid=CjwKCAiA8bvIBhBJEiwAu5ayrMIPZHfA6UrEkXALJ89CRFQA7Aqa2pMx5uzlFvdlALAoJqNf_RzIChoCAygQAvD_BwE)
 
-_Repository Setup:_
-
-[Groovify GitHub repository](https://github.com/jclaassen123/Groovify)
-
 _Database Configuration:_
 
 [Getting Started with MySQL](https://dev.mysql.com/doc/mysql-getting-started/en/)
