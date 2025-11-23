@@ -186,11 +186,6 @@ public class PlaylistServiceImpl implements PlaylistService {
                 return false;
             }
 
-            if (playlist.getSongs() == null) {
-                log.warn("No songs in playlist {}", playlistId);
-                playlist.setSongs(new ArrayList<>());
-            }
-
             if (playlist.getSongs().contains(song)) {
                 log.error("Song {} is already in playlist {}", songId, playlistId);
                 return false; // Song already in playlist
