@@ -89,7 +89,11 @@ public class SongImportImpl implements SongImportService {
 
         // Step 3: Process each genre folder
         for (File genreFolder : genreFolders) {
-            processGenreFolder(genreFolder);
+            boolean outcome = processGenreFolder(genreFolder);
+            if (!outcome) {
+                log.error("Failed to process genre folder '{}'", genreFolder.getAbsolutePath());
+                return false;
+            }
         }
 
         log.info("Song import completed successfully.");
@@ -129,24 +133,26 @@ public class SongImportImpl implements SongImportService {
      *
      * @param genreFolder the folder representing a specific genre
      */
-    private void processGenreFolder(File genreFolder) {
+    private boolean processGenreFolder(File genreFolder) {
         String genreName = genreFolder.getName();
         Genre genre = genreRepository.findByName(genreName).orElse(null);
 
         if (genre == null) {
             log.warn("Genre '{}' not found in database — skipping folder '{}'", genreName, genreFolder.getName());
-            return;
+            return false;
         }
 
         File[] mp3Files = genreFolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".mp3"));
         if (mp3Files == null || mp3Files.length == 0) {
             log.warn("No MP3 files found in '{}'", genreFolder.getAbsolutePath());
-            return;
+            return false;
         }
 
         for (File file : mp3Files) {
             processSongFile(file, genre);
         }
+
+        return true;
     }
 
     /**
