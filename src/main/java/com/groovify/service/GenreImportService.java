@@ -2,6 +2,12 @@ package com.groovify.service;
 
 import java.util.List;
 
+/**
+ * Service interface for importing and managing music genres.
+ * <p>
+ * Provides operations for bulk genre import, checking for existing genres,
+ * and saving new genre entries while ensuring data integrity.
+ */
 public interface GenreImportService {
 
     /**
