@@ -11,12 +11,12 @@ import java.util.List;
 
 import static org.springframework.test.util.AssertionErrors.*;
 
-@Transactional
-@SpringBootTest
 /**
  * Test suite for {@link GenreImportService} validating import, save,
  * and existence-checking behaviors for music genres.
  */
+@Transactional
+@SpringBootTest
 class GenreImportServiceImplTest {
 
     @Autowired
