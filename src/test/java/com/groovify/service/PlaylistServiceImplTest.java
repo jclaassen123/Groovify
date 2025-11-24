@@ -15,6 +15,10 @@ import java.util.List;
 
 import static org.springframework.test.util.AssertionErrors.*;
 
+/**
+ * Comprehensive Spring Boot tests for {@link PlaylistServiceImpl}.
+ * Uses H2 in-memory database for persistence; transactional so changes rollback.
+ */
 @Transactional
 @SpringBootTest
 public class PlaylistServiceImplTest {

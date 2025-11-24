@@ -11,6 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.util.AssertionErrors.*;
 
+
+/**
+ * Comprehensive Spring Boot tests for {@link SongServiceImpl}.
+ * Uses H2 in-memory database for persistence; transactional so changes rollback.
+ */
 @Transactional
 @SpringBootTest
 class SongServiceImplTest {
