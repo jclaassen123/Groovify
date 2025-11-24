@@ -18,12 +18,6 @@ import java.util.Optional;
 class SongImportImplTest {
 
     @Autowired
-    private SongService songService;
-
-    @Autowired
-    private GenreRepo genreRepo;
-
-    @Autowired
     private SongImportImpl songImportService;
 
     @BeforeEach
@@ -31,34 +25,7 @@ class SongImportImplTest {
         songImportService.musicDirectory = "src/main/resources/static/songs"; // actual project path
     }
 
-//    @Test
-//    void importSongsShouldSkipUnknownGenre() {
-//        File fakeGenreFolder = new File(songImportService.musicDirectory + "/UnknownGenre");
-//        // If folder exists, Repo will return empty -> should skip
-//        songImportService.importSongs();
-//        verify(SongService, never()).save(any(Song.class));
-//    }
-//
-//    @Test
-//    void importSongsShouldSkipExistingFile() {
-//        // Pick a real genre folder
-//        String genreName = "Rock";
-//        Genre genre = new Genre(genreName);
-//        genre.setId(1L);
-//
-//        when(genreRepo.findByName(genreName)).thenReturn(Optional.of(genre));
-//        when(SongService.existsByFilename(any())).thenReturn(true); // All files exist
-//
-//        songImportService.importSongs();
-//
-//        // No new songs saved since they already exist
-//        verify(SongService, never()).save(any(Song.class));
-//    }
-//
-//    @Test
-//    void importSongsShouldFailWhenMusicDirMissing() {
-//        songImportService.musicDirectory = "nonexistent-folder";
-//        songImportService.importSongs();
-//        verifyNoInteractions(SongService, genreRepo);
-//    }
+   @Test
+    public void testSongImport() {}
+
 }

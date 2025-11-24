@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * Comprehensive Spring Boot tests for {@link RegisterServiceImpl}.
  * Uses H2 in-memory database for persistence; transactional so changes rollback.
  */
-
 @Transactional
 @SpringBootTest
 public class RegisterServiceImplTest {
