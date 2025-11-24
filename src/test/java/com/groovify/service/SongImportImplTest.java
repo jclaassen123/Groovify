@@ -10,7 +10,6 @@ import java.util.List;
 
 import static org.springframework.test.util.AssertionErrors.*;
 
-
 /**
  * Unit tests for {@link SongImportImpl}, validating behavior of the song import
  * process under various folder and file configurations.
